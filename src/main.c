@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 20:58:32 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/14 18:10:42 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/17 14:06:49 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,5 @@ int main(int ac, char** av)
 	}
 	else
 		printf("Erreur, mauvais nombre d'arguments\n");
+	return (0);
 }

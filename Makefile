@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/14 15:18:03 by lraffin           #+#    #+#              #
-#    Updated: 2022/01/14 17:59:50 by lraffin          ###   ########.fr        #
+#    Updated: 2022/01/17 15:05:34 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRCS =				\
 		$(DISPLAY)	\
 		$(PARSING)	\
 		$(SPRITES)	\
+		$(LISTS)	\
 		$(FREE)		\
 		$(UTILS)
 
@@ -25,25 +26,23 @@ DISPLAY =					\
 		affichage_map.c
 
 PARSING =				\
-		parsing_map.c
+		parse_map.c
 
 SPRITES =				\
-		creation_sprites_1.c
+		create_sprites.c
 
 FREE =					\
-		free_1.c
+		free.c
 
-UTILS =					\
-		ft_calloc.c			\
+UTILS =				\
+		init.c
+
+LISTS =						\
 		ft_lstadd_back.c	\
 		ft_lstclear.c		\
-		ft_lstdelone.c	\
-		ft_lstlast.c	\
-		ft_lstnew.c	\
-		ft_memset.c	\
-		ft_strlen.c	\
-		get_next_line.c	\
-		utils_1.c
+		ft_lstdelone.c		\
+		ft_lstlast.c		\
+		ft_lstnew.c
 
 OBJS	= $(SRCS:%.c=$(OBJ_DIR)/%.o)
 DEPS	= $(OBJS:%.o=%.d)
@@ -53,18 +52,18 @@ SRC_DIR	= src
 OBJ_DIR	= obj
 
 CC		= clang
-CFLAGS	= -Wall -Wextra -Werror -MMD -MP -g3 #$(DEBUG)
-DEBUG	= -g3 -fsanitize=address
+CFLAGS	= -Wall -Wextra -Werror -MMD -MP -g3 $(DEBUG)
+DEBUG	= -fsanitize=address
 LIBFT	= -L libft -lft
 MLX		= -Lmlx -lmlx -lXext -lX11 -lm
 
-vpath %.c $(addprefix $(SRC_DIR)/, . display parsing sprites free utils)
+vpath %.c $(addprefix $(SRC_DIR)/, . display parsing sprites free utils utils/lists)
 
 all: libs
 		@make -s $(NAME)
 
 $(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(LIBFT) $(MLX)
+	@$(CC) $(CFLAGS) -o $@ $^ $(LIBFT) $(MLX)
 	@echo "$(GREEN)$@$(NOC)"
 
 -include $(DEPS)
@@ -79,10 +78,12 @@ libs:
 
 clean:
 	@echo "$(RED)clean$(NOC)"
+	@make clean -sC libft
 	@rm -rf $(OBJ_DIR)
 
 fclean: clean
 	@echo "$(RED)fclean$(NOC)"
+	@make fclean -sC libft
 	@rm -f $(NAME)
 
 re: fclean all

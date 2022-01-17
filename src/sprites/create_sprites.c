@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   create_sprites.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/14 15:51:27 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/14 17:26:00 by lraffin          ###   ########.fr       */
+/*   Created: 2021/09/04 21:38:21 by vbachele          #+#    #+#             */
+/*   Updated: 2022/01/17 14:42:09 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	*ft_memset(void *ptr, int value, size_t num)
+void	create_sprites(t_data *data)
 {
-	unsigned long int	i;
-	unsigned char		*p;
+	int	img_width;
+	int	img_height;
 
-	i = 0;
-	p = ptr;
-	while (i < num)
-	{
-		p[i] = value;
-		i++;
-	}
-	return ((void *)p);
+	// data->sprites->floor = mlx_xpm_file_to_image(data->mlx_ptr,
+	// 		"./Image_xpm/Floor.xpm", &img_width, &img_height);
+	data->sprites->wall = mlx_xpm_file_to_image(data->mlx_ptr,
+			"./Image_xpm/Wall.xpm", &img_width, &img_height);
 }

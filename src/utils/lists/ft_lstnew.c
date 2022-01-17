@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   creation_sprites_1.c                               :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/04 21:38:21 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/14 17:25:34 by lraffin          ###   ########.fr       */
+/*   Created: 2021/05/18 16:21:03 by vbachele          #+#    #+#             */
+/*   Updated: 2022/01/17 15:18:49 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	creation_sprites(t_root *root)
+t_map	*ft_lstnew(char *content)
 {
-	int	img_width;
-	int	img_height;
+	t_map	*Next;
 
-	// root->sprites->floor = mlx_xpm_file_to_image(root->mlx_ptr,
-	// 		"./Image_xpm/Floor.xpm", &img_width, &img_height);
-	root->sprites->wall = mlx_xpm_file_to_image(root->mlx_ptr,
-			"./Image_xpm/Wall.xpm", &img_width, &img_height);
+	Next = malloc(sizeof(t_map));
+	if (!Next)
+		return (NULL);
+	Next->line = content;
+	Next->next = NULL;
+	return (Next);
 }

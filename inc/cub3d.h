@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:12:00 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/14 17:33:22 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/17 15:39:42 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,14 @@
 # include <stdlib.h>
 # include <string.h>
 
+# include "libft.h"
 # include "../mlx/mlx.h"
 
 # define MLX_ERROR 1
-# define A 0
 # define W 13
-# define D 2
+# define A 0
 # define S 1
+# define D 2
 # define ESC 53
 # define K 40
 # define T 17
@@ -41,11 +42,15 @@
 # define XK_DOWN 125
 # define XK_UP 126
 
-typedef struct s_list
+typedef struct s_map
 {
+	char			**map;
 	char			*line;
-	struct s_list	*next;
-}	t_list;
+	int				width;
+	int				height;
+	struct s_map	*next;
+
+}	t_map;
 
 typedef struct s_sprites
 {
@@ -54,12 +59,10 @@ typedef struct s_sprites
 
 } t_sprites;
 
-typedef struct s_root
+typedef struct s_data
 {
 	void		*mlx_ptr;
 	void		*win_ptr;
-	int			width;
-	int			height;
 	int			player_x;
 	int			player_y;
 	int			Ennemy_1_x;
@@ -68,34 +71,33 @@ typedef struct s_root
 	int			j;
 	int			x;
 	int			y;
-	char		**map;
-	t_list		*lst;
+	t_map		*map_lst;
 	t_sprites	*sprites;
-} t_root;
+} t_data;
 
-int		main(int argc, char ** argv);
-int		affichage_game(t_root *root);
-int		initialisation_malloc_structure(t_root *root);
-void	initialisation_structure(t_root *root);
-int		free_All_Fonctions(t_root *root);
-void	ft_lstadd_back(t_list **alst, t_list *new);
-void	ft_lstclear(t_list **lst, void (*del)(t_list **));
-void	ft_lstdelone(t_list *lst, void (*del)(t_list **));
-t_list	*ft_lstlast(t_list *lst);
-t_list	*ft_lstnew(char *content);
-t_list	*ft_lstnew(char *content);
-void	*ft_memset(void *ptr, int value, size_t num);
-size_t	ft_strlen(const char *str);
-int		calcul_tableau_map(t_root *root, char **argv);
-void	calcul_tableau_2_dimensions(t_root *root, t_list *tmp);
-int		get_next_line(int fd, char **line);
-void	*ft_calloc(size_t count, size_t size);
-void	del_content(t_list **lst);
-void	free_double_tableau(t_root *root);
-void	affichage_sprites_screen2(t_root *root);
-void	affichage_sprites_screen(t_root *root);
-void	creation_sprites(t_root *root);
-int		affichage_and_creation_sprites(t_root *root);
-int		free_all_functions(t_root *root);
+/*** init ***/
+
+t_data	*init_data(void);
+
+int		affichage_game(t_data *data);
+int		get_map(t_data *data, char **argv);
+void	calcul_tableau_2_dimensions(t_data *data, t_map *tmp);
+
+void	del_content(t_map **map_lst);
+void	free_double_tableau(t_data *data);
+void	affichage_sprites_screen2(t_data *data);
+void	affichage_sprites_screen(t_data *data);
+void	create_sprites(t_data *data);
+int		affichage_and_creation_sprites(t_data *data);
+int		free_all_functions(t_data *data);
+
+/*** utils ***/
+
+void	ft_lstadd_back(t_map **alst, t_map *new);
+void	ft_lstclear(t_map **map_lst, void (*del)(t_map **));
+void	ft_lstdelone(t_map *map_lst, void (*del)(t_map **));
+t_map	*ft_lstlast(t_map *map_lst);
+t_map	*ft_lstnew(char *content);
+t_map	*ft_lstnew(char *content);
 
 #endif

@@ -1,46 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_1.c                                           :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 12:49:32 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/14 17:25:29 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/17 15:40:04 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	free_all_functions(t_root *root)
+int	free_all_functions(t_data *data)
 {
-	if (root->sprites)
-		free(root->sprites);
-	if (root->lst)
-		ft_lstclear(&root->lst, del_content);
-	free_double_tableau(root);
-	mlx_destroy_window(root->mlx_ptr, root->win_ptr);
-	if (root)
-		free(root);
-	free(root->mlx_ptr);
+	if (data->sprites)
+		free(data->sprites);
+	if (data->map_lst)
+		ft_lstclear(&data->map_lst, del_content);
+	free_double_tableau(data);
+	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+	if (data)
+		free(data);
+	free(data->mlx_ptr);
 	exit(1);
 }
 
-void	del_content(t_list **lst)
+void	del_content(t_map **map_lst)
 {
-	free((*lst)->line);
-	(*lst)->line = NULL;
+	free((*map_lst)->line);
+	(*map_lst)->line = NULL;
 }
 
-void	free_double_tableau(t_root *root)
+void	free_double_tableau(t_data *data)
 {
 	int	i;
 
-	i = 0;
-	while (root->map[i])
-	{
-		free(root->map[i]);
-		i++;
-	}
-	free(root->map);
+	i = -1;
+	while (data->map_lst->map[++i])
+		free(data->map_lst->map[i]);
+	free(data->map_lst->map);
 }

@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 20:58:32 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/17 15:43:08 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/17 15:45:16 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main(int ac, char **av)
 
 	if (ac == 2)
 	{
-		data = init_dmap_lst->ata();
+		data = init_data();
 		if (!data)
 			return (EXIT_FAILURE);
 		//if (check_if_ber(av))

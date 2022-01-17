@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 22:05:22 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/17 15:37:17 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/17 15:53:29 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	get_map(t_data *data, char **argv)
 {
-	char	*line;
+	// char	*line;
 	int		fd;
 	int		flag;
 	t_map	*new;
@@ -26,14 +26,13 @@ int	get_map(t_data *data, char **argv)
 	flag = 1;
 	while (flag > 0)
 	{
-		flag = get_next_line(fd, &line);
-		printf("-%s-\n", line);
-		new = ft_lstnew(line);
+		flag = get_next_line(fd, &data->map_lst->line);
+		printf("-%s-\n", data->map_lst->line);
+		new = ft_lstnew(data->map_lst->line);
 		if (!new)
 			return (EXIT_FAILURE);
 		ft_lstadd_back(&data->map_lst, new);
 		data->map_lst->height++;
-		free(line);
 	}
 	tmp = data->map_lst;
 	data->map_lst->width = ft_strlen(tmp->line);
@@ -45,7 +44,7 @@ void	calcul_tableau_2_dimensions(t_data *data, t_map *tmp)
 {
 	int	i;
 
-	data->map_lst->map = ft_calloc(data->map_lst->height + 1, sizeof(char *));
+	data->map_lst->map = ft_calloc(data->map_lst->height + 2, sizeof(char *));
 	data->x = 0;
 	while (tmp != NULL)
 	{

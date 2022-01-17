@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/14 15:18:03 by lraffin           #+#    #+#              #
-#    Updated: 2022/01/17 15:05:34 by lraffin          ###   ########.fr        #
+#    Updated: 2022/01/17 16:41:07 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,8 @@ SRCS =				\
 		main.c		\
 		$(DISPLAY)	\
 		$(PARSING)	\
-		$(SPRITES)	\
-		$(LISTS)	\
-		$(FREE)		\
-		$(UTILS)
+		$(EXIT)		\
+		$(INIT)
 
 DISPLAY =					\
 		affichage_game.c	\
@@ -28,21 +26,13 @@ DISPLAY =					\
 PARSING =				\
 		parse_map.c
 
-SPRITES =				\
-		create_sprites.c
 
-FREE =					\
+EXIT =					\
 		free.c
 
-UTILS =				\
-		init.c
-
-LISTS =						\
-		ft_lstadd_back.c	\
-		ft_lstclear.c		\
-		ft_lstdelone.c		\
-		ft_lstlast.c		\
-		ft_lstnew.c
+INIT =					\
+		init_sprites.c	\
+		init_data.c
 
 OBJS	= $(SRCS:%.c=$(OBJ_DIR)/%.o)
 DEPS	= $(OBJS:%.o=%.d)
@@ -52,12 +42,12 @@ SRC_DIR	= src
 OBJ_DIR	= obj
 
 CC		= clang
-CFLAGS	= -Wall -Wextra -Werror -MMD -MP -g3 $(DEBUG)
+CFLAGS	= -Wall -Wextra -Werror -MMD -MP -g3 #$(DEBUG)
 DEBUG	= -fsanitize=address
 LIBFT	= -L libft -lft
 MLX		= -Lmlx -lmlx -lXext -lX11 -lm
 
-vpath %.c $(addprefix $(SRC_DIR)/, . display parsing sprites free utils utils/lists)
+vpath %.c $(addprefix $(SRC_DIR)/, . display parsing sprites exit init)
 
 all: libs
 		@make -s $(NAME)

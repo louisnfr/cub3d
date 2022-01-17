@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 20:58:32 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/17 16:23:57 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/17 17:54:04 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,14 @@ int main(int ac, char **av)
 		data = init_data();
 		if (!data)
 			return (EXIT_FAILURE);
-		get_map(data, av);
+		get_map(data, av[1]);
 		//if (check_errors(data, &data->map_info) == 1)
 			//return (0);;
 		data->mlx_ptr = mlx_init();
 		if (!data->mlx_ptr)
 			return (MLX_ERROR);
 		// affichage_game(data);
+		free_data(data);
 		return (EXIT_SUCCESS);
 	}
 	else

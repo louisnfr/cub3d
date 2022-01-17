@@ -6,34 +6,82 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 22:05:22 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/17 16:28:48 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/17 17:49:04 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	get_map(t_data *data, char **argv)
+static char	**allocate_map(t_map *map_info)
+{
+	char	**map;
+	int		i;
+
+	map = ft_calloc(map_info->height + 1, sizeof(char *));
+	if (!map)
+		return (NULL);
+	i = -1;
+	while (++i < map_info->height)
+	{
+		map[i] = ft_calloc(map_info->width + 1, sizeof(char));
+		if (!map[i])
+			return (NULL);
+	}
+	map[i] = 0;
+	return (map);
+}
+
+static int	fill_map(t_data *data, char *av)
+{
+	char	*line;
+	int		ret;
+	int		fd;
+	int		i;
+	int		j;
+
+	fd = open(av, O_RDONLY);
+	data->map_info->map = allocate_map(data->map_info);
+	if (!data->map_info->map || fd < 0)
+		return (FAILURE);
+	ret = 1;
+	j = 0;
+	while (ret > 0)
+	{
+		i = -1;
+		ret = get_next_line(fd, &line);
+		if (ret < 0)
+			return (FAILURE);
+		while (++i < ft_strlen(line))
+			data->map_info->map[j][i] = line[i];
+		j++;
+		free(line);
+	}
+	close(fd);
+	return (SUCCESS);
+}
+
+int	get_map(t_data *data, char *av)
 {
 	char	*line;
 	int		fd;
 	int		ret;
 
-	fd = open(argv[1], O_RDONLY);
+	fd = open(av, O_RDONLY);
 	if (fd < 0)
 		return (EXIT_FAILURE);
 	ret = 1;
 	while (ret > 0)
 	{
 		ret = get_next_line(fd, &line);
-		printf("-%s-\n", line);
+		if (ret < 0)
+			return (EXIT_FAILURE);
 		if (ft_strlen(line) > data->map_info->width)
 			data->map_info->width = ft_strlen(line);
 		data->map_info->height++;
 		free(line);
 	}
 	close(fd);
-	// init_map_tab(data);
-	return (EXIT_SUCCESS);
+	return (fill_map(data, av));
 }
 
 // void	calcul_tableau_2_dimensions(t_data *data, t_map *tmp)

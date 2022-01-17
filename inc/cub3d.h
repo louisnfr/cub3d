@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:12:00 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/17 16:30:26 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/17 17:12:20 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,6 @@ typedef struct s_data
 	void		*win_ptr;
 	int			player_x;
 	int			player_y;
-	int			Ennemy_1_x;
-	int			Ennemy_1_y;
 	int			i;
 	int			j;
 	int			x;
@@ -75,13 +73,25 @@ typedef struct s_data
 	t_sprites	*sprites;
 } t_data;
 
+typedef enum s_boolean
+{
+	FAILURE = 0,
+	SUCCESS = 1,
+}	t_boolean;
+
 /*** init ***/
 
 t_data	*init_data(void);
 
+/*** display ***/
+
 int		affichage_game(t_data *data);
-int		get_map(t_data *data, char **argv);
+int		get_map(t_data *data, char *av);
 void	calcul_tableau_2_dimensions(t_data *data, t_map *tmp);
+
+/*** exit ***/
+
+int	free_data(t_data *data);
 
 void	del_content(t_map **map_info);
 void	free_double_tableau(t_data *data);
@@ -90,14 +100,5 @@ void	affichage_sprites_screen(t_data *data);
 void	create_sprites(t_data *data);
 int		affichage_and_creation_sprites(t_data *data);
 int		free_all_functions(t_data *data);
-
-/*** utils ***/
-
-void	ft_lstadd_back(t_map **alst, t_map *new);
-void	ft_lstclear(t_map **map_info, void (*del)(t_map **));
-void	ft_lstdelone(t_map *map_info, void (*del)(t_map **));
-t_map	*ft_lstlast(t_map *map_info);
-t_map	*ft_lstnew(char *content);
-t_map	*ft_lstnew(char *content);
 
 #endif

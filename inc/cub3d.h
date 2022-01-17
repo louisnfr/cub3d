@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:12:00 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/17 18:04:10 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/17 18:26:01 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,13 @@ t_data	*init_data(void);
 
 /*** display ***/
 
-int		start_game(t_data *data);
+int		draw_map(t_data *data);
 int		get_map(t_data *data, char *av);
-void	calcul_tableau_2_dimensions(t_data *data, t_map *tmp);
+
+void	display_sprites2(t_data *data);
+void	display_sprites(t_data *data);
+void	create_sprites(t_data *data);
+int		create_and_display_sprites(t_data *data);
 
 /*** exit ***/
 
@@ -95,10 +99,6 @@ int	free_data(t_data *data);
 
 void	del_content(t_map **map_info);
 void	free_double_tableau(t_data *data);
-void	affichage_sprites_screen2(t_data *data);
-void	affichage_sprites_screen(t_data *data);
-void	create_sprites(t_data *data);
-int		affichage_and_creation_sprites(t_data *data);
 int		free_all_functions(t_data *data);
 
 #endif

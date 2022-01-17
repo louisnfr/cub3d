@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/14 15:18:03 by lraffin           #+#    #+#              #
-#    Updated: 2022/01/17 18:04:10 by lraffin          ###   ########.fr        #
+#    Updated: 2022/01/17 18:43:28 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,8 @@ SRCS =				\
 		$(INIT)
 
 DISPLAY =					\
-		start_game.c	\
-		affichage_map.c
+		start.c	\
+		sprites.c
 
 PARSING =				\
 		parse_map.c
@@ -42,7 +42,7 @@ SRC_DIR	= src
 OBJ_DIR	= obj
 
 CC		= clang
-CFLAGS	= -Wall -Wextra -Werror -MMD -MP -g3 #$(DEBUG)
+CFLAGS	= -Wall -Wextra -Werror -MMD -MP -g3 $(DEBUG)
 DEBUG	= -fsanitize=address
 LIBFT	= -L libft -lft
 MLX		= -Lmlx -lmlx -lXext -lX11 -lm

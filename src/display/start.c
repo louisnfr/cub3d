@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   start_game.c                                   :+:      :+:    :+:   */
+/*   draw_map.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "cub3d.h"
 
-int		start_game(t_data *data)
+int		draw_map(t_data *data)
 {
 	data->win_ptr = mlx_new_window(data->mlx_ptr, 1920, 1080, "Cub3d\n");
 	if (data->win_ptr == NULL)
@@ -20,8 +20,8 @@ int		start_game(t_data *data)
 		free(data->mlx_ptr);
 		return (MLX_ERROR);
 	}
-	mlx_hook(data->win_ptr, 12, 1L << 15, affichage_and_creation_sprites, data);
-	// mlx_hook(data->win_ptr, 2, 1l << 0, handle_keypress, data);
+	mlx_hook(data->win_ptr, 12, 1L << 15, create_and_display_sprites, data);
+	// mlx_hook(data->win_ptr, 2, 1L << 0, handle_keypress, data);
 	mlx_hook(data->win_ptr, 17, 0, free_all_functions, data);
 	mlx_loop(data->mlx_ptr);
 	// free(data->mlx_ptr);

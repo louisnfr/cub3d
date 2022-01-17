@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   affichage_game.c                                   :+:      :+:    :+:   */
+/*   start_game.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "cub3d.h"
 
-int		affichage_game(t_data *data)
+int		start_game(t_data *data)
 {
 	data->win_ptr = mlx_new_window(data->mlx_ptr, 1920, 1080, "Cub3d\n");
 	if (data->win_ptr == NULL)

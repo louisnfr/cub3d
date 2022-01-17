@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:12:00 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/17 17:12:20 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/17 18:04:10 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ t_data	*init_data(void);
 
 /*** display ***/
 
-int		affichage_game(t_data *data);
+int		start_game(t_data *data);
 int		get_map(t_data *data, char *av);
 void	calcul_tableau_2_dimensions(t_data *data, t_map *tmp);
 

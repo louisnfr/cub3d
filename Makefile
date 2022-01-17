@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/14 15:18:03 by lraffin           #+#    #+#              #
-#    Updated: 2022/01/17 16:41:07 by lraffin          ###   ########.fr        #
+#    Updated: 2022/01/17 18:04:10 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRCS =				\
 		$(INIT)
 
 DISPLAY =					\
-		affichage_game.c	\
+		start_game.c	\
 		affichage_map.c
 
 PARSING =				\

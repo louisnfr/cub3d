@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 20:58:32 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/17 15:58:16 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/17 16:04:38 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int main(int ac, char **av)
 
 	if (ac == 2)
 	{
-		printf("check\n");
 		data = init_data();
 		if (!data)
 			return (EXIT_FAILURE);

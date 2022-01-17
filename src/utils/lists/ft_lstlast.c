@@ -6,17 +6,17 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 18:04:42 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/17 15:20:20 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/17 16:30:43 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_map	*ft_lstlast(t_map *map_lst)
-{
-	if (!map_lst)
-		return (NULL);
-	while (map_lst->next)
-		map_lst = map_lst->next;
-	return (map_lst);
-}
+// t_map	*ft_lstlast(t_map *map_info)
+// {
+// 	if (!map_info)
+// 		return (NULL);
+// 	while (map_info->next)
+// 		map_info = map_info->next;
+// 	return (map_info);
+// }

@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 20:58:32 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/17 16:04:38 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/17 16:23:57 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,27 @@ int main(int ac, char **av)
 
 	if (ac == 2)
 	{
+		//if (check_if_ber(av))
+			//return (0);
 		data = init_data();
 		if (!data)
 			return (EXIT_FAILURE);
-		//if (check_if_ber(av))
-			//return (0);
+		get_map(data, av);
+		//if (check_errors(data, &data->map_info) == 1)
+			//return (0);;
 		data->mlx_ptr = mlx_init();
 		if (!data->mlx_ptr)
 			return (MLX_ERROR);
-		get_map(data, av);
-		//if (check_errors(data, &data->map_lst) == 1)
-			//return (0);;
-		affichage_game(data);
+		// affichage_game(data);
 		return (EXIT_SUCCESS);
 	}
 	else
 		printf("error: bad arguments\n");
 	return (EXIT_FAILURE);
 }
+
+
+// check input / map
+// init data
+// parse map
+//

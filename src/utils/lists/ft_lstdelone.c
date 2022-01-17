@@ -6,14 +6,14 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 10:39:27 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/17 15:20:20 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/17 16:30:40 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	ft_lstdelone(t_map *map_lst, void (*del)(t_map **))
-{
-	del(&map_lst);
-	free(map_lst);
-}
+// void	ft_lstdelone(t_map *map_info, void (*del)(t_map **))
+// {
+// 	del(&map_info);
+// 	free(map_info);
+// }

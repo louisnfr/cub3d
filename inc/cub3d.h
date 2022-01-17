@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:12:00 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/17 15:39:42 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/17 16:30:26 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@
 typedef struct s_map
 {
 	char			**map;
-	char			*line;
+	// char			*line;
 	int				width;
 	int				height;
-	struct s_map	*next;
+	// struct s_map	*next;
 
 }	t_map;
 
@@ -71,7 +71,7 @@ typedef struct s_data
 	int			j;
 	int			x;
 	int			y;
-	t_map		*map_lst;
+	t_map		*map_info;
 	t_sprites	*sprites;
 } t_data;
 
@@ -83,7 +83,7 @@ int		affichage_game(t_data *data);
 int		get_map(t_data *data, char **argv);
 void	calcul_tableau_2_dimensions(t_data *data, t_map *tmp);
 
-void	del_content(t_map **map_lst);
+void	del_content(t_map **map_info);
 void	free_double_tableau(t_data *data);
 void	affichage_sprites_screen2(t_data *data);
 void	affichage_sprites_screen(t_data *data);
@@ -94,9 +94,9 @@ int		free_all_functions(t_data *data);
 /*** utils ***/
 
 void	ft_lstadd_back(t_map **alst, t_map *new);
-void	ft_lstclear(t_map **map_lst, void (*del)(t_map **));
-void	ft_lstdelone(t_map *map_lst, void (*del)(t_map **));
-t_map	*ft_lstlast(t_map *map_lst);
+void	ft_lstclear(t_map **map_info, void (*del)(t_map **));
+void	ft_lstdelone(t_map *map_info, void (*del)(t_map **));
+t_map	*ft_lstlast(t_map *map_info);
 t_map	*ft_lstnew(char *content);
 t_map	*ft_lstnew(char *content);
 

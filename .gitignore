@@ -29,6 +29,7 @@
 *.dylib
 
 # Executables
+cub3D
 *.exe
 *.out
 *.app
@@ -37,6 +38,7 @@
 *.hex
 
 # Debug files
+.vscode
 *.dSYM/
 *.su
 *.idb

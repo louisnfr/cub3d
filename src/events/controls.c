@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:23:25 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/18 17:42:52 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/18 18:08:03 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,11 @@ static int	mouse_move(int x, int y, void *param)
 	t_point ptB;
 	ptA.x = 0;
 	ptA.y = 0;
-	ptB.x = 500;
-	ptB.y = 500;
+	ptB.x = data->mouse->x;
+	ptB.y = data->mouse->y;
 
-	draw_line(ptA, ptB, data);
 	printf("x: %d, y: %d\n", data->mouse->x, data->mouse->y);
+	draw_line(ptA, ptB, data);
 	// if (data->mouse->x < WIDTH && data->mouse->y < HEIGHT)
 	// {
 	// 	draw_line(ptA, ptB, data);

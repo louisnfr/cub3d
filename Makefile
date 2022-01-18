@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/14 15:18:03 by lraffin           #+#    #+#              #
-#    Updated: 2022/01/17 18:43:28 by lraffin          ###   ########.fr        #
+#    Updated: 2022/01/18 15:55:27 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,15 @@ SRCS =				\
 		main.c		\
 		$(DISPLAY)	\
 		$(PARSING)	\
+		$(EVENTS)	\
 		$(EXIT)		\
 		$(INIT)
 
+EVENTS =		\
+		controls.c
+
 DISPLAY =					\
+		draw_line.c	\
 		start.c	\
 		sprites.c
 
@@ -31,6 +36,7 @@ EXIT =					\
 		free.c
 
 INIT =					\
+		init_controls.c	\
 		init_sprites.c	\
 		init_data.c
 
@@ -47,7 +53,7 @@ DEBUG	= -fsanitize=address
 LIBFT	= -L libft -lft
 MLX		= -Lmlx -lmlx -lXext -lX11 -lm
 
-vpath %.c $(addprefix $(SRC_DIR)/, . display parsing sprites exit init)
+vpath %.c $(addprefix $(SRC_DIR)/, . display parsing sprites exit events init)
 
 all: libs
 		@make -s $(NAME)

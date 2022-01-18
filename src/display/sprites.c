@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#define	RED_PIXEL 0xFF0000
 
 int	create_and_display_sprites(t_data *data)
 {
@@ -49,7 +48,7 @@ void	display_sprites2(t_data *data)
 	{
 		while(i < 10)
 		{
-			mlx_pixel_put(data->mlx_ptr, data->win_ptr, 64 * data->y, 64 * data->x, RED_PIXEL);
+			mlx_pixel_put(data->mlx_ptr, data->win_ptr, 64 * data->y, 64 * data->x, RED);
 			i++;
 		}
 	}

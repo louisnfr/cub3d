@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 22:05:22 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/17 18:44:44 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/18 14:39:50 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ static int	fill_map(t_data *data, char *av)
 	int		fd;
 	int		i;
 	int		j;
+
 	fd = open(av, O_RDONLY);
 	data->map_info->map = allocate_map(data->map_info);
 	if (!data->map_info->map || fd < 0)
@@ -72,6 +73,7 @@ int	get_map(t_data *data, char *av)
 	while (ret)
 	{
 		ret = get_next_line(fd, &line);
+		printf("-%s- %d\n", line, ret);
 		if (ret < 0)
 			return (FAILURE);
 		if (ft_strlen(line) > data->map_info->width)

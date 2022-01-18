@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:12:00 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/17 18:26:01 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/18 15:53:12 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include <stdlib.h>
 # include <string.h>
 
+# include "colors.h"
 # include "libft.h"
 # include "../mlx/mlx.h"
 
@@ -41,6 +42,9 @@
 # define XK_LEFT 123
 # define XK_DOWN 125
 # define XK_UP 126
+
+# define HEIGHT 1080
+# define WIDTH 1920
 
 typedef struct s_map
 {
@@ -59,6 +63,17 @@ typedef struct s_sprites
 
 } t_sprites;
 
+typedef struct s_mouse
+{
+	char	mb_is_pressed;
+	char	lb_is_pressed;
+	char	rb_is_pressed;
+	int		x;
+	int		y;
+	int		previous_x;
+	int		previous_y;
+}	t_mouse;
+
 typedef struct s_data
 {
 	void		*mlx_ptr;
@@ -69,24 +84,41 @@ typedef struct s_data
 	int			j;
 	int			x;
 	int			y;
+	t_mouse		*mouse;
 	t_map		*map_info;
 	t_sprites	*sprites;
-} t_data;
+}	t_data;
+
+typedef struct s_point
+{
+	int	x;
+	int	y;
+}	t_point;
 
 typedef enum s_boolean
 {
 	FAILURE = 0,
 	SUCCESS = 1,
+	FALSE = 0,
+	TRUE = 1,
 }	t_boolean;
 
 /*** init ***/
 
 t_data	*init_data(void);
+void	init_mouse(t_mouse *mouse);
+
+/*** events ***/
+
+void	init_controls(t_data *data);
 
 /*** display ***/
 
+void	draw_line(t_point a, t_point b, t_data *data);
+
 int		draw_map(t_data *data);
 int		get_map(t_data *data, char *av);
+
 
 void	display_sprites2(t_data *data);
 void	display_sprites(t_data *data);

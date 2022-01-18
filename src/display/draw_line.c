@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:32:47 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/18 15:55:46 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/18 17:38:35 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ void	draw_line(t_point a, t_point b, t_data *data)
 			mlx_pixel_put(data->mlx_ptr, data->win_ptr, a.x, a.y, GREEN);
 		a.x += x_step;
 		a.y += y_step;
+		printf("check11\n");
 	}
 }

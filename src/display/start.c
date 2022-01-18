@@ -21,9 +21,10 @@ int		draw_map(t_data *data)
 		return (MLX_ERROR);
 	}
 	init_controls(data);
-	mlx_hook(data->win_ptr, 12, 1L << 15, create_and_display_sprites, data);
+	// create_and_display_sprites(data);
+	// mlx_hook(data->win_ptr, 12, 1L << 15, create_and_display_sprites, data);
 	// mlx_hook(data->win_ptr, 2, 1L << 0, handle_keypress, data);
-	mlx_hook(data->win_ptr, 17, 0, free_all_functions, data);
+	// mlx_hook(data->win_ptr, 17, 0, free_all_functions, data);
 	mlx_loop(data->mlx_ptr);
 	// free(data->mlx_ptr);
 	return (0);

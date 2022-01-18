@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:23:25 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/18 17:42:41 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/18 17:42:52 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int	mouse_move(int x, int y, void *param)
 	ptA.x = 0;
 	ptA.y = 0;
 	ptB.x = 500;
-	ptB.y = 400;
+	ptB.y = 500;
 
 	draw_line(ptA, ptB, data);
 	printf("x: %d, y: %d\n", data->mouse->x, data->mouse->y);

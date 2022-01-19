@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:12:00 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/18 15:53:12 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/19 16:57:38 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@
 # define XK_DOWN 125
 # define XK_UP 126
 
-# define HEIGHT 1080
-# define WIDTH 1920
+# define HEIGHT 1024
+# define WIDTH 1280
 
 typedef struct s_map
 {
@@ -78,6 +78,8 @@ typedef struct s_data
 {
 	void		*mlx_ptr;
 	void		*win_ptr;
+	void		*img_ptr;
+	int			*addr;
 	int			player_x;
 	int			player_y;
 	int			i;

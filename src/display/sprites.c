@@ -37,19 +37,18 @@ void	display_sprites(t_data *data)
 void	display_sprites2(t_data *data)
 {
 	int i;
+
 	i = 0;
 	if (data->map_info->map[data->x][data->y] == '1')
 		mlx_put_image_to_window(data->mlx_ptr,
-		data->win_ptr,data->sprites->wall, 64 * data->y, 64 * data->x);
+		data->win_ptr, data->sprites->wall, 64 * data->y, 64 * data->x);
 	// else if (data->map[data->x][data->y] == '0')
 	// 	// mlx_put_image_to_window(data->mlx_ptr,
 	// 	// data->win_ptr,data->sprites->floor, 64 *data->y, 64 *data->x);
 	else if (data->map_info->map[data->x][data->y] == 'P')
 	{
-		while(i < 10)
-		{
-			mlx_pixel_put(data->mlx_ptr, data->win_ptr, 64 * data->y, 64 * data->x, RED);
-			i++;
-		}
+		data->player_x = data->y * 64;
+		data->player_y = data->x * 64;
+		mlx_pixel_put(data->mlx_ptr, data->win_ptr, 64 * data->y, 64 * data->x, RED);
 	}
 }

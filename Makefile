@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/14 15:18:03 by lraffin           #+#    #+#              #
-#    Updated: 2022/01/18 15:55:27 by lraffin          ###   ########.fr        #
+#    Updated: 2022/01/19 16:30:54 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ EVENTS =		\
 
 DISPLAY =					\
 		draw_line.c	\
-		start.c	\
+		raycasting.c	\
 		sprites.c
 
 PARSING =				\

@@ -24,21 +24,21 @@ int		draw_map(t_data *data)
 	data->img_ptr = mlx_new_image(data->mlx_ptr, WIDTH, HEIGHT);
 	data->addr = (int *)mlx_get_data_addr(data->img_ptr, &bpp, &sol, &endian);
 
-	double posX = 22, posY = 12;
+	double posX = data->player_x, posY = data->player_y;
 	double dirX = -1, dirY = 0;
-	double planeX = 0, planeY = 0.66;
+	double planeX = 0, planeY = 1;
 	double time = 0;
 	double old_time = 0;
 
-	while (!done())
+	int x = 0;
+
+	while (x < WIDTH)
 	{
-		for(int x = 0; x < WIDTH; x++)
-		{
 			//calculate ray position and direction
-			double cameraX = 2 * x / (double)WIDTH - 1; //x-coordinate in camera space
+			double cameraX = (2 * x / WIDTH) - 1; //x-coordinate in camera space
+			double rayPosX = posX, rayPosY = posY;
 			double rayDirX = dirX + planeX * cameraX;
 			double rayDirY = dirY + planeY * cameraX;
-		}
 	}
 	// init_controls(data);
 

@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:12:00 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/19 16:57:38 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/21 17:32:18 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,10 @@ typedef enum s_boolean
 
 t_data	*init_data(void);
 void	init_mouse(t_mouse *mouse);
+
+/*** parsing ***/
+
+void	check_input(int ac, char **av);
 
 /*** events ***/
 

@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   check_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/02 20:58:32 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/21 15:31:16 by lraffin          ###   ########.fr       */
+/*   Created: 2022/01/21 15:31:38 by lraffin           #+#    #+#             */
+/*   Updated: 2022/01/21 17:39:45 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int main(int ac, char **av)
+static void	arg_error(void)
 {
-	t_data	*data;
-
-	check_input(ac, av);
-	data = init_data();
-	if (!data)
-		return (EXIT_FAILURE);
-	if (!get_map(data, av[1]))
-		return (EXIT_FAILURE);
-
-	draw_map(data);
-	free_data(data);
-	return (EXIT_SUCCESS);
+	printf("error: bad arguments\n");
+	exit (EXIT_FAILURE);
 }
 
-// check input / map
-// init data
-// parse map
+static void	check_extension(char *s)
+{
+	if (open(s, O_RDONLY) < 0)
+		arg_error();
+	if (!ft_strnstr(s, ".ber", ft_strlen(s)))
+		arg_error();
+}
+
+void	check_input(int ac, char **av)
+{
+	if (ac != 2)
+		arg_error();
+	check_extension(av[1]);
+}

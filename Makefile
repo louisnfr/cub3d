@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/14 15:18:03 by lraffin           #+#    #+#              #
-#    Updated: 2022/01/19 16:30:54 by lraffin          ###   ########.fr        #
+#    Updated: 2022/01/21 17:38:36 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,8 +28,9 @@ DISPLAY =					\
 		raycasting.c	\
 		sprites.c
 
-PARSING =				\
-		parse_map.c
+PARSING =			\
+		parse_map.c	\
+		check_input.c	\
 
 
 EXIT =					\
@@ -47,11 +48,15 @@ INC_DIR	= inc
 SRC_DIR	= src
 OBJ_DIR	= obj
 
+DEBUG	= off
 CC		= clang
-CFLAGS	= -Wall -Wextra -Werror -MMD -MP -g3 $(DEBUG)
-DEBUG	= -fsanitize=address
+CFLAGS	= -Wall -Wextra -Werror -MMD -MP
 LIBFT	= -L libft -lft
 MLX		= -Lmlx -lmlx -lXext -lX11 -lm
+
+ifeq ($(DEBUG), on)
+	CFLAGS	+= -g3 -fsanitize=address
+endif
 
 vpath %.c $(addprefix $(SRC_DIR)/, . display parsing sprites exit events init)
 

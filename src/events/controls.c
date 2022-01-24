@@ -6,11 +6,24 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:23:25 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/24 14:33:42 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/24 18:07:38 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+static int	key_press(int key, void *param)
+{
+	t_data	*data;
+
+	data = param;
+	// printf("key: %d\n", key);
+	if (key == ESC)
+		exit(EXIT_SUCCESS);
+	// if (key == LEFT || key <= UP || key <= RIGHT || key <= DOWN)
+	// 	move(key, data->player, data);
+	return (0);
+}
 
 static int	mouse_press(int key, int x, int y, void *param)
 {
@@ -49,7 +62,7 @@ static int	mouse_move(int x, int y, void *param)
 	printf("x: %d, y: %d\n", data->mouse->x, data->mouse->y);
 	// mlx_destroy_display(data->mlx_ptr);
 	// create_and_display_sprites(data);
-	draw_line(ptA, ptB, data);
+	// draw_line(ptA, ptB, data);
 	// if (data->mouse->x < WIDTH && data->mouse->y < HEIGHT)
 	// {
 	// 	draw_line(ptA, ptB, data);
@@ -64,12 +77,20 @@ static int	mouse_move(int x, int y, void *param)
 	return (SUCCESS);
 }
 
+int	exit_all(t_data *data)
+{
+	(void)data;
+	exit(1);
+	return (1);
+}
+
 void	init_controls(t_data *data)
 {
 	data->mouse = malloc(sizeof(t_mouse));
 	init_mouse(data->mouse);
-	// mlx_hook(data->mlx->win_ptr, 2, 1L << 0, key_press, data);
+	mlx_hook(data->mlx->win_ptr, 2, 1L << 0, key_press, data);
 	mlx_hook(data->mlx->win_ptr, 4, 1L << 2, mouse_press, data);
 	// mlx_hook(data->mlx->win_ptr, 5, 1L << 3, mouse_release, data);
 	mlx_hook(data->mlx->win_ptr, 6, 1L << 6, mouse_move, data);
+	mlx_hook(data->mlx->win_ptr, 33, 131072, exit_all, data); //appuie sur la croix
 }

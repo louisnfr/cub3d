@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/14 15:18:03 by lraffin           #+#    #+#              #
-#    Updated: 2022/01/24 14:41:03 by lraffin          ###   ########.fr        #
+#    Updated: 2022/01/24 18:01:50 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME =	cub3D
 
 SRCS =					\
 		main.c			\
+		$(GEOMETRY)		\
 		$(RAYCASTING)	\
 		$(DISPLAY)		\
 		$(PARSING)		\
@@ -24,11 +25,13 @@ SRCS =					\
 RAYCASTING =			\
 		raycasting.c
 
+GEOMETRY =			\
+		draw.c
+
 EVENTS =				\
 		controls.c
 
 DISPLAY =				\
-		draw_line.c		\
 		sprites.c
 
 PARSING =				\
@@ -51,17 +54,13 @@ INC_DIR	= inc
 SRC_DIR	= src
 OBJ_DIR	= obj
 
-DEBUG	= off
 CC		= clang
-CFLAGS	= -Wall -Wextra -Werror -MMD -MP
+CFLAGS	= -Wall -Wextra -Werror -MMD -MP $(DEBIG)
+DEBUG	= -g3 -fsanitize=address
 LIBFT	= -L libft -lft
 MLX		= -Lmlx -lmlx -lXext -lX11 -lm
 
-ifeq ($(DEBUG), on)
-	CFLAGS	+= -g3 -fsanitize=address
-endif
-
-vpath %.c $(addprefix $(SRC_DIR)/, . raycasting display parsing sprites exit events init)
+vpath %.c $(addprefix $(SRC_DIR)/, . raycasting geometry display parsing sprites exit events init)
 
 all: libs
 		@make -s $(NAME)

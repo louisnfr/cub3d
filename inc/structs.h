@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:12:07 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/24 14:31:23 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/24 17:20:43 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ typedef struct s_mlx
 	void		*ptr;
 	void		*win_ptr;
 	void		*img_ptr;
-	int			*addr;
+	int			*img1;
+	int			*img2;
 }	t_mlx;
 
 typedef struct s_mouse

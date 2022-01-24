@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:37:03 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/24 14:28:07 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/24 14:45:14 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_mlx	*init_mlx(void)
 
 	mlx = malloc(sizeof(t_mlx));
 	mlx->ptr = mlx_init();
-	mlx->win_ptr = mlx_new_window(mlx->ptr, WIDTH, HEIGHT, "cub3d");
+	mlx->win_ptr = mlx_new_window(mlx->ptr, HEIGHT, WIDTH, "cub3d");
 	return (mlx);
 }
 

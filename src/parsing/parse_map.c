@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 22:05:22 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/24 14:42:21 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/24 15:06:39 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,9 @@ int	get_map(t_data *data, char *av)
 	ret = 1;
 	while (ret)
 	{
+		
 		ret = get_next_line(fd, &line);
-		printf("-%s- (%d)\n", line, ret);
+		// printf("-%s- (%d)\n", line, ret);
 		if (ret < 0)
 			return (FAILURE);
 		if (ft_strlen(line) > data->map_info->width)

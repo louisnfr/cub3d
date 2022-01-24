@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:23:25 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/24 19:20:59 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/24 22:44:38 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,11 @@ static int	mouse_move(int x, int y, void *param)
 	ptB.x = data->mouse->x;
 	ptB.y = data->mouse->y;
 
-	printf("x: %d, y: %d\n", data->mouse->x, data->mouse->y);
+	// printf("x: %d, y: %d\n", data->mouse->x, data->mouse->y);
 	// mlx_destroy_display(data->mlx_ptr);
 	// create_and_display_sprites(data);
 	// draw_line(ptA, ptB, data);
-	// if (data->mouse->x < WIDTH && data->mouse->y < HEIGHT)
+	// if (data->mouse->x < WIN_W && data->mouse->y < WIN_H)
 	// {
 	// 	draw_line(ptA, ptB, data);
 	// 	printf("check11\n");
@@ -88,9 +88,9 @@ void	init_controls(t_data *data)
 {
 	data->mouse = malloc(sizeof(t_mouse));
 	init_mouse(data->mouse);
-	mlx_hook(data->mlx->win, 2, 1L << 0, key_press, data);
-	mlx_hook(data->mlx->win, 4, 1L << 2, mouse_press, data);
+	mlx_hook(data->mlx->win, 2, 0, key_press, data);
+	mlx_hook(data->mlx->win, 4, 0, mouse_press, data);
 	// mlx_hook(data->mlx->win, 5, 1L << 3, mouse_release, data);
-	mlx_hook(data->mlx->win, 6, 1L << 6, mouse_move, data);
-	mlx_hook(data->mlx->win, 33, 131072, exit_all, data); //appuie sur la croix
+	mlx_hook(data->mlx->win, 6, 0, mouse_move, data);
+	mlx_hook(data->mlx->win, 33, 0, exit_all, data); //appuie sur la croix
 }

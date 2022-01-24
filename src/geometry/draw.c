@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:32:47 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/24 19:26:58 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/24 21:33:04 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	put_pixel(int x, int y, int color, t_mlx *mlx)
 {
 	char	*dst;
 
-	if (x > 0 && y > 0 && (x < WIDTH && y < HEIGHT))
+	if (x > 0 && y > 0 && (x < WIN_W && y < WIN_H))
 	{
 		dst = mlx->buf1 + (y * mlx->length + x * (mlx->bpp / 8));
 		*(unsigned int *)dst = color;
@@ -36,8 +36,7 @@ void	put_line(t_point a, t_point b, int color, t_mlx *mlx)
 	y_step /= max;
 	while ((int)(a.x - b.x) || (int)(a.y - b.y))
 	{
-		printf("check\n");
-		if ((a.x > 0 && a.y > 0) && (a.x < HEIGHT && a.y < WIDTH))
+		if ((a.x > 0 && a.y > 0) && (a.x < WIN_H && a.y < WIN_W))
 			put_pixel(a.x, a.y, color, mlx);
 		a.x += x_step;
 		a.y += y_step;

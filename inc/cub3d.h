@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:12:00 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/24 18:38:43 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/24 22:10:20 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ void	init_mouse(t_mouse *mouse);
 /*** parsing ***/
 
 void	check_input(int ac, char **av);
+
+/*** raycasting ***/
+
+int		precalculate_rays(t_data *data);
 
 /*** events ***/
 

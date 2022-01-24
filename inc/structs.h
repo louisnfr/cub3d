@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:12:07 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/24 19:19:44 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/24 21:37:43 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,12 @@ typedef struct s_mouse
 	int		previous_y;
 }	t_mouse;
 
+typedef struct s_ray
+{
+	int fov;
+	
+}	t_ray;
+
 typedef struct s_data
 {
 	int			player_x;
@@ -60,6 +66,7 @@ typedef struct s_data
 	int			j;
 	int			x;
 	int			y;
+	t_ray		*ray;
 	t_mlx		*mlx;
 	t_mouse		*mouse;
 	t_map		*map_info;

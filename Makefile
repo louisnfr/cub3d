@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/14 15:18:03 by lraffin           #+#    #+#              #
-#    Updated: 2022/01/24 18:01:50 by lraffin          ###   ########.fr        #
+#    Updated: 2022/01/24 22:10:28 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRCS =					\
 		$(INIT)
 
 RAYCASTING =			\
-		raycasting.c
+		precalculate.c
 
 GEOMETRY =			\
 		draw.c
@@ -55,10 +55,12 @@ SRC_DIR	= src
 OBJ_DIR	= obj
 
 CC		= clang
-CFLAGS	= -Wall -Wextra -Werror -MMD -MP $(DEBIG)
+CFLAGS	= -Wall -Wextra -MMD -MP $(DEBUG) #-Werror
 DEBUG	= -g3 -fsanitize=address
 LIBFT	= -L libft -lft
-MLX		= -Lmlx -lmlx -lXext -lX11 -lm
+# MLX		= -Lmlx -lmlx -lXext -lX11 -lm
+MLX		= -Lmlx -lmlx -lm -framework OpenGL -framework AppKit
+
 
 vpath %.c $(addprefix $(SRC_DIR)/, . raycasting geometry display parsing sprites exit events init)
 

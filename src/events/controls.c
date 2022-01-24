@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:23:25 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/19 16:33:23 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/24 14:33:42 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ void	init_controls(t_data *data)
 {
 	data->mouse = malloc(sizeof(t_mouse));
 	init_mouse(data->mouse);
-	// mlx_hook(data->win_ptr, 2, 1L << 0, key_press, data);
-	mlx_hook(data->win_ptr, 4, 1L << 2, mouse_press, data);
-	// mlx_hook(data->win_ptr, 5, 1L << 3, mouse_release, data);
-	mlx_hook(data->win_ptr, 6, 1L << 6, mouse_move, data);
+	// mlx_hook(data->mlx->win_ptr, 2, 1L << 0, key_press, data);
+	mlx_hook(data->mlx->win_ptr, 4, 1L << 2, mouse_press, data);
+	// mlx_hook(data->mlx->win_ptr, 5, 1L << 3, mouse_release, data);
+	mlx_hook(data->mlx->win_ptr, 6, 1L << 6, mouse_move, data);
 }

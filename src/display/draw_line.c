@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:32:47 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/19 15:10:34 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/24 14:31:33 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	draw_line(t_point a, t_point b, t_data *data)
  	int err = dx + dy, e2; /* error value e_xy */
 
   for (;;){  /* loop */
-    mlx_pixel_put(data->mlx_ptr, data->win_ptr, a.x, a.y, GREEN);
+    mlx_pixel_put(data->mlx->ptr, data->mlx->win_ptr, a.x, a.y, GREEN);
     if (a.x == b.x && a.y == b.y) break;
     e2 = 2 * err;
     if (e2 >= dy) { err += dy; a.x += sx; } /* e_xy+e_x > 0 */

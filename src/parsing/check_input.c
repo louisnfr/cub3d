@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 15:31:38 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/24 12:18:58 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/24 14:38:28 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	arg_error(void)
 {
-	printf("Error:\n bad arguments\n");
+	printf("Error:\nbad argument(s)\n");
 	exit (EXIT_FAILURE);
 }
 

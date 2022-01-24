@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:12:07 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/24 12:12:43 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/24 14:31:23 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,14 @@ typedef struct s_sprites
 
 } t_sprites;
 
+typedef struct s_mlx
+{
+	void		*ptr;
+	void		*win_ptr;
+	void		*img_ptr;
+	int			*addr;
+}	t_mlx;
+
 typedef struct s_mouse
 {
 	char	mb_is_pressed;
@@ -43,16 +51,13 @@ typedef struct s_mouse
 
 typedef struct s_data
 {
-	void		*mlx_ptr;
-	void		*win_ptr;
-	void		*img_ptr;
-	int			*addr;
 	int			player_x;
 	int			player_y;
 	int			i;
 	int			j;
 	int			x;
 	int			y;
+	t_mlx		*mlx;
 	t_mouse		*mouse;
 	t_map		*map_info;
 	t_sprites	*sprites;

@@ -40,8 +40,8 @@ void	display_sprites2(t_data *data)
 
 	i = 0;
 	if (data->map_info->map[data->x][data->y] == '1')
-		mlx_put_image_to_window(data->mlx_ptr,
-		data->win_ptr, data->sprites->wall, 64 * data->y, 64 * data->x);
+		mlx_put_image_to_window(data->mlx->ptr,
+		data->mlx->win_ptr, data->sprites->wall, 64 * data->y, 64 * data->x);
 	// else if (data->map[data->x][data->y] == '0')
 	// 	// mlx_put_image_to_window(data->mlx_ptr,
 	// 	// data->win_ptr,data->sprites->floor, 64 *data->y, 64 *data->x);
@@ -49,6 +49,6 @@ void	display_sprites2(t_data *data)
 	{
 		data->player_x = data->y * 64;
 		data->player_y = data->x * 64;
-		mlx_pixel_put(data->mlx_ptr, data->win_ptr, 64 * data->y, 64 * data->x, RED);
+		mlx_pixel_put(data->mlx->ptr, data->mlx->win_ptr, 64 * data->y, 64 * data->x, RED);
 	}
 }

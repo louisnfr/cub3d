@@ -6,30 +6,33 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/14 15:18:03 by lraffin           #+#    #+#              #
-#    Updated: 2022/01/21 17:38:36 by lraffin          ###   ########.fr        #
+#    Updated: 2022/01/24 14:41:03 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =	cub3D
 
-SRCS =				\
-		main.c		\
-		$(DISPLAY)	\
-		$(PARSING)	\
-		$(EVENTS)	\
-		$(EXIT)		\
+SRCS =					\
+		main.c			\
+		$(RAYCASTING)	\
+		$(DISPLAY)		\
+		$(PARSING)		\
+		$(EVENTS)		\
+		$(EXIT)			\
 		$(INIT)
 
-EVENTS =		\
+RAYCASTING =			\
+		raycasting.c
+
+EVENTS =				\
 		controls.c
 
-DISPLAY =					\
-		draw_line.c	\
-		raycasting.c	\
+DISPLAY =				\
+		draw_line.c		\
 		sprites.c
 
-PARSING =			\
-		parse_map.c	\
+PARSING =				\
+		parse_map.c		\
 		check_input.c	\
 
 
@@ -58,7 +61,7 @@ ifeq ($(DEBUG), on)
 	CFLAGS	+= -g3 -fsanitize=address
 endif
 
-vpath %.c $(addprefix $(SRC_DIR)/, . display parsing sprites exit events init)
+vpath %.c $(addprefix $(SRC_DIR)/, . raycasting display parsing sprites exit events init)
 
 all: libs
 		@make -s $(NAME)

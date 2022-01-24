@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_sprites.c                                   :+:      :+:    :+:   */
+/*   init_sprites.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/04 21:38:21 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/17 15:55:52 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/24 14:33:19 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ void	create_sprites(t_data *data)
 
 	// data->sprites->floor = mlx_xpm_file_to_image(data->mlx_ptr,
 	// 		"./Image_xpm/Floor.xpm", &img_width, &img_height);
-	data->sprites->wall = mlx_xpm_file_to_image(data->mlx_ptr,
+	data->sprites->wall = mlx_xpm_file_to_image(data->mlx->ptr,
 			"./images/wall.xpm", &img_width, &img_height);
 }

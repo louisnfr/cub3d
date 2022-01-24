@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:37:03 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/17 16:47:03 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/24 14:28:07 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,16 @@ static void	init_values(t_data *data)
 	// data->Ennemy_1_y = 0;
 }
 
+t_mlx	*init_mlx(void)
+{
+	t_mlx	*mlx;
+
+	mlx = malloc(sizeof(t_mlx));
+	mlx->ptr = mlx_init();
+	mlx->win_ptr = mlx_new_window(mlx->ptr, WIDTH, HEIGHT, "cub3d");
+	return (mlx);
+}
+
 t_data	*init_data(void)
 {
 	t_data	*data;
@@ -36,5 +46,6 @@ t_data	*init_data(void)
 	if (!data || !data->sprites || !data->map_info)
 		return (NULL);
 	init_values(data);
+	data->mlx = init_mlx();
 	return (data);
 }

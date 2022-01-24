@@ -12,7 +12,7 @@
 
 #include "cub3d.h"
 
-int		draw_map(t_data *data)
+int		raycasting(t_data *data)
 {
 	(void)data;
 	// init mlx

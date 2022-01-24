@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:12:07 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/24 17:20:43 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/24 19:01:00 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ typedef struct s_sprites
 {
 	void	*wall;
 	void	*floor;
-
+	void	*wall_no;
+	void	*wall_so;
+	void	*wall_we;
+	void	*wall_ea;
 } t_sprites;
 
 typedef struct s_mlx

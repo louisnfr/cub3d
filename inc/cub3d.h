@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:12:00 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/24 14:40:42 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/24 18:38:43 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ void	init_controls(t_data *data);
 
 /*** display ***/
 
-void	draw_line(t_point a, t_point b, t_data *data);
+void	put_pixel(int x, int y, int color, t_mlx *mlx);
+void	put_line(t_point a, t_point b, int color, t_mlx *mlx);
 
 int		raycasting(t_data *data);
 int		get_map(t_data *data, char *av);

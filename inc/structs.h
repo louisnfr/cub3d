@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:12:07 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/24 17:20:43 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/24 19:19:44 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ typedef struct s_map
 	int				width;
 	int				height;
 	// struct s_map	*next;
-
 }	t_map;
 
 typedef struct s_sprites
@@ -33,10 +32,13 @@ typedef struct s_sprites
 typedef struct s_mlx
 {
 	void		*ptr;
-	void		*win_ptr;
-	void		*img_ptr;
-	int			*img1;
-	int			*img2;
+	void		*win;
+	void		*img;
+	char		*buf1;
+	char		*buf2;
+	int			bpp;
+	int			length;
+	int			endian;
 }	t_mlx;
 
 typedef struct s_mouse

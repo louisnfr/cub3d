@@ -6,104 +6,14 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:12:00 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/21 17:32:18 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/24 12:15:13 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUBE_3D_H
 # define	CUBE_3D_H
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <string.h>
-# include <stdarg.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
-# include <stdio.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <string.h>
-
-# include "colors.h"
-# include "libft.h"
-# include "../mlx/mlx.h"
-
-# define MLX_ERROR 1
-# define W 13
-# define A 0
-# define S 1
-# define D 2
-# define ESC 53
-# define K 40
-# define T 17
-# define XK_RIGHT 124
-# define XK_LEFT 123
-# define XK_DOWN 125
-# define XK_UP 126
-
-# define HEIGHT 1024
-# define WIDTH 1280
-
-typedef struct s_map
-{
-	char			**map;
-	// char			*line;
-	int				width;
-	int				height;
-	// struct s_map	*next;
-
-}	t_map;
-
-typedef struct s_sprites
-{
-	void	*wall;
-	void	*floor;
-
-} t_sprites;
-
-typedef struct s_mouse
-{
-	char	mb_is_pressed;
-	char	lb_is_pressed;
-	char	rb_is_pressed;
-	int		x;
-	int		y;
-	int		previous_x;
-	int		previous_y;
-}	t_mouse;
-
-typedef struct s_data
-{
-	void		*mlx_ptr;
-	void		*win_ptr;
-	void		*img_ptr;
-	int			*addr;
-	int			player_x;
-	int			player_y;
-	int			i;
-	int			j;
-	int			x;
-	int			y;
-	t_mouse		*mouse;
-	t_map		*map_info;
-	t_sprites	*sprites;
-}	t_data;
-
-typedef struct s_point
-{
-	int	x;
-	int	y;
-}	t_point;
-
-typedef enum s_boolean
-{
-	FAILURE = 0,
-	SUCCESS = 1,
-	FALSE = 0,
-	TRUE = 1,
-}	t_boolean;
+# include "libs.h"
 
 /*** init ***/
 

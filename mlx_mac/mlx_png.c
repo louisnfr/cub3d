@@ -33,7 +33,6 @@ unsigned char magic[PNG_MAGIC_SIZE] = {137, 80, 78, 71, 13, 10, 26, 10};
 #define	ERR_ZLIB	10
 #define	ERR_DATA_MISMATCH	11
 #define	ERR_DATA_FILTER	12
-#define ERR_MALLOC	13
 char *(mipng_err[]) =
 {
   "No error",
@@ -48,8 +47,7 @@ char *(mipng_err[]) =
   "Missing header/dat/end chunk(s)",
   "Zlib inflate error",
   "Inflated data size mismatch",
-  "Unknown scanline filter",
-  "Can't malloc"
+  "Unknown scanline filter"
 };
 
 typedef struct png_info_s
@@ -181,7 +179,7 @@ int	mipng_data(void *img, unsigned char *dat, png_info_t *pi)
 
   b_pos = 0;
   if (!(buffer = malloc((long long)pi->width*(long long)pi->height*(long long)pi->bpp + pi->height)))
-    return (ERR_MALLOC);
+    err(1, "Can't malloc");
   z_strm.zalloc = Z_NULL;
   z_strm.zfree = Z_NULL;
   z_strm.opaque = Z_NULL;
@@ -189,10 +187,7 @@ int	mipng_data(void *img, unsigned char *dat, png_info_t *pi)
   z_strm.next_in = Z_NULL;
   z_ret = inflateInit(&z_strm);
   if (z_ret != Z_OK)
-    {
-      free(buffer);
-      return (ERR_ZLIB);
-    }
+    return (ERR_ZLIB);
 
   while (mipng_is_type(dat, "IDAT"))
     {
@@ -210,13 +205,11 @@ int	mipng_data(void *img, unsigned char *dat, png_info_t *pi)
 	  if (z_ret != Z_OK && z_ret != Z_STREAM_END)
 	    {
 	      inflateEnd(&z_strm);
-	      free(buffer);
 	      return (ERR_ZLIB);
 	    }
 	  if (b_pos + Z_CHUNK - z_strm.avail_out > pi->width*pi->height*pi->bpp+pi->height)
 	    {
 	      inflateEnd(&z_strm);
-	      free(buffer);
 	      return (ERR_DATA_MISMATCH);
 	    }
 	  bcopy(z_out, buffer+b_pos, Z_CHUNK - z_strm.avail_out);
@@ -228,12 +221,11 @@ int	mipng_data(void *img, unsigned char *dat, png_info_t *pi)
   if (b_pos != pi->width*pi->height*pi->bpp+pi->height)
     {
       //      printf("pb : bpos %d vs expected %d\n", b_pos, img->width*img->height*pi->bpp+img->height);
-      free(buffer);
       return (ERR_DATA_MISMATCH);
     }
-  ret = mipng_fill_img(img, buffer, pi);
-  free(buffer);
-  return (ret);
+  if ((ret = mipng_fill_img(img, buffer, pi)))
+    return (ret);
+  return (0);
 }
 
 

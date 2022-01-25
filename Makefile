@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/14 15:18:03 by lraffin           #+#    #+#              #
-#    Updated: 2022/01/25 21:35:38 by lraffin          ###   ########.fr        #
+#    Updated: 2022/01/25 21:53:08 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,9 +59,9 @@ DEBUG	= -g3 -fsanitize=address
 LIBFT	= -L libft -lft
 UNAME	= $(shell uname)
 ifeq ($(UNAME), Linux)
-	MLX		= -Lmlx -lmlx -lXext -lX11
+	MLX		= -Lmlx -lmlx -lXext -lX11 -lm
 else ifeq ($(UNAME), Darwin)
-	MLX		= -Lmlx_mac -lmlx_mac -framework OpenGL -framework AppKit
+	MLX		= -Lmlx_mac -lmlx -framework OpenGL -framework AppKit -lm
 endif
 
 vpath %.c $(addprefix $(SRC_DIR)/, . raycasting geometry display parsing sprites exit events init)
@@ -77,7 +77,7 @@ $(NAME): $(OBJS)
 -include $(DEPS)
 $(OBJ_DIR)/%.o: %.c
 	@mkdir -p $(OBJ_DIR)
-	@echo "$(_YELLOW)Compiling$(_RESET) $*.c\r\c"
+	@echo "\t$(_YELLOW)Compiling$(_RESET) $*.c\r\c"
 	@$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
 	@echo "$(_CLEAR)"
 

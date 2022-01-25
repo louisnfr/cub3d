@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:12:07 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/24 19:01:00 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/01/25 10:19:32 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ typedef struct s_map
 	int				width;
 	int				height;
 	// struct s_map	*next;
-
 }	t_map;
 
 typedef struct s_sprites
@@ -36,10 +35,13 @@ typedef struct s_sprites
 typedef struct s_mlx
 {
 	void		*ptr;
-	void		*win_ptr;
-	void		*img_ptr;
-	int			*img1;
-	int			*img2;
+	void		*win;
+	void		*img;
+	char		*buf1;
+	char		*buf2;
+	int			bpp;
+	int			length;
+	int			endian;
 }	t_mlx;
 
 typedef struct s_mouse
@@ -53,6 +55,12 @@ typedef struct s_mouse
 	int		previous_y;
 }	t_mouse;
 
+typedef struct s_ray
+{
+	int fov;
+	
+}	t_ray;
+
 typedef struct s_data
 {
 	int			player_x;
@@ -61,6 +69,7 @@ typedef struct s_data
 	int			j;
 	int			x;
 	int			y;
+	t_ray		*ray;
 	t_mlx		*mlx;
 	t_mouse		*mouse;
 	t_map		*map_info;

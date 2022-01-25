@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 15:31:38 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/24 18:58:25 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/01/25 10:20:03 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ static void	check_extension(char *s)
 {
 	int fd;
 
-	fd = open(s, __O_DIRECTORY);
+	fd = open(s, O_DIRECTORY);
 	if (fd > 0)
 	{
 		close(fd);
 		arg_error();
 	}
-	if (open(s, O_RDONLY | __O_NOFOLLOW) < 0)
+	if (open(s, O_RDONLY | O_NOFOLLOW) < 0)
 		arg_error();
 	if (!ft_strnstr(s, ".cub", ft_strlen(s)))
 		arg_error();

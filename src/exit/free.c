@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 12:49:32 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/24 14:34:22 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/24 20:36:37 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ int	free_data(t_data *data)
 	free_double_str(data->map_info->map);
 	free(data->sprites);
 	free(data->map_info);
-	mlx_destroy_display(data->mlx->ptr);
+	// mlx_destroy_display(data->mlx->ptr);
 	free(data->mlx->ptr);
 	free(data);
-	// mlx_destroy_window(data->mlx->ptr, data->mlx->win_ptr);
+	// mlx_destroy_window(data->mlx->ptr, data->mlx->win);
 	return (EXIT_SUCCESS);
 }
 
@@ -31,7 +31,7 @@ int	free_all_functions(t_data *data)
 	// if (data->map_info)
 	// 	ft_lstclear(&data->map_info, del_content);
 	free_double_tableau(data);
-	mlx_destroy_window(data->mlx->ptr, data->mlx->win_ptr);
+	mlx_destroy_window(data->mlx->ptr, data->mlx->win);
 	if (data)
 		free(data);
 	free(data->mlx->ptr);

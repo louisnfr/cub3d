@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/14 15:18:03 by lraffin           #+#    #+#              #
-#    Updated: 2022/01/25 14:59:36 by lraffin          ###   ########.fr        #
+#    Updated: 2022/01/25 21:35:38 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,9 +57,12 @@ CC		= clang
 CFLAGS	= -Wall -Wextra -Werror -MMD -MP $(DEBUG)
 DEBUG	= -g3 -fsanitize=address
 LIBFT	= -L libft -lft
-MLX		= -Lmlx -lmlx -lXext -lX11 -lm
-# MLX		= -Lmlx -lmlx -lm -framework OpenGL -framework AppKit
-
+UNAME	= $(shell uname)
+ifeq ($(UNAME), Linux)
+	MLX		= -Lmlx -lmlx -lXext -lX11
+else ifeq ($(UNAME), Darwin)
+	MLX		= -Lmlx_mac -lmlx_mac -framework OpenGL -framework AppKit
+endif
 
 vpath %.c $(addprefix $(SRC_DIR)/, . raycasting geometry display parsing sprites exit events init)
 
@@ -74,7 +77,7 @@ $(NAME): $(OBJS)
 -include $(DEPS)
 $(OBJ_DIR)/%.o: %.c
 	@mkdir -p $(OBJ_DIR)
-	@echo "\t$(_YELLOW)Compiling$(_RESET) $*.c\r\c"
+	@echo "$(_YELLOW)Compiling$(_RESET) $*.c\r\c"
 	@$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
 	@echo "$(_CLEAR)"
 
@@ -83,13 +86,12 @@ libs:
 	@make -sC mlx
 
 clean:
-	@echo "$(_INFO) Deleting object files and directories"
+	@echo "$(_INFO) Deleting object files"
 	@make clean -sC libft
 	@rm -rf $(OBJ_DIR)
-	@echo "$(_SUCCESS) Working directory clean"
 
 fclean: clean
-	@echo "[$(RED)FCLEAN$(NOC)]"
+	@echo "$(_INFO) Deleting executables"
 	@make fclean -sC libft
 	@rm -f $(NAME)
 

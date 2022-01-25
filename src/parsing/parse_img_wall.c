@@ -57,28 +57,20 @@ int	add_img_wall_to_mlx(t_data *data, char *face_wall, char *path_img)
 	if (!ft_strcmp(face_wall, "NO"))
 	{
 		if (add_face_wall_no_to_mlx(data, path_img))
-		{
-			printf("PROUT_debug1\n");
 			return (EXIT_FAILURE);
-		}
 	}
 	else if(!ft_strcmp(face_wall, "SO"))
 	{
 		if (add_face_wall_so_to_mlx(data, path_img))
-		{
-			printf("PROUT_debug2\n");
 			return (EXIT_FAILURE);
-		}
 	}
 	else if(!ft_strcmp(face_wall, "EA"))
 	{
-		printf("PROUT_debug3\n");
 		if (add_face_wall_ea_to_mlx(data, path_img))
 			return (EXIT_FAILURE);
 	}
 	else if(!ft_strcmp(face_wall, "WE"))
 	{
-		printf("PROUT_debug4\n");
 		if (add_face_wall_we_to_mlx(data, path_img))
 			return (EXIT_FAILURE);
 	}

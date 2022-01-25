@@ -27,7 +27,8 @@ PARSING =				\
 		parse_file.c	\
 		check_input.c	\
 		parse_walls.c 	\
-		parse_img.c		\
+		parse_img_wall.c	\
+		parse_floor_ceiling.c \
 
 EXIT =					\
 		free.c

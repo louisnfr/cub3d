@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+         #
+#    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/14 15:18:03 by lraffin           #+#    #+#              #
-#    Updated: 2022/01/25 10:14:16 by vbachele         ###   ########.fr        #
+#    Updated: 2022/01/25 14:59:36 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,11 +54,11 @@ SRC_DIR	= src
 OBJ_DIR	= obj
 
 CC		= clang
-CFLAGS	= -Wall -Wextra -MMD -MP $(DEBUG) #-Werror
+CFLAGS	= -Wall -Wextra -Werror -MMD -MP $(DEBUG)
 DEBUG	= -g3 -fsanitize=address
 LIBFT	= -L libft -lft
-# MLX		= -Lmlx -lmlx -lXext -lX11 -lm
-MLX		= -Lmlx -lmlx -lm -framework OpenGL -framework AppKit
+MLX		= -Lmlx -lmlx -lXext -lX11 -lm
+# MLX		= -Lmlx -lmlx -lm -framework OpenGL -framework AppKit
 
 
 vpath %.c $(addprefix $(SRC_DIR)/, . raycasting geometry display parsing sprites exit events init)
@@ -68,30 +68,28 @@ all: libs
 		@make -s $(NAME)
 
 $(NAME): $(OBJS)
-	@echo "$(_INFO) Initialize $(NAME)"
 	@$(CC) $(CFLAGS) -o $@ $^ $(LIBFT) $(MLX)
-	# @echo "$(GREEN)$@$(NOC)"
+	@echo "$(_SUCCESS) $(NAME)"
 
 -include $(DEPS)
 $(OBJ_DIR)/%.o: %.c
 	@mkdir -p $(OBJ_DIR)
-	@ echo "\t$(_YELLOW)Compiling$(_RESET) $*.c\r\c"
+	@echo "\t$(_YELLOW)Compiling$(_RESET) $*.c\r\c"
 	@$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
 	@echo "$(_CLEAR)"
-	# @echo "$(BLUE)clang $(NOC)$(notdir $@)"
 
 libs:
 	@make -sC libft
 	@make -sC mlx
 
 clean:
-	@echo "$(_INFO) Deleted object files and directories"
+	@echo "$(_INFO) Deleting object files and directories"
 	@make clean -sC libft
 	@rm -rf $(OBJ_DIR)
 	@echo "$(_SUCCESS) Working directory clean"
 
 fclean: clean
-	@echo "$(RED)fclean$(NOC)"
+	@echo "[$(RED)FCLEAN$(NOC)]"
 	@make fclean -sC libft
 	@rm -f $(NAME)
 

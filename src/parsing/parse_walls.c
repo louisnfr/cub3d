@@ -1,45 +1,60 @@
 #include "cub3d.h"
 
-// je check si les 3 premieres lettres sont bonnes
-
-static void error_message_walls(char *str)
+static void error_message_walls(void)
 {
-	ft_putstr_fd("Error\nProblem with your walls :", 2);
-	ft_putstr_fd(str, 2);
-}
-
-// Check if all wall have the right wording
-
-static int check_if_direction_if_good(t_data *data, int i, char *str)
-{
-	if (ft_strncmp(data->map_info->file_cub[i], str, 3))
-	{
-		printf("prout.debug_WALL\n");
-		error_message_walls(str);
-		return(EXIT_FAILURE);
-	}
-	return (EXIT_SUCCESS);
+		ft_putstr_fd("Error\nProblem with your walls in your file cub\n", 2);
 }
 
 // Check the path for the 4 walls and put the wall into mlx_img
 
-static int check_path_walls(t_data *data)
+static int check_and_add_path_walls(t_data *data, int i, char *face_wall)
 {
-	(void) data;
+	char **img;
+
+	img = ft_split(data->map_info->file_cub[i], ' ');
+	if (img[2])
+		return (EXIT_FAILURE);
+	if (add_img_wall_to_mlx(data, face_wall, img[1]))
+		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
 
-// Check the letters of the 4 walls
+// Check the path for the 4 walls and put the wall into mlx_img
+static int check_if_direction_if_good(t_data *data, int i, char *face_wall)
+{
+	if (ft_strncmp(data->map_info->file_cub[i], face_wall, 2))
+		return(EXIT_FAILURE);
+	if (check_and_add_path_walls(data, i, face_wall))
+		return (EXIT_FAILURE);
+	return (EXIT_SUCCESS);
+}
+
+
+// Check each face of the wall
+
 static int check_all_directions(t_data *data)
 {
-	if (check_if_direction_if_good(data, 0, "NO "))
+	int	i;
+	int error;
+
+	i = -1;
+	error = 0;
+	while (++i < data->map_info->cubfile_number_lines)
+	{
+		if (!check_if_direction_if_good(data, i, "NO"))
+			error++;
+		else if	(!check_if_direction_if_good(data, i, "SO"))
+			error++;
+		else if	(!check_if_direction_if_good(data, i, "WE"))
+			error++;
+		else if	(!check_if_direction_if_good(data, i, "EA"))
+			error++;
+	}
+	if (error != 4)
+	{
+		error_message_walls();
 		return (EXIT_FAILURE);
-	if	(check_if_direction_if_good(data, 1, "SO "))
-		return (EXIT_FAILURE);
-	if (check_if_direction_if_good(data, 2, "WE "))
-		return (EXIT_FAILURE);
-	if (check_if_direction_if_good(data, 3, "EA "))
-		return (EXIT_FAILURE);
+	}
 	return (EXIT_SUCCESS);
 }
 
@@ -47,8 +62,6 @@ static int check_all_directions(t_data *data)
 int parsing_walls(t_data *data)
 {
 	if (check_all_directions(data))
-		return (EXIT_FAILURE);
-	if (check_path_walls(data))
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }

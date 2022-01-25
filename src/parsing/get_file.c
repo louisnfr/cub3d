@@ -63,44 +63,17 @@ int	get_file(t_data *data, char *av)
 	if (fd < 0)
 		return (FAILURE);
 	ret = 1;
-	ft_memset(data->map_info, 0, 0);
+	ft_memset(data->map_info, 0, sizeof (t_map));
 	while (ret)
 	{
 		ret = get_next_line(fd, &line);
 		// printf("-%s- (%d)\n", line, ret);
 		if (ret < 0)
 			return (FAILURE);
-		if (ft_strlen(line) > data->map_info->cubfile_width_line)
-			data->map_info->width = ft_strlen(line);
+		data->map_info->cubfile_width_line = ft_strlen(line);
 		data->map_info->cubfile_number_lines++;
-		free(line);
+		// free(line);
 	}
 	close(fd);
 	return (fill_map(data, av));
 }
-
-// void	calcul_tableau_2_dimensions(t_data *data, t_map *tmp)
-// {
-// 	int	i;
-
-// 	data->map_info->map = ft_calloc(data->map_info->height + 2, sizeof(char *));
-// 	data->x = 0;
-// 	while (tmp != NULL)
-// 	{
-// 		i = 0;
-// 		data->y = 0;
-// 		data->map_info->map[data->x] = malloc(sizeof(char) * (data->map_info->width + 1));
-// 		while (tmp->line[i])
-// 		{
-// 			data->map_info->map[data->x][data->y] = tmp->line[i];
-// 			i++;
-// 			data->y++;
-// 		}
-// 		data->map_info->map[data->x][data->y] = 0;
-// 		data->x++;
-// 		tmp = tmp->next;
-// 	}
-// 	data->map_info->map[data->x] = 0;
-// 	Calcul_Width_Height(data);
-// 	Calcul_Nombre_Collectible(data);
-// }

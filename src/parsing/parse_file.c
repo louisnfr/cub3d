@@ -21,8 +21,8 @@ int	parse_file(t_data *data)
 {
 	if (parsing_walls(data))
 		return (EXIT_FAILURE);
-	// if (parsing_floor(data))
-	// 	return (EXIT_FAILURE);
+	if (parsing_floor(data))
+		return (EXIT_FAILURE);
 	// if (parsing_ceiling(data))
 	// 	return (EXIT_FAILURE);
 	// if (parsing_map(data))

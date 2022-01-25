@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:23:25 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/24 22:44:38 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/25 15:06:08 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	key_press(int key, void *param)
 	t_data	*data;
 
 	data = param;
-	// printf("key: %d\n", key);
+	printf("key: %d\n", key);
 	if (key == ESC)
 		exit(EXIT_SUCCESS);
 	// if (key == LEFT || key <= UP || key <= RIGHT || key <= DOWN)
@@ -59,7 +59,7 @@ static int	mouse_move(int x, int y, void *param)
 	ptB.x = data->mouse->x;
 	ptB.y = data->mouse->y;
 
-	// printf("x: %d, y: %d\n", data->mouse->x, data->mouse->y);
+	printf("x: %d, y: %d\n", data->mouse->x, data->mouse->y);
 	// mlx_destroy_display(data->mlx_ptr);
 	// create_and_display_sprites(data);
 	// draw_line(ptA, ptB, data);

@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:12:00 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/25 15:01:58 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/01/25 18:12:16 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	check_input(int ac, char **av);
 int		parse_file(t_data *data);
 int		get_map(t_data *data, char *av);
 int 	parsing_walls(t_data *data);
+int		add_img_wall_to_mlx(t_data *data, char *face_wall, char *path_img);
 
 /*** raycasting ***/
 

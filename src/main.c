@@ -12,15 +12,9 @@ int main(int ac, char **av)
 		return (EXIT_FAILURE);
 	if (parse_file(data))
 		return (EXIT_FAILURE); // pensez a free le double tableau 
-	precalculate_rays(data);
+	// precalculate_rays(data);
 	init_controls(data);
 	mlx_loop(data->mlx->ptr);
 	free_data(data);
 	return (EXIT_SUCCESS);
 }
-
-// check input / map
-// init data
-// parse mapcheck input / map
-// init data
-// parse map

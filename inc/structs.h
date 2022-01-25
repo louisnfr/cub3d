@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:12:07 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/25 10:19:32 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/01/25 10:51:12 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@
 typedef struct s_map
 {
 	char			**map;
+	char			**file_cub;
 	// char			*line;
+	int				cubfile_number_lines;
+	int				cubfile_width_line;
 	int				width;
 	int				height;
 	// struct s_map	*next;

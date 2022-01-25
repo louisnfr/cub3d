@@ -6,7 +6,7 @@
 #    By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/14 15:18:03 by lraffin           #+#    #+#              #
-#    Updated: 2022/01/25 10:14:16 by vbachele         ###   ########.fr        #
+#    Updated: 2022/01/25 11:02:40 by vbachele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,8 @@ DISPLAY =				\
 		sprites.c
 
 PARSING =				\
-		parse_map.c		\
+		get_file.c		\
+		parse_file.c
 		check_input.c	\
 
 

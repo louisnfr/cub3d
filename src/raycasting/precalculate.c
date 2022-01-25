@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 18:26:00 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/24 22:52:09 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/25 15:04:53 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int		precalculate_rays(t_data *data)
 {
 	(void)data;
 	// position of the player
-	double	posX = 2;
-	double	posY = 2;
+	double	posX = 11;
+	double	posY = 3;
 	// direction of the player
 	double	dirX = -1;
 	double	dirY = 0;
@@ -25,8 +25,8 @@ int		precalculate_rays(t_data *data)
 	double	planeX = 0;
 	double	planeY = 0.66;
 	// fps
-	double	time = 0;
-	double	oldtime = 0;
+	// double	time = 0;
+	// double	oldtime = 0;
 
 	int	x = -1;
 	if (data->mlx->img)

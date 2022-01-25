@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
+#    By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/14 15:18:03 by lraffin           #+#    #+#              #
-#    Updated: 2022/01/24 18:01:50 by lraffin          ###   ########.fr        #
+#    Updated: 2022/01/25 15:10:03 by vbachele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRCS =					\
 		$(INIT)
 
 RAYCASTING =			\
-		raycasting.c
+		precalculate.c
 
 GEOMETRY =			\
 		draw.c
@@ -35,8 +35,10 @@ DISPLAY =				\
 		sprites.c
 
 PARSING =				\
-		parse_map.c		\
+		get_file.c		\
+		parse_file.c	\
 		check_input.c	\
+		parse_walls.c 	\
 
 
 EXIT =					\
@@ -55,34 +57,45 @@ SRC_DIR	= src
 OBJ_DIR	= obj
 
 CC		= clang
-CFLAGS	= -Wall -Wextra -Werror -MMD -MP $(DEBIG)
+CFLAGS	= -Wall -Wextra -MMD -MP $(DEBUG) #-Werror
 DEBUG	= -g3 -fsanitize=address
 LIBFT	= -L libft -lft
-MLX		= -Lmlx -lmlx -lXext -lX11 -lm
+# MLX		= -Lmlx -lmlx -lXext -lX11 -lm
+MLX		= -Lmlx -lmlx -lm -framework OpenGL -framework AppKit
+
 
 vpath %.c $(addprefix $(SRC_DIR)/, . raycasting geometry display parsing sprites exit events init)
+
+_YELLOW		=	\033[38;5;184m
+_GREEN		=	\033[38;5;46m
+_RESET		=	\033[0m
+_INFO		=	[$(_YELLOW)INFO$(_RESET)]
+_SUCCESS	=	[$(_GREEN)SUCCESS$(_RESET)]
+_CLEAR		=	\033[2K\c
 
 all: libs
 		@make -s $(NAME)
 
 $(NAME): $(OBJS)
+	@ echo "$(_INFO) Initialize $(NAME)"
 	@$(CC) $(CFLAGS) -o $@ $^ $(LIBFT) $(MLX)
-	@echo "$(GREEN)$@$(NOC)"
 
 -include $(DEPS)
 $(OBJ_DIR)/%.o: %.c
 	@mkdir -p $(OBJ_DIR)
+	@ echo "\t$(_YELLOW)Compiling$(_RESET) $*.c\r\c"
 	@$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
-	@echo "$(BLUE)clang $(NOC)$(notdir $@)"
+	@ echo "$(_CLEAR)"
 
 libs:
 		@make -sC libft
 		@make -sC mlx
 
 clean:
-	@echo "$(RED)clean$(NOC)"
+	@ echo "$(_INFO) Deleted object files and directories"
 	@make clean -sC libft
 	@rm -rf $(OBJ_DIR)
+	@ echo "$(_SUCCESS) Working directory clean"
 
 fclean: clean
 	@echo "$(RED)fclean$(NOC)"

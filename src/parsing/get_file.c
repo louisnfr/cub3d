@@ -1,29 +1,19 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   parse_map.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/02 22:05:22 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/24 20:25:12 by vbachele         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "cub3d.h"
 
+
+// a changer avec le nouveau parsing car pas pertinent de recuperer l'info tout de suite 
 static char	**allocate_map(t_map *map_info)
 {
 	char	**map;
 	int		i;
 
-	map = ft_calloc(map_info->height + 1, sizeof(char *));
+	map = ft_calloc(map_info->cubfile_number_lines + 1, sizeof(char *));
 	if (!map)
 		return (NULL);
 	i = -1;
-	while (++i < map_info->height)
+	while (++i < map_info->cubfile_number_lines)
 	{
-		map[i] = ft_calloc(map_info->width + 1, sizeof(char));
+		map[i] = ft_calloc(map_info->cubfile_width_line + 1, sizeof(char));
 		if (!map[i])
 			return (NULL);
 	}
@@ -31,6 +21,7 @@ static char	**allocate_map(t_map *map_info)
 	return (map);
 }
 
+// On remplit la map avec toutes les infos 
 static int	fill_map(t_data *data, char *av)
 {
 	char	*line;
@@ -40,8 +31,8 @@ static int	fill_map(t_data *data, char *av)
 	int		j;
 
 	fd = open(av, O_RDONLY);
-	data->map_info->map = allocate_map(data->map_info);
-	if (!data->map_info->map || fd < 0)
+	data->map_info->file_cub = allocate_map(data->map_info);
+	if (!data->map_info->file_cub || fd < 0)
 		return (FAILURE);
 	ret = 1;
 	j = 0;
@@ -52,7 +43,7 @@ static int	fill_map(t_data *data, char *av)
 		if (ret < 0)
 			return (FAILURE);
 		while (++i < ft_strlen(line))
-			data->map_info->map[j][i] = line[i];
+			data->map_info->file_cub[j][i] = line[i];
 		j++;
 		free(line);
 	}
@@ -60,7 +51,9 @@ static int	fill_map(t_data *data, char *av)
 	return (SUCCESS);
 }
 
-int	get_map(t_data *data, char *av)
+// On recupere la width et la height du fichier ici (a changer avec le parsing de cub3d) a changer egalement
+
+int	get_file(t_data *data, char *av)
 {
 	char	*line;
 	int		fd;
@@ -70,15 +63,16 @@ int	get_map(t_data *data, char *av)
 	if (fd < 0)
 		return (FAILURE);
 	ret = 1;
+	ft_memset(data->map_info, 0, 0);
 	while (ret)
-	{	
+	{
 		ret = get_next_line(fd, &line);
 		// printf("-%s- (%d)\n", line, ret);
 		if (ret < 0)
 			return (FAILURE);
-		if (ft_strlen(line) > data->map_info->width)
+		if (ft_strlen(line) > data->map_info->cubfile_width_line)
 			data->map_info->width = ft_strlen(line);
-		data->map_info->height++;
+		data->map_info->cubfile_number_lines++;
 		free(line);
 	}
 	close(fd);

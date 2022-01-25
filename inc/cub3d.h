@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:12:00 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/24 14:40:42 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/25 15:01:58 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,13 @@ void	init_mouse(t_mouse *mouse);
 /*** parsing ***/
 
 void	check_input(int ac, char **av);
+int		parse_file(t_data *data);
+int		get_map(t_data *data, char *av);
+int 	parsing_walls(t_data *data);
+
+/*** raycasting ***/
+
+int		precalculate_rays(t_data *data);
 
 /*** events ***/
 
@@ -30,10 +37,11 @@ void	init_controls(t_data *data);
 
 /*** display ***/
 
-void	draw_line(t_point a, t_point b, t_data *data);
+void	put_pixel(int x, int y, int color, t_mlx *mlx);
+void	put_line(t_point a, t_point b, int color, t_mlx *mlx);
 
 int		raycasting(t_data *data);
-int		get_map(t_data *data, char *av);
+int		get_file(t_data *data, char *av);
 
 
 void	display_sprites2(t_data *data);

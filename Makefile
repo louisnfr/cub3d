@@ -38,7 +38,6 @@ PARSING =				\
 		parse_map.c		\
 		check_input.c	\
 
-
 EXIT =					\
 		free.c
 
@@ -64,18 +63,12 @@ MLX		= -Lmlx -lmlx -lm -framework OpenGL -framework AppKit
 
 vpath %.c $(addprefix $(SRC_DIR)/, . raycasting geometry display parsing sprites exit events init)
 
-_YELLOW		=	\033[38;5;184m
-_GREEN		=	\033[38;5;46m
-_RESET		=	\033[0m
-_INFO		=	[$(_YELLOW)INFO$(_RESET)]
-_SUCCESS	=	[$(_GREEN)SUCCESS$(_RESET)]
-_CLEAR		=	\033[2K\c
 
 all: libs
 		@make -s $(NAME)
 
 $(NAME): $(OBJS)
-	@ echo "$(_INFO) Initialize $(NAME)"
+	@echo "$(_INFO) Initialize $(NAME)"
 	@$(CC) $(CFLAGS) -o $@ $^ $(LIBFT) $(MLX)
 	# @echo "$(GREEN)$@$(NOC)"
 
@@ -84,18 +77,18 @@ $(OBJ_DIR)/%.o: %.c
 	@mkdir -p $(OBJ_DIR)
 	@ echo "\t$(_YELLOW)Compiling$(_RESET) $*.c\r\c"
 	@$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
-	@ echo "$(_CLEAR)"
+	@echo "$(_CLEAR)"
 	# @echo "$(BLUE)clang $(NOC)$(notdir $@)"
 
 libs:
-		@make -sC libft
-		@make -sC mlx
+	@make -sC libft
+	@make -sC mlx
 
 clean:
-	@ echo "$(_INFO) Deleted object files and directories"
+	@echo "$(_INFO) Deleted object files and directories"
 	@make clean -sC libft
 	@rm -rf $(OBJ_DIR)
-	@ echo "$(_SUCCESS) Working directory clean"
+	@echo "$(_SUCCESS) Working directory clean"
 
 fclean: clean
 	@echo "$(RED)fclean$(NOC)"
@@ -124,3 +117,10 @@ GREEN	= \033[1;32m
 YELLOW	= \033[1;33m
 BLUE	= \033[1;34m
 WHITE	= \033[1;37m
+
+_YELLOW		=	\033[38;5;184m
+_GREEN		=	\033[38;5;46m
+_RESET		=	\033[0m
+_INFO		=	[$(_YELLOW)INFO$(_RESET)]
+_SUCCESS	=	[$(_GREEN)SUCCESS$(_RESET)]
+_CLEAR		=	\033[2K\c

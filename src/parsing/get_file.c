@@ -1,7 +1,7 @@
 #include "cub3d.h"
 
 
-// a changer avec le nouveau parsing car pas pertinent de recuperer l'info tout de suite 
+// a changer avec le nouveau parsing car pas pertinent de recuperer l'info tout de suite
 static char	**allocate_map(t_map *map_info)
 {
 	char	**map;
@@ -21,7 +21,7 @@ static char	**allocate_map(t_map *map_info)
 	return (map);
 }
 
-// On remplit la map avec toutes les infos 
+// On remplit la map avec toutes les infos
 static int	fill_map(t_data *data, char *av)
 {
 	char	*line;
@@ -42,10 +42,16 @@ static int	fill_map(t_data *data, char *av)
 		ret = get_next_line(fd, &line);
 		if (ret < 0)
 			return (FAILURE);
+		// printf("PROUT_debug -%c-\n", data->map_info->file_cub[3][19]);
+
 		while (++i < ft_strlen(line))
+		{
+			printf("map[%d][%d]\n", j, i);
 			data->map_info->file_cub[j][i] = line[i];
+		}
 		j++;
 		free(line);
+
 	}
 	close(fd);
 	return (SUCCESS);
@@ -70,10 +76,12 @@ int	get_file(t_data *data, char *av)
 		// printf("-%s- (%d)\n", line, ret);
 		if (ret < 0)
 			return (FAILURE);
-		data->map_info->cubfile_width_line = ft_strlen(line);
+		if (ft_strlen(line) > data->map_info->cubfile_width_line)
+			data->map_info->cubfile_width_line = ft_strlen(line);
 		data->map_info->cubfile_number_lines++;
-		// free(line);
+		free(line);
 	}
+	// free(line);
 	close(fd);
 	return (fill_map(data, av));
 }

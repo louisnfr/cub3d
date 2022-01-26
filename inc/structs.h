@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:12:07 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/25 19:31:27 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/01/26 16:02:16 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,28 @@ typedef struct s_map
 	char			*color_floor;
 	int				cubfile_number_lines;
 	int				cubfile_width_line;
-	int				width;
-	int				height;
 	int				walls_valid;
 	int				floor_ceiling_valid;
 }	t_map;
+
+typedef	struct s_img
+{
+	void			*img;
+	char			*path_img;
+	char			*path_face;
+	int				width;
+	int				height;
+} t_img;
 
 typedef struct s_sprites
 {
 	void	*wall;
 	void	*floor;
-	void	*wall_no;
-	void	*wall_so;
-	void	*wall_we;
-	void	*wall_ea;
-} t_sprites;
+	t_img	wall_no;
+	t_img	wall_so;
+	t_img	wall_we;
+	t_img	wall_ea;
+}	t_sprites;
 
 typedef struct s_mlx
 {

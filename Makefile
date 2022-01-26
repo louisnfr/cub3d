@@ -27,8 +27,10 @@ PARSING =				\
 		parse_file.c	\
 		check_input.c	\
 		parse_walls.c 	\
+		ft_split_charset.c	\
 		parse_img_wall.c	\
 		parse_floor_ceiling.c \
+		errors.c   \
 
 EXIT =					\
 		free.c
@@ -36,7 +38,9 @@ EXIT =					\
 INIT =					\
 		init_controls.c	\
 		init_sprites.c	\
-		init_data.c
+		init_data.c \
+		init_struct.c \
+
 
 OBJS	= $(SRCS:%.c=$(OBJ_DIR)/%.o)
 DEPS	= $(OBJS:%.o=%.d)
@@ -46,8 +50,8 @@ SRC_DIR	= src
 OBJ_DIR	= obj
 
 CC		= clang
-CFLAGS	= -Wall -Wextra -Werror -MMD -MP $(DEBUG)
-DEBUG	= -g3 #-fsanitize=address
+CFLAGS	= -Wall -Wextra -Werror -MMD -MP -g3 #$(DEBUG)
+DEBUG	= -g3 -fsanitize=address
 LIBFT	= -L libft -lft
 MLX		= -Lmlx -lmlx -lXext -lX11 -lm
 # MLX		= -Lmlx -lmlx -lm -framework OpenGL -framework AppKit

@@ -3,13 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 15:34:43 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/21 15:38:24 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/26 15:51:54 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-
+void	error_message_walls(void)
+{
+	ft_putstr_fd("Error\nProblem with your walls in your file cub\n", 2);
+}

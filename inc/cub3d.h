@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:12:00 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/25 18:12:16 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/01/26 16:02:31 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,19 @@
 /*** init ***/
 
 t_data	*init_data(void);
+void	init_struct(t_data *data);
 void	init_mouse(t_mouse *mouse);
 
 /*** parsing ***/
+
+char    **ft_split_charset(char *str, char *charset);
 
 void	check_input(int ac, char **av);
 int		parse_file(t_data *data);
 int		get_map(t_data *data, char *av);
 int 	parsing_walls(t_data *data);
-int		add_img_wall_to_mlx(t_data *data, char *face_wall, char *path_img);
+int		add_img_wall_to_mlx(t_data *data);
+void	error_message_walls(void);
 
 /*** raycasting ***/
 

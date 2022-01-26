@@ -8,7 +8,7 @@ static void	arg_error(void)
 
 static void	check_extension(char *s)
 {
-	int fd;
+	int	fd;
 
 	fd = open(s, O_DIRECTORY);
 	if (fd > 0)
@@ -21,8 +21,6 @@ static void	check_extension(char *s)
 	if (!ft_strnstr(s, ".cub", ft_strlen(s)))
 		arg_error();
 }
-
-
 
 void	check_input(int ac, char **av)
 {

@@ -1,29 +1,12 @@
 #include "cub3d.h"
 
-// static int parsing_map(t_data *data)
-// {
-
-// 	return (EXIT_SUCCESS);
-// }
-
-// static int parsing_floor(t_data *data)
-// {
-// 	return (EXIT_SUCCESS);
-// }
-
-// static int parsing_ceiling(t_data *data)
-// {
-// 	return (EXIT_SUCCESS);
-// }
-
+// chaque fonction renvoie vers un fichier associe
 
 int	parse_file(t_data *data)
 {
 	if (parsing_walls(data))
 		return (EXIT_FAILURE);
-	if (parsing_floor_ceiling(data))
-		return (EXIT_FAILURE);
-	// if (parsing_ceiling(data))
+	// if (parsing_floor_ceiling(data))
 	// 	return (EXIT_FAILURE);
 	// if (parsing_map(data))
 	// 	return (EXIT_FAILURE);

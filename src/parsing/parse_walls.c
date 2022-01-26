@@ -3,9 +3,12 @@
 // Check the path for the 4 walls and put the wall into mlx_img
 static	void	check_struct_walls(t_data *data, char *face_wall, char *path)
 {
+	
 	if (!ft_strcmp("NO", face_wall))
 	{
-		data->sprites->wall_no.path_face = face_wall;
+		// data->sprites->wall_no.path_face = malloc(sizeof (char *) * (ft_strlen(face_wall) + 1));
+		data->sprites->wall_no.path_face = ft_ace_wall;
+		printf("PROUT_debug %s\n", data->sprites->wall_no.path_face);
 		data->sprites->wall_no.path_img = path;
 	}
 	else if (!ft_strcmp("SO", face_wall))
@@ -39,11 +42,6 @@ static int	check_and_add_path_walls(t_data *data, int i,
 	}
 	(*error)++;
 	check_struct_walls(data, face_wall, img[1]);
-	// if (add_img_wall_to_mlx(data, face_wall, img[1]))
-	// {
-	// 	free_double_str(img);
-	// 	return (EXIT_FAILURE);
-	// }
 	free_double_str(img);
 	return (EXIT_SUCCESS);
 }

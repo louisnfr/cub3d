@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 12:49:32 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/26 15:42:46 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/01/26 18:02:57 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,16 @@
 
 void	free_sprites(t_data *data, t_sprites *sprites)
 {
+	(void) data;
+	(void) sprites;
+	clean_free(&sprites->wall_no.path_face);
+	clean_free(&sprites->wall_no.path_img);
+	clean_free(&sprites->wall_so.path_face);
+	clean_free(&sprites->wall_so.path_img);
+	clean_free(&sprites->wall_we.path_face);
+	clean_free(&sprites->wall_we.path_img);
+	clean_free(&sprites->wall_ea.path_face);
+	clean_free(&sprites->wall_ea.path_img);
 	if (sprites->wall_ea.img)
 		mlx_destroy_image(data->mlx->ptr, sprites->wall_ea.img);
 	if (sprites->wall_no.img)
@@ -27,13 +37,20 @@ void	free_sprites(t_data *data, t_sprites *sprites)
 int	free_data(t_data *data)
 {
  	free_double_str(data->map_info->map);
+	free_double_str(data->map_info->file_cub);
 	free_sprites(data, data->sprites);
-	free(data->sprites);
-	free(data->map_info);
+	if (data->sprites)
+		free(data->sprites);
+	if (data->map_info)
+		free(data->map_info);
 	// mlx_destroy_display(data->mlx->ptr);
-	free(data->mlx->ptr);
-	free(data);
 	mlx_destroy_window(data->mlx->ptr, data->mlx->win);
+	if (data->mlx->ptr)
+		free(data->mlx->ptr);
+	if (data->mlx)
+		free(data->mlx);
+	if (data)
+		free(data);
 	return (EXIT_SUCCESS);
 }
 

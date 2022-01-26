@@ -45,10 +45,7 @@ static int	fill_map(t_data *data, char *av)
 		// printf("PROUT_debug -%c-\n", data->map_info->file_cub[3][19]);
 
 		while (++i < ft_strlen(line))
-		{
-			printf("map[%d][%d]\n", j, i);
 			data->map_info->file_cub[j][i] = line[i];
-		}
 		j++;
 		free(line);
 

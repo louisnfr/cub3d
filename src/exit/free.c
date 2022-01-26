@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 12:49:32 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/24 20:36:37 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/25 23:50:50 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	free_data(t_data *data)
 {
-	free_double_str(data->map_info->map);
+	free_double_str(data->map->tab);
 	free(data->sprites);
-	free(data->map_info);
+	free(data->map);
 	// mlx_destroy_display(data->mlx->ptr);
 	free(data->mlx->ptr);
 	free(data);
@@ -49,7 +49,7 @@ void	free_double_tableau(t_data *data)
 	int	i;
 
 	i = -1;
-	while (data->map_info->map[++i])
-		free(data->map_info->map[i]);
-	free(data->map_info->map);
+	while (data->map->tab[++i])
+		free(data->map->tab[i]);
+	free(data->map->tab);
 }

@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:23:25 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/25 17:47:44 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/26 01:55:23 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,21 +59,7 @@ static int	mouse_move(int x, int y, void *param)
 	ptB.x = data->mouse->x;
 	ptB.y = data->mouse->y;
 
-	printf("x: %d, y: %d\n", data->mouse->x, data->mouse->y);
-	// mlx_destroy_display(data->mlx_ptr);
-	// create_and_display_sprites(data);
-	// draw_line(ptA, ptB, data);
-	// if (data->mouse->x < WIN_W && data->mouse->y < WIN_H)
-	// {
-	// 	draw_line(ptA, ptB, data);
-	// 	printf("check11\n");
-		// create_and_display_sprites(data);
-	// }
-	// // printf("check %d\n", mouse->lb_is_pressed);
-	// if (mouse->lb_is_pressed)
-	// {
-	// 	printf("check\n");
-	// }
+	// printf("x: %d, y: %d\n", data->mouse->x, data->mouse->y);
 	return (SUCCESS);
 }
 

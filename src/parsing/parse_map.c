@@ -6,29 +6,29 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 22:05:22 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/24 15:06:39 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/25 23:50:16 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static char	**allocate_map(t_map *map_info)
+static char	**allocate_map(t_map *map)
 {
-	char	**map;
+	char	**tab;
 	int		i;
 
-	map = ft_calloc(map_info->height + 1, sizeof(char *));
-	if (!map)
+	tab = ft_calloc(map->h + 1, sizeof(char *));
+	if (!tab)
 		return (NULL);
 	i = -1;
-	while (++i < map_info->height)
+	while (++i < map->h)
 	{
-		map[i] = ft_calloc(map_info->width + 1, sizeof(char));
-		if (!map[i])
+		tab[i] = ft_calloc(map->w + 1, sizeof(char));
+		if (!tab[i])
 			return (NULL);
 	}
-	map[i] = 0;
-	return (map);
+	tab[i] = 0;
+	return (tab);
 }
 
 static int	fill_map(t_data *data, char *av)
@@ -40,8 +40,8 @@ static int	fill_map(t_data *data, char *av)
 	int		j;
 
 	fd = open(av, O_RDONLY);
-	data->map_info->map = allocate_map(data->map_info);
-	if (!data->map_info->map || fd < 0)
+	data->map->tab = allocate_map(data->map);
+	if (!data->map->tab || fd < 0)
 		return (FAILURE);
 	ret = 1;
 	j = 0;
@@ -52,7 +52,7 @@ static int	fill_map(t_data *data, char *av)
 		if (ret < 0)
 			return (FAILURE);
 		while (++i < ft_strlen(line))
-			data->map_info->map[j][i] = line[i];
+			data->map->tab[j][i] = line[i];
 		j++;
 		free(line);
 	}
@@ -72,14 +72,14 @@ int	get_map(t_data *data, char *av)
 	ret = 1;
 	while (ret)
 	{
-		
+
 		ret = get_next_line(fd, &line);
 		// printf("-%s- (%d)\n", line, ret);
 		if (ret < 0)
 			return (FAILURE);
-		if (ft_strlen(line) > data->map_info->width)
-			data->map_info->width = ft_strlen(line);
-		data->map_info->height++;
+		if (ft_strlen(line) > data->map->w)
+			data->map->w = ft_strlen(line);
+		data->map->h++;
 		free(line);
 	}
 	close(fd);

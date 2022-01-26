@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:12:07 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/25 18:58:09 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/26 01:55:04 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 
 typedef struct s_map
 {
-	char			**map;
-	// char			*line;
-	int				width;
-	int				height;
-	// struct s_map	*next;
+	char	**tab;
+	int		w;
+	int		h;
 }	t_map;
 
 typedef struct s_sprites
@@ -52,6 +50,14 @@ typedef struct s_mouse
 	int		previous_y;
 }	t_mouse;
 
+typedef struct s_plane
+{
+	double	a;
+	double	b;
+	double	c;
+	double	d;
+}	t_plane;
+
 typedef struct s_ray
 {
 	int fov;
@@ -69,7 +75,7 @@ typedef struct s_data
 	t_ray		*ray;
 	t_mlx		*mlx;
 	t_mouse		*mouse;
-	t_map		*map_info;
+	t_map		*map;
 	t_sprites	*sprites;
 }	t_data;
 

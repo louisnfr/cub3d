@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:15:48 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/24 20:38:18 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/26 01:56:07 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 #  define DOWN 65364
 #  define ESC 65307
 # else
-#  define UP 126
-#  define DOWN 125
-#  define RIGHT 124
-#  define LEFT 123
+#  define UP 13
+#  define DOWN 1
+#  define RIGHT 2
+#  define LEFT 0
 #  define ESC 53
 # endif
 

@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/14 15:18:03 by lraffin           #+#    #+#              #
-#    Updated: 2022/01/25 21:53:08 by lraffin          ###   ########.fr        #
+#    Updated: 2022/01/26 01:24:27 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ SRC_DIR	= src
 OBJ_DIR	= obj
 
 CC		= clang
-CFLAGS	= -Wall -Wextra -Werror -MMD -MP $(DEBUG)
+CFLAGS	= -Wall -Wextra -MMD -MP $(DEBUG) #-Werror
 DEBUG	= -g3 -fsanitize=address
 LIBFT	= -L libft -lft
 UNAME	= $(shell uname)
@@ -118,9 +118,9 @@ YELLOW	= \033[1;33m
 BLUE	= \033[1;34m
 WHITE	= \033[1;37m
 
-_YELLOW		=	\033[38;5;184m
-_GREEN		=	\033[38;5;46m
-_RESET		=	\033[0m
-_INFO		=	[$(_YELLOW)INFO$(_RESET)]
-_SUCCESS	=	[$(_GREEN)SUCCESS$(_RESET)]
-_CLEAR		=	\033[2K\c
+_YELLOW		= \033[38;5;184m
+_GREEN		= \033[38;5;46m
+_RESET		= \033[0m
+_INFO		= [$(_YELLOW)INFO$(_RESET)]
+_SUCCESS	= [$(_GREEN)SUCCESS$(_RESET)]
+_CLEAR		= \033[2K\c

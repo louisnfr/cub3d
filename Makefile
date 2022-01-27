@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/14 15:18:03 by lraffin           #+#    #+#              #
-#    Updated: 2022/01/27 14:26:13 by lraffin          ###   ########.fr        #
+#    Updated: 2022/01/27 20:29:17 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,7 +77,7 @@ $(NAME): $(OBJS)
 -include $(DEPS)
 $(OBJ_DIR)/%.o: %.c
 	@mkdir -p $(OBJ_DIR)
-	@echo "\t$(_YELLOW)Compiling$(_RESET) $*.c\r\c"
+	@echo "\t$(_YELLOW)compiling$(_RESET) $*.c\r\c"
 	@$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
 	@echo "$(_CLEAR)"
 
@@ -86,21 +86,21 @@ libs:
 	@make -sC mlx
 
 clean:
-	@echo "$(_INFO) Deleting object files"
+	@echo "$(_INFO) deleting object files"
 	@make clean -sC libft
 	@rm -rf $(OBJ_DIR)
 
 fclean: clean
-	@echo "$(_INFO) Deleting executables"
+	@echo "$(_INFO) deleting executables"
 	@make fclean -sC libft
 	@rm -f $(NAME)
 
 re: fclean all
 
 norm:
-	@echo "$(YELLOW)SOURCES$(NOC)"
+	@echo "[$(YELLOW)SOURCES$(NOC)]"
 	-@norminette $(SRC_DIR)
-	@echo "$(YELLOW)INCLUDES$(NOC)"
+	@echo "[$(YELLOW)INCLUDES$(NOC)]"
 	-@norminette $(INC_DIR)
 
 push:

@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 18:26:00 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/27 20:32:05 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/27 22:15:56 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		precalculate_rays(t_data *data)
 	double	rh;
 	double	rv;
 
-	fov = HALF_FOV * PI / 180;
+	fov = HALF_FOV ;
 	rh = 2 * tan(fov) / WIN_W;
 	rv = 2 * tan(fov * WIN_H / (WIN_W * 2)) / WIN_H;
 
@@ -47,7 +47,7 @@ int		precalculate_rays(t_data *data)
 		{1, 0, 0, -3}
 	};
 
-	t_point cam = {0, 0, 0.5};
+	t_point cam = {data->player_x, data->player_y, 0.5};
 	t_point line = {0, 0, 0};
 	t_point inter = {0, 0, 0};
 
@@ -81,58 +81,3 @@ int		precalculate_rays(t_data *data)
 	mlx_put_image_to_window(data->mlx->ptr, data->mlx->win, data->mlx->img, 0, 0);
 	return (SUCCESS);
 }
-
-// double	degree_to_radians(double degree)
-// {
-// 	return (degree * PI / 180);
-// }
-
-// int		precalculate_rays(t_data *data)
-// {
-// 	double	ray_angle = PLAYER_ANGLE - HALF_FOV;
-// 	int		ray_count;
-// 	t_point ray;
-
-// 	if (data->mlx->img)
-// 		mlx_destroy_image(data->mlx->ptr, data->mlx->img);
-// 	data->mlx->img = mlx_new_image(data->mlx->ptr, WIN_W, WIN_H);
-// 	data->mlx->buf1 = mlx_get_data_addr(data->mlx->img, &data->mlx->bpp,
-// 		&data->mlx->length, &data->mlx->endian);
-// 	ray_count = -1;
-// 	while (++ray_count < WIN_W)
-// 	{
-// 		ray.x = data->player_x;
-// 		ray.y = data->player_y;
-
-// 		double raycos = cos(degree_to_radians(ray_angle)) / PRECISION;
-// 		double raysin = sin(degree_to_radians(ray_angle)) / PRECISION;
-
-// 		char	wall = '0';
-// 		while (wall == '0')
-// 		{
-// 			ray.x += raycos;
-// 			ray.y += raysin;
-// 			wall = data->map->tab[(int)ray.y][(int)ray.x];
-// 		}
-// 		double	distance = sqrt(pow(data->player_x - ray.x, 2)
-// 						+ (pow(data->player_y - ray.y, 2)));
-
-// 		double	wallheight = (int)(HALF_WIN_H / distance);
-
-// 		t_point	o;
-// 		o.x = 0;
-// 		o.y = HALF_WIN_H - wallheight;
-// 		put_vline(ray_count, o, BLUE, data->mlx);
-// 		o.x = HALF_WIN_H - wallheight;
-// 		o.y = HALF_WIN_H + wallheight;
-// 		put_vline(ray_count, o, RED, data->mlx);
-// 		o.x = HALF_WIN_H + wallheight;
-// 		o.y = WIN_H;
-// 		put_vline(ray_count, o, GREEN, data->mlx);
-
-// 		ray_angle += INCREM_ANGLE;
-// 	}
-// 	mlx_put_image_to_window(data->mlx->ptr, data->mlx->win, data->mlx->img, 0, 0);
-// 	return (0);
-
-// }

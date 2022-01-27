@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:12:07 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/27 15:41:54 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/27 23:02:09 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,11 @@ typedef struct s_plane
 
 typedef struct s_data
 {
-	int			player_x;
-	int			player_y;
+	double		player_x;
+	double		player_y;
+	double		player_dirx;
+	double		player_diry;
+	double		player_dirz;
 	int			i;
 	int			j;
 	int			x;

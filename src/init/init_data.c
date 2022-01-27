@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:37:03 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/27 22:16:04 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/27 23:02:35 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ static void	init_values(t_data *data)
 	data->y = 0;
 	data->player_x = 0;
 	data->player_y = 0;
+	data->player_dirx = 0;
+	data->player_diry = -1;
+	data->player_dirz = 0;
 	data->map->w = 0;
 	data->map->h = 0;
 	// data->map_info->next = NULL;

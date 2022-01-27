@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:12:07 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/26 01:55:04 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/27 15:41:54 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,6 @@ typedef struct s_plane
 	double	d;
 }	t_plane;
 
-typedef struct s_ray
-{
-	int fov;
-
-}	t_ray;
-
 typedef struct s_data
 {
 	int			player_x;
@@ -72,7 +66,7 @@ typedef struct s_data
 	int			j;
 	int			x;
 	int			y;
-	t_ray		*ray;
+	// t_ray		*ray;
 	t_mlx		*mlx;
 	t_mouse		*mouse;
 	t_map		*map;

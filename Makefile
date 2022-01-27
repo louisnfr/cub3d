@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/14 15:18:03 by lraffin           #+#    #+#              #
-#    Updated: 2022/01/26 01:24:27 by lraffin          ###   ########.fr        #
+#    Updated: 2022/01/27 14:26:13 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRCS =					\
 RAYCASTING =			\
 		precalculate.c
 
-GEOMETRY =			\
+GEOMETRY =				\
 		draw.c
 
 EVENTS =				\

@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:23:25 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/26 01:55:23 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/27 16:03:03 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ static int	key_press(int key, void *param)
 	printf("key: %d\n", key);
 	if (key == ESC)
 		exit(EXIT_SUCCESS);
+	if (key == UP)
+		data->player_y -= 0.1;
+	if (key == DOWN)
+		data->player_y += 0.1;
 	// if (key == LEFT || key <= UP || key <= RIGHT || key <= DOWN)
 	// 	move(key, data->player, data);
 	return (0);

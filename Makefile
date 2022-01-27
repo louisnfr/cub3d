@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/14 15:18:03 by lraffin           #+#    #+#              #
-#    Updated: 2022/01/27 20:29:17 by lraffin          ###   ########.fr        #
+#    Updated: 2022/01/27 20:44:52 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,7 +72,7 @@ all: libs
 
 $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) -o $@ $^ $(LIBFT) $(MLX)
-	@echo "$(_SUCCESS) $(NAME)"
+	@echo "$(_SUCCESS) cub3d"
 
 -include $(DEPS)
 $(OBJ_DIR)/%.o: %.c

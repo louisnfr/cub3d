@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 18:26:00 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/27 18:42:53 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/27 20:32:05 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,9 @@ int		precalculate_rays(t_data *data)
 	t_point line = {0, 0, 0};
 	t_point inter = {0, 0, 0};
 
+	(void)inter;
+	(void)ray_count;
+
 	i = -1;
 	while (++i <= WIN_W)
 	{
@@ -76,6 +79,7 @@ int		precalculate_rays(t_data *data)
 		}
 	}
 	mlx_put_image_to_window(data->mlx->ptr, data->mlx->win, data->mlx->img, 0, 0);
+	return (SUCCESS);
 }
 
 // double	degree_to_radians(double degree)

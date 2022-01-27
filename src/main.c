@@ -28,8 +28,8 @@ int main(int ac, char **av)
 		return (EXIT_FAILURE);
 	}
 	// precalculate_rays(data);
-	init_controls(data);
-	mlx_loop(data->mlx->ptr);
+	// init_controls(data);
+	// mlx_loop(data->mlx->ptr);
 	free_data(data);
 	return (EXIT_SUCCESS);
 }

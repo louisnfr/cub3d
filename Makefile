@@ -30,6 +30,7 @@ PARSING =				\
 		parse_walls_add_path_to_struct.c \
 		parse_walls_directions.c \
 		ft_split_charset.c	\
+		ft_atoi_commas.c \
 		parse_img_wall.c	\
 		parse_floor_ceiling.c \
 		parse_floor_ceiling_check_data.c \
@@ -54,27 +55,29 @@ SRC_DIR	= src
 OBJ_DIR	= obj
 
 CC		= clang
-CFLAGS	= -Wall -Wextra -Werror -MMD -MP $(DEBUG)
+CFLAGS	= -Wall -Wextra -MMD -MP $(DEBUG) #-Werror
 DEBUG	= -g3 -fsanitize=address
 LIBFT	= -L libft -lft
-MLX		= -Lmlx -lmlx -lXext -lX11 -lm
-# MLX		= -Lmlx -lmlx -lm -framework OpenGL -framework AppKit
-
+UNAME	= $(shell uname)
+ifeq ($(UNAME), Linux)
+	MLX		= -Lmlx -lmlx -lXext -lX11 -lm
+else ifeq ($(UNAME), Darwin)
+	MLX		= -Lmlx_mac -lmlx -framework OpenGL -framework AppKit -lm
+endif
 
 vpath %.c $(addprefix $(SRC_DIR)/, . raycasting geometry display parsing sprites exit events init)
-
 
 all: libs
 		@make -s $(NAME)
 
 $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) -o $@ $^ $(LIBFT) $(MLX)
-	@echo "$(_SUCCESS) $(NAME)"
+	@echo "$(_SUCCESS) cub3d"
 
 -include $(DEPS)
 $(OBJ_DIR)/%.o: %.c
 	@mkdir -p $(OBJ_DIR)
-	@echo "\t$(_YELLOW)Compiling$(_RESET) $*.c\r\c"
+	@echo "\t$(_YELLOW)compiling$(_RESET) $*.c\r\c"
 	@$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
 	@echo "$(_CLEAR)"
 
@@ -83,22 +86,21 @@ libs:
 	@make -sC mlx
 
 clean:
-	@echo "$(_INFO) Deleting object files and directories"
+	@echo "$(_INFO) deleting object files"
 	@make clean -sC libft
 	@rm -rf $(OBJ_DIR)
-	@echo "$(_SUCCESS) Working directory clean"
 
 fclean: clean
-	@echo "[$(RED)FCLEAN$(NOC)]"
+	@echo "$(_INFO) deleting executables"
 	@make fclean -sC libft
 	@rm -f $(NAME)
 
 re: fclean all
 
 norm:
-	@echo "$(YELLOW)SOURCES$(NOC)"
+	@echo "[$(YELLOW)SOURCES$(NOC)]"
 	-@norminette $(SRC_DIR)
-	@echo "$(YELLOW)INCLUDES$(NOC)"
+	@echo "[$(YELLOW)INCLUDES$(NOC)]"
 	-@norminette $(INC_DIR)
 
 push:
@@ -116,9 +118,9 @@ YELLOW	= \033[1;33m
 BLUE	= \033[1;34m
 WHITE	= \033[1;37m
 
-_YELLOW		=	\033[38;5;184m
-_GREEN		=	\033[38;5;46m
-_RESET		=	\033[0m
-_INFO		=	[$(_YELLOW)INFO$(_RESET)]
-_SUCCESS	=	[$(_GREEN)SUCCESS$(_RESET)]
-_CLEAR		=	\033[2K\c
+_YELLOW		= \033[38;5;184m
+_GREEN		= \033[38;5;46m
+_RESET		= \033[0m
+_INFO		= [$(_YELLOW)INFO$(_RESET)]
+_SUCCESS	= [$(_GREEN)SUCCESS$(_RESET)]
+_CLEAR		= \033[2K\c

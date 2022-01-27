@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:12:00 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/27 13:24:07 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/01/27 17:58:24 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ int		add_img_wall_to_mlx(t_data *data);
 void	error_message_walls(void);
 int		check_all_directions(t_data *data);
 int		check_and_add_path_walls(t_data *data, int i, char *face_wall);
+int		check_if_floor_ceiling_exist(t_data *data);
+int		check_and_add_color_ceiling_floor(t_data *data, int i);
+int 	parsing_floor_ceiling(t_data *data);
 
 /*** raycasting ***/
 

@@ -23,8 +23,9 @@ static int	check_if_walls_is_invalid(t_map *map_info)
 static int	check_if_direction_if_good(t_data *data, int i,
 								char *face_wall)
 {
-	if (ft_strncmp(data->map_info->file_cub[i], face_wall, 2)
-		&& ft_strcmp(&data->map_info->file_cub[i][3], " "))
+	if (ft_strncmp(data->map_info->file_cub[i], face_wall, 2))
+		return (EXIT_FAILURE);
+	if (ft_strncmp(&data->map_info->file_cub[i][2], " ", 1))
 	{
 		data->map_info->walls_invalid = 1;
 		return (EXIT_FAILURE);
@@ -63,6 +64,5 @@ int	check_all_directions(t_data *data)
 	if (check_if_too_much_walls_lines(data->sprites->check)
 		|| check_if_walls_is_invalid(data->map_info))
 		return (EXIT_FAILURE);
-	data->map_info->walls_valid = 1;
 	return (EXIT_SUCCESS);
 }

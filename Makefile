@@ -32,7 +32,9 @@ PARSING =				\
 		ft_split_charset.c	\
 		parse_img_wall.c	\
 		parse_floor_ceiling.c \
-		errors.c   \
+		parse_floor_ceiling_check_data.c \
+		parse_floor_ceiling_add_to_struct.c \
+		errors.c \
 
 EXIT =					\
 		free.c

@@ -6,12 +6,17 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:12:07 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/27 15:59:59 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/01/27 18:36:12 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
+
+typedef struct s_color
+{
+	char **ceiling_floor_duped;
+}	t_color;
 
 typedef struct s_map
 {
@@ -24,6 +29,7 @@ typedef struct s_map
 	int				walls_valid;
 	int				floor_ceiling_valid;
 	int				walls_invalid;
+	int				ceiling_floor[2];
 }	t_map;
 
 typedef	struct s_img
@@ -40,6 +46,8 @@ typedef struct s_sprites
 	void	*wall;
 	void	*floor;
 	int 	check[4];
+	t_color ceiling_map;
+	t_color floor_map;
 	t_img	wall_no;
 	t_img	wall_so;
 	t_img	wall_we;

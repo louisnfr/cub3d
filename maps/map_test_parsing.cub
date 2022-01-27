@@ -1,8 +1,7 @@
 SO ./images/wall.xpm
 EA ./images/wall.xpm
-WEbxrnbxrn./images/wall.xpm
+NO ./images/wall.xpm
 WE ./images/wall.xpm
 
-NO ./images/wall.xpm
-
-EA ./images/wall.xpm mok
+C 200,200, 200
+F 200, 200, 200

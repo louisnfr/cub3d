@@ -63,9 +63,7 @@ char	**ft_split_charset(char *str, char *charset)
 			return (NULL);
 		i = 0;
 		while (*str && !is_charset(*str, charset))
-		{
 			tab[index][i++] = *str++;
-		}
 		tab[index][i] = 0;
 	}
 	tab[index] = 0;

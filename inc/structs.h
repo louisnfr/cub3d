@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:12:07 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/26 16:02:16 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/01/27 15:59:59 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_map
 	int				cubfile_width_line;
 	int				walls_valid;
 	int				floor_ceiling_valid;
+	int				walls_invalid;
 }	t_map;
 
 typedef	struct s_img
@@ -38,6 +39,7 @@ typedef struct s_sprites
 {
 	void	*wall;
 	void	*floor;
+	int 	check[4];
 	t_img	wall_no;
 	t_img	wall_so;
 	t_img	wall_we;
@@ -70,7 +72,7 @@ typedef struct s_mouse
 typedef struct s_ray
 {
 	int fov;
-	
+
 }	t_ray;
 
 typedef struct s_data

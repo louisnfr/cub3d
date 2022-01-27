@@ -27,6 +27,8 @@ PARSING =				\
 		parse_file.c	\
 		check_input.c	\
 		parse_walls.c 	\
+		parse_walls_add_path_to_struct.c \
+		parse_walls_directions.c \
 		ft_split_charset.c	\
 		parse_img_wall.c	\
 		parse_floor_ceiling.c \
@@ -50,7 +52,7 @@ SRC_DIR	= src
 OBJ_DIR	= obj
 
 CC		= clang
-CFLAGS	= -Wall -Wextra -Werror -MMD -MP -g3 #$(DEBUG)
+CFLAGS	= -Wall -Wextra -Werror -MMD -MP $(DEBUG)
 DEBUG	= -g3 -fsanitize=address
 LIBFT	= -L libft -lft
 MLX		= -Lmlx -lmlx -lXext -lX11 -lm

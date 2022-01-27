@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 12:49:32 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/26 18:02:57 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/01/27 16:24:02 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	free_sprites(t_data *data, t_sprites *sprites)
 {
 	(void) data;
 	(void) sprites;
+
 	clean_free(&sprites->wall_no.path_face);
 	clean_free(&sprites->wall_no.path_img);
 	clean_free(&sprites->wall_so.path_face);
@@ -43,12 +44,15 @@ int	free_data(t_data *data)
 		free(data->sprites);
 	if (data->map_info)
 		free(data->map_info);
-	// mlx_destroy_display(data->mlx->ptr);
-	mlx_destroy_window(data->mlx->ptr, data->mlx->win);
 	if (data->mlx->ptr)
+	{
+		mlx_destroy_image(data->mlx->ptr, data->mlx->img);
+		mlx_destroy_window(data->mlx->ptr, data->mlx->win);
+		mlx_destroy_display(data->mlx->ptr);
 		free(data->mlx->ptr);
-	if (data->mlx)
-		free(data->mlx);
+		if (data->mlx)
+			free(data->mlx);
+	}
 	if (data)
 		free(data);
 	return (EXIT_SUCCESS);

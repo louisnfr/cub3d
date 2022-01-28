@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:15:48 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/27 23:04:28 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/28 17:44:18 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,16 @@
 # define KEYS_H
 
 # ifdef __linux__
-#  define W 65362
-#  define A 65361
-#  define S 65364
-#  define D 65363
+#  define W 119
+#  define A 97
+#  define S 115
+#  define D 100
+#  define Q 113
+#  define E 101
+#  define UP 126
+#  define LEFT 123
+#  define DOWN 125
+#  define RIGHT 124
 #  define ESC 65307
 # else
 #  define W 13

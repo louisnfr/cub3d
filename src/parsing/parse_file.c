@@ -14,13 +14,13 @@ int	parse_file(t_data *data)
 {
 	if (parsing_walls(data))
 		return (EXIT_FAILURE);
-	if (add_img_wall_to_mlx(data))
-	{
-		error_message_walls();
-		return (EXIT_FAILURE);
-	}
-	if (parsing_floor_ceiling(data))
-		return (EXIT_FAILURE);
+	// if (add_img_wall_to_mlx(data))
+	// {
+	// 	error_message_walls();
+	// 	return (EXIT_FAILURE);
+	// }
+	// if (parsing_floor_ceiling(data))
+	// 	return (EXIT_FAILURE);
 	// if (parsing_map(data))
 	// 	return (EXIT_FAILURE);
 	if (check_if_all_file_is_good(data))

@@ -1,9 +1,9 @@
 SO ./images/wall.xpm
 EA ./images/wall.xpm
 
-F 200, 100, 2
+F 200, 			100		, 			2
 
-C 200, 0, 		200
+C		   200, 255	,									200
 
-NO ./images/wall.xpm
 WE ./images/wall.xpm
+NO ./images/wall.xpm

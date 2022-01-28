@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 18:26:00 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/28 18:38:17 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/28 18:44:49 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		precalculate_rays(t_data *data)
 {
-	double posX = 5, posY = 5;
+	double posX = data->player_x, posY = data->player_y;
 	double dirX = -1, dirY = 0;
 	double planeX = 0, planeY = 0.66;
 	int	x;

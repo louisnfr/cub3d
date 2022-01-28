@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:23:25 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/27 23:04:43 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/28 18:48:31 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 static int	key_press(int key, void *param)
 {
 	t_data	*data;
-	double	speed = 0.2;
+	double	speed = 0.1;
 
 	data = param;
 	printf("key: %d\n", key);
 	if (key == ESC)
 		exit(EXIT_SUCCESS);
 	if (key == W)
-		data->player_y -= speed;
-	if (key == S)
-		data->player_y += speed;
-	if (key == A)
-		data->player_x += speed;
-	if (key == D)
 		data->player_x -= speed;
+	if (key == S)
+		data->player_x += speed;
+	if (key == A)
+		data->player_y -= speed;
+	if (key == D)
+		data->player_y += speed;
 	if (key == E)
 		data->player_dirx += speed;
 	if (key == Q)

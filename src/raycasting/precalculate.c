@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 18:26:00 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/27 23:08:01 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/28 18:38:17 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,69 +14,105 @@
 
 int		precalculate_rays(t_data *data)
 {
-	int	ray_count;
-
-	t_point	vect;
-
-	int	i;
-	int	j;
-
-	double	fov;
-	double	rh;
-	double	rv;
-
-	fov = HALF_FOV ;
-	rh = 2 * tan(fov) / WIN_W;
-	rv = 2 * tan(fov * WIN_H / (WIN_W * 2)) / WIN_H;
-
-	vect.x = 0;
-	vect.y = -1;
-	vect.z = 0;
+	double posX = 5, posY = 5;
+	double dirX = -1, dirY = 0;
+	double planeX = 0, planeY = 0.66;
+	int	x;
 
 	if (data->mlx->img)
 		mlx_destroy_image(data->mlx->ptr, data->mlx->img);
 	data->mlx->img = mlx_new_image(data->mlx->ptr, WIN_W, WIN_H);
 	data->mlx->buf1 = mlx_get_data_addr(data->mlx->img, &data->mlx->bpp,
 		&data->mlx->length, &data->mlx->endian);
-
-	t_plane	w[4] =
+	x = -1;
+	while (++x < WIN_W)
 	{
-		{1, 0, 0, 3},
-		{0, 1, 0, 3},
-		{0, 1, 0, -3},
-		{1, 0, 0, -3}
-	};
+		double camx = 2 * x / (double)WIN_W - 1;
+		double rayDirX = dirX + planeX * camx;
+		double rayDirY = dirY + planeY * camx;
 
-	t_point cam = {data->player_x, data->player_y, 0.5};
-	t_point line = {0, 0, 0};
-	t_point inter = {0, 0, 0};
+		int mapX = (int)posX;
+		int mapY = (int)posY;
 
-	(void)inter;
-	(void)ray_count;
+		double deltaDistX = (rayDirX == 0) ? 1e30 : fabs(1 / rayDirX);
+		double deltaDistY = (rayDirY == 0) ? 1e30 : fabs(1 / rayDirY);
+		double distX;
+		double distY;
+		double perpWallDist;
 
-	i = -1;
-	while (++i <= WIN_W)
-	{
-		j = -1;
-		while (++j <= WIN_H)
+		int hit = 0;
+		int	side;
+		int	stepX;
+		int	stepY;
+
+		if (rayDirX < 0)
 		{
-			int k = -1;
-			while (++k < 4)
-			{
-				vect.x = ((i - WIN_W * 0.5) * rh);
-				vect.z = ((WIN_H * 0.5 - j) * rv);
-
-				double t = - ((w[k].a * cam.x) + (w[k].b * cam.y) + (w[k].c * cam.z) + w[k].d)
-						/ ((w[k].a * vect.x) + (w[k].b * vect.y) + (w[k].c * vect.z));
-
-				line.x = cam.x + vect.x * t;
-				line.y = cam.y + vect.y * t;
-				line.z = cam.z + vect.z * t;
-
-				if (t > 0 && line.z >= 0 && line.z <= 1)
-					put_pixel(i, j, WHITE, data->mlx);
-			}
+			stepX = -1;
+			distX = (posX - mapX) * deltaDistX;
 		}
+		else
+		{
+			stepX = 1;
+			distX = (mapX + 1.0 - posX) * deltaDistX;
+		}
+		if(rayDirY < 0)
+		{
+			stepY = -1;
+			distY = (posY - mapY) * deltaDistY;
+		}
+		else
+		{
+			stepY = 1;
+			distY = (mapY + 1.0 - posY) * deltaDistY;
+		}
+
+		while(hit == 0)
+		{
+			//jump to next map square, either in x-direction, or in y-direction
+			if(distX < distY)
+			{
+				distX += deltaDistX;
+				mapX += stepX;
+				side = 0;
+			}
+			else
+			{
+				distY += deltaDistY;
+				mapY += stepY;
+				side = 1;
+			}
+			//Check if ray has hit a wall
+			if(data->map->tab[mapX][mapY] > '0') hit = 1;
+		}
+		if(side == 0)
+			perpWallDist = (distX - deltaDistX);
+		else
+			perpWallDist = (distY - deltaDistY);
+
+		int lineHeight = (int)(WIN_H / perpWallDist);
+
+		//calculate lowest and highest pixel to fill in current stripe
+		int drawStart = -lineHeight / 2 + WIN_H / 2;
+		if(drawStart < 0) drawStart = 0;
+		int drawEnd = lineHeight / 2 + WIN_H / 2;
+		if(drawEnd >= WIN_H) drawEnd = WIN_H - 1;
+
+		int color;
+		switch(data->map->tab[mapX][mapY])
+		{
+			case '1':  color = RED;    break; //red
+			case '2':  color = GREEN;  break; //green
+			case '3':  color = BLUE;   break; //blue
+			case '4':  color = WHITE;  break; //white
+			default: color = YELLOW; break; //yellow
+		}
+
+		if(side == 1) {color = color / 2;}
+
+		//draw the pixels of the stripe as a vertical line
+		t_point a = {drawStart, drawEnd};
+		put_vline(x, a, color, data->mlx);
+		// verLine(x, drawStart, drawEnd, color);
 	}
 	mlx_put_image_to_window(data->mlx->ptr, data->mlx->win, data->mlx->img, 0, 0);
 	return (SUCCESS);

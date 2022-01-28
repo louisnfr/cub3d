@@ -22,11 +22,7 @@ int main(int ac, char **av)
 		free_data(data);
 		return (EXIT_FAILURE); // pensez a free le double tableau
 	}
-	if (add_img_wall_to_mlx(data))
-	{
-		free_data(data);
-		return (EXIT_FAILURE);
-	}
+	printf("TOUT EST OK\n");
 	// precalculate_rays(data);
 	// init_controls(data);
 	// mlx_loop(data->mlx->ptr);

@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:13:19 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/27 23:34:37 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/01/28 10:56:06 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@
 # include "defines.h"
 # include "keys.h"
 # include "colors.h"
-// # include "../mlx/mlx.h"
+# include "../mlx/mlx.h"
 
 #endif

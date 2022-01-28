@@ -1,6 +1,6 @@
 #include "cub3d.h"
 
-int parsing_floor_ceiling(t_data *data)
+int	parsing_floor_ceiling(t_data *data)
 {
 	if (check_if_floor_ceiling_exist(data))
 		return (EXIT_FAILURE);

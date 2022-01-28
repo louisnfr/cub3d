@@ -47,17 +47,17 @@ int	add_img_wall_to_mlx(t_data *data)
 		if (add_face_wall_no_to_mlx(data, data->sprites->wall_no.path_img))
 			return (EXIT_FAILURE);
 	}
-	else if (!ft_strcmp (data->sprites->wall_so.path_face, "SO"))
+	if (!ft_strcmp (data->sprites->wall_so.path_face, "SO"))
 	{
 		if (add_face_wall_so_to_mlx(data, data->sprites->wall_so.path_img))
 			return (EXIT_FAILURE);
 	}
-	else if (!ft_strcmp (data->sprites->wall_ea.path_face, "EA"))
+	if (!ft_strcmp (data->sprites->wall_ea.path_face, "EA"))
 	{
 		if (add_face_wall_ea_to_mlx(data, data->sprites->wall_ea.path_img))
 			return (EXIT_FAILURE);
 	}
-	else if (!ft_strcmp (data->sprites->wall_we.path_face, "WE"))
+	if (!ft_strcmp (data->sprites->wall_we.path_face, "WE"))
 	{
 		if (add_face_wall_we_to_mlx(data, data->sprites->wall_we.path_img))
 			return (EXIT_FAILURE);

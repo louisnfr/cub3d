@@ -29,12 +29,14 @@ PARSING =				\
 		parse_walls.c 	\
 		parse_walls_add_path_to_struct.c \
 		parse_walls_directions.c \
-		ft_split_charset.c	\
-		ft_atoi_commas.c \
 		parse_img_wall.c	\
+		ft_split_charset.c	\
+		ft_is_digit_comma.c \
+		ft_strlen_doublestr.c \
 		parse_floor_ceiling.c \
 		parse_floor_ceiling_check_data.c \
-		parse_floor_ceiling_add_to_struct.c \
+		parse_floor_ceiling_check_commas_digit.c \
+		parse_floor_ceiling_split_color.c \
 		errors.c \
 
 EXIT =					\
@@ -60,7 +62,7 @@ DEBUG	= -g3 -fsanitize=address
 LIBFT	= -L libft -lft
 UNAME	= $(shell uname)
 ifeq ($(UNAME), Linux)
-	MLX		= -Lmlx -lmlx -lXext -lX11 -lm
+MLX		= -Lmlx -lmlx -lXext -lX11 -lm
 else ifeq ($(UNAME), Darwin)
 	MLX		= -Lmlx_mac -lmlx -framework OpenGL -framework AppKit -lm
 endif

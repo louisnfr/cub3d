@@ -14,7 +14,7 @@ static int	check_if_walls_is_invalid(t_map *map_info)
 {
 	if (map_info->walls_invalid == 1)
 	{
-		error_message_walls();
+		// error_message_walls();
 		return (EXIT_FAILURE);
 	}
 	return (EXIT_SUCCESS);

@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:12:07 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/27 18:36:12 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/01/28 17:24:24 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 
 typedef struct s_color
 {
-	char **ceiling_floor_duped;
+	char	*raw;
+	int		r;
+	int		g;
+	int		b;
 }	t_color;
 
 typedef struct s_map
@@ -28,6 +31,7 @@ typedef struct s_map
 	int				cubfile_width_line;
 	int				walls_valid;
 	int				floor_ceiling_valid;
+	int				floor_ceiling_invalid;
 	int				walls_invalid;
 	int				ceiling_floor[2];
 }	t_map;
@@ -46,8 +50,8 @@ typedef struct s_sprites
 	void	*wall;
 	void	*floor;
 	int 	check[4];
-	t_color ceiling_map;
-	t_color floor_map;
+	t_color ceiling_color;
+	t_color floor_color;
 	t_img	wall_no;
 	t_img	wall_so;
 	t_img	wall_we;

@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:12:00 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/28 16:29:29 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/01/30 14:10:58 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int 	parsing_floor_ceiling(t_data *data);
 int		ft_isdigit_comma(int c, int *commas);
 int		check_colors_and_add_to_struct(t_data *data, char **ceiling_floor_data);
 int		check_number_of_array(char **ceiling_floor_data);
+int		parsing_map(t_data *data);
 
 /*** raycasting ***/
 

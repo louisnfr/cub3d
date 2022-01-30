@@ -37,6 +37,7 @@ PARSING =				\
 		parse_floor_ceiling_check_data.c \
 		parse_floor_ceiling_check_commas_digit.c \
 		parse_floor_ceiling_split_color.c \
+		parse_map.c \
 		errors.c \
 
 EXIT =					\

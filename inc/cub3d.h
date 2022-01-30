@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:12:00 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/30 14:10:58 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/01/30 17:12:20 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,10 @@ int		ft_isdigit_comma(int c, int *commas);
 int		check_colors_and_add_to_struct(t_data *data, char **ceiling_floor_data);
 int		check_number_of_array(char **ceiling_floor_data);
 int		parsing_map(t_data *data);
+int		map_if_in_good_place(t_map *map_info);
+int		store_data_map(t_map *map_info);
+int		first_or_last_line_of_map_exist(char *file_cub);
+int		check_empty_line(char *file_cub);
 
 /*** raycasting ***/
 

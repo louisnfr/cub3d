@@ -4,7 +4,6 @@ static int	check_if_too_much_walls_lines(int *check)
 {
 	if (check[0] != 1 || check[1] != 1 || check[2] != 1 || check[3] != 1)
 	{
-		printf("too_much_line\n");
 		error_message_walls();
 		return (EXIT_FAILURE);
 	}

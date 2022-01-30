@@ -38,6 +38,8 @@ PARSING =				\
 		parse_floor_ceiling_check_commas_digit.c \
 		parse_floor_ceiling_split_color.c \
 		parse_map.c \
+		parse_map_check_if_map_end_of_file.c \
+		parse_map_store_map.c \
 		errors.c \
 
 EXIT =					\

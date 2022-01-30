@@ -2,7 +2,7 @@
 
 // a changer avec le nouveau parsing car pas pertinent
 //de recuperer l'info tout de suite
-static char	**allocate_map(t_map *map_info)
+static char	**allocate_file(t_map *map_info)
 {
 	char	**map;
 	int		i;
@@ -22,7 +22,7 @@ static char	**allocate_map(t_map *map_info)
 }
 
 // On remplit la map avec toutes les infos
-static int	fill_map(t_data *data, char *av)
+static int	fill_file(t_data *data, char *av)
 {
 	char	*line;
 	int		ret;
@@ -31,7 +31,7 @@ static int	fill_map(t_data *data, char *av)
 	int		j;
 
 	fd = open(av, O_RDONLY);
-	data->map_info->file_cub = allocate_map(data->map_info);
+	data->map_info->file_cub = allocate_file(data->map_info);
 	if (!data->map_info->file_cub || fd < 0)
 		return (FAILURE);
 	ret = 1;
@@ -76,5 +76,5 @@ int	get_file(t_data *data, char *av)
 		free(line);
 	}
 	close(fd);
-	return (fill_map(data, av));
+	return (fill_file(data, av));
 }

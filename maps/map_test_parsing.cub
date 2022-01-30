@@ -1,9 +1,17 @@
 SO ./images/wall.xpm
 EA		  		./images/wall.xpm
-
 F 	200, 			100		, 			2
 
 C 	 200, 255	,									200
 
 WE	./images/wall.xpm
 NO ./images/wall.xpm
+
+
+
+
+111111111111
+10000000
+1111111111
+111
+

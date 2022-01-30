@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:12:07 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/30 13:47:47 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/01/30 17:39:18 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ typedef struct s_map
 	int				walls_invalid;
 	int				map_invalid;
 	int				map_valid;
+	int				first_line;
+	int				last_line;
+	int				map_width_line;
 	int				ceiling_floor[2];
 }	t_map;
 

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_floor_ceiling_check_commas_digit.c           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/31 14:56:11 by vbachele          #+#    #+#             */
+/*   Updated: 2022/01/31 14:56:12 by vbachele         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 static int	check_if_ceiling_floor_have_comma(char *ceiling_floor_data, int i)

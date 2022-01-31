@@ -42,6 +42,7 @@ PARSING =				\
 		parse_map_store_map.c \
 		parse_map_check_first_last_letters.c \
 		parse_map_check_letters.c \
+		parse_map_is_valid.c \
 		errors.c \
 
 EXIT =					\

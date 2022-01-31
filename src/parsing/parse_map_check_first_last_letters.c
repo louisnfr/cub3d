@@ -1,8 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_map_check_first_last_letters.c               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/31 14:56:24 by vbachele          #+#    #+#             */
+/*   Updated: 2022/01/31 14:59:56 by vbachele         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 static	int	check_error_last_letter(char **map)
 {
-
 	int	i;
 	int	len;
 
@@ -19,7 +30,7 @@ static	int	check_error_last_letter(char **map)
 	return (EXIT_SUCCESS);
 }
 
-static	int check_error_first_letter(char **map)
+static	int	check_error_first_letter(char **map)
 {
 	int	i;
 	int	j;
@@ -41,7 +52,7 @@ static	int check_error_first_letter(char **map)
 
 int	check_error_1st_letter_last_letter(char **map)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	if (check_error_first_letter(map))

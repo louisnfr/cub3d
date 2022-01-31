@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:12:00 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/31 11:33:08 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/01/31 14:37:07 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int		first_or_last_line_of_map_exist(char *file_cub);
 int		check_empty_line(char *file_cub);
 int		check_error_1st_letter_last_letter(char **map);
 int		check_if_letters_are_good(t_data *data);
+int		check_map_is_valid(t_data *data);
 
 /*** raycasting ***/
 

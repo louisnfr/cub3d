@@ -1,32 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libs.h                                             :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/24 12:13:19 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/28 10:56:06 by vbachele         ###   ########.fr       */
+/*   Created: 2022/01/21 15:34:43 by lraffin           #+#    #+#             */
+/*   Updated: 2022/01/26 15:51:54 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBS_H
-# define LIBS_H
+#include "cub3d.h"
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <fcntl.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <string.h>
-# include <math.h>
-
-# include "libft.h"
-# include "structs.h"
-# include "defines.h"
-# include "keys.h"
-# include "colors.h"
-# include "../mlx/mlx.h"
-
-#endif
+void	error_message_walls(void)
+{
+	ft_putstr_fd("Error\nProblem with your walls in your file cub\n", 2);
+}

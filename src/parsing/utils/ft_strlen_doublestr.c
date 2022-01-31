@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libs.h                                             :+:      :+:    :+:   */
+/*   ft_strlen_doublestr.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/24 12:13:19 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/28 10:56:06 by vbachele         ###   ########.fr       */
+/*   Created: 2022/01/31 14:56:03 by vbachele          #+#    #+#             */
+/*   Updated: 2022/01/31 15:13:50 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBS_H
-# define LIBS_H
+#include "cub3d.h"
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <fcntl.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <string.h>
-# include <math.h>
 
-# include "libft.h"
-# include "structs.h"
-# include "defines.h"
-# include "keys.h"
-# include "colors.h"
-# include "../mlx/mlx.h"
+int	check_number_of_array(char **ceiling_floor_data)
+{
+// LIBFT
+	int	i;
 
-#endif
+	i = 0;
+	while (ceiling_floor_data[i])
+		i++;
+	return (i);
+}

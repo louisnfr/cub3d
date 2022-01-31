@@ -3,27 +3,78 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:12:07 by lraffin           #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2022/01/31 03:59:10 by lraffin          ###   ########.fr       */
+=======
+/*   Updated: 2022/01/31 13:54:02 by vbachele         ###   ########.fr       */
+>>>>>>> error
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
+typedef struct s_color
+{
+	char	*raw;
+	int		r;
+	int		g;
+	int		b;
+}	t_color;
+
 typedef struct s_map
 {
+<<<<<<< HEAD
 	char	**tab;
 	int		w;
 	int		h;
 }	t_map;
+=======
+	char			**map;
+	char			**file_cub;
+	char			*color_ceiling;
+	char			*color_floor;
+	int				cubfile_number_lines;
+	int				cubfile_width_line;
+	int				walls_valid;
+	int				floor_ceiling_valid;
+	int				floor_ceiling_invalid;
+	int				walls_invalid;
+	int				map_invalid;
+	int				map_valid;
+	int				first_line;
+	int				last_line;
+	int				map_width_line;
+	int				ceiling_floor[2];
+}	t_map;
+
+typedef	struct s_img
+{
+	void			*img;
+	char			*path_img;
+	char			*path_face;
+	int				width;
+	int				height;
+} t_img;
+>>>>>>> error
 
 typedef struct s_sprites
 {
 	void	*wall;
 	void	*floor;
+<<<<<<< HEAD
+=======
+	int 	check[4];
+	t_color ceiling_color;
+	t_color floor_color;
+	t_img	wall_no;
+	t_img	wall_so;
+	t_img	wall_we;
+	t_img	wall_ea;
+>>>>>>> error
 }	t_sprites;
 
 typedef struct s_mlx
@@ -51,6 +102,7 @@ typedef struct s_mouse
 
 typedef struct s_ray
 {
+<<<<<<< HEAD
 	double	dirx;
 	double	diry;
 	double	deltax;
@@ -63,6 +115,10 @@ typedef struct s_ray
 	int		stepx;
 	int		stepy;
 	int		side;
+=======
+	int fov;
+
+>>>>>>> error
 }	t_ray;
 
 typedef struct s_vector

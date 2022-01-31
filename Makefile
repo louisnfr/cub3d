@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
+#    By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/14 15:18:03 by lraffin           #+#    #+#              #
-#    Updated: 2022/01/31 04:00:35 by lraffin          ###   ########.fr        #
+#    Updated: 2022/01/31 15:21:43 by vbachele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,15 +34,41 @@ EVENTS =				\
 DISPLAY =				\
 
 PARSING =				\
-		parse_map.c		\
+		get_file.c		\
+		parse_file.c	\
 		check_input.c	\
+		parse_walls.c 	\
+		parse_walls_add_path_to_struct.c \
+		parse_walls_directions.c \
+		parse_img_wall.c	\
+		ft_split_charset.c	\
+		ft_is_digit_comma.c \
+		ft_strlen_doublestr.c \
+		parse_floor_ceiling.c \
+		parse_floor_ceiling_check_data.c \
+		parse_floor_ceiling_check_commas_digit.c \
+		parse_floor_ceiling_split_color.c \
+		parse_map.c \
+		parse_map_check_if_map_end_of_file.c \
+		parse_map_store_map.c \
+		parse_map_check_first_last_letters.c \
+		parse_map_check_letters.c \
+		parse_map_is_valid.c \
+		errors.c \
 
 EXIT =					\
 		free.c
 
 INIT =					\
 		init_controls.c	\
+<<<<<<< HEAD
 		init_data.c
+=======
+		init_sprites.c	\
+		init_data.c \
+		init_struct.c \
+
+>>>>>>> error
 
 OBJS	= $(SRCS:%.c=$(OBJ_DIR)/%.o)
 DEPS	= $(OBJS:%.o=%.d)
@@ -52,18 +78,26 @@ SRC_DIR	= src
 OBJ_DIR	= obj
 
 CC		= clang
-CFLAGS	= -Wall -Wextra -Werror -MMD -MP $(DEBUG)
+CFLAGS	= -Wall -Wextra -Werror -MMD -MP #$(DEBUG)
 DEBUG	= -g3 -fsanitize=address
 LIBFT	= -L libft -lft
 UNAME	= $(shell uname)
 ifeq ($(UNAME), Linux)
+<<<<<<< HEAD
 	MLX		= -Lmlx -lmlx -lXext -lX11 -lm
 else ifeq ($(UNAME), Darwin)
 	MLX		= -Lmlx_mac -lmlx -framework OpenGL -framework AppKit -lm
 endif
 
 vpath %.c $(addprefix $(SRC_DIR)/, . raycasting geometry display parsing sprites exit events init)
+=======
+MLX		= -Lmlx -lmlx -lXext -lX11 -lm
+else ifeq ($(UNAME), Darwin)
+	MLX		= -Lmlx_mac -lmlx -framework OpenGL -framework AppKit -lm
+endif
+>>>>>>> error
 
+vpath %.c $(addprefix $(SRC_DIR)/, . raycasting geometry display parsing sprites exit events init parsing/walls parsing/utils parsing/map parsing/floor_ceiling)
 
 all: libs
 		@make -s $(NAME)
@@ -121,4 +155,8 @@ _GREEN		= \033[38;5;46m
 _RESET		= \033[0m
 _INFO		= [$(_YELLOW)INFO$(_RESET)]
 _SUCCESS	= [$(_GREEN)SUCCESS$(_RESET)]
+<<<<<<< HEAD
 _CLEAR		= \033[2K\c
+=======
+_CLEAR		= \033[2K\c
+>>>>>>> error

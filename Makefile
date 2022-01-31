@@ -17,7 +17,9 @@ GEOMETRY =				\
 		draw.c
 
 EVENTS =				\
-		controls.c
+		controls.c		\
+		move_player.c	\
+		orient_player.c	\
 
 DISPLAY =				\
 

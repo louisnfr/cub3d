@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:12:00 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/31 15:27:51 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/01/31 17:32:13 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	init_mouse(t_mouse *mouse);
 
 /*** parsing ***/
 
-char    **ft_split_charset(char *str, char *charset);
+char	**ft_split_charset(char *str, char *charset);
 void	check_input(int ac, char **av);
 int		parse_file(t_data *data);
 int		get_file(t_data *data, char *av);
@@ -55,6 +55,8 @@ int		raycasting(t_player *player, t_data *data);
 /*** events ***/
 
 void	init_controls(t_data *data);
+void	move_player(int key, t_player *player, t_data *data);
+void	orient_player(int key, t_camera *cam, t_vector *vect);
 
 /*** display ***/
 

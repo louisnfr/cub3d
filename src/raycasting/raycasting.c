@@ -85,8 +85,8 @@ static void	put_ray_to_image(int x, t_ray *ray, t_data *data)
 	t_point	wall = {start, end, 0};
 	t_point	ceiling = {0, start, 0};
 	t_point	floor = {end, WIN_H - 1, 0};
-	put_vline(x, ceiling, WHITE, data->mlx);
-	put_vline(x, floor, GREY, data->mlx);
+	put_vline(x, ceiling, data->sprites->ceiling_color.hex_color, data->mlx);
+	put_vline(x, floor, data->sprites->floor_color.hex_color, data->mlx);
 	put_vline(x, wall, color, data->mlx);
 }
 

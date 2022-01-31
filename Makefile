@@ -43,6 +43,7 @@ PARSING =				\
 		parse_map_check_letters.c \
 		parse_map_is_valid.c \
 		errors.c \
+		create_trgb.c \
 
 EXIT =					\
 		free.c

@@ -69,9 +69,10 @@ else ifeq ($(UNAME), Darwin)
 MLX		= -Lmlx_mac -lmlx -framework OpenGL -framework AppKit -lm
 endif
 
-vpath %.c $(addprefix $(SRC_DIR)/, . raycasting geometry display parsing \
-									sprites exit events init parsing/walls \
-									parsing/map parsing/floor_ceiling)
+vpath %.c $(addprefix $(SRC_DIR)/, . raycasting geometry display parsing	\
+									sprites exit events init parsing/walls	\
+									parsing/map parsing/floor_ceiling	\
+									)
 
 all: libs
 		@make -s $(NAME)

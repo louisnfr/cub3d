@@ -20,7 +20,8 @@ static int	check_if_ceiling_floor_if_good(t_data *data, int i,
 {
 	if (ft_strncmp(data->map_info->file_cub[i], ceiling_or_floor, 1))
 		return (EXIT_FAILURE);
-	if (data->map_info->file_cub[i][1] != ' ' && data->map_info->file_cub[i][1] != '\t') // acorriger
+	if (data->map_info->file_cub[i][1] != ' '
+		&& data->map_info->file_cub[i][1] != '\t')
 	{
 		data->map_info->walls_invalid = 1;
 		return (EXIT_FAILURE);
@@ -54,7 +55,6 @@ int	check_if_floor_ceiling_exist(t_data *data)
 		else if (!check_if_ceiling_floor_if_good(data, i, "F", &check_f))
 			data->map_info->ceiling_floor[1]++;
 	}
-	// printf("i = %d --- data->map_info->invalid[0] == C == %d\n", i, data->map_info->ceiling_floor[0]);
 	if (error_number_ceiling_floor(data->map_info))
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);

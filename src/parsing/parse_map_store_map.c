@@ -4,7 +4,7 @@ static void	get_max_width(t_map *map_info)
 {
 	int		start_tab;
 	int		end_tab;
-	char 	**map;
+	char	**map;
 
 	start_tab = map_info->first_line;
 	end_tab = map_info->last_line;
@@ -45,7 +45,7 @@ static int	fill_map(t_map *map_info)
 	int		j;
 	int		start_tab;
 	int		end_tab;
-	char 	**map;
+	char	**map;
 
 	start_tab = map_info->first_line;
 	end_tab = map_info->last_line;
@@ -76,11 +76,11 @@ static	int	check_and_store_last_line(t_map *map_info)
 	while (--tmp >= 0)
 	{
 		if (!check_empty_line(map_info->file_cub[tmp]))
-			continue;
+			continue ;
 		else if (!first_or_last_line_of_map_exist(map_info->file_cub[tmp]))
 		{
 			map_info->last_line = tmp;
-			break;
+			break ;
 		}
 		else
 			return (EXIT_FAILURE);
@@ -95,6 +95,6 @@ int	store_data_map(t_map *map_info)
 	if ((map_info->last_line + 1) - map_info->first_line < 3)
 		return (EXIT_FAILURE);
 	if (fill_map(map_info))
-		return(EXIT_FAILURE);
+		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }

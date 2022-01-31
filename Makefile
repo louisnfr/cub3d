@@ -40,6 +40,8 @@ PARSING =				\
 		parse_map.c \
 		parse_map_check_if_map_end_of_file.c \
 		parse_map_store_map.c \
+		parse_map_check_first_last_letters.c \
+		parse_map_check_letters.c \
 		errors.c \
 
 EXIT =					\
@@ -60,7 +62,7 @@ SRC_DIR	= src
 OBJ_DIR	= obj
 
 CC		= clang
-CFLAGS	= -Wall -Wextra -MMD -MP $(DEBUG) #-Werror
+CFLAGS	= -Wall -Wextra -MMD -MP #$(DEBUG) #-Werror
 DEBUG	= -g3 -fsanitize=address
 LIBFT	= -L libft -lft
 UNAME	= $(shell uname)

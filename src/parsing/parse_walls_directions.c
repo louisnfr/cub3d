@@ -25,7 +25,8 @@ static int	check_if_direction_if_good(t_data *data, int i,
 {
 	if (ft_strncmp(data->map_info->file_cub[i], face_wall, 2))
 		return (EXIT_FAILURE);
-	if (data->map_info->file_cub[0][2] != ' ' && data->map_info->file_cub[0][2] != '\t') // acorriger
+	if (data->map_info->file_cub[0][2] != ' '
+		&& data->map_info->file_cub[0][2] != '\t')
 		data->map_info->walls_invalid = 1;
 	if (check_and_add_path_walls(data, i, face_wall))
 		return (EXIT_FAILURE);

@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 19:23:29 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/25 15:17:50 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/31 04:05:47 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ void	update_display(t_data *data)
 	data->mlx->img = mlx_new_image(data->mlx->ptr, WIN_W, WIN_H);
 	data->mlx->buf1 = mlx_get_data_addr(data->mlx->img, &data->mlx->bpp,
 			&data->mlx->length, &data->mlx->endian);
-
-	mlx_put_image_to_window(data->mlx->ptr, data->mlx->win, data->mlx->img, 0, 0);
+	mlx_put_image_to_window(data->mlx->ptr, data->mlx->win,
+		data->mlx->img, 0, 0);
 }

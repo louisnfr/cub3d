@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:12:07 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/31 02:17:57 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/31 03:59:10 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ typedef struct s_sprites
 {
 	void	*wall;
 	void	*floor;
-
-} t_sprites;
+}	t_sprites;
 
 typedef struct s_mlx
 {
@@ -82,30 +81,15 @@ typedef struct s_camera
 	double	py;
 }	t_camera;
 
-typedef struct	s_player
+typedef struct s_player
 {
 	t_vector	vector;
 	t_camera	camera;
 }	t_player;
 
-// typedef struct	s_ray
-// {
-// 	double
-// }	t_ray;
-
 typedef struct s_data
 {
-	double		player_x;
-	double		player_y;
-	double		player_dirx;
-	double		player_diry;
-	double		player_dirz;
-	int			i;
-	int			j;
-	int			x;
-	int			y;
 	t_player	*player;
-	// t_ray		*ray;
 	t_mlx		*mlx;
 	t_mouse		*mouse;
 	t_map		*map;

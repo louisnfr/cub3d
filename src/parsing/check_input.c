@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 15:31:38 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/24 20:35:54 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/31 04:08:01 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	arg_error(void)
 
 static void	check_extension(char *s)
 {
-	int fd;
+	int	fd;
 
 	fd = open(s, O_DIRECTORY);
 	if (fd > 0)

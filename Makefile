@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/14 15:18:03 by lraffin           #+#    #+#              #
-#    Updated: 2022/01/31 01:41:55 by lraffin          ###   ########.fr        #
+#    Updated: 2022/01/31 04:00:35 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,6 @@ EVENTS =				\
 		controls.c
 
 DISPLAY =				\
-		sprites.c
 
 PARSING =				\
 		parse_map.c		\
@@ -43,7 +42,6 @@ EXIT =					\
 
 INIT =					\
 		init_controls.c	\
-		init_sprites.c	\
 		init_data.c
 
 OBJS	= $(SRCS:%.c=$(OBJ_DIR)/%.o)

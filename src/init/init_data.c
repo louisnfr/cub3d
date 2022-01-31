@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:37:03 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/31 03:03:10 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/31 04:01:49 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,8 @@
 
 static t_data	*init_values(t_data *data)
 {
-	data->i = 0;
-	data->x = 0;
-	data->y = 0;
-	data->player_x = 2;
-	data->player_y = 4;
-	data->player_dirx = -1;
-	data->player_diry = 0;
-	data->player_dirz = 0;
 	data->map->w = 0;
 	data->map->h = 0;
-	// data->map_info->next = NULL;
-	// data->Ennemy_1_x = 0;
-	// data->Ennemy_1_y = 0;
 	return (data);
 }
 

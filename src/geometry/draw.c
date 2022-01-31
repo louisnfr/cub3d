@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:32:47 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/26 01:28:58 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/31 04:06:11 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,7 @@ void	put_vline(int x, t_point b, int color, t_mlx *mlx)
 {
 	int	i;
 
-	// if (b.y <= b.x)
-	// 	return ;
-	i = b.x;
-	while (i < b.y)
-	{
+	i = b.x - 1;
+	while (++i < b.y)
 		put_pixel(x, i, color, mlx);
-		i++;
-	}
 }

@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/01/31 22:49:26 by lraffin           #+#    #+#              #
+#    Updated: 2022/02/01 00:04:44 by lraffin          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME =	cub3D
 
 SRCS =					\
@@ -41,9 +53,9 @@ PARSING =				\
 		parse_map_check_first_last_letters.c \
 		parse_map_check_letters.c \
 		parse_map_is_valid.c \
-		errors.c \
 
-EXIT =					\
+EXIT =				\
+		errors.c 	\
 		free.c
 
 INIT =					\
@@ -51,12 +63,12 @@ INIT =					\
 		init_data.c \
 		init_struct.c \
 
-OBJS	= $(SRCS:%.c=$(OBJ_DIR)/%.o)
-DEPS	= $(OBJS:%.o=%.d)
-
 INC_DIR	= inc
 SRC_DIR	= src
 OBJ_DIR	= obj
+
+OBJS	= $(SRCS:%.c=$(OBJ_DIR)/%.o)
+DEPS	= $(OBJS:%.o=%.d)
 
 CC		= clang
 CFLAGS	= -Wall -Wextra -Werror -MMD -MP #$(DEBUG)
@@ -95,35 +107,29 @@ libs:
 clean:
 	@echo "$(_INFO) deleting object files"
 	@make clean -sC libft
+	@make clean -sC mlx
 	@rm -rf $(OBJ_DIR)
 
 fclean: clean
 	@echo "$(_INFO) deleting executables"
 	@make fclean -sC libft
-	@rm -f $(NAME)
+	@rm -rf $(NAME)
 
 re: fclean all
 
 norm:
-	@echo "[$(YELLOW)SOURCES$(NOC)]"
+	@echo "[$(_YELLOW)SOURCES$(_RESET)]"
 	-@norminette $(SRC_DIR)
-	@echo "[$(YELLOW)INCLUDES$(NOC)]"
+	@echo "[$(_YELLOW)INCLUDES$(_RESET)]"
 	-@norminette $(INC_DIR)
 
 push:
 	git add .
 	git status
-	git commit -m cub3D
+	git commit -m "cub3d (make push)"
 	git push
 
-.PHONY:	all clean fclean re debug norm push libs
-
-NOC		= \033[0m
-RED		= \033[1;31m
-GREEN	= \033[1;32m
-YELLOW	= \033[1;33m
-BLUE	= \033[1;34m
-WHITE	= \033[1;37m
+.PHONY:	all clean fclean re norm push libs
 
 _YELLOW		= \033[38;5;184m
 _GREEN		= \033[38;5;46m

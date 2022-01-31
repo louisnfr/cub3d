@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libs.h                                             :+:      :+:    :+:   */
+/*   istype.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/24 12:13:19 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/01 00:04:27 by lraffin          ###   ########.fr       */
+/*   Created: 2022/01/31 23:25:51 by lraffin           #+#    #+#             */
+/*   Updated: 2022/01/31 23:38:06 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBS_H
-# define LIBS_H
+#ifndef ISTYPE_H
+# define ISTYPE_H
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <fcntl.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <string.h>
-# include <math.h>
-
-# include "../mlx/mlx.h"
-# include "libft/libft.h"
-# include "structs.h"
-# include "defines.h"
-# include "keys.h"
-# include "colors.h"
+int		ft_isalnum(int c);
+int		ft_isalpha(int c);
+int		ft_isascii(int c);
+int		ft_isdigit(int c);
+int		ft_isdigit_comma(int c, int *commas);
+int		ft_isflag(int c);
+int		ft_isprint(int c);
+int		ft_isspace(int c);
+int		str_is_alnum(char *s);
+int		str_is_digit(char *s);
+int		str_is_equal(const char *s1, const char *s2);
+int		str_is_only_char(char *str, int c);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:12:00 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/31 19:12:04 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/01/31 22:15:51 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,6 @@ int		check_if_floor_ceiling_exist(t_data *data);
 int		check_and_add_color_ceiling_floor(t_data *data, int i);
 int		parsing_floor_ceiling(t_data *data);
 int		check_colors_and_add_to_struct(t_data *data, char **ceiling_floor_data);
-
-/*** parsing_utils ***/
-
-int		ft_isdigit_comma(int c, int *commas);
-char	**ft_split_charset(char *str, char *charset);
-int		check_number_of_array(char **ceiling_floor_data);
-int		create_trgb(int t, int r, int g, int b);
 
 /*** raycasting ***/
 

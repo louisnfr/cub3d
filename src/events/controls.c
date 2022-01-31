@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:23:25 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/31 18:34:05 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/31 22:02:28 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,10 @@ static int	mouse_press(int key, int x, int y, void *param)
 	(void)y;
 	data = param;
 	printf("%d\n", key);
-	if (key == LEFT_MB)
-		data->mouse->lb_is_pressed = TRUE;
-	if (key == RIGHT_MB)
-		data->mouse->rb_is_pressed = TRUE;
+	// if (key == LEFT_MB)
+	// 	data->mouse->lb_is_pressed = TRUE;
+	// if (key == RIGHT_MB)
+	// 	data->mouse->rb_is_pressed = TRUE;
 	return (0);
 }
 

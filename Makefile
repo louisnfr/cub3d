@@ -31,9 +31,6 @@ PARSING =				\
 		parse_walls_add_path_to_struct.c \
 		parse_walls_directions.c \
 		parse_img_wall.c	\
-		ft_split_charset.c	\
-		ft_is_digit_comma.c \
-		ft_strlen_doublestr.c \
 		parse_floor_ceiling.c \
 		parse_floor_ceiling_check_data.c \
 		parse_floor_ceiling_check_commas_digit.c \
@@ -45,7 +42,6 @@ PARSING =				\
 		parse_map_check_letters.c \
 		parse_map_is_valid.c \
 		errors.c \
-		create_trgb.c \
 
 EXIT =					\
 		free.c
@@ -54,7 +50,6 @@ INIT =					\
 		init_controls.c	\
 		init_data.c \
 		init_struct.c \
-
 
 OBJS	= $(SRCS:%.c=$(OBJ_DIR)/%.o)
 DEPS	= $(OBJS:%.o=%.d)
@@ -71,10 +66,12 @@ UNAME	= $(shell uname)
 ifeq ($(UNAME), Linux)
 MLX		= -Lmlx -lmlx -lXext -lX11 -lm
 else ifeq ($(UNAME), Darwin)
-	MLX		= -Lmlx_mac -lmlx -framework OpenGL -framework AppKit -lm
+MLX		= -Lmlx_mac -lmlx -framework OpenGL -framework AppKit -lm
 endif
 
-vpath %.c $(addprefix $(SRC_DIR)/, . raycasting geometry display parsing sprites exit events init parsing/walls parsing/utils parsing/map parsing/floor_ceiling)
+vpath %.c $(addprefix $(SRC_DIR)/, . raycasting geometry display parsing \
+									sprites exit events init parsing/walls \
+									parsing/map parsing/floor_ceiling)
 
 all: libs
 		@make -s $(NAME)

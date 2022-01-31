@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map_store_map.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:56:34 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/31 14:56:35 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/01/31 22:16:11 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ static	int	check_and_store_last_line(t_map *map_info)
 {
 	int	tmp;
 
-	tmp = check_number_of_array(map_info->file_cub);
+	tmp = ft_strlen_double_str(map_info->file_cub);
 	while (--tmp >= 0)
 	{
 		if (!check_empty_line(map_info->file_cub[tmp]))

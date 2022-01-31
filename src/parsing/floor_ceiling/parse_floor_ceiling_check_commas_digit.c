@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_floor_ceiling_check_commas_digit.c           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:56:11 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/31 14:56:12 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/01/31 22:15:57 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int	check_and_add_color_ceiling_floor(t_data *data, int i)
 	strdup_raw_cub_file(data, data->map_info->file_cub[i][0],
 		data->map_info->file_cub[i]);
 	ceiling_floor_data = ft_split_charset(data->map_info->file_cub[i], " \t");
-	len = check_number_of_array(ceiling_floor_data);
+	len = ft_strlen_double_str(ceiling_floor_data);
 	if (ft_strlen(ceiling_floor_data[0]) > 1
 		|| len > 6 || len < 2
 		|| check_strings(ceiling_floor_data, len)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 12:49:32 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/31 15:32:28 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/01/31 22:17:49 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	free_sprites(t_data *data, t_sprites *sprites)
 
 int	free_data(t_data *data)
 {
- 	free_double_str(data->map_info->map);
+	free_double_str(data->map_info->map);
 	free_double_str(data->map_info->file_cub);
 	free_sprites(data, data->sprites);
 	free_color_file(data->sprites->ceiling_color);

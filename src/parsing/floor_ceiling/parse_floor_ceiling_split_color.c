@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_floor_ceiling_split_color.c                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:56:16 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/31 19:10:29 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/01/31 22:16:41 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static	int	check_len_superior_to_four(char **tmp_split)
 {
 	int	len;
 
-	len = check_number_of_array(tmp_split);
+	len = ft_strlen_double_str(tmp_split);
 	if (len > 4)
 	{
 		free_double_str(tmp_split);
@@ -88,13 +88,13 @@ int	check_colors_and_add_to_struct(t_data *data, char **ceiling_floor_data)
 	{
 		if (check_rgb(data->sprites->ceiling_color, data, 1))
 			return (EXIT_FAILURE);
-		c->hex_color = create_trgb(0, c->r, c->g, c->b);
+		c->hex_color = ft_rgb_to_color(0, c->r, c->g, c->b);
 	}
 	else if (ceiling_floor_data[0][0] == 'F')
 	{
 		if (check_rgb(data->sprites->floor_color, data, 2))
 			return (EXIT_FAILURE);
-		f->hex_color = create_trgb(0, f->r, f->g, f->b);
+		f->hex_color = ft_rgb_to_color(0, f->r, f->g, f->b);
 	}
 	return (EXIT_SUCCESS);
 }

@@ -7,35 +7,36 @@ typedef struct s_color
 	int		r;
 	int		g;
 	int		b;
+	int		hex_color;
 }	t_color;
 
 typedef struct s_map
 {
-	char			**map;
-	char			**file_cub;
-	char			*color_ceiling;
-	char			*color_floor;
-	int				cubfile_number_lines;
-	int				cubfile_width_line;
-	int				walls_valid;
-	int				floor_ceiling_valid;
-	int				floor_ceiling_invalid;
-	int				walls_invalid;
-	int				map_invalid;
-	int				map_valid;
-	int				first_line;
-	int				last_line;
-	int				map_width_line;
-	int				ceiling_floor[2];
+	char	**map;
+	char	**file_cub;
+	char	*color_ceiling;
+	char	*color_floor;
+	int		cubfile_number_lines;
+	int		cubfile_width_line;
+	int		walls_valid;
+	int		floor_ceiling_valid;
+	int		floor_ceiling_invalid;
+	int		walls_invalid;
+	int		map_invalid;
+	int		map_valid;
+	int		first_line;
+	int		last_line;
+	int		map_width_line;
+	int		ceiling_floor[2];
 }	t_map;
 
 typedef	struct s_img
 {
-	void			*img;
-	char			*path_img;
-	char			*path_face;
-	int				width;
-	int				height;
+	void	*img;
+	char	*path_img;
+	char	*path_face;
+	int		width;
+	int		height;
 } t_img;
 
 typedef struct s_sprites
@@ -53,14 +54,14 @@ typedef struct s_sprites
 
 typedef struct s_mlx
 {
-	void		*ptr;
-	void		*win;
-	void		*img;
-	char		*buf1;
-	char		*buf2;
-	int			bpp;
-	int			length;
-	int			endian;
+	void	*ptr;
+	void	*win;
+	void	*img;
+	char	*buf1;
+	char	*buf2;
+	int		bpp;
+	int		length;
+	int		endian;
 }	t_mlx;
 
 typedef struct s_mouse

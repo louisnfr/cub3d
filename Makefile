@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/01/14 15:18:03 by lraffin           #+#    #+#              #
-#    Updated: 2022/01/31 15:21:43 by vbachele         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME =	cub3D
 
 SRCS =					\
@@ -61,14 +49,9 @@ EXIT =					\
 
 INIT =					\
 		init_controls.c	\
-<<<<<<< HEAD
-		init_data.c
-=======
-		init_sprites.c	\
 		init_data.c \
 		init_struct.c \
 
->>>>>>> error
 
 OBJS	= $(SRCS:%.c=$(OBJ_DIR)/%.o)
 DEPS	= $(OBJS:%.o=%.d)
@@ -83,19 +66,10 @@ DEBUG	= -g3 -fsanitize=address
 LIBFT	= -L libft -lft
 UNAME	= $(shell uname)
 ifeq ($(UNAME), Linux)
-<<<<<<< HEAD
-	MLX		= -Lmlx -lmlx -lXext -lX11 -lm
-else ifeq ($(UNAME), Darwin)
-	MLX		= -Lmlx_mac -lmlx -framework OpenGL -framework AppKit -lm
-endif
-
-vpath %.c $(addprefix $(SRC_DIR)/, . raycasting geometry display parsing sprites exit events init)
-=======
 MLX		= -Lmlx -lmlx -lXext -lX11 -lm
 else ifeq ($(UNAME), Darwin)
 	MLX		= -Lmlx_mac -lmlx -framework OpenGL -framework AppKit -lm
 endif
->>>>>>> error
 
 vpath %.c $(addprefix $(SRC_DIR)/, . raycasting geometry display parsing sprites exit events init parsing/walls parsing/utils parsing/map parsing/floor_ceiling)
 
@@ -155,8 +129,4 @@ _GREEN		= \033[38;5;46m
 _RESET		= \033[0m
 _INFO		= [$(_YELLOW)INFO$(_RESET)]
 _SUCCESS	= [$(_GREEN)SUCCESS$(_RESET)]
-<<<<<<< HEAD
 _CLEAR		= \033[2K\c
-=======
-_CLEAR		= \033[2K\c
->>>>>>> error

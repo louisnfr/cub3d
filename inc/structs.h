@@ -1,19 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   structs.h                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/24 12:12:07 by lraffin           #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2022/01/31 03:59:10 by lraffin          ###   ########.fr       */
-=======
-/*   Updated: 2022/01/31 13:54:02 by vbachele         ###   ########.fr       */
->>>>>>> error
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
@@ -27,12 +11,6 @@ typedef struct s_color
 
 typedef struct s_map
 {
-<<<<<<< HEAD
-	char	**tab;
-	int		w;
-	int		h;
-}	t_map;
-=======
 	char			**map;
 	char			**file_cub;
 	char			*color_ceiling;
@@ -59,14 +37,11 @@ typedef	struct s_img
 	int				width;
 	int				height;
 } t_img;
->>>>>>> error
 
 typedef struct s_sprites
 {
 	void	*wall;
 	void	*floor;
-<<<<<<< HEAD
-=======
 	int 	check[4];
 	t_color ceiling_color;
 	t_color floor_color;
@@ -74,7 +49,6 @@ typedef struct s_sprites
 	t_img	wall_so;
 	t_img	wall_we;
 	t_img	wall_ea;
->>>>>>> error
 }	t_sprites;
 
 typedef struct s_mlx
@@ -102,7 +76,6 @@ typedef struct s_mouse
 
 typedef struct s_ray
 {
-<<<<<<< HEAD
 	double	dirx;
 	double	diry;
 	double	deltax;
@@ -115,10 +88,6 @@ typedef struct s_ray
 	int		stepx;
 	int		stepy;
 	int		side;
-=======
-	int fov;
-
->>>>>>> error
 }	t_ray;
 
 typedef struct s_vector
@@ -148,7 +117,7 @@ typedef struct s_data
 	t_player	*player;
 	t_mlx		*mlx;
 	t_mouse		*mouse;
-	t_map		*map;
+	t_map		*map_info;
 	t_sprites	*sprites;
 }	t_data;
 

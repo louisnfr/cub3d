@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 18:26:00 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/31 04:02:56 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/31 15:30:01 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ int	raycasting(t_player *player, t_data *data)
 	{
 		create_ray(x, &ray, player);
 		set_dda(&ray, &player->vector);
-		perform_dda(&ray, &player->vector, data->map->tab);
+		perform_dda(&ray, &player->vector, data->map_info->map);
 		put_ray_to_image(x, &ray, data);
 	}
 	return (SUCCESS);

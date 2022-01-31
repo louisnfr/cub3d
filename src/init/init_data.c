@@ -6,18 +6,11 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:37:03 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/31 15:22:46 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/01/31 15:34:07 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-static t_data	*init_values(t_data *data)
-{
-	data->map->w = 0;
-	data->map->h = 0;
-	return (data);
-}
 
 static t_mlx	*init_mlx(void)
 {
@@ -56,11 +49,10 @@ t_data	*init_data(void)
 
 	data = malloc(sizeof(t_data));
 	data->sprites = malloc(sizeof(t_sprites));
-	data->map = malloc(sizeof(t_map));
-	if (!data || !data->sprites || !data->map)
+	data->map_info = malloc(sizeof(t_map));
+	if (!data || !data->sprites || !data->map_info)
 		return (NULL);
 	data->mlx = init_mlx();
 	data->player = init_player();
-	data = init_values(data);
 	return (data);
 }

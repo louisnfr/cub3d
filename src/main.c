@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 20:58:32 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/31 15:22:04 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/01/31 15:26:30 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,6 @@ int	main(int ac, char **av)
 	{
 		free_data(data);
 		return (EXIT_FAILURE);
-<<<<<<< HEAD
-	init_controls(data);
-	mlx_loop_hook(data->mlx->ptr, main_loop, data);
-	mlx_loop(data->mlx->ptr);
-=======
 	}
 	if (parse_file(data))
 	{
@@ -53,10 +48,9 @@ int	main(int ac, char **av)
 		return (EXIT_FAILURE); // pensez a free le double tableau
 	}
 	printf("TOUT EST OK\n");
-	// precalculate_rays(data);
-	// init_controls(data);
-	// mlx_loop(data->mlx->ptr);
->>>>>>> error
+	init_controls(data);
+	mlx_loop_hook(data->mlx->ptr, main_loop, data);
+	mlx_loop(data->mlx->ptr);
 	free_data(data);
 	return (EXIT_SUCCESS);
 }

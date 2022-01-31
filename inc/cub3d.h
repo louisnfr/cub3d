@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:12:00 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/31 15:21:47 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/01/31 15:27:51 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,8 @@ void	init_mouse(t_mouse *mouse);
 
 char    **ft_split_charset(char *str, char *charset);
 void	check_input(int ac, char **av);
-<<<<<<< HEAD
-int		get_map(t_data *data, char *av);
-=======
 int		parse_file(t_data *data);
+int		get_file(t_data *data, char *av);
 int		get_map(t_data *data, char *av);
 int 	parsing_walls(t_data *data);
 int		add_img_wall_to_mlx(t_data *data);
@@ -49,7 +47,6 @@ int		check_empty_line(char *file_cub);
 int		check_error_1st_letter_last_letter(char **map);
 int		check_if_letters_are_good(t_data *data);
 int		check_map_is_valid(t_data *data);
->>>>>>> error
 
 /*** raycasting ***/
 
@@ -62,20 +59,7 @@ void	init_controls(t_data *data);
 /*** display ***/
 
 void	put_pixel(int x, int y, int color, t_mlx *mlx);
-<<<<<<< HEAD
 void	put_vline(int x, t_point b, int color, t_mlx *mlx);
-=======
-void	put_line(t_point a, t_point b, int color, t_mlx *mlx);
-
-int		raycasting(t_data *data);
-int		get_file(t_data *data, char *av);
-
-
-void	display_sprites2(t_data *data);
-void	display_sprites(t_data *data);
-void	create_sprites(t_data *data);
-int		create_and_display_sprites(t_data *data);
->>>>>>> error
 
 /*** exit ***/
 

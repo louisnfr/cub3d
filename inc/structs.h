@@ -14,6 +14,7 @@ typedef struct s_map
 {
 	char	**map;
 	char	**file_cub;
+	char	init_position;
 	char	*color_ceiling;
 	char	*color_floor;
 	int		cubfile_number_lines;
@@ -30,22 +31,22 @@ typedef struct s_map
 	int		ceiling_floor[2];
 }	t_map;
 
-typedef	struct s_img
+typedef struct s_img
 {
 	void	*img;
 	char	*path_img;
 	char	*path_face;
 	int		width;
 	int		height;
-} t_img;
+}	t_img;
 
 typedef struct s_sprites
 {
 	void	*wall;
 	void	*floor;
-	int 	check[4];
-	t_color ceiling_color;
-	t_color floor_color;
+	int		check[4];
+	t_color	ceiling_color;
+	t_color	floor_color;
 	t_img	wall_no;
 	t_img	wall_so;
 	t_img	wall_we;

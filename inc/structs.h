@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:12:07 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/28 18:20:30 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/31 02:17:57 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,27 +41,51 @@ typedef struct s_mlx
 
 typedef struct s_mouse
 {
+	int		x;
+	int		y;
+	int		old_x;
+	int		old_y;
 	char	mb_is_pressed;
 	char	lb_is_pressed;
 	char	rb_is_pressed;
-	int		x;
-	int		y;
-	int		previous_x;
-	int		previous_y;
 }	t_mouse;
 
-typedef struct s_plane
-{
-	double	a;
-	double	b;
-	double	c;
-	double	d;
-}	t_plane;
-
-typedef struct	s_player
+typedef struct s_ray
 {
 	double	dirx;
 	double	diry;
+	double	deltax;
+	double	deltay;
+	double	distx;
+	double	disty;
+	double	pw;
+	int		mapx;
+	int		mapy;
+	int		stepx;
+	int		stepy;
+	int		side;
+}	t_ray;
+
+typedef struct s_vector
+{
+	double	x;
+	double	y;
+	double	z;
+	double	dx;
+	double	dy;
+	double	dz;
+}	t_vector;
+
+typedef struct s_camera
+{
+	double	px;
+	double	py;
+}	t_camera;
+
+typedef struct	s_player
+{
+	t_vector	vector;
+	t_camera	camera;
 }	t_player;
 
 // typedef struct	s_ray
@@ -80,6 +104,7 @@ typedef struct s_data
 	int			j;
 	int			x;
 	int			y;
+	t_player	*player;
 	// t_ray		*ray;
 	t_mlx		*mlx;
 	t_mouse		*mouse;

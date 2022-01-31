@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/14 15:18:03 by lraffin           #+#    #+#              #
-#    Updated: 2022/01/27 20:44:52 by lraffin          ###   ########.fr        #
+#    Updated: 2022/01/31 01:41:55 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRCS =					\
 		$(INIT)
 
 RAYCASTING =			\
-		precalculate.c
+		raycasting.c
 
 GEOMETRY =				\
 		draw.c
@@ -54,7 +54,7 @@ SRC_DIR	= src
 OBJ_DIR	= obj
 
 CC		= clang
-CFLAGS	= -Wall -Wextra -MMD -MP $(DEBUG) #-Werror
+CFLAGS	= -Wall -Wextra -Werror -MMD -MP $(DEBUG)
 DEBUG	= -g3 -fsanitize=address
 LIBFT	= -L libft -lft
 UNAME	= $(shell uname)

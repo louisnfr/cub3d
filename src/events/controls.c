@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:23:25 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/28 18:48:31 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/31 02:55:14 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,17 @@ static int	key_press(int key, void *param)
 	if (key == ESC)
 		exit(EXIT_SUCCESS);
 	if (key == W)
-		data->player_x -= speed;
+		data->player->vector.x -= speed;
 	if (key == S)
-		data->player_x += speed;
+		data->player->vector.x += speed;
 	if (key == A)
-		data->player_y -= speed;
+		data->player->vector.y -= speed;
 	if (key == D)
-		data->player_y += speed;
-	if (key == E)
-		data->player_dirx += speed;
-	if (key == Q)
-		data->player_dirx -= speed;
+		data->player->vector.y += speed;
+	// if (key == E)
+	// 	data->player_dirx += speed;
+	// if (key == Q)
+	// 	data->player_dirx -= speed;
 	if (key == LEFT)
 		data->player_diry += speed;
 	if (key == RIGHT)
@@ -41,8 +41,6 @@ static int	key_press(int key, void *param)
 		data->player_dirz += speed;
 	if (key == DOWN)
 		data->player_dirz -= speed;
-	// if (key == LEFT || key <= UP || key <= RIGHT || key <= DOWN)
-	// 	move(key, data->player, data);
 	return (0);
 }
 
@@ -69,8 +67,8 @@ static int	mouse_move(int x, int y, void *param)
 	t_data	*data;
 
 	data = param;
-	data->mouse->previous_x = data->mouse->x;
-	data->mouse->previous_y = data->mouse->y;
+	data->mouse->old_x = data->mouse->x;
+	data->mouse->old_y = data->mouse->y;
 	data->mouse->x = x;
 	data->mouse->y = y;
 	t_point ptA;

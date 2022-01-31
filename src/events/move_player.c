@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 17:00:53 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/31 18:21:27 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/31 18:27:04 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static void	move_right(t_vector *vect, char **map)
 void	move_player(int key, t_player *player, t_data *data)
 {
 	(void)player;
-	
+
 	if (key == W)
 		move_forward(&data->player->vector, data->map_info->map);
 	if (key == S)

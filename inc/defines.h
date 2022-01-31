@@ -6,15 +6,15 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:14:39 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/31 03:46:43 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/31 18:31:27 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DEFINES_H
 # define DEFINES_H
 
-# define WIN_W 1024
-# define WIN_H 512
+# define WIN_W 1280
+# define WIN_H 800
 
 # define DR 0.0174533
 # define PI 3.14159265

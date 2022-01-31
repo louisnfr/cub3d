@@ -6,16 +6,16 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:55:18 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/31 14:58:30 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/01/31 17:09:03 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-// Check if we have only one beginning face for the
+// Check if we have only one beginning face for the player
 
 static	int	check_error_initial_position_player(char **map,
-		char initial_position)
+		char initial_position, t_map *map_info)
 {
 	int	count;
 	int	i;
@@ -30,7 +30,7 @@ static	int	check_error_initial_position_player(char **map,
 		{
 			if (map[i][j] == initial_position)
 			{
-				// AJOUTER LE STOCKAGE DE LINFO ICI initial du player ici
+				map_info->init_position = initial_position;
 				count++;
 			}
 			j++;
@@ -40,15 +40,15 @@ static	int	check_error_initial_position_player(char **map,
 	return (count);
 }
 
-static	int	letters_are_more_than_once(char **map)
+static	int	letters_are_more_than_once(char **map, t_map *map_info)
 {
 	int	count;
 
 	count = 0;
-	count = count + check_error_initial_position_player(map, 'W');
-	count = count + check_error_initial_position_player(map, 'E');
-	count = count + check_error_initial_position_player(map, 'N');
-	count = count + check_error_initial_position_player(map, 'S');
+	count = count + check_error_initial_position_player(map, 'W', map_info);
+	count = count + check_error_initial_position_player(map, 'E', map_info);
+	count = count + check_error_initial_position_player(map, 'N', map_info);
+	count = count + check_error_initial_position_player(map, 'S', map_info);
 	if (count != 1)
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
@@ -102,7 +102,7 @@ int	check_if_letters_are_good(t_data *data)
 {
 	if (check_all_the_letters(data->map_info->map))
 		return (EXIT_FAILURE);
-	if (letters_are_more_than_once(data->map_info->map))
+	if (letters_are_more_than_once(data->map_info->map, data->map_info))
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }

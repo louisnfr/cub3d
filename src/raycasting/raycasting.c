@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 18:26:00 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/31 03:05:40 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/01/31 03:07:30 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,8 @@ static void	put_ray_to_image(int x, t_ray *ray, t_data *data)
 	t_point wall = {start, end, 0};
 	t_point ceiling = {0, start, 0};
 	t_point floor = {end, WIN_H - 1, 0};
-	put_vline(x, ceiling, BLACK, data->mlx);
-	put_vline(x, floor, WHITE, data->mlx);
+	put_vline(x, ceiling, WHITE, data->mlx);
+	put_vline(x, floor, GREY, data->mlx);
 	put_vline(x, wall, color, data->mlx);
 }
 

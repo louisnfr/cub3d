@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_digit_comma.c                                :+:      :+:    :+:   */
+/*   ft_strlen_doublestr.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/31 14:55:57 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/31 14:55:58 by vbachele         ###   ########.fr       */
+/*   Created: 2022/01/31 14:56:03 by vbachele          #+#    #+#             */
+/*   Updated: 2022/01/31 15:13:50 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	ft_isdigit_comma(int c, int *commas)
+
+int	check_number_of_array(char **ceiling_floor_data)
 {
-	if ((c >= 48 && c <= 57) || c == ',')
-	{
-		if (c == ',')
-			(*commas)++;
-		return (1);
-	}
-	return (0);
+// LIBFT
+	int	i;
+
+	i = 0;
+	while (ceiling_floor_data[i])
+		i++;
+	return (i);
 }

@@ -63,7 +63,7 @@ SRC_DIR	= src
 OBJ_DIR	= obj
 
 CC		= clang
-CFLAGS	= -Wall -Wextra -MMD -MP #$(DEBUG) #-Werror
+CFLAGS	= -Wall -Wextra -Werror -MMD -MP #$(DEBUG)
 DEBUG	= -g3 -fsanitize=address
 LIBFT	= -L libft -lft
 UNAME	= $(shell uname)
@@ -73,7 +73,7 @@ else ifeq ($(UNAME), Darwin)
 	MLX		= -Lmlx_mac -lmlx -framework OpenGL -framework AppKit -lm
 endif
 
-vpath %.c $(addprefix $(SRC_DIR)/, . raycasting geometry display parsing sprites exit events init)
+vpath %.c $(addprefix $(SRC_DIR)/, . raycasting geometry display parsing sprites exit events init parsing/walls parsing/utils parsing/map parsing/floor_ceiling)
 
 all: libs
 		@make -s $(NAME)

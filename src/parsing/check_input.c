@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:55:50 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/31 14:55:51 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/01/31 15:13:38 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ static void	arg_error(void)
 
 static void	check_extension(char *s)
 {
+	// a completer
 	int	fd;
 
 	fd = open(s, O_DIRECTORY);

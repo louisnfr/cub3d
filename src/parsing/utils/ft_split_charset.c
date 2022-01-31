@@ -6,14 +6,16 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:55:59 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/31 14:56:00 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/01/31 15:13:47 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "cub3d.h"
 
 int	is_charset(char c, char *charset)
 {
+// LIBFT
 	int	i;
 
 	i = -1;

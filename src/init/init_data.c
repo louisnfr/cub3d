@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:37:03 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/01 15:54:29 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/01 17:50:26 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,46 @@ static t_mlx	*init_mlx(void)
 	return (mlx);
 }
 
+static void	set_player_dir(t_player *player, t_data *data)
+{
+	if (data->map_info->init_position == 'N')
+	{
+		player->vector.dz = 0;
+
+		player->vector.dx = 0;
+		player->vector.dy = -1;
+		player->camera.px = 0.66;
+		player->camera.py = 0;
+	}
+	if (data->map_info->init_position == 'S')
+	{
+		player->vector.dz = 0;
+
+		player->vector.dx = 0;
+		player->vector.dy = 1;
+		player->camera.px = 0.66;
+		player->camera.py = 0;
+	}
+	if (data->map_info->init_position == 'E')
+	{
+		player->vector.dz = 0;
+
+		player->vector.dx = 0;
+		player->vector.dy = 1;
+		player->camera.px = 0.66;
+		player->camera.py = 0;
+	}
+	if (data->map_info->init_position == 'W')
+	{
+		player->vector.dz = 0;
+
+		player->vector.dx = 0;
+		player->vector.dy = 1;
+		player->camera.px = 0.66;
+		player->camera.py = 0;
+	}
+}
+
 t_player	*init_player(t_data *data)
 {
 	t_player	*player;
@@ -36,11 +76,7 @@ t_player	*init_player(t_data *data)
 	player->vector.y = data->map_info->y_init;
 	player->vector.z = 0;
 	// get orientation with N W E S
-	player->vector.dx = -1;
-	player->vector.dy = 0;
-	player->vector.dz = 0;
-	player->camera.px = 0;
-	player->camera.py = 0.66;
+	set_player_dir(player, data);
 	return (player);
 }
 

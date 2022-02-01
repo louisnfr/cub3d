@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:37:03 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/31 15:34:07 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/01 15:04:11 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static t_mlx	*init_mlx(void)
 	return (mlx);
 }
 
-static t_player	*init_player(void)
+t_player	*init_player(void)
 {
 	t_player	*player;
 
@@ -53,6 +53,5 @@ t_data	*init_data(void)
 	if (!data || !data->sprites || !data->map_info)
 		return (NULL);
 	data->mlx = init_mlx();
-	data->player = init_player();
 	return (data);
 }

@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 17:09:29 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/31 18:29:41 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/01 14:56:38 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@ void	orient_player(int key, t_camera *cam, t_vector *vect)
 {
 	double	dir;
 	double	plane;
-	double	speed = 0.08;
+	double	speed;
 
+	speed = 0.08;
 	if (key == RIGHT)
 	{
 		dir = vect->dx;

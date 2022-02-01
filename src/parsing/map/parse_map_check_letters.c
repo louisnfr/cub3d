@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map_check_letters.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:55:18 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/01 15:04:17 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/01 15:44:46 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ static	int	check_error_initial_position_player(char **map,
 		}
 		i++;
 	}
-	printf("x %d\n", map_info->x_init);
-	printf("y %d\n", map_info->y_init);
 	return (count);
 }
 

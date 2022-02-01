@@ -116,9 +116,20 @@ typedef struct s_player
 	t_camera	camera;
 }	t_player;
 
+typedef struct s_move
+{
+	t_bool	x;
+	t_bool	y;
+	t_bool	z;
+	t_bool	dirx;
+	t_bool	diry;
+	t_bool	dirz;
+}	t_move;
+
 typedef struct s_data
 {
 	t_player	*player;
+	t_move		*move;
 	t_mlx		*mlx;
 	t_mouse		*mouse;
 	t_map		*map_info;

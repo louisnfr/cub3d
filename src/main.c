@@ -35,8 +35,6 @@ int	main(int ac, char **av)
 		free_data(data);
 		return (EXIT_FAILURE); // pensez a free le double tableau
 	}
-	// printf("\nThe hexadecimal value for your colour is #%02X%02X%02X\n", data->sprites->floor_color.r, data->sprites->floor_color.g,  data->sprites->floor_color.b);
-	// 	printf("\nThe hexadecimal value for your colour is #%02X%02X%02X\n", data->sprites->ceiling_color.r, data->sprites->ceiling_color.g,  data->sprites->ceiling_color.b);
 	// printf("TOUT EST OK\n");
 	init_controls(data);
 	mlx_loop_hook(data->mlx->ptr, main_loop, data);

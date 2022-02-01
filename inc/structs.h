@@ -15,6 +15,8 @@ typedef struct s_map
 	char	**map;
 	char	**file_cub;
 	char	init_position;
+	int		x_init;
+	int		y_init;
 	char	*color_ceiling;
 	char	*color_floor;
 	int		cubfile_number_lines;

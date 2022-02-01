@@ -36,7 +36,7 @@ int	main(int ac, char **av)
 		return (EXIT_FAILURE); // pensez a free le double tableau
 	}
 	// printf("TOUT EST OK\n");
-	data->player = init_player();
+	data->player = init_player(data);
 	init_controls(data);
 	mlx_loop_hook(data->mlx->ptr, main_loop, data);
 	mlx_loop(data->mlx->ptr);

@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:12:00 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/01 15:03:59 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/01 15:08:07 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 /*** init ***/
 
 t_data		*init_data(void);
-t_player	*init_player(void);
+t_player	*init_player(t_data *data);
 void		init_struct(t_data *data);
 void		init_mouse(t_mouse *mouse);
 

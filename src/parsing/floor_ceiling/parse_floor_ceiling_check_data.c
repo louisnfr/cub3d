@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:56:14 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/31 14:56:15 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/01 15:29:57 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	error_number_ceiling_floor(t_map *map_info)
 	if (map_info->ceiling_floor[0] != 1 || map_info->ceiling_floor[1] != 1
 		|| map_info->floor_ceiling_invalid == 1)
 	{
-		error_message_walls();
+		error_message_floor_ceiling();
 		return (EXIT_FAILURE);
 	}
 	return (EXIT_SUCCESS);

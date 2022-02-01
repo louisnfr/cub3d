@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_controls.c                                    :+:      :+:    :+:   */
+/*   update_pos.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 15:28:53 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/01 15:54:17 by lraffin          ###   ########.fr       */
+/*   Created: 2022/02/01 16:15:07 by lraffin           #+#    #+#             */
+/*   Updated: 2022/02/01 16:25:16 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_move *init_move(void)
+void	update_pos(t_data *data)
 {
-	t_move	*move;
-
-	move = malloc(sizeof(t_move));
-	if (!move)
-		return (NULL);
-	ft_memset(move, 0, sizeof(t_move));
-	return (move);
-}
-
-void	init_mouse(t_mouse *mouse)
-{
-	mouse->mb_is_pressed = FALSE;
-	mouse->lb_is_pressed = FALSE;
-	mouse->rb_is_pressed = FALSE;
-	mouse->x = 0;
-	mouse->y = 0;
-	mouse->old_x = 0;
-	mouse->old_y = 0;
+	if (data->move->x || data->move->y)
+		move_player(data);
+	if (data->move->lateral_x || data->move->lateral_y)
+		move_player(data);
+	if (data->move->dirx || data->move->diry)
+		orient_player(&data->player->camera, &data->player->vector, data);
 }

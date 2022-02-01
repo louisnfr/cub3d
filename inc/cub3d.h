@@ -7,6 +7,7 @@
 /*** init ***/
 
 t_data		*init_data(void);
+t_move		*init_move(void);
 t_player	*init_player(t_data *data);
 void		init_struct(t_data *data);
 void		init_mouse(t_mouse *mouse);
@@ -54,8 +55,9 @@ int		raycasting(t_player *player, t_data *data);
 /*** events ***/
 
 void	init_controls(t_data *data);
-void	move_player(int key, t_player *player, t_data *data);
-void	orient_player(int key, t_camera *cam, t_vector *vect);
+void	move_player(t_data *data);
+void	update_pos(t_data *data);
+void	orient_player(t_camera *cam, t_vector *vect, t_data *data);
 
 /*** display ***/
 

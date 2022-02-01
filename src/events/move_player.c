@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 17:00:53 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/01 14:31:06 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/01 16:27:53 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static void	move_left(t_vector *vect, char **map)
 	double	x;
 	double	y;
 
-	speed = 0.1;
+	speed = 0.05;
 	x = vect->x - vect->dy * speed;
 	y = vect->y + vect->dx * speed;
 	if (map[(int)vect->y][(int)x] != '1')
@@ -63,7 +63,7 @@ static void	move_right(t_vector *vect, char **map)
 	double	x;
 	double	y;
 
-	speed = 0.1;
+	speed = 0.05;
 	x = vect->x + vect->dy * speed;
 	y = vect->y - vect->dx * speed;
 	if (map[(int)vect->y][(int)x] != '1')
@@ -72,16 +72,14 @@ static void	move_right(t_vector *vect, char **map)
 		vect->y -= vect->dx * speed;
 }
 
-void	move_player(int key, t_player *player, t_data *data)
+void	move_player(t_data *data)
 {
-	(void)player;
-
-	if (key == W)
+	if (data->move->x)
 		move_forward(&data->player->vector, data->map_info->map);
-	if (key == S)
+	if (data->move->y)
 		move_backward(&data->player->vector, data->map_info->map);
-	if (key == A)
+	if (data->move->lateral_x)
 		move_left(&data->player->vector, data->map_info->map);
-	if (key == D)
+	if (data->move->lateral_y)
 		move_right(&data->player->vector, data->map_info->map);
 }

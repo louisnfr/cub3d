@@ -121,6 +121,8 @@ typedef struct s_move
 	t_bool	x;
 	t_bool	y;
 	t_bool	z;
+	t_bool	lateral_x;
+	t_bool	lateral_y;
 	t_bool	dirx;
 	t_bool	diry;
 	t_bool	dirz;

@@ -6,20 +6,20 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 17:09:29 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/01 14:56:38 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/01 16:20:45 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	orient_player(int key, t_camera *cam, t_vector *vect)
+void	orient_player(t_camera *cam, t_vector *vect, t_data *data)
 {
 	double	dir;
 	double	plane;
 	double	speed;
 
 	speed = 0.08;
-	if (key == RIGHT)
+	if (data->move->dirx)
 	{
 		dir = vect->dx;
 		vect->dx = vect->dx * cos(-speed) - vect->dy * sin(-speed);
@@ -28,7 +28,7 @@ void	orient_player(int key, t_camera *cam, t_vector *vect)
 		cam->px = cam->px * cos(-speed) - cam->py * sin(-speed);
 		cam->py = plane * sin(-speed) + cam->py * cos(-speed);
 	}
-	if (key == LEFT)
+	if (data->move->diry)
 	{
 		dir = vect->dx;
 		vect->dx = vect->dx * cos(speed) - vect->dy * sin(speed);

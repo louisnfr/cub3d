@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:37:03 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/01 15:08:40 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/01 15:54:29 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ t_data	*init_data(void)
 	if (!data || !data->sprites || !data->map_info)
 		return (NULL);
 	data->mlx = init_mlx();
+	data->move = init_move();
 	return (data);
 }

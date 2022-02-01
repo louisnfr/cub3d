@@ -7,6 +7,7 @@ static int	main_loop(t_data *data)
 	data->mlx->img = mlx_new_image(data->mlx->ptr, WIN_W, WIN_H);
 	data->mlx->buf1 = mlx_get_data_addr(data->mlx->img, &data->mlx->bpp,
 			&data->mlx->length, &data->mlx->endian);
+	update_pos(data);
 	raycasting(data->player, data);
 	mlx_put_image_to_window(data->mlx->ptr, data->mlx->win,
 		data->mlx->img, 0, 0);

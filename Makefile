@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 22:49:26 by lraffin           #+#    #+#              #
-#    Updated: 2022/02/01 00:04:44 by lraffin          ###   ########.fr        #
+#    Updated: 2022/02/01 16:23:18 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ EVENTS =				\
 		controls.c		\
 		move_player.c	\
 		orient_player.c	\
+		update_pos.c	\
 
 DISPLAY =				\
 

@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:55:18 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/31 17:09:03 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/01 15:04:17 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,16 @@ static	int	check_error_initial_position_player(char **map,
 			if (map[i][j] == initial_position)
 			{
 				map_info->init_position = initial_position;
+				map_info->x_init = j;
+				map_info->y_init = i;
 				count++;
 			}
 			j++;
 		}
 		i++;
 	}
+	printf("x %d\n", map_info->x_init);
+	printf("y %d\n", map_info->y_init);
 	return (count);
 }
 

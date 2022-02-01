@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:12:00 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/31 22:15:51 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/01 15:30:08 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int		check_empty_line(char *file_cub);
 int		check_error_1st_letter_last_letter(char **map);
 int		check_if_letters_are_good(t_data *data);
 int		check_map_is_valid(t_data *data);
+void	error_message_map(void);
 
 /*** parsing_floor_ceiling ***/
 
@@ -54,6 +55,7 @@ int		check_if_floor_ceiling_exist(t_data *data);
 int		check_and_add_color_ceiling_floor(t_data *data, int i);
 int		parsing_floor_ceiling(t_data *data);
 int		check_colors_and_add_to_struct(t_data *data, char **ceiling_floor_data);
+void	error_message_floor_ceiling(void);
 
 /*** raycasting ***/
 

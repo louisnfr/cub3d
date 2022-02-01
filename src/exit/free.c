@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 12:49:32 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/31 22:42:49 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/01 15:15:42 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	free_data(t_data *data)
 	{
 		mlx_destroy_image(data->mlx->ptr, data->mlx->img);
 		mlx_destroy_window(data->mlx->ptr, data->mlx->win);
-		// mlx_destroy_display(data->mlx->ptr);
+		mlx_destroy_display(data->mlx->ptr);
 		free(data->mlx->ptr);
 		if (data->mlx)
 			free(data->mlx);

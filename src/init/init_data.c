@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:37:03 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/01 13:52:33 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/01 15:08:40 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,17 @@ static t_mlx	*init_mlx(void)
 	return (mlx);
 }
 
-static t_player	*init_player(void)
+t_player	*init_player(t_data *data)
 {
 	t_player	*player;
 
 	player = malloc(sizeof(t_player));
 	if (!player)
 		return (NULL);
-	player->vector.x = 9;
-	player->vector.y = 5;
+	player->vector.x = data->map_info->x_init;
+	player->vector.y = data->map_info->y_init;
 	player->vector.z = 0;
+	// get orientation with N W E S
 	player->vector.dx = -1;
 	player->vector.dy = 0;
 	player->vector.dz = 0;
@@ -53,6 +54,5 @@ t_data	*init_data(void)
 	if (!data || !data->sprites || !data->map_info)
 		return (NULL);
 	data->mlx = init_mlx();
-	data->player = init_player();
 	return (data);
 }

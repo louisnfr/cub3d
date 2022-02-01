@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/02 21:12:00 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/01 15:30:08 by vbachele         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
@@ -17,9 +6,10 @@
 
 /*** init ***/
 
-t_data	*init_data(void);
-void	init_struct(t_data *data);
-void	init_mouse(t_mouse *mouse);
+t_data		*init_data(void);
+t_player	*init_player(t_data *data);
+void		init_struct(t_data *data);
+void		init_mouse(t_mouse *mouse);
 
 /*** parsing_general ***/
 

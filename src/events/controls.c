@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:23:25 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/31 22:02:28 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/01 15:29:12 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static int	mouse_move(int x, int y, void *param)
 static int	exit_all(t_data *data)
 {
 	free_data(data);
-	exit(1);
+	exit(EXIT_SUCCESS);
 	return (1);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_file.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:55:37 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/31 15:27:37 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/01 15:17:07 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,12 +76,15 @@ int	get_file(t_data *data, char *av)
 	if (fd < 0)
 		return (FAILURE);
 	ret = 1;
-	ft_memset(data->map_info, 0, sizeof (t_map));
+	ft_memset(data->map_info, 0, sizeof(t_map));
 	while (ret)
 	{
 		ret = get_next_line(fd, &line);
 		if (ret < 0)
+		{
+			close(fd);
 			return (FAILURE);
+		}
 		if (ft_strlen(line) > data->map_info->cubfile_width_line)
 			data->map_info->cubfile_width_line = ft_strlen(line);
 		data->map_info->cubfile_number_lines++;

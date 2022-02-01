@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 15:31:38 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/31 17:21:20 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/01 15:19:22 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,16 @@ static void	check_extension(char *s)
 	// a completer
 	int	fd;
 
-	fd = open(s, O_DIRECTORY);
+	fd = open(s, __O_DIRECTORY);
 	if (fd > 0)
 	{
 		close(fd);
 		arg_error();
 	}
-	if (open(s, O_RDONLY | O_NOFOLLOW) < 0)
+	fd = open(s, O_RDONLY | __O_NOFOLLOW);
+	if (fd < 0)
 		arg_error();
+	close(fd);
 	if (!ft_strnstr(s, ".cub", ft_strlen(s)))
 		arg_error();
 	check_cub_endof_arg(s);

@@ -30,7 +30,7 @@ int	main(int ac, char **av)
 		free_data(data);
 		return (EXIT_FAILURE);
 	}
-	if (parse_file(data))
+	if (!parse_file(data))
 	{
 		free_data(data);
 		return (EXIT_FAILURE); // pensez a free le double tableau

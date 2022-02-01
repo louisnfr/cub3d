@@ -126,6 +126,7 @@ typedef struct s_move
 	t_bool	dirx;
 	t_bool	diry;
 	t_bool	dirz;
+	t_bool	shift;
 }	t_move;
 
 typedef struct s_data

@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:15:48 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/31 17:40:21 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/01 16:34:26 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 #  define LEFT 65361
 #  define DOWN 65364
 #  define RIGHT 65363
+#  define SHIFT 65505
 #  define ESC 65307
 # else
 #  define W 13

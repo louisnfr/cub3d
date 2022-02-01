@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:23:25 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/01 16:26:58 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/01 16:38:06 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ static int	key_press(int key, t_data *data)
 		data->move->dirx = TRUE;
 	if (key == LEFT)
 		data->move->diry = TRUE;
+	if (key == SHIFT)
+		data->move->shift = TRUE;
 	// if (key == W || key == A || key == S || key == D)
 	// 	move_player(key, data->player, data);
 	// if (key == UP || key == LEFT || key == RIGHT || key == DOWN)
@@ -51,6 +53,8 @@ static int	key_release(int key, t_data *data)
 		data->move->dirx = FALSE;
 	if (key == LEFT)
 		data->move->diry = FALSE;
+	if (key == SHIFT)
+		data->move->shift = FALSE;
 	// if (key == W || key == A || key == S || key == D)
 	// 	move_player(key, data->player, data);
 	// if (key == UP || key == LEFT || key == RIGHT || key == DOWN)

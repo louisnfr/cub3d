@@ -17,39 +17,39 @@ NC='\033[0m' # No Color
 
 WITH VALGRIND
 echo -e "\n${RED}BAD COLOUR ${NC}\n"
-valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3d ./wrong_file/bad_colour.cub
+valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3d .maps/wrong_file/bad_colour.cub
 echo -e "\n${BLUE}BAD COLOUR 2 ${NC}\n"
-valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3d ./wrong_file/bad_colour2.cub
+valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3d .maps/wrong_file/bad_colour2.cub
 echo -e "\n${GREEN}BAD COLOUR 3 ${NC}\n"
-valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3d ./wrong_file/bad_colour3.cub
+valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3d .maps/wrong_file/bad_colour3.cub
 
 echo -e "\n${RED}BAD ELEMENT ${NC}\n"
-valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3d ./wrong_file/bad_element.cub
+valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3d .maps/wrong_file/bad_element.cub
 echo -e "\n${BLUE}BAD EXTENSION ${NC}\n"
-valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3d ./wrong_file/bad_extension.poil
+valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3d .maps/wrong_file/bad_extension.poil
 echo -e "\n${GREEN}BAD TEXTURES ${NC}\n"
-valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3d ./wrong_file/bad_textures.cub
+valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3d .maps/wrong_file/bad_textures.cub
 
 echo -e "\n${RED}DOUBLON ${NC}\n"
-valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3d ./wrong_file/doublon.cub
+valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3d .maps/wrong_file/doublon.cub
 echo -e "\n${BLUE}MAP WRONG CARACTER ${NC}\n"
-valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3d ./wrong_file/map_bad_caracter.cub
+valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3d .maps/wrong_file/map_bad_caracter.cub
 echo -e "\n${GREEN}MAP FIRST ${NC}\n"
-valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3d ./wrong_file/map_first.cub
+valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3d .maps/wrong_file/map_first.cub
 
 echo -e "\n${RED}MAP EMPTY LINE ${NC}\n"
-valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3d ./wrong_file/map_line_empty.cub
+valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3d .maps/wrong_file/map_line_empty.cub
 echo -e "\n${BLUE}MAP NOT CLOSE ${NC}\n"
-valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3d ./wrong_file/map_not_close.cub
+valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3d .maps/wrong_file/map_not_close.cub
 echo -e "\n${GREEN}MAP NOT CLOSE 2 ${NC}\n"
-valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3d ./wrong_file/map_not_close2.cub
+valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3d .maps/wrong_file/map_not_close2.cub
 
 echo -e "\n${RED}NO PLAYER ${NC}\n"
-valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3d ./wrong_file/map_no_player.cub
+valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3d .maps/wrong_file/map_no_player.cub
 echo -e "\n${BLUE}TWO PLAYER ${NC}\n"
-valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3d ./wrong_file/map_two_players.cub
+valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3d .maps/wrong_file/map_two_players.cub
 echo -e "\n${GREEN}NO MAP ${NC}\n"
-valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3d ./wrong_file/no_map.cub
+valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3d .maps/wrong_file/no_map.cub
 echo -e "\n${RED}FILE IS A DIRECTORY ${NC}"
 valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3d libft
 echo -e "\n${YELLOW}WHAT HAPPENED WITH ENV ? ${NC}"

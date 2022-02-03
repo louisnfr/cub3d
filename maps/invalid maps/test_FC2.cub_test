@@ -1,10 +1,10 @@
-R 640 480
-NO ./images/NO.xpm
-SO ./images/SO.xpm
-WE ./images/WE.xpm
-EA ./images/EA.xpm
-S ./images/ITEM.xpm
-F 1100,153,15
+
+NO ./images/wall.xpm
+SO ./images/wall.xpm
+WE ./images/wall.xpm
+EA ./images/wall.xpm
+
+F 110,153,15
 C 255,255,255
 
         1111111111111111111111111

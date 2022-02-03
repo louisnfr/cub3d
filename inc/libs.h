@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:13:19 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/03 15:03:25 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/03 19:02:28 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@
 # include "defines.h"
 # include "keys.h"
 # include "colors.h"
-# include "error_msg.h"
+# include "errors.h"
 
 #endif

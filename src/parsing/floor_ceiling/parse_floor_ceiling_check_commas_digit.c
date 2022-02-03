@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:56:11 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/03 18:12:59 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/03 18:39:44 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static int	check_commas_and_digit(char **ceiling_floor_data, int i,
 	return (EXIT_SUCCESS);
 }
 
-static int	check_strings(char gi,
+static int	check_strings(char **ceiling_floor_data,
 			int number_of_strings, t_data *data)
 {
 	int	i;
@@ -100,8 +100,7 @@ int	check_and_add_color_ceiling_floor(t_data *data, int i)
 		data->map_info->file_cub[i]);
 	ceiling_floor_data = ft_split_charset(data->map_info->file_cub[i], " \t");
 	len = ft_strlen_double_str(ceiling_floor_data);
-	if (ft_strlen(ceiling_floor_data[0]) > 1
-		|| len > 6 || len < 2)
+	if (ft_strlen(ceiling_floor_data[0]) > 1 || len > 6 || len < 2)
 	{
 		free_double_str(ceiling_floor_data);
 		ft_exit_parsing(data, ERROR_CEILING_FLOOR_ARGUMENTS_PROBLEMS);

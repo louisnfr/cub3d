@@ -6,7 +6,7 @@
 #    By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 22:49:26 by lraffin           #+#    #+#              #
-#    Updated: 2022/02/03 18:06:32 by vbachele         ###   ########.fr        #
+#    Updated: 2022/02/03 18:33:02 by vbachele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,7 +74,7 @@ DEPS	= $(OBJS:%.o=%.d)
 
 CC		= clang
 CFLAGS	= -Wall -Wextra -Werror -MMD -MP -g3 #$(DEBUG)
-DEBUG	= -g3 -fsanitize=address
+DEBUG	= -fsanitize=address
 LIBFT	= -L libft -lft
 UNAME	= $(shell uname)
 ifeq ($(UNAME), Linux)

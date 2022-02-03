@@ -1,11 +1,28 @@
+
+
+
+
+
+
+
+
+
+
+
+
+F 250,100,0
+
+
+
+
+
+
 NO ./images/wall.xpm
 SO ./images/wall.xpm
 WE ./images/wall.xpm
 EA ./images/wall.xpm
 
-
-F 250,100,0
-C 256,30,0
+C 218,30,0
 
 1111111111111111111111111
 1000000000110000000000001

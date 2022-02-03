@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 12:49:32 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/03 17:51:24 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/03 18:26:50 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	free_data(t_data *data)
 		free(data->map_info);
 	if (data->move)
 		free(data->move);
-	if (data->mlx->ptr)
+	if (data->mlx)
 	{
 		mlx_destroy_image(data->mlx->ptr, data->mlx->img);
 		mlx_destroy_window(data->mlx->ptr, data->mlx->win);

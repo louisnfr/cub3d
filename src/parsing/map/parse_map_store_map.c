@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map_store_map.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:56:34 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/31 22:16:11 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/03 16:45:09 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static char	**allocate_map(t_map *map_info)
 	return (map);
 }
 
-static int	fill_map(t_map *map_info)
+static int	fill_map(t_map *map_info, t_data *data)
 {
 	int		i;
 	int		j;
@@ -64,7 +64,7 @@ static int	fill_map(t_map *map_info)
 	j = 0;
 	map = allocate_map(map_info);
 	if (!map)
-		return (EXIT_FAILURE);
+		ft_exit_parsing(data, ERROR_MAP_MALLOC_PROBLEM);
 	while (start_tab <= end_tab)
 	{
 		i = 0;
@@ -80,7 +80,7 @@ static int	fill_map(t_map *map_info)
 	return (EXIT_SUCCESS);
 }
 
-static	int	check_and_store_last_line(t_map *map_info)
+static	int	check_and_store_last_line(t_map *map_info, t_data *data)
 {
 	int	tmp;
 
@@ -95,18 +95,16 @@ static	int	check_and_store_last_line(t_map *map_info)
 			break ;
 		}
 		else
-			return (EXIT_FAILURE);
+			ft_exit_parsing(data, ERROR_MAP_NOT_AT_END);
 	}
 	return (EXIT_SUCCESS);
 }
 
-int	store_data_map(t_map *map_info)
+int	store_data_map(t_map *map_info, t_data *data)
 {
-	if (check_and_store_last_line(map_info))
-		return (EXIT_FAILURE);
+	check_and_store_last_line(map_info, data);
 	if ((map_info->last_line + 1) - map_info->first_line < 3)
-		return (EXIT_FAILURE);
-	if (fill_map(map_info))
-		return (EXIT_FAILURE);
+		ft_exit_parsing(data, ERROR_MAP_TOO_FEW_LINES);
+	fill_map(map_info, data);
 	return (EXIT_SUCCESS);
 }

@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
+#    By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 22:49:26 by lraffin           #+#    #+#              #
-#    Updated: 2022/02/01 16:23:18 by lraffin          ###   ########.fr        #
+#    Updated: 2022/02/03 18:06:32 by vbachele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =	cub3D
+NAME =	cub3d
 
 SRCS =					\
 		main.c			\
@@ -57,7 +57,8 @@ PARSING =				\
 
 EXIT =				\
 		errors.c 	\
-		free.c
+		free.c		\
+		exit.c \
 
 INIT =					\
 		init_controls.c	\
@@ -72,7 +73,7 @@ OBJS	= $(SRCS:%.c=$(OBJ_DIR)/%.o)
 DEPS	= $(OBJS:%.o=%.d)
 
 CC		= clang
-CFLAGS	= -Wall -Wextra -Werror -MMD -MP #$(DEBUG)
+CFLAGS	= -Wall -Wextra -Werror -MMD -MP -g3 #$(DEBUG)
 DEBUG	= -g3 -fsanitize=address
 LIBFT	= -L libft -lft
 UNAME	= $(shell uname)

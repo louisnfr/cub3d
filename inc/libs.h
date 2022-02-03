@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libs.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:13:19 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/01 00:04:27 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/03 15:03:25 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@
 # include "defines.h"
 # include "keys.h"
 # include "colors.h"
+# include "error_msg.h"
 
 #endif

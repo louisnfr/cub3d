@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:56:36 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/31 15:11:14 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/03 16:52:30 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,8 @@
 
 static int	check_errors_map(t_data *data)
 {
-	if (check_error_1st_letter_last_letter(data->map_info->map))
-		return (EXIT_FAILURE);
-	if (check_if_letters_are_good(data))
-		return (EXIT_FAILURE);
-	return (EXIT_SUCCESS);
-}
-
-// On check si la map est bien a la fin du fichier et on la stock
-
-static int	check_and_store_map(t_data *data)
-{
-	if (map_if_in_good_place(data->map_info))
-		return (EXIT_FAILURE);
-	if (store_data_map(data->map_info))
-		return (EXIT_FAILURE);
+	check_error_1st_letter_last_letter(data->map_info->map, data);
+	check_if_letters_are_good(data);
 	return (EXIT_SUCCESS);
 }
 
@@ -40,12 +27,9 @@ static int	check_and_store_map(t_data *data)
 
 int	parsing_map(t_data *data)
 {
-	if (check_and_store_map(data))
-		return (EXIT_FAILURE);
-	if (check_errors_map(data))
-		return (EXIT_FAILURE);
-	if (check_map_is_valid(data))
-		return (EXIT_FAILURE);
-	data->map_info->map_valid = 1;
+	map_if_in_good_place(data->map_info, data);
+	store_data_map(data->map_info, data);
+	check_errors_map(data);
+	check_map_is_valid(data);
 	return (EXIT_SUCCESS);
 }

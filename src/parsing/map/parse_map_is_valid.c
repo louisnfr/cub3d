@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:55:29 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/31 14:58:55 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/03 17:48:10 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,17 @@ static	int	check_coordinate(char coordinate)
 		return (EXIT_FAILURE);
 	else if (coordinate == '\t')
 		return (EXIT_FAILURE);
+	else if (coordinate == '\0')
+		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
 
-static	int	check_zero_and_player_good_place(char letter, char **map,
-											int y, int x)
+static	int	check_zero_and_player_good_place(char letter,
+											int y, int x, t_data *data)
 {
+	char	**map;
+
+	map = data->map_info->map;
 	if (letter == '0' || letter == 'W' || letter == 'S'
 		|| letter == 'E' || letter == 'N')
 	{
@@ -33,7 +38,9 @@ static	int	check_zero_and_player_good_place(char letter, char **map,
 			|| check_coordinate(map[y + 1][x])
 			|| check_coordinate(map[y][x + 1])
 			|| check_coordinate(map[y][x - 1]))
-			return (EXIT_FAILURE);
+		{
+			ft_exit_parsing(data, ERROR_MAP_PROBLEM_INSIDE_WALLS);
+		}
 	}
 	return (EXIT_SUCCESS);
 }
@@ -51,8 +58,7 @@ int	check_map_is_valid(t_data *data)
 		j = 1;
 		while (map[i][j])
 		{
-			if (check_zero_and_player_good_place(map[i][j], map, i, j))
-				return (EXIT_FAILURE);
+			check_zero_and_player_good_place(map[i][j], i, j, data);
 			j++;
 		}
 		i++;

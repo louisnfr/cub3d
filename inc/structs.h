@@ -21,12 +21,6 @@ typedef struct s_map
 	char	*color_floor;
 	int		cubfile_number_lines;
 	int		cubfile_width_line;
-	int		walls_valid;
-	int		floor_ceiling_valid;
-	int		floor_ceiling_invalid;
-	int		walls_invalid;
-	int		map_invalid;
-	int		map_valid;
 	int		first_line;
 	int		last_line;
 	int		map_width_line;

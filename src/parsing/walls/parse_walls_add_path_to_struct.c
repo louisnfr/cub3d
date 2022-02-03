@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:56:38 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/31 14:56:39 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/03 15:11:47 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,10 @@ int	check_and_add_path_walls(t_data *data, int i, char *face_wall)
 	char	**img;
 
 	img = ft_split_charset(data->map_info->file_cub[i], " \t");
-	if (ft_strlen(img[0]) != 2 || !img[1] || img[2])
+	if (!img[1] || img[2])
 	{
 		free_double_str(img);
-		return (EXIT_FAILURE);
+		ft_exit_parsing(data, ERROR_WALLS_WRONG_ARGUMENTS);
 	}
 	check_struct_walls(data, face_wall, img[1]);
 	free_double_str(img);

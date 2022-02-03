@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:56:26 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/31 14:56:27 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/03 16:34:20 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	check_empty_line(char *file_cub)
 	return (EXIT_FAILURE);
 }
 
-int	map_if_in_good_place(t_map *map_info)
+int	map_if_in_good_place(t_map *map_info, t_data *data)
 {
 	int	i;
 	int	count;
@@ -90,7 +90,7 @@ int	map_if_in_good_place(t_map *map_info)
 			return (EXIT_SUCCESS);
 		}
 		else
-			return (EXIT_FAILURE);
+			ft_exit_parsing(data, ERROR_MAP_NOT_AT_END);
 	}
 	return (EXIT_SUCCESS);
 }

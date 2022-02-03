@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 12:49:32 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/01 15:15:42 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/03 17:51:24 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ int	free_data(t_data *data)
 		free(data->sprites);
 	if (data->map_info)
 		free(data->map_info);
+	if (data->move)
+		free(data->move);
 	if (data->mlx->ptr)
 	{
 		mlx_destroy_image(data->mlx->ptr, data->mlx->img);

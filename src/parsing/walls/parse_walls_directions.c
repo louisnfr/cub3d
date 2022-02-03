@@ -6,31 +6,24 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:56:40 by vbachele          #+#    #+#             */
-/*   Updated: 2022/01/31 14:56:41 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/03 17:46:25 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static int	check_if_too_much_walls_lines(int *check)
+// check if each walls have only one face
+
+static int	check_if_too_much_walls_lines(int *check, t_data *data)
 {
 	if (check[0] != 1 || check[1] != 1 || check[2] != 1 || check[3] != 1)
-	{
-		error_message_walls();
-		return (EXIT_FAILURE);
-	}
+		ft_exit_parsing(data, ERROR_WALLS_NUMBERS);
 	return (EXIT_SUCCESS);
 }
 
-static int	check_if_walls_is_invalid(t_map *map_info)
-{
-	if (map_info->walls_invalid == 1)
-	{
-		error_message_walls();
-		return (EXIT_FAILURE);
-	}
-	return (EXIT_SUCCESS);
-}
+// check here if the 1st arg is a /n
+// if the 3rd letter is a valid one
+// check if the path exist and is the walls exist.
 
 static int	check_if_direction_if_good(t_data *data, int i,
 								char *face_wall)
@@ -39,9 +32,8 @@ static int	check_if_direction_if_good(t_data *data, int i,
 		return (EXIT_FAILURE);
 	if (data->map_info->file_cub[0][2] != ' '
 		&& data->map_info->file_cub[0][2] != '\t')
-		data->map_info->walls_invalid = 1;
-	if (check_and_add_path_walls(data, i, face_wall))
-		return (EXIT_FAILURE);
+		ft_exit_parsing(data, ERROR_WALLS_WRONG_3RD_LETTERS);
+	check_and_add_path_walls(data, i, face_wall);
 	return (EXIT_SUCCESS);
 }
 
@@ -52,7 +44,9 @@ static int	loop_check_face_walls(t_data *data)
 	i = -1;
 	while (++i < data->map_info->cubfile_number_lines)
 	{
-		if (!check_if_direction_if_good(data, i, "NO"))
+		if (data->map_info->file_cub[0][0] == '\n')
+			continue ;
+		else if (!check_if_direction_if_good(data, i, "NO"))
 			data->sprites->check[0]++;
 		else if (!check_if_direction_if_good(data, i, "SO"))
 			data->sprites->check[1]++;
@@ -66,13 +60,8 @@ static int	loop_check_face_walls(t_data *data)
 
 int	check_all_directions(t_data *data)
 {
-	int	i;
-
-	i = -1;
 	ft_memset(data->sprites->check, 0, sizeof (int) * 4);
 	loop_check_face_walls(data);
-	if (check_if_too_much_walls_lines(data->sprites->check)
-		|| check_if_walls_is_invalid(data->map_info))
-		return (EXIT_FAILURE);
+	check_if_too_much_walls_lines(data->sprites->check, data);
 	return (EXIT_SUCCESS);
 }

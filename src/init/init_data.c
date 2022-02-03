@@ -6,13 +6,13 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:37:03 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/01 17:50:26 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/03 18:02:20 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static t_mlx	*init_mlx(void)
+t_mlx	*init_mlx(void)
 {
 	t_mlx	*mlx;
 
@@ -89,7 +89,6 @@ t_data	*init_data(void)
 	data->map_info = malloc(sizeof(t_map));
 	if (!data || !data->sprites || !data->map_info)
 		return (NULL);
-	data->mlx = init_mlx();
 	data->move = init_move();
 	return (data);
 }

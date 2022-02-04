@@ -49,4 +49,13 @@ typedef struct s_sprites
 	t_img	wall_ea;
 }	t_sprites;
 
+typedef struct s_tex
+{
+	double	pos;
+	t_dir	wall_dir;
+	int		line_height;
+	int		start;
+	int		end;
+}	t_tex;
+
 #endif

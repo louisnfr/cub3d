@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:14:39 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/04 13:10:42 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/04 16:55:11 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 # define FOV 60
 
-typedef enum	e_dir
+typedef enum e_dir
 {
 	NO,
 	SO,

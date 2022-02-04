@@ -65,33 +65,42 @@ static void	perform_dda(t_ray *ray, t_vector *player, char **map)
 		ray->pw = (ray->mapy - player->y + (1 - ray->stepy) * 0.5) / ray->diry;
 }
 
-static void	put_ray_to_image(int x, t_ray *ray, t_data *data)
+static void	put_ray_to_image(t_ray *ray, t_tex *t, int x, t_data *data)
 {
-	int		line_height;
-	int		color;
-	int		start;
-	int		end;
 
-	line_height = (int)(WIN_H / ray->pw);
-	start = -line_height * 0.5 + WIN_H * 0.5;
-	if (start < 0)
-		start = 0;
-	end = line_height * 0.5 + WIN_H * 0.5;
-	if (end >= WIN_H)
-		end = WIN_H - 1;
-	color = BLUE;
-	if (ray->side == 1)
-		color = color * 0.5;
-	t_point	wall = {start, end, 0};
-	t_point	ceiling = {0, start, 0};
-	t_point	floor = {end, WIN_H - 1, 0};
+	t->line_height = (int)(WIN_H / ray->pw);
+	t->start = -t->line_height * 0.5 + WIN_H * 0.5;
+	if (t->start < 0)
+		t->start = 0;
+	t->end = t->line_height * 0.5 + WIN_H * 0.5;
+	if (t->end >= WIN_H)
+		t->end = WIN_H - 1;
+	// int		color;
+	// color = BLUE;
+	// if (ray->side == 1)
+	// 	color = color * 0.5;
+	// t_point	wall = {t->start, t->end, 0};
+	t_point	ceiling = {0, t->start, 0};
+	t_point	floor = {t->end, WIN_H - 1, 0};
 	put_vline(x, ceiling, data->sprites->ceiling_color.hex_color, data->mlx);
 	put_vline(x, floor, data->sprites->floor_color.hex_color, data->mlx);
-	put_vline(x, wall, color, data->mlx);
+	// put_vline(x, wall, color, data->mlx);
 }
 
 int	raycasting(t_player *player, t_data *data)
 {
+	int		**texture;
+
+	texture = malloc(sizeof(int *) * 2);
+	for (int k = 0; k < 1; k++)
+		texture[k] = malloc(sizeof(int) * (1000 * TEX_H * TEX_W));
+	for(int y = 0; y < TEX_W; y++)
+	{
+		for(int x = 0; x < TEX_H; x++)
+			texture[0][TEX_W * y + x] = GREEN;  //flat grey texture
+	}
+
+	t_tex	tex;
 	t_ray	ray;
 	int		x;
 
@@ -101,7 +110,8 @@ int	raycasting(t_player *player, t_data *data)
 		create_ray(x, &ray, player);
 		set_dda(&ray, &player->vector);
 		perform_dda(&ray, &player->vector, data->map_info->map);
-		put_ray_to_image(x, &ray, data);
+		put_ray_to_image(&ray, &tex, x, data);
+		set_texture(&ray, &tex, x, data, texture);
 	}
 	return (SUCCESS);
 }

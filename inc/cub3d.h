@@ -49,6 +49,7 @@ int		check_colors_and_add_to_struct(t_data *data, char **ceiling_floor_data);
 /*** raycasting ***/
 
 int		raycasting(t_player *player, t_data *data);
+void	set_texture(t_ray *ray, t_tex *t, int x, t_data *data, int **texture);
 
 /*** events ***/
 

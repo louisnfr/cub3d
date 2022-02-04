@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libs.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:13:19 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/03 19:02:28 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/04 13:10:49 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@
 
 # include "../mlx/mlx.h"
 # include "libft/libft.h"
-# include "structs.h"
 # include "defines.h"
+# include "structs.h"
 # include "keys.h"
 # include "colors.h"
 # include "errors.h"

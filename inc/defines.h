@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:14:39 by lraffin           #+#    #+#             */
-/*   Updated: 2022/01/31 22:12:36 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/04 13:10:42 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,20 @@
 # define WIN_W 1280
 # define WIN_H 800
 
+# define TEX_W 64
+# define TEX_H 64
+
 # define DR 0.0174533
 # define PI 3.14159265
 
 # define FOV 60
+
+typedef enum	e_dir
+{
+	NO,
+	SO,
+	EA,
+	WE
+}	t_dir;
 
 #endif

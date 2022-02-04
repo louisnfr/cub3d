@@ -13,23 +13,23 @@
 
 // Msg errors ceiling/floor
 
-# define ERROR_CEILING_FLOOR_LEN_COLOR_TOO_LONG "Error\n"\
+# define ERROR_CEILING_FLOOR_LEN_COLOR_TOO_LONG "Error\n" \
 								"The numbers for the color are wrong\n"
-# define ERROR_CEILING_FLOOR_WRONG_2ND_LETTERS "Error\n"\
+# define ERROR_CEILING_FLOOR_WRONG_2ND_LETTERS "Error\n" \
 						"The 2nd letter for your ceiling or floor is wrong\n"
-# define ERROR_CEILING_FLOOR_CALLED_TOO_MANY "Error\n"\
+# define ERROR_CEILING_FLOOR_CALLED_TOO_MANY "Error\n" \
 								"You have too many ceiling or floor lines\n"
-# define ERROR_CEILING_FLOOR_ARGUMENTS_PROBLEMS "Error\n"\
+# define ERROR_CEILING_FLOOR_ARGUMENTS_PROBLEMS "Error\n" \
 							"Problem with your arguments ceiling or floor\n"
-# define ERROR_CEILING_FLOOR_OTHER_THAN_NUMBER "Error\n"\
+# define ERROR_CEILING_FLOOR_OTHER_THAN_NUMBER "Error\n" \
 		"Your colors in your ceiling or floor contains are not only number\n"
-# define ERROR_CEILING_FLOOR_FIRST_LETTER_WRONG "Error\n"\
+# define ERROR_CEILING_FLOOR_FIRST_LETTER_WRONG "Error\n" \
 				"Your first letter is a comma for your ceiling or floor\n"
-# define ERROR_CEILING_FLOOR_TOO_MANY_COMMA "Error\n"\
+# define ERROR_CEILING_FLOOR_TOO_MANY_COMMA "Error\n" \
 						"Your have too many commas on your ceiling or floor\n"
-# define ERROR_CEILING_FLOOR_COMMA_PROBLEM "Error\n"\
+# define ERROR_CEILING_FLOOR_COMMA_PROBLEM "Error\n" \
 				"Problem with you commas on ceiling or floor in your file\n"
-# define ERROR_CEILING_FLOOR_WRONG_NUMBER_LINES "Error\n"\
+# define ERROR_CEILING_FLOOR_WRONG_NUMBER_LINES "Error\n" \
 				"Too much or to few ceiling or floor lines in your file\n"
 
 // Msg errors map

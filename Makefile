@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 22:49:26 by lraffin           #+#    #+#              #
-#    Updated: 2022/02/04 12:03:11 by lraffin          ###   ########.fr        #
+#    Updated: 2022/02/04 14:53:19 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ SRCS =					\
 		$(INIT)
 
 RAYCASTING =			\
-		raycasting.c
+		raycasting.c	\
+		textures.c		\
 
 GEOMETRY =				\
 		draw.c
@@ -73,7 +74,7 @@ OBJS	= $(SRCS:%.c=$(OBJ_DIR)/%.o)
 DEPS	= $(OBJS:%.o=%.d)
 
 CC		= clang
-CFLAGS	= -Wall -Wextra -Werror -MMD -MP -g3 #$(DEBUG)
+CFLAGS	= -Wall -Wextra -Werror -MMD -MP -g3 $(DEBUG)
 DEBUG	= -fsanitize=address
 LIBFT	= -L libft -lft
 UNAME	= $(shell uname)

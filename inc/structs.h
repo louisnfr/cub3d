@@ -36,6 +36,15 @@ typedef struct s_img
 	int		height;
 }	t_img;
 
+typedef struct s_tex
+{
+	double	pos;
+	t_dir	wall_dir;
+	int		line_height;
+	int		start;
+	int		end;
+}	t_tex;
+
 typedef struct s_sprites
 {
 	void	*wall;

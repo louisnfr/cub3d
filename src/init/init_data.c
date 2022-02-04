@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:37:03 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/04 15:30:03 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/04 16:15:09 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,17 @@ void	set_player_dir(t_player *player, t_data *data)
 	}
 	if (data->map_info->init_position == 'S')
 	{
-		set_player_direction(player, 1, 1, 0);
-		set_player_plan(player, 0.66, 0);
+		set_player_direction(player, 0, 1, 0);
+		set_player_plan(player, -0.66, 0);
 	}
 	if (data->map_info->init_position == 'E')
 	{
-		set_player_direction(player, 0, 3, 0);
-		set_player_plan(player, 0.66, 0);
+		set_player_direction(player, 1, 0, 0);
+		set_player_plan(player, 0, 0.66);
 	}
 	if (data->map_info->init_position == 'W')
 	{
-		set_player_direction(player, 1, 1, 0);
-		set_player_plan(player, 0.66, 0);
+		set_player_direction(player, -1, 0, 0);
+		set_player_plan(player, 0, -0.66);
 	}
 }

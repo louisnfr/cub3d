@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 17:00:53 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/01 16:40:17 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/04 17:28:32 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,13 @@ static void	move_left(t_vector *vect, char **map)
 	double	x;
 	double	y;
 
-	speed = 0.05;
+	speed = 0.1;
 	x = vect->x - vect->dy * speed;
 	y = vect->y + vect->dx * speed;
 	if (map[(int)vect->y][(int)x] != '1')
-		vect->x -= vect->dy * speed;
+		vect->x += vect->dy * speed;
 	if (map[(int)y][(int)vect->x] != '1')
-		vect->y += vect->dx * speed;
+		vect->y -= vect->dx * speed;
 }
 
 static void	move_right(t_vector *vect, char **map)
@@ -66,13 +66,13 @@ static void	move_right(t_vector *vect, char **map)
 	double	x;
 	double	y;
 
-	speed = 0.05;
+	speed = 0.1;
 	x = vect->x + vect->dy * speed;
 	y = vect->y - vect->dx * speed;
 	if (map[(int)vect->y][(int)x] != '1')
-		vect->x += vect->dy * speed;
+		vect->x -= vect->dy * speed;
 	if (map[(int)y][(int)vect->x] != '1')
-		vect->y -= vect->dx * speed;
+		vect->y += vect->dx * speed;
 }
 
 void	move_player(t_data *data)

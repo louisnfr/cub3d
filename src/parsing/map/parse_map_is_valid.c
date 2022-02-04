@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:55:29 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/03 17:48:10 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/04 12:09:36 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
 static	int	check_coordinate(char coordinate)
 {
 	if (coordinate == ' ')
-		return (EXIT_FAILURE);
+		return (SUCCESS);
 	else if (coordinate == '\t')
-		return (EXIT_FAILURE);
+		return (SUCCESS);
 	else if (coordinate == '\0')
-		return (EXIT_FAILURE);
-	return (EXIT_SUCCESS);
+		return (SUCCESS);
+	return (FAILURE);
 }
 
 static	int	check_zero_and_player_good_place(char letter,
@@ -42,7 +42,7 @@ static	int	check_zero_and_player_good_place(char letter,
 			ft_exit_parsing(data, ERROR_MAP_PROBLEM_INSIDE_WALLS);
 		}
 	}
-	return (EXIT_SUCCESS);
+	return (FAILURE);
 }
 
 int	check_map_is_valid(t_data *data)
@@ -63,5 +63,5 @@ int	check_map_is_valid(t_data *data)
 		}
 		i++;
 	}
-	return (EXIT_SUCCESS);
+	return (FAILURE);
 }

@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:56:22 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/03 15:20:59 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/04 12:09:21 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	add_face_wall_we_to_mlx(t_data *data, char *path_img)
 			&data->sprites->wall_we.height);
 	if (!data->sprites->wall_we.img)
 		ft_exit_parsing(data, ERROR_WALLS_WRONG_IMG);
-	return (EXIT_SUCCESS);
+	return (FAILURE);
 }
 
 static int	add_face_wall_ea_to_mlx(t_data *data, char *path_img)
@@ -29,7 +29,7 @@ static int	add_face_wall_ea_to_mlx(t_data *data, char *path_img)
 			&data->sprites->wall_ea.height);
 	if (!data->sprites->wall_ea.img)
 		ft_exit_parsing(data, ERROR_WALLS_WRONG_IMG);
-	return (EXIT_SUCCESS);
+	return (FAILURE);
 }
 
 static	int	add_face_wall_so_to_mlx(t_data *data, char *path_img)
@@ -39,7 +39,7 @@ static	int	add_face_wall_so_to_mlx(t_data *data, char *path_img)
 			&data->sprites->wall_so.height);
 	if (!data->sprites->wall_so.img)
 		ft_exit_parsing(data, ERROR_WALLS_WRONG_IMG);
-	return (EXIT_SUCCESS);
+	return (FAILURE);
 }
 
 static	int	add_face_wall_no_to_mlx(t_data *data, char *path_img)
@@ -49,7 +49,7 @@ static	int	add_face_wall_no_to_mlx(t_data *data, char *path_img)
 			&data->sprites->wall_no.width, &data->sprites->wall_no.height);
 	if (!data->sprites->wall_no.img)
 		ft_exit_parsing(data, ERROR_WALLS_WRONG_IMG);
-	return (EXIT_SUCCESS);
+	return (FAILURE);
 }
 
 int	add_img_wall_to_mlx(t_data *data)
@@ -62,5 +62,5 @@ int	add_img_wall_to_mlx(t_data *data)
 		add_face_wall_ea_to_mlx(data, data->sprites->wall_ea.path_img);
 	if (!ft_strcmp (data->sprites->wall_we.path_face, "WE"))
 		add_face_wall_we_to_mlx(data, data->sprites->wall_we.path_img);
-	return (EXIT_SUCCESS);
+	return (FAILURE);
 }

@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:56:26 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/03 16:34:20 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/04 12:09:36 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int	first_or_last_line_of_map_exist(char *file_cub)
 		|| file_cub[i] == '1')
 		i++;
 	if (file_cub[i] == '\0')
-		return (EXIT_SUCCESS);
-	return (EXIT_FAILURE);
+		return (FAILURE);
+	return (SUCCESS);
 }
 
 static	int	walls_and_colors_line_count(char *file_cub, int *count)
@@ -42,7 +42,7 @@ static	int	walls_and_colors_line_count(char *file_cub, int *count)
 		(*count)++;
 	else if (!ft_strncmp(file_cub, "F", 1))
 		(*count)++;
-	return (EXIT_SUCCESS);
+	return (FAILURE);
 }
 
 static	int	check_walls_colors(char *file_cub, int *count)
@@ -54,8 +54,8 @@ static	int	check_walls_colors(char *file_cub, int *count)
 	i = -1;
 	walls_and_colors_line_count(file_cub, count);
 	if (tmp == (*count) - 1)
-		return (EXIT_SUCCESS);
-	return (EXIT_FAILURE);
+		return (FAILURE);
+	return (SUCCESS);
 }
 
 int	check_empty_line(char *file_cub)
@@ -66,8 +66,8 @@ int	check_empty_line(char *file_cub)
 	while (file_cub[i] == ' ' || file_cub[i] == '\t')
 		i++;
 	if (file_cub[i] == '\0')
-		return (EXIT_SUCCESS);
-	return (EXIT_FAILURE);
+		return (FAILURE);
+	return (SUCCESS);
 }
 
 int	map_if_in_good_place(t_map *map_info, t_data *data)
@@ -87,10 +87,10 @@ int	map_if_in_good_place(t_map *map_info, t_data *data)
 			&& count == 6)
 		{
 			map_info->first_line = i;
-			return (EXIT_SUCCESS);
+			return (FAILURE);
 		}
 		else
 			ft_exit_parsing(data, ERROR_MAP_NOT_AT_END);
 	}
-	return (EXIT_SUCCESS);
+	return (FAILURE);
 }

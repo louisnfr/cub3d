@@ -10,6 +10,6 @@ int	ft_exit_parsing(t_data *data, char *error_message)
 int	exit_all(t_data *data)
 {
 	free_data(data);
-	exit(EXIT_SUCCESS);
+	exit(FAILURE);
 	return (1);
 }

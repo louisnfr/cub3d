@@ -12,6 +12,7 @@ t_move		*init_move(void);
 t_player	*init_player(t_data *data);
 void		init_struct(t_data *data);
 void		init_mouse(t_mouse *mouse);
+void		set_player_dir(t_player *player, t_data *data);
 
 /*** parsing_general ***/
 

@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 22:49:26 by lraffin           #+#    #+#              #
-#    Updated: 2022/02/04 14:53:19 by lraffin          ###   ########.fr        #
+#    Updated: 2022/02/04 16:52:02 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,6 @@ EXIT =				\
 		exit.c \
 
 INIT =					\
-		init_controls.c	\
 		init_data.c \
 		init_struct.c \
 

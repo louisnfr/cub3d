@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 15:31:38 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/03 17:45:39 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/04 12:09:36 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	arg_error(void)
 {
 	printf("Error:\nbad argument(s)\n");
-	exit (EXIT_FAILURE);
+	exit (SUCCESS);
 }
 
 static	void	check_cub_endof_arg(char *arg)

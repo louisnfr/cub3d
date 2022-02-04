@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:56:36 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/03 16:52:30 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/04 12:09:21 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	check_errors_map(t_data *data)
 {
 	check_error_1st_letter_last_letter(data->map_info->map, data);
 	check_if_letters_are_good(data);
-	return (EXIT_SUCCESS);
+	return (FAILURE);
 }
 
 // on appel toutes les fonctions de parsing/errors de la map ici
@@ -31,5 +31,5 @@ int	parsing_map(t_data *data)
 	store_data_map(data->map_info, data);
 	check_errors_map(data);
 	check_map_is_valid(data);
-	return (EXIT_SUCCESS);
+	return (FAILURE);
 }

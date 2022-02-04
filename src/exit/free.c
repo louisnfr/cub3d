@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 12:49:32 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/04 11:57:37 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/04 12:09:21 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,8 @@ void	free_sprites(t_data *data, t_sprites *sprites)
 		mlx_destroy_image(data->mlx->ptr, sprites->wall_we.img);
 }
 
-int	free_data(t_data *data)
+static void	free_all_structs(t_data *data)
 {
-	free_double_str(data->map_info->map);
-	free_double_str(data->map_info->file_cub);
-	free_sprites(data, data->sprites);
-	free_color_file(data->sprites->ceiling_color);
-	free_color_file(data->sprites->floor_color);
 	if (data->sprites)
 		free(data->sprites);
 	if (data->map_info)
@@ -65,5 +60,15 @@ int	free_data(t_data *data)
 	}
 	if (data)
 		free(data);
-	return (EXIT_SUCCESS);
+}
+
+int	free_data(t_data *data)
+{
+	free_double_str(data->map_info->map);
+	free_double_str(data->map_info->file_cub);
+	free_sprites(data, data->sprites);
+	free_color_file(data->sprites->ceiling_color);
+	free_color_file(data->sprites->floor_color);
+	free_all_structs(data);
+	return (FAILURE);
 }

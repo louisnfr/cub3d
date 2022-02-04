@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   orient_player.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 17:09:29 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/01 16:20:45 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/04 14:06:42 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	orient_player(t_camera *cam, t_vector *vect, t_data *data)
 		vect->dx = vect->dx * cos(-speed) - vect->dy * sin(-speed);
 		vect->dy = dir * sin(-speed) + vect->dy * cos(-speed);
 		plane = cam->px;
-		cam->px = cam->px * cos(-speed) - cam->py * sin(-speed);
+		cam->px = cam->px * cos (-speed) - cam->py * sin(-speed);
 		cam->py = plane * sin(-speed) + cam->py * cos(-speed);
 	}
 	if (data->move->diry)

@@ -24,12 +24,12 @@ int	main(int ac, char **av)
 	if (!data)
 	{
 		free_data(data);
-		return (EXIT_FAILURE);
+		return (SUCCESS);
 	}
 	if (!get_file(data, av[1]))
 	{
 		free_data(data);
-		return (EXIT_FAILURE);
+		return (SUCCESS);
 	}
 	parse_file(data);
 	data->mlx = init_mlx();
@@ -39,5 +39,5 @@ int	main(int ac, char **av)
 	mlx_loop_hook(data->mlx->ptr, main_loop, data);
 	mlx_loop(data->mlx->ptr);
 	free_data(data);
-	return (EXIT_SUCCESS);
+	return (FAILURE);
 }

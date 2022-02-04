@@ -67,6 +67,7 @@ void	put_vline(int x, t_point b, int color, t_mlx *mlx);
 int		free_data(t_data *data);
 int		ft_exit_parsing(t_data *data, char *error_message);
 void	ft_error_message(char *str);
+int		exit_all(t_data *data);
 
 
 #endif

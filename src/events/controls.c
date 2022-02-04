@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   controls.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:23:25 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/01 17:32:14 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/04 11:54:18 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int	key_release(int key, t_data *data)
 {
 	printf("released: %d\n", key);
 	if (key == ESC)
-		exit(EXIT_SUCCESS);
+		exit_all(data);
 	if (key == W)
 		data->move->x = FALSE;
 	if (key == S)
@@ -73,12 +73,6 @@ static int	mouse_move(int x, int y, t_data *data)
 	return (SUCCESS);
 }
 
-static int	exit_all(t_data *data)
-{
-	free_data(data);
-	exit(EXIT_SUCCESS);
-	return (1);
-}
 
 void	init_controls(t_data *data)
 {

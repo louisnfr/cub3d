@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:56:24 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/03 16:49:23 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/04 12:09:21 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static	int	check_error_last_letter(char **map, t_data *data)
 			ft_exit_parsing(data, ERROR_MAP_LAST_LETTER);
 		i++;
 	}
-	return (EXIT_SUCCESS);
+	return (FAILURE);
 }
 
 static	int	check_error_first_letter(char **map, t_data *data)
@@ -45,7 +45,7 @@ static	int	check_error_first_letter(char **map, t_data *data)
 			ft_exit_parsing(data, ERROR_MAP_FIRST_LETTER);
 		i++;
 	}
-	return (EXIT_SUCCESS);
+	return (FAILURE);
 }
 
 // check 1st and last letter of the line
@@ -54,5 +54,5 @@ int	check_error_1st_letter_last_letter(char **map, t_data *data)
 {
 	check_error_first_letter(map, data);
 	check_error_last_letter(map, data);
-	return (EXIT_SUCCESS);
+	return (FAILURE);
 }

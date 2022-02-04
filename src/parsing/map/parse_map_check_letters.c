@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:55:18 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/03 16:51:45 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/04 12:09:36 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,29 +52,29 @@ static	int	letters_are_more_than_once(char **map, t_map *map_info)
 	count = count + check_error_initial_position_player(map, 'N', map_info);
 	count = count + check_error_initial_position_player(map, 'S', map_info);
 	if (count != 1)
-		return (EXIT_FAILURE);
-	return (EXIT_SUCCESS);
+		return (SUCCESS);
+	return (FAILURE);
 }
 
 static	int	check_letters_map(char letter)
 {
 	if (letter == '1')
-		return (EXIT_SUCCESS);
+		return (FAILURE);
 	else if (letter == '0')
-		return (EXIT_SUCCESS);
+		return (FAILURE);
 	else if (letter == ' ')
-		return (EXIT_SUCCESS);
+		return (FAILURE);
 	else if (letter == '\t')
-		return (EXIT_SUCCESS);
+		return (FAILURE);
 	else if (letter == 'N')
-		return (EXIT_SUCCESS);
+		return (FAILURE);
 	else if (letter == 'S')
-		return (EXIT_SUCCESS);
+		return (FAILURE);
 	else if (letter == 'W')
-		return (EXIT_SUCCESS);
+		return (FAILURE);
 	else if (letter == 'E')
-		return (EXIT_SUCCESS);
-	return (EXIT_FAILURE);
+		return (FAILURE);
+	return (SUCCESS);
 }
 
 static	int	check_all_the_letters(char **map)
@@ -89,12 +89,12 @@ static	int	check_all_the_letters(char **map)
 		while (map[i][j])
 		{
 			if (check_letters_map(map[i][j]))
-				return (EXIT_FAILURE);
+				return (SUCCESS);
 			j++;
 		}
 		i++;
 	}
-	return (EXIT_SUCCESS);
+	return (FAILURE);
 }
 
 // Check if other letters than authorized
@@ -106,5 +106,5 @@ int	check_if_letters_are_good(t_data *data)
 		ft_exit_parsing(data, ERROR_MAP_UNAUTHORIZED_LETTER);
 	if (letters_are_more_than_once(data->map_info->map, data->map_info))
 		ft_exit_parsing(data, ERROR_MAP_TOO_MUCH_PLAYER);
-	return (EXIT_SUCCESS);
+	return (FAILURE);
 }

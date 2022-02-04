@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:56:14 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/03 16:57:02 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/04 12:09:36 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int	error_number_ceiling_floor(t_map *map_info, t_data *data)
 {
 	if (map_info->ceiling_floor[0] != 1 || map_info->ceiling_floor[1] != 1)
 		ft_exit_parsing(data, ERROR_CEILING_FLOOR_WRONG_NUMBER_LINES);
-	return (EXIT_SUCCESS);
+	return (FAILURE);
 }
 
 // check 1st letter and check if not duplicated C or F + go to the file color
@@ -27,7 +27,7 @@ static int	check_if_ceiling_floor_if_good(t_data *data, int i,
 	char *ceiling_or_floor, int *check)
 {
 	if (ft_strncmp(data->map_info->file_cub[i], ceiling_or_floor, 1))
-		return (EXIT_FAILURE);
+		return (SUCCESS);
 	if (data->map_info->file_cub[i][1] != ' '
 		&& data->map_info->file_cub[i][1] != '\t')
 		ft_exit_parsing(data, ERROR_CEILING_FLOOR_WRONG_2ND_LETTERS);
@@ -35,7 +35,7 @@ static int	check_if_ceiling_floor_if_good(t_data *data, int i,
 	if ((*check) == 2)
 		ft_exit_parsing(data, ERROR_CEILING_FLOOR_CALLED_TOO_MANY);
 	check_and_add_color_ceiling_floor(data, i);
-	return (EXIT_SUCCESS);
+	return (FAILURE);
 }
 
 // Je check ici si on rencontre la lettre C ou F + error
@@ -57,6 +57,6 @@ int	check_if_floor_ceiling_exist(t_data *data)
 			data->map_info->ceiling_floor[1]++;
 	}
 	if (error_number_ceiling_floor(data->map_info, data))
-		return (EXIT_FAILURE);
-	return (EXIT_SUCCESS);
+		return (SUCCESS);
+	return (FAILURE);
 }

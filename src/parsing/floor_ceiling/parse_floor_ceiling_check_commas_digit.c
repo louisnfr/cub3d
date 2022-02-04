@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:56:11 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/03 18:39:44 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/04 12:08:56 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	check_if_ceiling_floor_have_comma(char *ceiling_floor_data,
 			ft_exit_parsing(data, ERROR_CEILING_FLOOR_FIRST_LETTER_WRONG);
 		}
 	}
-	return (EXIT_SUCCESS);
+	return (FAILURE);
 }
 
 static int	check_commas_and_digit(char **ceiling_floor_data, int i,
@@ -56,7 +56,7 @@ static int	check_commas_and_digit(char **ceiling_floor_data, int i,
 		}
 		j++;
 	}
-	return (EXIT_SUCCESS);
+	return (FAILURE);
 }
 
 static int	check_strings(char **ceiling_floor_data,
@@ -80,7 +80,7 @@ static int	check_strings(char **ceiling_floor_data,
 			free_double_str(ceiling_floor_data);
 			ft_exit_parsing(data, ERROR_CEILING_FLOOR_ARGUMENTS_PROBLEMS);
 		}
-	return (EXIT_SUCCESS);
+	return (FAILURE);
 }
 
 void	strdup_raw_cub_file(t_data *data, char c, char *str)
@@ -108,5 +108,5 @@ int	check_and_add_color_ceiling_floor(t_data *data, int i)
 	check_strings(ceiling_floor_data, len, data);
 	check_colors_and_add_to_struct(data, ceiling_floor_data);
 	free_double_str(ceiling_floor_data);
-	return (EXIT_SUCCESS);
+	return (FAILURE);
 }

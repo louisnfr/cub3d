@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:56:16 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/03 18:48:42 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/04 12:09:21 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static	int	check_rgb_errors(char *tmp_split, t_data *data, char **free, char **f
 		free_double_str(free_2);
 		ft_exit_parsing(data, ERROR_CEILING_FLOOR_LEN_COLOR_TOO_LONG);
 	}
-	return (EXIT_SUCCESS);
+	return (FAILURE);
 }
 
 // static	int	check_len_superior_to_four(char **tmp_split, t_data *data)
@@ -56,7 +56,7 @@ static	int	check_rgb_errors(char *tmp_split, t_data *data, char **free, char **f
 // 		free_double_str(tmp_split);
 // 		ft_exit_parsing(data, ERROR_CEILING_FLOOR_LEN_COLOR_TOO_LONG);
 // 	}
-// 	return (EXIT_SUCCESS);
+// 	return (FAILURE);
 // }
 
 static int	check_rgb(t_color color, t_data *data, int c, char **free)
@@ -74,7 +74,7 @@ static int	check_rgb(t_color color, t_data *data, int c, char **free)
 		i++;
 	}
 	free_double_str(tmp_split);
-	return (EXIT_SUCCESS);
+	return (FAILURE);
 }
 
 int	check_colors_and_add_to_struct(t_data *data, char **ceiling_floor_data)
@@ -94,5 +94,5 @@ int	check_colors_and_add_to_struct(t_data *data, char **ceiling_floor_data)
 		check_rgb(data->sprites->floor_color, data, 2, ceiling_floor_data);
 		f->hex_color = ft_rgb_to_color(0, f->r, f->g, f->b);
 	}
-	return (EXIT_SUCCESS);
+	return (FAILURE);
 }

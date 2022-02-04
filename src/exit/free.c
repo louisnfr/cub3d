@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 12:49:32 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/04 12:03:56 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/04 12:09:21 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	free_sprites(t_data *data, t_sprites *sprites)
 		mlx_destroy_image(data->mlx->ptr, sprites->wall_we.img);
 }
 
-void	free_all_structs(t_data *data)
+static void	free_all_structs(t_data *data)
 {
 	if (data->sprites)
 		free(data->sprites);
@@ -70,5 +70,5 @@ int	free_data(t_data *data)
 	free_color_file(data->sprites->ceiling_color);
 	free_color_file(data->sprites->floor_color);
 	free_all_structs(data);
-	return (EXIT_SUCCESS);
+	return (FAILURE);
 }

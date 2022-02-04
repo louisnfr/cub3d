@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:55:43 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/03 16:27:30 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/04 12:09:21 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,5 @@
 int	parsing_walls(t_data *data)
 {
 	check_all_directions(data);
-	return (EXIT_SUCCESS);
+	return (FAILURE);
 }

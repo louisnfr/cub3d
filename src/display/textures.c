@@ -6,54 +6,83 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:07:00 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/06 16:47:31 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/06 17:35:06 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-// static void	set_wall_dir(t_tex *tex, t_ray *ray)
-// {
-// 	if (ray->side == 0 && ray->dirx < 0)
-// 		tex->wall_dir = NO;
-// 	if (ray->side == 0 && ray->dirx >= 0)
-// 		tex->wall_dir = SO;
-// 	if (ray->side == 1 && ray->diry < 0)
-// 		tex->wall_dir = EA;
-// 	if (ray->side == 1 && ray->diry >= 0)
-// 		tex->wall_dir = WE;
-// }
+// Check where the camera if facing to print the right color
 
-
-void	set_texture(t_ray *ray, t_tex *t, int x, t_data *data)
+static void	set_wall_dir(t_tex *tex, t_ray *ray)
 {
-	double	step;
-	double	tex_pos;
-	int		color;
-	int		tex_y;
-	int		y;
+	if (ray->side == 0 && ray->dirx < 0)
+		tex->wall_dir = 0;
+	if (ray->side == 0 && ray->dirx >= 0)
+		tex->wall_dir = 1;
+	if (ray->side == 1 && ray->diry < 0)
+		tex->wall_dir = 2;
+	if (ray->side == 1 && ray->diry >= 0)
+		tex->wall_dir = 3;
+}
 
-	double wall_x; //where exactly the wall was hit
+static	int	define_tex_x(int tex_x, t_ray *ray, double wall_x)
+{
+	tex_x = (int)(wall_x * (double)TEX_W);
+	if (ray->side == 0 && ray->dirx > 0)
+		tex_x = TEX_W - tex_x - 1;
+	if (ray->side == 1 && ray->diry < 0)
+		tex_x = TEX_W - tex_x - 1;
+	return (tex_x);
+}
+
+static	double	define_wall_x(t_ray *ray, t_data *data, double wall_x)
+{
 	if (ray->side == 0)
 		wall_x = data->player->vector.y + ray->pw * ray->diry;
 	else
 		wall_x = data->player->vector.x + ray->pw * ray->dirx;
 	wall_x -= floor((wall_x));
+	return (wall_x);
+}
 
-	int tex_x = (int)(wall_x * (double)TEX_W);
-	if(ray->side == 0 && ray->dirx > 0)
-		tex_x = TEX_W - tex_x - 1;
-	if(ray->side == 1 && ray->diry < 0)
-		tex_x = TEX_W - tex_x - 1;
+static	void	print_walls(t_tex *t, t_data *data, int x, int tex_x)
+{
+	int		y;
+	double	tex_pos;
+	double	step;
+	int		tex_y;
+	int		color;
 
+	y = t->start - 1;
 	step = 1.0 * TEX_H / t->line_height;
 	tex_pos = (t->start - WIN_H * 0.5 + t->line_height * 0.5) * step;
-	y = t->start - 1;
 	while (++y < t->end)
 	{
 		tex_y = (int)tex_pos & (TEX_H - 1);
 		tex_pos += step;
-		color = data->sprites->wall_we.tex[TEX_H * tex_y + tex_x];
+		if (t->wall_dir == 0)
+			color = data->sprites->wall_we.tex[TEX_H * tex_y + tex_x];
+		if (t->wall_dir == 1)
+			color = data->sprites->wall_ea.tex[TEX_H * tex_y + tex_x];
+		if (t->wall_dir == 2)
+			color = data->sprites->wall_no.tex[TEX_H * tex_y + tex_x];
+		if (t->wall_dir == 3)
+			color = data->sprites->wall_so.tex[TEX_H * tex_y + tex_x];
 		put_pixel(x, y, color, data->mlx);
 	}
+}
+
+void	draw_texture(t_ray *ray, t_tex *t, int x, t_data *data)
+{
+	double	wall_x;
+	int		tex_x;
+
+	wall_x = 0;
+	tex_x = 0;
+	set_wall_dir(t, ray);
+	wall_x = define_wall_x(ray, data, wall_x);
+	tex_x = define_tex_x(tex_x, ray, wall_x);
+	set_wall_dir(t, ray);
+	print_walls(t, data, x, tex_x);
 }

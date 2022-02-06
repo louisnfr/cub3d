@@ -124,7 +124,7 @@ int	raycasting(t_player *player, t_data *data)
 		set_dda(&ray, &player->vector);
 		perform_dda(&ray, &player->vector, data->map_info->map);
 		put_ray_to_image(&ray, &tex, x, data);
-		set_texture(&ray, &tex, x, data);
+		draw_texture(&ray, &tex, x, data);
 	}
 	return (SUCCESS);
 }

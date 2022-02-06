@@ -37,6 +37,17 @@ typedef struct s_img
 	int		height;
 }	t_img;
 
+// typedef	struct s_texture
+// {
+// 	int		check[4];
+// 	t_color	ceiling_color;
+// 	t_color	floor_color;
+// 	t_img	wall_no;
+// 	t_img	wall_so;
+// 	t_img	wall_we;
+// 	t_img	wall_ea;
+// } t_texture;
+
 typedef struct s_sprites
 {
 	void	*wall;

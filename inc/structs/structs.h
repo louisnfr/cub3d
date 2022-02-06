@@ -14,6 +14,9 @@ typedef struct s_mlx
 	int		bpp;
 	int		length;
 	int		endian;
+	int		x;
+	int		y;
+	int		*add;
 }	t_mlx;
 
 typedef struct s_data

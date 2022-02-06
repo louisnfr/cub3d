@@ -103,33 +103,16 @@ static void	put_ray_to_image(t_ray *ray, t_tex *t, int x, t_data *data)
 	t->end = t->line_height * 0.5 + WIN_H * 0.5;
 	if (t->end >= WIN_H)
 		t->end = WIN_H - 1;
-	// int		color;
-	// color = BLUE;
-	// if (ray->side == 1)
-	// 	color = color * 0.5;
-	// t_point	wall = {t->start, t->end, 0};
 	t_point	ceiling = {0, t->start, 0};
 	t_point	floor = {t->end, WIN_H - 1, 0};
 	put_vline(x, ceiling, data->sprites->ceiling_color.hex_color, data->mlx);
 	put_vline(x, floor, data->sprites->floor_color.hex_color, data->mlx);
-	// put_vline(x, wall, color, data->mlx);
 }
 
 // Actual raycasting on the Field of view of the player
 
 int	raycasting(t_player *player, t_data *data)
 {
-	int		**texture;
-
-	texture = malloc(sizeof(int *) * 2);
-	for (int k = 0; k < 1; k++)
-		texture[k] = malloc(sizeof(int) * (1000 * TEX_H * TEX_W));
-	for(int y = 0; y < TEX_W; y++)
-	{
-		for(int x = 0; x < TEX_H; x++)
-			texture[0][TEX_W * y + x] = GREEN;  //flat grey texture
-	}
-
 	t_tex	tex;
 	t_ray	ray;
 	int		x;
@@ -141,7 +124,7 @@ int	raycasting(t_player *player, t_data *data)
 		set_dda(&ray, &player->vector);
 		perform_dda(&ray, &player->vector, data->map_info->map);
 		put_ray_to_image(&ray, &tex, x, data);
-		set_texture(&ray, &tex, x, data, texture);
+		set_texture(&ray, &tex, x, data);
 	}
 	return (SUCCESS);
 }

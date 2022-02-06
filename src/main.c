@@ -37,6 +37,7 @@ int	main(int ac, char **av)
 	parse_file(data);
 	data->mlx = init_mlx();
 	add_img_wall_to_mlx(data);
+	cub_load_textures(data->mlx, data->sprites);
 	data->player = init_player(data);
 	init_controls(data);
 	mlx_loop_hook(data->mlx->ptr, main_loop, data);

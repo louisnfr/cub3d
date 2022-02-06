@@ -50,7 +50,8 @@ int		check_colors_and_add_to_struct(t_data *data, char **ceiling_floor_data);
 /*** raycasting ***/
 
 int		raycasting(t_player *player, t_data *data);
-void	set_texture(t_ray *ray, t_tex *t, int x, t_data *data, int **texture);
+void	set_texture(t_ray *ray, t_tex *t, int x, t_data *data);
+void	draw_texture(t_ray *ray, t_tex *t, int x, t_data *data, int *tex);
 
 /*** events ***/
 
@@ -63,6 +64,7 @@ void	orient_player(t_camera *cam, t_vector *vect, t_data *data);
 
 void	put_pixel(int x, int y, int color, t_mlx *mlx);
 void	put_vline(int x, t_point b, int color, t_mlx *mlx);
+void	cub_load_textures(t_mlx *mlx, t_sprites *wall);
 
 /*** exit ***/
 

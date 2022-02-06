@@ -6,7 +6,7 @@
 #    By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 22:49:26 by lraffin           #+#    #+#              #
-#    Updated: 2022/02/05 13:01:26 by vbachele         ###   ########.fr        #
+#    Updated: 2022/02/06 15:56:54 by vbachele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,6 @@ SRCS =					\
 
 RAYCASTING =			\
 		raycasting.c	\
-		textures.c		\
 
 GEOMETRY =				\
 		draw.c
@@ -35,7 +34,8 @@ EVENTS =				\
 		orient_player.c	\
 		update_pos.c	\
 
-DISPLAY =				\
+DISPLAY =	cub_load_xpm.c \
+			textures.c		\
 
 PARSING =				\
 		get_file.c		\

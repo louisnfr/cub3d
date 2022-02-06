@@ -32,6 +32,7 @@ typedef struct s_img
 	void	*img;
 	char	*path_img;
 	char	*path_face;
+	int		*tex;
 	int		width;
 	int		height;
 }	t_img;

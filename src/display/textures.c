@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:07:00 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/04 16:48:04 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/06 16:47:31 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,8 @@
 // }
 
 
-void	set_texture(t_ray *ray, t_tex *t, int x, t_data *data, int **texture)
+void	set_texture(t_ray *ray, t_tex *t, int x, t_data *data)
 {
-
 	double	step;
 	double	tex_pos;
 	int		color;
@@ -41,9 +40,11 @@ void	set_texture(t_ray *ray, t_tex *t, int x, t_data *data, int **texture)
 		wall_x = data->player->vector.x + ray->pw * ray->dirx;
 	wall_x -= floor((wall_x));
 
-	int tex_x = (int)wall_x * (double)TEX_W;
-	if(ray->side == 0 && ray->dirx > 0) tex_x = TEX_W - tex_x - 1;
-	if(ray->side == 1 && ray->diry < 0) tex_x = TEX_W - tex_x - 1;
+	int tex_x = (int)(wall_x * (double)TEX_W);
+	if(ray->side == 0 && ray->dirx > 0)
+		tex_x = TEX_W - tex_x - 1;
+	if(ray->side == 1 && ray->diry < 0)
+		tex_x = TEX_W - tex_x - 1;
 
 	step = 1.0 * TEX_H / t->line_height;
 	tex_pos = (t->start - WIN_H * 0.5 + t->line_height * 0.5) * step;
@@ -52,9 +53,7 @@ void	set_texture(t_ray *ray, t_tex *t, int x, t_data *data, int **texture)
 	{
 		tex_y = (int)tex_pos & (TEX_H - 1);
 		tex_pos += step;
-		color = texture[0][TEX_H * tex_y * tex_x];
-		// color = GREEN;
-		// printf("check %d\n", color);
+		color = data->sprites->wall_we.tex[TEX_H * tex_y + tex_x];
 		put_pixel(x, y, color, data->mlx);
 	}
 }

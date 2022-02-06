@@ -1,12 +1,12 @@
-SO	./images/wall.xpm
-EA	./images/wall.xpm
+SO	./images/mossy.xpm
+EA	./images/purplestone.xpm
 
 F	135, 126, 126
 
 C	121, 220, 220
 
-WE	./images/wall.xpm
-NO ./images/wall.xpm
+WE	./images/redbrick.xpm
+NO ./images/wood.xpm
 
 111111111111111111111111
 100000000000000000000001

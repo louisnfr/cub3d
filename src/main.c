@@ -1,5 +1,8 @@
 #include "cub3d.h"
 
+/* In this loop we store in buf1 all the map to do the raycasting after.
+Continusly we update the screen in the loop.
+*/
 static int	main_loop(t_data *data)
 {
 	if (data->mlx->img)

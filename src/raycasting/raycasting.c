@@ -1,5 +1,13 @@
 #include "cub3d.h"
 
+/*
+We are doing the initial set up of the ray
+- camx -> When is the camera we are (-1 = left, 0 = center, 1 = right)
+- ray->dir x - y = direction of the ray
+- ray->map x - y = current square of the ray
+- delta x - y = distance to go to the next x or y.
+
+*/
 static void	create_ray(int x, t_ray *ray, t_player *player)
 {
 	double	camx;
@@ -12,6 +20,15 @@ static void	create_ray(int x, t_ray *ray, t_player *player)
 	ray->deltax = fabs(1 / ray->dirx);
 	ray->deltay = fabs(1 / ray->diry);
 }
+
+/*
+- We are doing the initial set up for the dda
+- dda algorithm will jump of one square in each loop eiter in a x or y direction
+- ray->dist x or y = distance from the ray start position to the
+	next x or y position
+- if x or y < 0 go the next x or y to the left
+- if x or y > 0 fo the next x or y to the right
+*/
 
 static void	set_dda(t_ray *ray, t_vector *player)
 {
@@ -37,6 +54,11 @@ static void	set_dda(t_ray *ray, t_vector *player)
 	}
 }
 
+/*
+- Here we are doing the loop which increment 1 square until we hit a wall
+- If the distx < disty, x is the closest point from the ray
+- We increment dist(x or y) to be the next value (x or y) in the map
+*/
 static void	perform_dda(t_ray *ray, t_vector *player, char **map)
 {
 	int	hit;
@@ -65,6 +87,12 @@ static void	perform_dda(t_ray *ray, t_vector *player, char **map)
 		ray->pw = (ray->mapy - player->y + (1 - ray->stepy) * 0.5) / ray->diry;
 }
 
+/*
+We set the ray to be drawn on the map
+- line_height = height of the line to be drawn on screen
+- start and end are the coordinate to draw the wall
+*/
+
 static void	put_ray_to_image(t_ray *ray, t_tex *t, int x, t_data *data)
 {
 
@@ -86,6 +114,8 @@ static void	put_ray_to_image(t_ray *ray, t_tex *t, int x, t_data *data)
 	put_vline(x, floor, data->sprites->floor_color.hex_color, data->mlx);
 	// put_vline(x, wall, color, data->mlx);
 }
+
+// Actual raycasting on the Field of view of the player
 
 int	raycasting(t_player *player, t_data *data)
 {

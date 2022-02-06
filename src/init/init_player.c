@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:37:03 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/04 16:15:09 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/05 12:59:22 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,15 @@ static	void	set_player_direction(t_player *player, double dx, double dy,
 	player->vector.dy = dy;
 }
 
+/*
+Set up of the player start if the FOV(plan) is negative it will show
+a reverse map.
+- Dx is for the height of the map (N or S) with 1 it looks to the East with
+-1 it looks to the west
+- Dy is for the width of the map (E or W) with 1 it looks to the North with
+-1 it looks to the East
+*/
+
 void	set_player_dir(t_player *player, t_data *data)
 {
 	if (data->map_info->init_position == 'N')
@@ -57,6 +66,6 @@ void	set_player_dir(t_player *player, t_data *data)
 	if (data->map_info->init_position == 'W')
 	{
 		set_player_direction(player, -1, 0, 0);
-		set_player_plan(player, 0, -0.66);
+		set_player_plan(player, 0, 0.66);
 	}
 }

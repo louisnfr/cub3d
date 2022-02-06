@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
+#    By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 22:49:26 by lraffin           #+#    #+#              #
-#    Updated: 2022/02/04 16:52:02 by lraffin          ###   ########.fr        #
+#    Updated: 2022/02/05 13:01:26 by vbachele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,7 @@ EXIT =				\
 		exit.c \
 
 INIT =					\
-		init_data.c \
+		init_player.c \
 		init_struct.c \
 
 INC_DIR	= inc
@@ -73,7 +73,7 @@ OBJS	= $(SRCS:%.c=$(OBJ_DIR)/%.o)
 DEPS	= $(OBJS:%.o=%.d)
 
 CC		= clang
-CFLAGS	= -Wall -Wextra -Werror -MMD -MP -g3 $(DEBUG)
+CFLAGS	= -Wall -Wextra -Werror -MMD -MP -g3 #$(DEBUG)
 DEBUG	= -fsanitize=address
 LIBFT	= -L libft -lft
 UNAME	= $(shell uname)

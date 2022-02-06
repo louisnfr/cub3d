@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:56:11 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/04 12:08:56 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/06 18:09:58 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,9 +86,9 @@ static int	check_strings(char **ceiling_floor_data,
 void	strdup_raw_cub_file(t_data *data, char c, char *str)
 {
 	if (c == 'C')
-		data->sprites->ceiling_color.raw = ft_strdup(str);
+		data->textures->ceiling_color.raw = ft_strdup(str);
 	else if (c == 'F')
-		data->sprites->floor_color.raw = ft_strdup(str);
+		data->textures->floor_color.raw = ft_strdup(str);
 }
 
 int	check_and_add_color_ceiling_floor(t_data *data, int i)

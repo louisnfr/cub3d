@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:56:40 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/04 12:09:36 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/06 18:09:11 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,21 +49,21 @@ static int	loop_check_face_walls(t_data *data)
 		// 	continue ;
 		// }
 		if (!check_if_direction_if_good(data, i, "NO"))
-			data->sprites->check[0]++;
+			data->textures->check[0]++;
 		else if (!check_if_direction_if_good(data, i, "SO"))
-			data->sprites->check[1]++;
+			data->textures->check[1]++;
 		else if (!check_if_direction_if_good(data, i, "WE"))
-			data->sprites->check[2]++;
+			data->textures->check[2]++;
 		else if (!check_if_direction_if_good(data, i, "EA"))
-			data->sprites->check[3]++;
+			data->textures->check[3]++;
 	}
 	return (FAILURE);
 }
 
 int	check_all_directions(t_data *data)
 {
-	ft_memset(data->sprites->check, 0, sizeof (int) * 4);
+	ft_memset(data->textures->check, 0, sizeof (int) * 4);
 	loop_check_face_walls(data);
-	check_if_too_much_walls_lines(data->sprites->check, data);
+	check_if_too_much_walls_lines(data->textures->check, data);
 	return (FAILURE);
 }

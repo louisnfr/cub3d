@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_file.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:55:37 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/01 15:17:07 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/06 18:26:39 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // a changer avec le nouveau parsing car pas pertinent
 //de recuperer l'info tout de suite
-static char	**allocate_file(t_map *map_info)
+static char	**allocate_file(t_map *map_info, t_data *data)
 {
 	char	**map;
 	int		i;
@@ -27,7 +27,8 @@ static char	**allocate_file(t_map *map_info)
 	{
 		map[i] = ft_calloc(map_info->cubfile_width_line + 1, sizeof(char));
 		if (!map[i])
-			return (NULL);
+			ft_exit_parsing(data,"Error\n"
+			"Problem with your memory_allocation\n");
 	}
 	map[i] = 0;
 	return (map);
@@ -43,9 +44,9 @@ static int	fill_file(t_data *data, char *av)
 	int		j;
 
 	fd = open(av, O_RDONLY);
-	data->map_info->file_cub = allocate_file(data->map_info);
+	data->map_info->file_cub = allocate_file(data->map_info, data);
 	if (!data->map_info->file_cub || fd < 0)
-		return (FAILURE);
+		ft_exit_parsing(data,"Error\nProblem with your memory_allocation\n");
 	ret = 1;
 	j = 0;
 	while (ret)
@@ -53,7 +54,7 @@ static int	fill_file(t_data *data, char *av)
 		i = -1;
 		ret = get_next_line(fd, &line);
 		if (ret < 0)
-			return (FAILURE);
+			ft_exit_parsing(data,"Error\nProblem when reading your fd\n");
 		while (++i < ft_strlen(line))
 			data->map_info->file_cub[j][i] = line[i];
 		j++;
@@ -74,7 +75,7 @@ int	get_file(t_data *data, char *av)
 
 	fd = open(av, O_RDONLY);
 	if (fd < 0)
-		return (FAILURE);
+		ft_exit_parsing(data,"Error\nProblem on opening your fd\n");
 	ret = 1;
 	ft_memset(data->map_info, 0, sizeof(t_map));
 	while (ret)
@@ -83,7 +84,7 @@ int	get_file(t_data *data, char *av)
 		if (ret < 0)
 		{
 			close(fd);
-			return (FAILURE);
+			ft_exit_parsing(data,"Error\nProblem when reading your fd\n");
 		}
 		if (ft_strlen(line) > data->map_info->cubfile_width_line)
 			data->map_info->cubfile_width_line = ft_strlen(line);

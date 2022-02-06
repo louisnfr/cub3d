@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:56:38 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/04 12:09:21 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/06 18:09:11 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,25 @@
 static void	strdup_struct_walls(t_data *data,
 				char *face_wall, char *path, int i)
 {
-	if (data->sprites->check[0] < 1 && i == 0)
+	if (data->textures->check[0] < 1 && i == 0)
 	{
-		data->sprites->wall_no.path_face = ft_strdup(face_wall);
-		data->sprites->wall_no.path_img = ft_strdup(path);
+		data->textures->wall_no.path_face = ft_strdup(face_wall);
+		data->textures->wall_no.path_img = ft_strdup(path);
 	}
-	if (data->sprites->check[1] < 1 && i == 1)
+	if (data->textures->check[1] < 1 && i == 1)
 	{
-		data->sprites->wall_so.path_face = ft_strdup(face_wall);
-		data->sprites->wall_so.path_img = ft_strdup(path);
+		data->textures->wall_so.path_face = ft_strdup(face_wall);
+		data->textures->wall_so.path_img = ft_strdup(path);
 	}
-	if (data->sprites->check[2] < 1 && i == 2)
+	if (data->textures->check[2] < 1 && i == 2)
 	{
-		data->sprites->wall_we.path_face = ft_strdup(face_wall);
-		data->sprites->wall_we.path_img = ft_strdup(path);
+		data->textures->wall_we.path_face = ft_strdup(face_wall);
+		data->textures->wall_we.path_img = ft_strdup(path);
 	}
-	if (data->sprites->check[3] < 1 && i == 3)
+	if (data->textures->check[3] < 1 && i == 3)
 	{
-		data->sprites->wall_ea.path_face = ft_strdup(face_wall);
-		data->sprites->wall_ea.path_img = ft_strdup(path);
+		data->textures->wall_ea.path_face = ft_strdup(face_wall);
+		data->textures->wall_ea.path_img = ft_strdup(path);
 	}
 }
 

@@ -27,6 +27,7 @@ typedef struct s_data
 	struct s_mouse		*mouse;
 	struct s_map		*map_info;
 	struct s_sprites	*sprites;
+	struct s_textures	*textures;
 }	t_data;
 
 #endif

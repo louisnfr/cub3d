@@ -24,20 +24,11 @@ int	main(int ac, char **av)
 	check_input(ac, av);
 	data = init_data();
 	init_struct(data);
-	if (!data)
-	{
-		free_data(data);
-		return (SUCCESS);
-	}
-	if (!get_file(data, av[1]))
-	{
-		free_data(data);
-		return (SUCCESS);
-	}
+	get_file(data, av[1]);
 	parse_file(data);
-	data->mlx = init_mlx();
+	data->mlx = init_mlx(data);
 	add_img_wall_to_mlx(data);
-	cub_load_textures(data->mlx, data->sprites);
+	cub_load_textures(data->mlx, data->textures);
 	data->player = init_player(data);
 	init_controls(data);
 	mlx_loop_hook(data->mlx->ptr, main_loop, data);

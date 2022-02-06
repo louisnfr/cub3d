@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:56:16 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/04 12:09:21 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/06 18:09:58 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,17 @@ static	void	add_color_to_struct(char *tmp_split, int i,
 
 	rgb = atoi(tmp_split);
 	if (i == 1 && color == 1)
-		data->sprites->ceiling_color.r = rgb;
+		data->textures->ceiling_color.r = rgb;
 	else if (i == 1 && color == 2)
-		data->sprites->floor_color.r = rgb;
+		data->textures->floor_color.r = rgb;
 	else if (i == 2 && color == 1)
-		data->sprites->ceiling_color.g = rgb;
+		data->textures->ceiling_color.g = rgb;
 	else if (i == 2 && color == 2)
-		data->sprites->floor_color.g = rgb;
+		data->textures->floor_color.g = rgb;
 	else if (i == 3 && color == 1)
-		data->sprites->ceiling_color.b = rgb;
+		data->textures->ceiling_color.b = rgb;
 	else if (i == 3 && color == 2)
-		data->sprites->floor_color.b = rgb;
+		data->textures->floor_color.b = rgb;
 }
 
 static	int	check_rgb_errors(char *tmp_split, t_data *data, char **free, char **free_2)
@@ -82,16 +82,16 @@ int	check_colors_and_add_to_struct(t_data *data, char **ceiling_floor_data)
 	t_color	*c;
 	t_color	*f;
 
-	c = &data->sprites->ceiling_color;
-	f = &data->sprites->floor_color;
+	c = &data->textures->ceiling_color;
+	f = &data->textures->floor_color;
 	if (ceiling_floor_data[0][0] == 'C')
 	{
-		check_rgb(data->sprites->ceiling_color, data, 1, ceiling_floor_data);
+		check_rgb(data->textures->ceiling_color, data, 1, ceiling_floor_data);
 		c->hex_color = ft_rgb_to_color(0, c->r, c->g, c->b);
 	}
 	else if (ceiling_floor_data[0][0] == 'F')
 	{
-		check_rgb(data->sprites->floor_color, data, 2, ceiling_floor_data);
+		check_rgb(data->textures->floor_color, data, 2, ceiling_floor_data);
 		f->hex_color = ft_rgb_to_color(0, f->r, f->g, f->b);
 	}
 	return (FAILURE);

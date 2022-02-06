@@ -4,7 +4,7 @@
 	- On malloc.
 	- On remplit de 0 nos int* de textures.
 */
-static void	cub_init_textures(t_sprites *wall)
+static void	cub_init_textures(t_textures *wall)
 {
 	int		j;
 
@@ -54,7 +54,7 @@ static void	cub_load_xpm(t_mlx *mlx, int *tex, char *path)
 
 // On init notre texture et on lui stock une valeur
 
-void	cub_load_textures(t_mlx *mlx, t_sprites *wall)
+void	cub_load_textures(t_mlx *mlx, t_textures *wall)
 {
 	cub_init_textures(wall);
 	cub_load_xpm(mlx, wall->wall_no.tex, wall->wall_no.path_img);

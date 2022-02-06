@@ -7,8 +7,8 @@
 /*** init ***/
 
 t_data		*init_data(void);
-t_mlx		*init_mlx(void);
-t_move		*init_move(void);
+t_mlx		*init_mlx(t_data *data);
+t_move		*init_move(t_data *data);
 t_player	*init_player(t_data *data);
 void		init_struct(t_data *data);
 void		init_mouse(t_mouse *mouse);
@@ -63,7 +63,7 @@ void	orient_player(t_camera *cam, t_vector *vect, t_data *data);
 
 void	put_pixel(int x, int y, int color, t_mlx *mlx);
 void	put_vline(int x, t_point b, int color, t_mlx *mlx);
-void	cub_load_textures(t_mlx *mlx, t_sprites *wall);
+void	cub_load_textures(t_mlx *mlx, t_textures *wall);
 
 /*** exit ***/
 

@@ -78,7 +78,8 @@ static void	perform_dda(t_ray *ray, t_vector *player, char **map)
 			ray->mapy += ray->stepy;
 			ray->side = 1;
 		}
-		if (map[ray->mapy][ray->mapx] == '1')
+		if (map[ray->mapy][ray->mapx] == '1'
+			|| map[ray->mapy][ray->mapx] == '2') // BONUS
 			hit = 1;
 	}
 	if (ray->side == 0)
@@ -118,6 +119,7 @@ int	raycasting(t_player *player, t_data *data)
 	int		x;
 
 	x = -1;
+	ray = data->ray;
 	while (++x < WIN_W)
 	{
 		create_ray(x, &ray, player);

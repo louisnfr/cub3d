@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:07:00 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/06 18:06:32 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/09 17:14:58 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 // Check where the camera if facing to print the right color
 
-static void	set_wall_dir(t_tex *tex, t_ray *ray)
+static void	set_wall_dir(t_tex *tex, t_ray *ray, t_data *data)
 {
+	(void) data;
 	if (ray->side == 0 && ray->dirx < 0)
 		tex->wall_dir = 0;
 	if (ray->side == 0 && ray->dirx >= 0)
@@ -69,6 +70,8 @@ static	void	print_walls(t_tex *t, t_data *data, int x, int tex_x)
 			color = data->textures->wall_no.tex[TEX_H * tex_y + tex_x];
 		if (t->wall_dir == 3)
 			color = data->textures->wall_so.tex[TEX_H * tex_y + tex_x];
+		if (data->map_info->map[(int)data->ray.mapy][(int)data->ray.mapx] == '2')
+			color = data->textures->doors.tex[TEX_H * tex_y + tex_x];
 		put_pixel(x, y, color, data->mlx);
 	}
 }
@@ -80,9 +83,8 @@ void	draw_texture(t_ray *ray, t_tex *t, int x, t_data *data)
 
 	wall_x = 0;
 	tex_x = 0;
-	set_wall_dir(t, ray);
+	set_wall_dir(t, ray, data);
 	wall_x = define_wall_x(ray, data, wall_x);
-	tex_x = define_tex_x(tex_x, ray, wall_x);
-	set_wall_dir(t, ray);
+	tex_x = define_tex_x(tex_x, ray, wall_x);;
 	print_walls(t, data, x, tex_x);
 }

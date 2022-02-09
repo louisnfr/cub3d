@@ -68,6 +68,7 @@ typedef struct s_move
 	t_bool	diry;
 	t_bool	dirz;
 	t_bool	shift;
+	t_bool	minimap;
 }	t_move;
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:55:18 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/04 12:09:36 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/08 17:13:30 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ static	int	letters_are_more_than_once(char **map, t_map *map_info)
 static	int	check_letters_map(char letter)
 {
 	if (letter == '1')
+		return (FAILURE);
+	if (letter == '2')
 		return (FAILURE);
 	else if (letter == '0')
 		return (FAILURE);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keys.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:15:48 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/01 16:34:26 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/08 15:54:07 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 #  define S 115
 #  define D 100
 #  define Q 113
+#  define M 109
 #  define E 101
 #  define UP 65362
 #  define LEFT 65361

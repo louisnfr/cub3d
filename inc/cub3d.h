@@ -63,7 +63,7 @@ void	orient_player(t_camera *cam, t_vector *vect, t_data *data);
 
 void	put_pixel(int x, int y, int color, t_mlx *mlx);
 void	put_vline(int x, t_point b, int color, t_mlx *mlx);
-void	cub_load_textures(t_mlx *mlx, t_textures *wall);
+void	cub_load_textures(t_mlx *mlx, t_textures *wall, t_data *data);
 
 /*** exit ***/
 
@@ -71,6 +71,16 @@ int		free_data(t_data *data);
 int		ft_exit_parsing(t_data *data, char *error_message);
 void	ft_error_message(char *str);
 int		exit_all(t_data *data);
+void	free_double_int(int *tab);
 
+/////////////////////////////     BONUS    ////////////////////////////////////
+
+/*** mini_map ***/
+
+int		mini_map(t_data *data);
+int		doors(t_data *data);
+int		ft_strlen_double_str_find_element(char **double_str, char c);
+int		store_data_bonus(t_map *map, t_data *data);
+int		close_doors(t_map *map, t_vector *v, t_doors *doors);
 
 #endif

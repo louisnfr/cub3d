@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:23:25 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/05 13:07:23 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/08 16:02:29 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ static int	key_press(int key, t_data *data)
 		data->move->diry = TRUE;
 	if (key == SHIFT)
 		data->move->shift = TRUE;
+	if (key == M)
+		data->move->minimap = TRUE;
 	return (SUCCESS);
 }
 
@@ -51,6 +53,8 @@ static int	key_release(int key, t_data *data)
 		data->move->diry = FALSE;
 	if (key == SHIFT)
 		data->move->shift = FALSE;
+	if (key == M)
+		data->move->minimap = FALSE;
 	return (SUCCESS);
 }
 

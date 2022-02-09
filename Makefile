@@ -6,7 +6,7 @@
 #    By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 22:49:26 by lraffin           #+#    #+#              #
-#    Updated: 2022/02/06 15:56:54 by vbachele         ###   ########.fr        #
+#    Updated: 2022/02/09 14:19:49 by vbachele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SRCS =					\
 		$(PARSING)		\
 		$(EVENTS)		\
 		$(EXIT)			\
-		$(INIT)
+		$(INIT)			\
+		$(BONUS)		\
 
 RAYCASTING =			\
 		raycasting.c	\
@@ -65,6 +66,12 @@ INIT =					\
 		init_player.c \
 		init_struct.c \
 
+BONUS =					\
+		mini_map.c 		\
+		open_doors.c			\
+		utils_bonus.c 	\
+		close_doors.c	\
+
 INC_DIR	= inc
 SRC_DIR	= src
 OBJ_DIR	= obj
@@ -85,7 +92,7 @@ endif
 
 vpath %.c $(addprefix $(SRC_DIR)/, . raycasting geometry display parsing	\
 									sprites exit events init parsing/walls	\
-									parsing/map parsing/floor_ceiling	\
+									parsing/map parsing/floor_ceiling bonus	\
 									)
 
 all: libs

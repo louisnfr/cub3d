@@ -4,13 +4,14 @@
 # include "parsing.h"
 # include "player.h"
 
+// struct for our mlx
+
 typedef struct s_mlx
 {
 	void	*ptr;
 	void	*win;
 	void	*img;
 	char	*buf1;
-	char	*buf2;
 	int		bpp;
 	int		length;
 	int		endian;
@@ -18,6 +19,8 @@ typedef struct s_mlx
 	int		y;
 	int		*add;
 }	t_mlx;
+
+// initial structure
 
 typedef struct s_data
 {
@@ -28,6 +31,9 @@ typedef struct s_data
 	struct s_map		*map_info;
 	struct s_sprites	*sprites;
 	struct s_textures	*textures;
+	struct s_minimap	minimap;
+	struct s_doors		doors;
+	struct s_ray		ray;
 }	t_data;
 
 #endif

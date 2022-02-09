@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:56:36 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/04 12:09:21 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/09 11:59:18 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	parsing_map(t_data *data)
 {
 	map_if_in_good_place(data->map_info, data);
 	store_data_map(data->map_info, data);
+	store_data_bonus(data->map_info, data);
 	check_errors_map(data);
 	check_map_is_valid(data);
 	return (FAILURE);

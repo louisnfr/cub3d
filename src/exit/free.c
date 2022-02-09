@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 12:49:32 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/06 18:14:57 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/09 14:34:21 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,16 @@ void	free_sprites(t_data *data, t_textures *textures)
 {
 	clean_free(&textures->wall_no.path_face);
 	clean_free(&textures->wall_no.path_img);
+	free(textures->wall_no.tex);
 	clean_free(&textures->wall_so.path_face);
 	clean_free(&textures->wall_so.path_img);
+	free(textures->wall_so.tex);
 	clean_free(&textures->wall_we.path_face);
 	clean_free(&textures->wall_we.path_img);
+	free(textures->wall_we.tex);
 	clean_free(&textures->wall_ea.path_face);
 	clean_free(&textures->wall_ea.path_img);
+	free(textures->wall_ea.tex);
 	if (textures->wall_ea.img)
 		mlx_destroy_image(data->mlx->ptr, textures->wall_ea.img);
 	if (textures->wall_no.img)

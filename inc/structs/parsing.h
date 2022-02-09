@@ -1,6 +1,30 @@
 #ifndef PARSING_H
 # define PARSING_H
 
+// struct for the doors
+
+typedef struct s_doors
+{
+	int		x;
+	int		y;
+	int		j;
+	t_bool	door_open;
+} t_doors;
+
+
+// struct for the mini_map
+
+typedef	struct s_minimap
+{
+	int	x;
+	int	y;
+	int	length_x;
+	int	length_y;
+	int	offset;
+}	t_minimap;
+
+// struct for ceiling && floor
+
 typedef struct s_color
 {
 	char	*raw;
@@ -9,6 +33,8 @@ typedef struct s_color
 	int		b;
 	int		hex_color;
 }	t_color;
+
+// struct to parse and store the file && map
 
 typedef struct s_map
 {
@@ -27,6 +53,8 @@ typedef struct s_map
 	int		ceiling_floor[2];
 }	t_map;
 
+// struct to store the xmp for the texture
+
 typedef struct s_img
 {
 	void	*img;
@@ -37,6 +65,8 @@ typedef struct s_img
 	int		height;
 }	t_img;
 
+// struct for textures
+
 typedef	struct s_textures
 {
 	int		check[4];
@@ -46,20 +76,19 @@ typedef	struct s_textures
 	t_img	wall_so;
 	t_img	wall_we;
 	t_img	wall_ea;
+	t_img	doors;
 } t_textures;
+
+// struct to display the sprites
 
 typedef struct s_sprites
 {
+	void	*mini_map_blank;
 	void	*wall;
 	void	*floor;
-	// int		check[4];
-	// t_color	ceiling_color;
-	// t_color	floor_color;
-	// t_img	wall_no;
-	// t_img	wall_so;
-	// t_img	wall_we;
-	// t_img	wall_ea;
 }	t_sprites;
+
+// struct to draw the texture
 
 typedef struct s_tex
 {

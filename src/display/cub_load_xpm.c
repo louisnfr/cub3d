@@ -4,7 +4,7 @@
 	- On malloc.
 	- On remplit de 0 nos int* de textures.
 */
-static void	cub_init_textures(t_textures *wall)
+static void	cub_init_textures(t_textures *wall, t_data *data)
 {
 	int		j;
 
@@ -12,7 +12,10 @@ static void	cub_init_textures(t_textures *wall)
 	wall->wall_so.tex = (int *)malloc(sizeof(int) * (TEX_W * TEX_H));
 	wall->wall_ea.tex = (int *)malloc(sizeof(int) * (TEX_W * TEX_H));
 	wall->wall_we.tex = (int *)malloc(sizeof(int) * (TEX_W * TEX_H));
-	// proteger les malloc et les free
+	wall->doors.tex = (int *)malloc(sizeof(int) * (TEX_W * TEX_H));
+	if (!wall->wall_no.tex || !wall->wall_so.tex || !wall->wall_ea.tex
+		|| !wall->wall_we.tex || !wall->doors.tex)
+		ft_exit_parsing(data, "Error\nMalloc failed\n");
 	j = 0;
 	while (j < TEX_W * TEX_H)
 	{
@@ -20,6 +23,7 @@ static void	cub_init_textures(t_textures *wall)
 		wall->wall_so.tex[j] = 0;
 		wall->wall_ea.tex[j] = 0;
 		wall->wall_we.tex[j] = 0;
+		wall->doors.tex[j] = 0;
 		j++;
 	}
 }
@@ -32,7 +36,6 @@ static void	cub_load_xpm(t_mlx *mlx, int *tex, char *path)
 {
 	int	x;
 	int	y;
-
 	mlx->img = mlx_xpm_file_to_image(mlx->ptr, path, &mlx->x, &mlx->y);
 	if (mlx->img)
 		mlx->add = (int *)mlx_get_data_addr(mlx->img,
@@ -49,16 +52,18 @@ static void	cub_load_xpm(t_mlx *mlx, int *tex, char *path)
 		}
 		y++;
 	}
+	// TROUVER MOYEN DE FREE
 	// mlx_destroy_image(mlx->ptr, mlx->img);
 }
 
 // On init notre texture et on lui stock une valeur
 
-void	cub_load_textures(t_mlx *mlx, t_textures *wall)
+void	cub_load_textures(t_mlx *mlx, t_textures *wall, t_data *data)
 {
-	cub_init_textures(wall);
+	cub_init_textures(wall, data);
 	cub_load_xpm(mlx, wall->wall_no.tex, wall->wall_no.path_img);
 	cub_load_xpm(mlx, wall->wall_so.tex, wall->wall_so.path_img);
 	cub_load_xpm(mlx, wall->wall_ea.tex, wall->wall_ea.path_img);
 	cub_load_xpm(mlx, wall->wall_we.tex, wall->wall_we.path_img);
+	cub_load_xpm(mlx, wall->doors.tex, "./images/eagle.xpm");
 }

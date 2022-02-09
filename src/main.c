@@ -14,6 +14,8 @@ static int	main_loop(t_data *data)
 	raycasting(data->player, data);
 	mlx_put_image_to_window(data->mlx->ptr, data->mlx->win,
 		data->mlx->img, 0, 0);
+	mini_map(data);
+	doors(data);
 	return (SUCCESS);
 }
 
@@ -28,7 +30,7 @@ int	main(int ac, char **av)
 	parse_file(data);
 	data->mlx = init_mlx(data);
 	add_img_wall_to_mlx(data);
-	cub_load_textures(data->mlx, data->textures);
+	cub_load_textures(data->mlx, data->textures, data);
 	data->player = init_player(data);
 	init_controls(data);
 	mlx_loop_hook(data->mlx->ptr, main_loop, data);

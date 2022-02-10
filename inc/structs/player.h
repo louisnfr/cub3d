@@ -90,7 +90,7 @@ typedef struct s_ray_b
 	int			celly;
 	int			tx;
 	int			ty;
-	u_int32_t	buffer[WIN_H + 1][WIN_W + 1];
+	u_int32_t	buffer[WIN_H][WIN_W];
 }	t_ray_b;
 
 

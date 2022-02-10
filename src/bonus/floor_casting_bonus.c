@@ -8,7 +8,6 @@ int	floor_casting_bonus(t_data *data, t_player *player)
     int     x;
 
 	y = 0;
-    x = 0;
 	ray = data->ray;
 	ray_b = data->ray_b;
 	while (y < WIN_H)
@@ -36,6 +35,7 @@ int	floor_casting_bonus(t_data *data, t_player *player)
         // real world coordinates of the leftmost column. This will be updated as we step to the right.
         ray_b.floorx = player->vector.x +  ray_b.rowdistance * ray_b.dirx0;
         ray_b.floory = player->vector.y +  ray_b.rowdistance * ray_b.diry0;
+        x = 0;
         while (x < WIN_W)
         {
             // the cell coord is simply got from the integer parts of floorX and floorY
@@ -58,38 +58,39 @@ int	floor_casting_bonus(t_data *data, t_player *player)
             color = data->textures->wall_so.tex[TEX_W * ray_b.ty + ray_b.tx];
             color = (color >> 1) & 8355711; // make a bit darker
             ray_b.buffer[y][x] = color;
-            put_pixel(x, y, ray_b.buffer[y][x], data->mlx);
+            //put_pixel(x, y, WHITE, data->mlx);
             //ceiling (symmetrical, at screenHeight - y - 1 instead of y)
             color = data->textures->doors.tex[(TEX_W * ray_b.ty) + ray_b.tx];
             color = (color >> 1) & 8355711; // make a bit darker
-            ray_b.buffer[WIN_H - y][x] = color;
-            put_pixel(x, WIN_H - y, ray_b.buffer[WIN_H - y][x], data->mlx);
+            //printf("PROUT_debug %d\n", color);
+            ray_b.buffer[WIN_H - y - 1][x] = color;
+            //put_pixel(x, WIN_H - y - 1, buffer[WIN_H - y - 1][x], data->mlx);
             x++;
         }
         y++;
     }
 
-	// int k = 0;
-	// while (k < (WIN_H - k))
-	// {
-	// 	x = 0;
-	// 	while (x < WIN_W)
-	// 	{
-    //         put_pixel(x, k, ray_b.buffer[y][x], data->mlx);
-	// 		x++;
-	// 	}
-	// 	k++;
-	// }
-    // while (k < WIN_H)
-	// {
-	// 	x = 0;
-	// 	while (x < WIN_W)
-	// 	{
-    //         put_pixel(x, k, ray_b.buffer[WIN_H - y][x], data->mlx);
-	// 		x++;
-	// 	}
-	// 	k++;
-	// }
+	int k = 0;
+	while (k < (WIN_H - k))
+	{
+		x = 0;
+		while (x < WIN_W)
+		{
+            put_pixel(x, k, ray_b.buffer[k][x], data->mlx);
+			x++;
+		}
+		k++;
+	}
+    while (k < WIN_H)
+	{
+		x = 0;
+		while (x < WIN_W)
+		{
+            put_pixel(x, k, ray_b.buffer[k][x], data->mlx);
+			x++;
+		}
+		k++;
+	}
 
     return (SUCCESS);
 }

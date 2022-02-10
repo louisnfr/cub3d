@@ -24,6 +24,11 @@ int	ft_strlen_double_str_find_element(char **double_str, char c)
 	return (count);
 }
 
+void	init_bonus_struct(t_data *data)
+{
+	ft_memset(&data->ray_b, 0, sizeof(t_ray_b));
+}
+
 //init and store the data for the doors
 
 int	store_data_bonus(t_map *map, t_data *data)

@@ -77,6 +77,8 @@ typedef	struct s_textures
 	t_img	wall_we;
 	t_img	wall_ea;
 	t_img	doors;
+	t_img	floor;
+	t_img	ceiling;
 } t_textures;
 
 // struct to display the sprites

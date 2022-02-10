@@ -34,6 +34,7 @@ typedef struct s_data
 	struct s_minimap	minimap;
 	struct s_doors		doors;
 	struct s_ray		ray;
+	struct s_ray_b		ray_b;
 }	t_data;
 
 #endif

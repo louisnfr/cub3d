@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:32:47 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/08 11:50:07 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/10 15:56:44 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,3 +31,14 @@ void	put_vline(int x, t_point b, int color, t_mlx *mlx)
 	while (++i < b.y)
 		put_pixel(x, i, color, mlx);
 }
+
+
+void	put_hline(int x, t_point b, int color, t_mlx *mlx)
+{
+	int	i;
+
+	i = b.y - 1;
+	while (++i < b.y)
+		put_pixel(x, i, color, mlx);
+}
+

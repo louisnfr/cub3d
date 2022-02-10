@@ -75,12 +75,25 @@ void	free_double_int(int *tab);
 
 /////////////////////////////     BONUS    ////////////////////////////////////
 
+/*** utils ***/
+
+void	init_bonus_struct(t_data *data);
+int		store_data_bonus(t_map *map, t_data *data);
+int		ft_strlen_double_str_find_element(char **double_str, char c);
+
 /*** mini_map ***/
 
 int		mini_map(t_data *data);
+
+/*** doors ***/
+
 int		doors(t_data *data);
-int		ft_strlen_double_str_find_element(char **double_str, char c);
-int		store_data_bonus(t_map *map, t_data *data);
 int		close_doors(t_map *map, t_vector *v, t_doors *doors);
+
+/*** floor_ceiling ***/
+
+int		floor_ceiling_bonus(t_data *data);
+int		floor_casting_bonus(t_data *data, t_player *player);
+
 
 #endif

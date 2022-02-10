@@ -6,7 +6,7 @@
 #    By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 22:49:26 by lraffin           #+#    #+#              #
-#    Updated: 2022/02/09 14:19:49 by vbachele         ###   ########.fr        #
+#    Updated: 2022/02/10 15:41:43 by vbachele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,9 +68,11 @@ INIT =					\
 
 BONUS =					\
 		mini_map.c 		\
-		open_doors.c			\
+		open_doors.c	\
 		utils_bonus.c 	\
 		close_doors.c	\
+		floor_ceiling.c \
+		floor_casting_bonus.c \
 
 INC_DIR	= inc
 SRC_DIR	= src
@@ -80,7 +82,7 @@ OBJS	= $(SRCS:%.c=$(OBJ_DIR)/%.o)
 DEPS	= $(OBJS:%.o=%.d)
 
 CC		= clang
-CFLAGS	= -Wall -Wextra -Werror -MMD -MP -g3 #$(DEBUG)
+CFLAGS	= -Wall -Wextra -MMD -MP -g3 #$(DEBUG)
 DEBUG	= -fsanitize=address
 LIBFT	= -L libft -lft
 UNAME	= $(shell uname)

@@ -26,6 +26,7 @@ int	main(int ac, char **av)
 	check_input(ac, av);
 	data = init_data();
 	init_struct(data);
+	init_bonus_struct(data);
 	get_file(data, av[1]);
 	parse_file(data);
 	data->mlx = init_mlx(data);

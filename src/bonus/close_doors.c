@@ -2,8 +2,8 @@
 
 int	close_doors(t_map *map, t_vector *v, t_doors *doors)
 {
-	int len_x;
-	int len_y;
+	int	len_x;
+	int	len_y;
 
 	len_x = doors->x - v->x;
 	len_y = doors->y - v->y;

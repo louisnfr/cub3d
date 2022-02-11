@@ -6,7 +6,7 @@
 #    By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 22:49:26 by lraffin           #+#    #+#              #
-#    Updated: 2022/02/10 15:41:43 by vbachele         ###   ########.fr        #
+#    Updated: 2022/02/11 10:49:22 by vbachele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,6 +73,7 @@ BONUS =					\
 		close_doors.c	\
 		floor_ceiling.c \
 		floor_casting_bonus.c \
+		draw_bonus.c \
 
 INC_DIR	= inc
 SRC_DIR	= src

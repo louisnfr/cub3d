@@ -28,3 +28,28 @@ int	draw_floor_ceiling_bonus(t_ray_b *ray_b, t_data *data)
 	}
 	return (SUCCESS);
 }
+
+int	draw_sprites_bonus(t_sprites *spr, t_data *data)
+{
+	int	stripe;
+	int	y;
+
+	stripe = spr->drawstartx;
+	y = 0;
+	while (stripe < spr->drawendx)
+	{
+		if (spr->transformy > 0 && stripe > 0 && stripe < WIN_W
+			&& spr->transformy < spr->zbuffer[stripe])
+		{
+			y = spr->drawstarty;
+			while (y < spr->drawendy)
+			{
+				if ((spr->buffer[y][stripe] & 0x00FFFFFF) != 0)
+					put_pixel(stripe, y, spr->buffer[y][stripe], data->mlx);
+				y++;
+			}
+		}
+		stripe++;
+	}
+	return (SUCCESS);
+}

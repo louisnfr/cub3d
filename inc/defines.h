@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:14:39 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/09 16:28:02 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/11 14:16:53 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # define TEX_H 		64
 # define TEXTURES	4
 # define MAP_SIZE   0.15
+# define NUM_SPRITE	1
 
 # define DR 0.0174533
 # define PI 3.14159265

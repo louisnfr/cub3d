@@ -86,7 +86,7 @@ static void	perform_dda(t_ray *ray, t_vector *player, char **map)
 		ray->pw = (ray->mapx - player->x + (1 - ray->stepx) * 0.5) / ray->dirx;
 	else
 		ray->pw = (ray->mapy - player->y + (1 - ray->stepy) * 0.5) / ray->diry;
-}
+	}
 
 /*
 We set the ray to be drawn on the map
@@ -94,7 +94,7 @@ We set the ray to be drawn on the map
 - start and end are the coordinate to draw the wall
 */
 
-static void	put_ray_to_image(t_ray *ray, t_tex *t, int x, t_data *data)
+static void	put_ray_to_image(t_ray *ray, t_tex *t)
 {
 
 	t->line_height = (int)(WIN_H / ray->pw);
@@ -104,8 +104,8 @@ static void	put_ray_to_image(t_ray *ray, t_tex *t, int x, t_data *data)
 	t->end = t->line_height * 0.5 + WIN_H * 0.5;
 	if (t->end >= WIN_H)
 		t->end = WIN_H - 1;
-	t_point	ceiling = {0, t->start, 0};
-	t_point	floor = {t->end, WIN_H - 1, 0};
+	// t_point	ceiling = {0, t->start, 0};
+	// t_point	floor = {t->end, WIN_H - 1, 0};
 	//put_vline(x, ceiling, data->textures->ceiling_color.hex_color, data->mlx);
 	//put_vline(x, floor, data->textures->floor_color.hex_color, data->mlx);
 }
@@ -126,8 +126,11 @@ int	raycasting(t_player *player, t_data *data)
 		create_ray(x, &ray, player);
 		set_dda(&ray, &player->vector);
 		perform_dda(&ray, &player->vector, data->map_info->map);
-		put_ray_to_image(&ray, &tex, x, data);
+		put_ray_to_image(&ray, &tex);
 		draw_texture(&ray, &tex, x, data);
+		draw_animated_sprites(data, x, &ray);
 	}
+	sprite_casting(data, data->sprites, &player->vector, &ray, player);
+	// draw_sprites_bonus(data->sprites, data); A corriger pour une fonction draw a part
 	return (SUCCESS);
 }

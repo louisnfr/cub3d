@@ -95,8 +95,14 @@ int		close_doors(t_map *map, t_vector *v, t_doors *doors);
 int		floor_ceiling_bonus(t_data *data);
 int		floor_casting_bonus(t_data *data, t_player *player);
 
+/*** sprites ***/
+int		draw_animated_sprites(t_data *data, int x, t_ray *ray);
+int		sprite_casting(t_data *data, t_sprites *spr, t_vector *player,
+					t_ray *ray, t_player *play);
+
 /*** display_bonus ***/
 int		draw_floor_ceiling_bonus(t_ray_b *ray_b, t_data *data);
+int		draw_sprites_bonus(t_sprites *spr, t_data *data);
 
 
 #endif

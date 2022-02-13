@@ -73,8 +73,8 @@ void	cub_load_textures(t_mlx *mlx, t_textures *wall, t_data *data)
 	cub_load_xpm(mlx, wall->wall_so.tex, wall->wall_so.path_img);
 	cub_load_xpm(mlx, wall->wall_ea.tex, wall->wall_ea.path_img);
 	cub_load_xpm(mlx, wall->wall_we.tex, wall->wall_we.path_img);
-	cub_load_xpm(mlx, wall->doors.tex, "./images/eagle.xpm");
-	cub_load_xpm(mlx, wall->ceiling.tex, "./images/eagle.xpm");
-	cub_load_xpm(mlx, wall->floor.tex, "./images/eagle.xpm");
-	cub_load_xpm(mlx, data->sprites->barrel.tex, "./images/barrel.xpm");
+	cub_load_xpm(mlx, wall->doors.tex, "./images/south_wall.xpm");
+	cub_load_xpm(mlx, wall->ceiling.tex, "./images/south_wall.xpm");
+	cub_load_xpm(mlx, wall->floor.tex, "./images/south_wall.xpm");
+	cub_load_xpm(mlx, data->sprites->barrel.tex, "./images/darth_vader.xpm");
 }

@@ -9,10 +9,10 @@ static void store_color_buffer(t_data *data, t_ray_b *ray_b, int y, int x)
 {
     u_int32_t   color;
 
-    color = data->textures->wall_so.tex[TEX_W * ray_b->ty + ray_b->tx];
+    color = data->textures->floor.tex[TEX_W * ray_b->ty + ray_b->tx];
     color = (color >> 1) & 8355711;
     ray_b->buffer[y][x] = color;
-    color = data->textures->doors.tex[(TEX_W * ray_b->ty) + ray_b->tx];
+    color = data->textures->ceiling.tex[(TEX_W * ray_b->ty) + ray_b->tx];
     color = (color >> 1) & 8355711;
     ray_b->buffer[WIN_H - y - 1][x] = color;
 }

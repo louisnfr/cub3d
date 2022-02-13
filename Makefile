@@ -6,7 +6,7 @@
 #    By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 22:49:26 by lraffin           #+#    #+#              #
-#    Updated: 2022/02/11 11:52:30 by vbachele         ###   ########.fr        #
+#    Updated: 2022/02/13 16:34:22 by vbachele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,9 +94,14 @@ else ifeq ($(UNAME), Darwin)
 MLX		= -Lmlx_mac -lmlx -framework OpenGL -framework AppKit -lm
 endif
 
-vpath %.c $(addprefix $(SRC_DIR)/, . raycasting geometry display parsing	\
-									sprites exit events init parsing/walls	\
-									parsing/map parsing/floor_ceiling bonus	\
+vpath %.c $(addprefix $(SRC_DIR)/, . mandatory/raycasting mandatory/geometry \
+									mandatory/display mandatory/parsing mandatory/bonus	\
+									mandatory/exit mandatory/events mandatory/init \
+									mandatory/parsing/walls	\
+									mandatory/parsing/map mandatory/parsing/floor_ceiling	\
+									bonus/ceiling_floor bonus/doors         \
+									bonus/draw bonus/hud bonus/utils        \
+									bonus/sprites bonus/mini_map	                    \
 									)
 
 all: libs

@@ -71,27 +71,4 @@ typedef struct s_move
 	t_bool	minimap;
 }	t_move;
 
-// struct for the ray_bonus to put texture on floor and ceiling
-
-typedef struct s_ray_b
-{
-	double		dirx0;
-	double		dirx1;
-	double		diry0;
-	double		diry1;
-	int			p;
-	double		posz;
-	double		rowdistance;
-	double		floorstepx;
-	double		floorstepy;
-	double		floorx;
-	double		floory;
-	int			cellx;
-	int			celly;
-	int			tx;
-	int			ty;
-	u_int32_t	buffer[WIN_H][WIN_W];
-}	t_ray_b;
-
-
 #endif

@@ -29,6 +29,7 @@ int	main(int ac, char **av)
 	init_bonus_struct(data);
 	get_file(data, av[1]);
 	parse_file(data);
+	parse_file_sprites(data, av[2]); // bonus
 	data->mlx = init_mlx(data);
 	add_img_wall_to_mlx(data);
 	cub_load_textures(data->mlx, data->textures, data);

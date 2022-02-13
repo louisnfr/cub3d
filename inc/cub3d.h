@@ -104,5 +104,9 @@ int		sprite_casting(t_data *data, t_sprites *spr, t_vector *player,
 int		draw_floor_ceiling_bonus(t_ray_b *ray_b, t_data *data);
 int		draw_sprites_bonus(t_sprites *spr, t_data *data);
 
+/*** parsing bonus ***/
+
+int	parse_file_sprites(t_data *data, char *av);
+
 
 #endif

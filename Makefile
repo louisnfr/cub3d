@@ -6,7 +6,7 @@
 #    By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 22:49:26 by lraffin           #+#    #+#              #
-#    Updated: 2022/02/13 16:34:22 by vbachele         ###   ########.fr        #
+#    Updated: 2022/02/13 17:40:59 by vbachele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,6 +70,7 @@ BONUS =					\
 		mini_map.c 		\
 		open_doors.c	\
 		utils_bonus.c 	\
+		parsing_sprites.c \
 		close_doors.c	\
 		floor_ceiling.c \
 		floor_casting_bonus.c \

@@ -1,28 +1,6 @@
 #ifndef PARSING_H
 # define PARSING_H
 
-// struct for the doors
-
-typedef struct s_doors
-{
-	int		x;
-	int		y;
-	int		j;
-	t_bool	door_open;
-} t_doors;
-
-
-// struct for the mini_map
-
-typedef	struct s_minimap
-{
-	int	x;
-	int	y;
-	int	length_x;
-	int	length_y;
-	int	offset;
-}	t_minimap;
-
 // struct for ceiling && floor
 
 typedef struct s_color
@@ -81,33 +59,6 @@ typedef	struct s_textures
 	t_img	ceiling;
 } t_textures;
 
-// struct to display the sprites
-
-typedef struct s_sprites
-{
-	void		*mini_map_blank;
-	void		*wall;
-	void		*floor;
-	t_img		barrel;
-	double		x;
-	double		y;
-	double		zbuffer[WIN_W];
-	int			sprite_order[NUM_SPRITE];
-	double		sprite_distance[NUM_SPRITE];
-	double		spritex;
-	double		spritey;
-	double		invdet;
-	double		transformx;
-	double		transformy;
-	int			spritescreenx;
-	int			spriteheight;
-	int			spritewidth;
-	int			drawstarty;
-	int			drawstartx;
-	int			drawendy;
-	int			drawendx;
-	u_int32_t 	buffer[WIN_H][WIN_W];
-}	t_sprites;
 
 // struct to draw the texture
 

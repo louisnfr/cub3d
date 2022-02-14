@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   controls.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:23:25 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/08 16:02:29 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/14 17:02:21 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	key_press(int key, t_data *data)
 {
-	printf("pressed: %d\n", key);
+	// printf("pressed: %d\n", key);
 	if (key == W)
 		data->move->x = TRUE;
 	if (key == S)
@@ -36,7 +36,7 @@ static int	key_press(int key, t_data *data)
 
 static int	key_release(int key, t_data *data)
 {
-	printf("released: %d\n", key);
+	// printf("released: %d\n", key);
 	if (key == ESC)
 		exit_all(data);
 	if (key == W)
@@ -80,6 +80,7 @@ static int	mouse_move(int x, int y, t_data *data)
 
 void	init_controls(t_data *data)
 {
+	data->move->minimap = FALSE;
 	data->mouse = malloc(sizeof(t_mouse));
 	init_mouse(data->mouse);
 	mlx_hook(data->mlx->win, 2, 1L << 0, key_press, data);

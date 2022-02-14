@@ -3,7 +3,7 @@
 /* store the color of the sprite in the buffer
 */
 
-static void	store_color_in_buffer(t_sprites *spr, t_data *data)
+static void	store_color_in_buffer(t_sprites *spr, t_data *data, int i)
 {
 	int stripe;
 	int	texx;
@@ -28,11 +28,12 @@ static void	store_color_in_buffer(t_sprites *spr, t_data *data)
 			{
 				d = (y) * 256 - WIN_H * 128 + spr->spriteheight * 128;
 				texy = ((d * TEX_H) / spr->spriteheight) / 256;
-				color = spr->barrel.tex[TEX_W * texy + texx];
+				color = data->sprite_f[i].tex[TEX_W * texy + texx];
 				if((color & 0x00FFFFFF) != 0)
 				{
 					spr->buffer[y][stripe] = color;
 					put_pixel(stripe, y, color, data->mlx);
+
 				}
 				y++;
 			}
@@ -74,15 +75,15 @@ static void	lowest_highest_height_pixel(t_sprites *spr)
 }
 
 static void	sprite_projection(t_data *data, t_sprites *spr, t_vector *player,
-						t_ray *ray, t_player *play)
+						t_player *play)
 {
 	int	i;
 
 	i = 0;
 	while(i < NUM_SPRITE)
 	{
-		spr->spritex = 10.5 - player->x;
-		spr->spritey = 3.5 - player->y;
+		spr->spritex = data->sprite_f[i].x- player->x;
+		spr->spritey = data->sprite_f[i].x - player->y;
 		spr->invdet =
 			1.0 / (play->camera.px * player->dy - player->dx * play->camera.py);
 		spr->transformx =
@@ -93,15 +94,15 @@ static void	sprite_projection(t_data *data, t_sprites *spr, t_vector *player,
 			(int)((WIN_W / 2) * (1 + spr->transformx / spr->transformy));
 		lowest_highest_height_pixel(spr);
 		lowest_highest_width_pixel(spr);
-		store_color_in_buffer(spr, data);
+		store_color_in_buffer(spr, data, i);
 		i++;
 	}
 }
 
 /* Sort sprite from far to close
 */
-static void	sort_sprite_far_to_close(t_sprites *spr, t_data *data,
-								t_vector *player)
+static void	sort_sprite_far_to_close(t_sprites *spr,
+								t_vector *player, t_data *data)
 {
 	int i;
 
@@ -109,7 +110,11 @@ static void	sort_sprite_far_to_close(t_sprites *spr, t_data *data,
 	while (i < NUM_SPRITE)
 	{
 		spr->sprite_order[i] = i;
-    	spr->sprite_distance[i] = ((player->x - 10.5) * (player->x - 10.5) + (player->y - 3.5) * (player->y - 3.5));
+    	spr->sprite_distance[i] =
+		((player->x - data->sprite_f[i].x)
+		* (player->x - data->sprite_f[i].x)
+		+ (player->y - data->sprite_f[i].y)
+		* (player->y - data->sprite_f[i].y));
 
 		i++;
 	}
@@ -118,8 +123,8 @@ static void	sort_sprite_far_to_close(t_sprites *spr, t_data *data,
 int	sprite_casting(t_data *data, t_sprites *spr, t_vector *player,
 				t_ray *ray, t_player *play)
 {
-	sort_sprite_far_to_close(spr, data, player);
-	sprite_projection(data, spr, player, ray, play);
+	sort_sprite_far_to_close(spr, player, data);
+	sprite_projection(data, spr, player, play);
 	return (SUCCESS);
 }
 

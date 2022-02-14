@@ -17,9 +17,9 @@ static char	**allocate_file(t_data *data, int len, int number_l)
 		map[i] = ft_calloc(len + 1, sizeof(char));
 		if (!map[i])
 			ft_exit_parsing(data,"Error\n"
+
 			"Problem with your memory_allocation\n");
 	}
-	map[i] = 0;
 	return (map);
 }
 
@@ -33,10 +33,9 @@ static int	get_file_sprites(t_data * data, char *av, int len, int number_l)
 	int		j;
 
 	fd = open(av, O_RDONLY);
-	ft_memset(&data->sprite_f, 0, sizeof(t_sprite_f));
-	data->sprite_f.arg_sprite =
+	data->sprites->arg_sprite =
 		allocate_file(data, len, number_l);
-	if (!data->sprite_f.arg_sprite || fd < 0)
+	if (!data->sprites->arg_sprite || fd < 0)
 		ft_exit_parsing(data,"Error\nProblem with your memory_allocation\n");
 	ret = 1;
 	j = 0;
@@ -46,10 +45,8 @@ static int	get_file_sprites(t_data * data, char *av, int len, int number_l)
 		ret = get_next_line(fd, &line);
 		if (ret < 0)
 			ft_exit_parsing(data,"Error\nProblem when reading your fd\n");
-		data->sprite_f.arg_sprite[j] =
-			ft_calloc((ft_strlen(line) + 1), sizeof(char));
 		while (++i < ft_strlen(line))
-			data->sprite_f.arg_sprite[j][i] = line[i];
+			data->sprites->arg_sprite[j][i] = line[i];
 		j++;
 		free(line);
 	}

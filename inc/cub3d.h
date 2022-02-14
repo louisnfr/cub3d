@@ -64,6 +64,7 @@ void	orient_player(t_camera *cam, t_vector *vect, t_data *data);
 void	put_pixel(int x, int y, int color, t_mlx *mlx);
 void	put_vline(int x, t_point b, int color, t_mlx *mlx);
 void	cub_load_textures(t_mlx *mlx, t_textures *wall, t_data *data);
+void	cub_load_xpm(t_mlx *mlx, int *tex, char *path);
 
 /*** exit ***/
 
@@ -106,7 +107,8 @@ int		draw_sprites_bonus(t_sprites *spr, t_data *data);
 
 /*** parsing bonus ***/
 
-int	parse_file_sprites(t_data *data, char *av);
-
+int		parse_file_sprites(t_data *data, char *av);
+char	**put_sprite_in_struct(t_data *data, char *arg_sprite);
+int		cub_load_sprites(t_data *data, t_mlx *mlx, t_sprite_f *sf);
 
 #endif

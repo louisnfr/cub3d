@@ -40,7 +40,7 @@ static void	cub_init_textures(t_textures *wall, t_data *data,
 	- On stock tout dans notre texture qu'on a malloc juste avant
 */
 
-static void	cub_load_xpm(t_mlx *mlx, int *tex, char *path)
+void	cub_load_xpm(t_mlx *mlx, int *tex, char *path)
 {
 	int	x;
 	int	y;
@@ -73,8 +73,11 @@ void	cub_load_textures(t_mlx *mlx, t_textures *wall, t_data *data)
 	cub_load_xpm(mlx, wall->wall_so.tex, wall->wall_so.path_img);
 	cub_load_xpm(mlx, wall->wall_ea.tex, wall->wall_ea.path_img);
 	cub_load_xpm(mlx, wall->wall_we.tex, wall->wall_we.path_img);
+	/***
+		BONUS
+	***/
 	cub_load_xpm(mlx, wall->doors.tex, "./images/south_wall.xpm");
 	cub_load_xpm(mlx, wall->ceiling.tex, "./images/south_wall.xpm");
 	cub_load_xpm(mlx, wall->floor.tex, "./images/south_wall.xpm");
-	cub_load_xpm(mlx, data->sprites->barrel.tex, "./images/darth_vader.xpm");
+	// cub_load_xpm(mlx, data->sprites->barrel.tex, "./images/darth_vader.xpm");
 }

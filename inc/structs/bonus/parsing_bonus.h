@@ -25,7 +25,13 @@ typedef	struct s_minimap
 
 typedef	struct s_sprite_f
 {
-	char **arg_sprite;
+	char	**arg_sprite;
+	int		x;
+	int		y;
+	int		*tex;
+	char	*path;
+	char	*name;
+	void	*img;
 } t_sprite_f;
 
 

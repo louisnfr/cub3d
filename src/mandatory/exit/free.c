@@ -6,18 +6,31 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 12:49:32 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/10 15:19:55 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/14 14:30:15 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	free_sprites(t_data *data)
+{
+	int i;
+
+	i = 0;
+	while (i < NUM_SPRITE)
+	{
+		if (data->sprite_f[i].tex)
+			free(data->sprite_f[i].tex);
+		i++;
+	}
+}
 
 void	free_color_file(t_color color)
 {
 	clean_free(&color.raw);
 }
 
-void	free_sprites(t_data *data, t_textures *textures)
+void	free_textures(t_data *data, t_textures *textures)
 {
 	clean_free(&textures->wall_no.path_face);
 	clean_free(&textures->wall_no.path_img);
@@ -78,7 +91,9 @@ int	free_data(t_data *data)
 {
 	free_double_str(data->map_info->map);
 	free_double_str(data->map_info->file_cub);
-	free_sprites(data, data->textures);
+	free_double_str(data->sprites->arg_sprite);
+	free_textures(data, data->textures);
+	free_sprites(data);
 	free_color_file(data->textures->ceiling_color);
 	free_color_file(data->textures->floor_color);
 	free_all_structs(data);

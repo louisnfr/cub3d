@@ -38,7 +38,7 @@ typedef struct s_data
 	struct s_doors			doors;
 	struct s_ray			ray;
 	struct s_ray_b			ray_b;
-	struct s_sprite_f	sprite_f;
+	struct s_sprite_f		sprite_f[200];
 }	t_data;
 
 #endif

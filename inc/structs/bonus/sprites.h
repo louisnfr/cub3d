@@ -8,6 +8,7 @@ typedef struct s_sprites
 	void		*mini_map_blank;
 	void		*wall;
 	void		*floor;
+	char		**arg_sprite;
 	t_img		barrel;
 	double		x;
 	double		y;

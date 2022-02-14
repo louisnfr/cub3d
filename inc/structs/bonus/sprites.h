@@ -27,6 +27,7 @@ typedef struct s_sprites
 	int			drawstartx;
 	int			drawendy;
 	int			drawendx;
+	int			num_sprites;
 	u_int32_t 	buffer[WIN_H][WIN_W];
 }	t_sprites;
 

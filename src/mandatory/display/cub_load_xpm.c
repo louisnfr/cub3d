@@ -16,8 +16,6 @@ static void	cub_init_textures(t_textures *wall, t_data *data,
 	wall->doors.tex = (int *)malloc(sizeof(int) * (TEX_W * TEX_H));
 	wall->ceiling.tex = (int *)malloc(sizeof(int) * (TEX_W * TEX_H));
 	wall->floor.tex = (int *)malloc(sizeof(int) * (TEX_W * TEX_H));
-	sprites->barrel.tex =
-				(int *)malloc(sizeof(int) * ((TEX_W) * (TEX_H)));
 	if (!wall->wall_no.tex || !wall->wall_so.tex || !wall->wall_ea.tex
 		|| !wall->wall_we.tex || !wall->doors.tex)
 		ft_exit_parsing(data, "Error\nMalloc failed\n");
@@ -31,7 +29,6 @@ static void	cub_init_textures(t_textures *wall, t_data *data,
 		wall->doors.tex[j] = 0;
 		wall->floor.tex[j] = 0;
 		wall->ceiling.tex[j] = 0;
-		sprites->barrel.tex[j] = 0;
 		j++;
 	}
 }
@@ -79,5 +76,4 @@ void	cub_load_textures(t_mlx *mlx, t_textures *wall, t_data *data)
 	cub_load_xpm(mlx, wall->doors.tex, "./images/south_wall.xpm");
 	cub_load_xpm(mlx, wall->ceiling.tex, "./images/south_wall.xpm");
 	cub_load_xpm(mlx, wall->floor.tex, "./images/south_wall.xpm");
-	// cub_load_xpm(mlx, data->sprites->barrel.tex, "./images/darth_vader.xpm");
 }

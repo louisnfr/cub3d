@@ -18,7 +18,7 @@ static void	store_color_in_buffer(t_sprites *spr, t_data *data, int i)
 	{
 		texx =
 		(int)((256 * (stripe - (-spr->spritewidth * 0.5 + spr->spritescreenx))
-		* TEX_W / spr->spritewidth) / 256);
+		* SPRITE_W / spr->spritewidth) / 256);
 		if (spr->transformy > 0 && stripe > 0 && stripe < WIN_W
 			&& spr->transformy < spr->zbuffer[stripe])
 		{
@@ -27,8 +27,8 @@ static void	store_color_in_buffer(t_sprites *spr, t_data *data, int i)
 			while (y < spr->drawendy)
 			{
 				d = (y) * 256 - WIN_H * 128 + spr->spriteheight * 128;
-				texy = ((d * TEX_H) / spr->spriteheight) / 256;
-				color = data->sprite_f[i].tex[TEX_W * texy + texx];
+				texy = ((d * SPRITE_H) / spr->spriteheight) / 256;
+				color = data->sprite_f[i].tex[SPRITE_W * texy + texx];
 				if((color & 0x00FFFFFF) != 0)
 				{
 					spr->buffer[y][stripe] = color;
@@ -64,7 +64,7 @@ Find the lowest and the highest pixel of he sprite
 
 static void	lowest_highest_height_pixel(t_sprites *spr)
 {
-	spr->spriteheight = abs((int)(WIN_H / spr->transformy));
+	spr->spriteheight = abs((int)(WIN_H / spr->transformy)) - 20;
 	spr->drawstarty =
 		-spr->spriteheight * 0.5 + WIN_H * 0.5;
 	if (spr->drawstarty < 0)
@@ -80,10 +80,10 @@ static void	sprite_projection(t_data *data, t_sprites *spr, t_vector *player,
 	int	i;
 
 	i = 0;
-	while(i < NUM_SPRITE)
+	while(i < data->sprites->num_sprites)
 	{
-		spr->spritex = data->sprite_f[i].x- player->x;
-		spr->spritey = data->sprite_f[i].x - player->y;
+		spr->spritex = data->sprite_f[i].x - player->x;
+		spr->spritey = data->sprite_f[i].y - player->y;
 		spr->invdet =
 			1.0 / (play->camera.px * player->dy - player->dx * play->camera.py);
 		spr->transformx =
@@ -107,7 +107,7 @@ static void	sort_sprite_far_to_close(t_sprites *spr,
 	int i;
 
 	i = 0;
-	while (i < NUM_SPRITE)
+	while (i < data->sprites->num_sprites)
 	{
 		spr->sprite_order[i] = i;
     	spr->sprite_distance[i] =
@@ -115,7 +115,6 @@ static void	sort_sprite_far_to_close(t_sprites *spr,
 		* (player->x - data->sprite_f[i].x)
 		+ (player->y - data->sprite_f[i].y)
 		* (player->y - data->sprite_f[i].y));
-
 		i++;
 	}
 }

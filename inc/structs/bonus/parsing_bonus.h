@@ -31,7 +31,7 @@ typedef	struct s_sprite_f
 	int		*tex;
 	char	*path;
 	char	*name;
-	void	*img;
+	// void	*img;
 } t_sprite_f;
 
 

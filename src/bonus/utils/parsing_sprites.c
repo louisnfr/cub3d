@@ -64,10 +64,8 @@ int	parse_file_sprites(t_data *data, char *av)
 	int		fd;
 	int		ret;
 	int 	len;
-	int		number_l;
 
 	len = 0;
-	number_l = 0;
 	fd = open(av, O_RDONLY);
 	if (fd < 0)
 		ft_exit_parsing(data,"Error\nProblem on opening your fd\n");
@@ -82,9 +80,9 @@ int	parse_file_sprites(t_data *data, char *av)
 		}
 		if (ft_strlen(line) > len)
 			len = ft_strlen(line);
-		number_l++;
+		data->sprites->num_sprites++;
 		free(line);
 	}
 	close(fd);
-	return (get_file_sprites(data, av, len, number_l));
+	return (get_file_sprites(data, av, len, data->sprites->num_sprites));
 }

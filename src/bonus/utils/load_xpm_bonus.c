@@ -1,5 +1,6 @@
 #include "cub3d.h"
 
+
 /***
 Function to malloc the texture of the xpm in order to load it
 ***/
@@ -8,11 +9,11 @@ static void	cub_init_sprites(t_data *data, t_sprite_f *sp)
 {
 	int		j;
 
-	sp->tex = (int *)malloc(sizeof(int) * (TEX_W * TEX_H));
+	sp->tex = (int *)malloc(sizeof(int) * (SPRITE_W * SPRITE_H));
 	if (!sp->tex)
 		ft_exit_parsing(data, "Error\nMalloc failed\n");
 	j = 0;
-	while (j < TEX_W * TEX_H)
+	while (j < SPRITE_W * SPRITE_H)
 	{
 		sp->tex[j] = 0;
 		j++;
@@ -30,11 +31,14 @@ int	cub_load_sprites(t_data *data, t_mlx *mlx, t_sprite_f *sf)
 	char **path;
 
 	i = 0;
-	while (i < NUM_SPRITE)
+	while (i < data->sprites->num_sprites)
 	{
 		path = NULL;
 		cub_init_sprites(data, &data->sprite_f[i]);
-		path = put_sprite_in_struct(data, data->sprites->arg_sprite[i]);
+		printf("i %d\n", i);
+		printf("str %s\n", data->sprites->arg_sprite[i]);
+		if (data->sprites->arg_sprite[i] != 0)
+			path = put_sprite_in_struct(data, data->sprites->arg_sprite[i]);
 		if (path[1])
 			cub_load_xpm(mlx, sf[i].tex, path[1]);
 		if (path[0])

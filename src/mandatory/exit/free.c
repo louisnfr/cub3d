@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 12:49:32 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/14 14:30:15 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/14 15:39:36 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	free_sprites(t_data *data)
 	int i;
 
 	i = 0;
-	while (i < NUM_SPRITE)
+	while (i < data->sprites->num_sprites)
 	{
 		if (data->sprite_f[i].tex)
 			free(data->sprite_f[i].tex);

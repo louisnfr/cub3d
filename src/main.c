@@ -34,10 +34,10 @@ int	main(int ac, char **av)
 	add_img_wall_to_mlx(data);
 	cub_load_textures(data->mlx, data->textures, data);
 	cub_load_sprites(data, data->mlx, data->sprite_f); // bonus
-	// data->player = init_player(data);
-	// init_controls(data);
-	// mlx_loop_hook(data->mlx->ptr, main_loop, data);
-	// mlx_loop(data->mlx->ptr);
-	// free_data(data);
+	data->player = init_player(data);
+	init_controls(data);
+	mlx_loop_hook(data->mlx->ptr, main_loop, data);
+	mlx_loop(data->mlx->ptr);
+	free_data(data);
 	return (FAILURE);
 }

@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:07:00 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/10 17:26:03 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/15 14:28:40 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,33 @@
 static void	set_wall_dir(t_tex *tex, t_ray *ray, t_data *data)
 {
 	(void) data;
-	if (ray->side == 0 && ray->dirx < 0)
-		tex->wall_dir = 0;
-	if (ray->side == 0 && ray->dirx >= 0)
-		tex->wall_dir = 1;
-	if (ray->side == 1 && ray->diry < 0)
-		tex->wall_dir = 2;
-	if (ray->side == 1 && ray->diry >= 0)
-		tex->wall_dir = 3;
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+	while (data->map_info->map[i])
+	{
+		while (data->map_info->map[i][j])
+		{
+			if (ray->side == 0 && ray->dirx < 0
+				&& data->map_info->map[ray->mapy][ray->mapx] != '2')
+				tex->wall_dir = 0;
+			if (ray->side == 0 && ray->dirx >= 0
+				&& data->map_info->map[ray->mapy][ray->mapx] != '2')
+				tex->wall_dir = 1;
+			if (ray->side == 1 && ray->diry < 0
+				&& data->map_info->map[ray->mapy][ray->mapx] != '2')
+				tex->wall_dir = 2;
+			if (ray->side == 1 && ray->diry >= 0
+				&& data->map_info->map[ray->mapy][ray->mapx] != '2')
+				tex->wall_dir = 3;
+			if (data->map_info->map[ray->mapy][ray->mapx] == '2')
+				tex->wall_dir = 4;
+			j++;
+		}
+		i++;
+	}
 }
 
 static	int	define_tex_x(int tex_x, t_ray *ray, double wall_x)
@@ -70,6 +89,8 @@ static	void	print_walls(t_tex *t, t_data *data, int x, int tex_x)
 			color = data->textures->wall_no.tex[TEX_H * tex_y + tex_x];
 		if (t->wall_dir == 3)
 			color = data->textures->wall_so.tex[TEX_H * tex_y + tex_x];
+		if (t->wall_dir == 4)
+			color = data->textures->doors.tex[TEX_H * tex_y + tex_x];
 		put_pixel(x, y, color, data->mlx);
 	}
 }

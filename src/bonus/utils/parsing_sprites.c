@@ -16,15 +16,13 @@ static char	**allocate_file(t_data *data, int len, int number_l)
 	{
 		map[i] = ft_calloc(len + 1, sizeof(char));
 		if (!map[i])
-			ft_exit_parsing(data,"Error\n"
-
-			"Problem with your memory_allocation\n");
+			ft_exit_parsing(data, "Error\n"
+				"Problem with your memory_allocation\n");
 	}
 	return (map);
 }
 
-
-static int	get_file_sprites(t_data * data, char *av, int len, int number_l)
+static int	get_file_sprites(t_data *data, char *av, int len, int number_l)
 {
 	char	*line;
 	int		ret;
@@ -33,10 +31,9 @@ static int	get_file_sprites(t_data * data, char *av, int len, int number_l)
 	int		j;
 
 	fd = open(av, O_RDONLY);
-	data->sprites->arg_sprite =
-		allocate_file(data, len, number_l);
+	data->sprites->arg_sprite = allocate_file(data, len, number_l);
 	if (!data->sprites->arg_sprite || fd < 0)
-		ft_exit_parsing(data,"Error\nProblem with your memory_allocation\n");
+		ft_exit_parsing(data, "Error\nProblem with your memory_allocation\n");
 	ret = 1;
 	j = 0;
 	while (ret)
@@ -44,7 +41,7 @@ static int	get_file_sprites(t_data * data, char *av, int len, int number_l)
 		i = -1;
 		ret = get_next_line(fd, &line);
 		if (ret < 0)
-			ft_exit_parsing(data,"Error\nProblem when reading your fd\n");
+			ft_exit_parsing(data, "Error\nProblem when reading your fd\n");
 		while (++i < ft_strlen(line))
 			data->sprites->arg_sprite[j][i] = line[i];
 		j++;
@@ -63,12 +60,12 @@ int	parse_file_sprites(t_data *data, char *av)
 	char	*line;
 	int		fd;
 	int		ret;
-	int 	len;
+	int		len;
 
 	len = 0;
 	fd = open(av, O_RDONLY);
 	if (fd < 0)
-		ft_exit_parsing(data,"Error\nProblem on opening your fd\n");
+		ft_exit_parsing(data, "Error\nProblem on opening your fd\n");
 	ret = 1;
 	while (ret)
 	{
@@ -76,7 +73,7 @@ int	parse_file_sprites(t_data *data, char *av)
 		if (ret < 0)
 		{
 			close(fd);
-			ft_exit_parsing(data,"Error\nProblem when reading your fd\n");
+			ft_exit_parsing(data, "Error\nProblem when reading your fd\n");
 		}
 		if (ft_strlen(line) > len)
 			len = ft_strlen(line);

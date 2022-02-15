@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:07:00 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/15 14:28:40 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/15 15:18:41 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,10 @@ static	void	print_walls(t_tex *t, t_data *data, int x, int tex_x)
 		if (t->wall_dir == 3)
 			color = data->textures->wall_so.tex[TEX_H * tex_y + tex_x];
 		if (t->wall_dir == 4)
+		{
 			color = data->textures->doors.tex[TEX_H * tex_y + tex_x];
+			color = (color >> 1) & 8355711;
+		}
 		put_pixel(x, y, color, data->mlx);
 	}
 }

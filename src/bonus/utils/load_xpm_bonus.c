@@ -1,6 +1,5 @@
 #include "cub3d.h"
 
-
 /***
 Function to malloc the texture of the xpm in order to load it
 ***/
@@ -27,8 +26,8 @@ static void	cub_init_sprites(t_data *data, t_sprite_f *sp)
 
 int	cub_load_sprites(t_data *data, t_mlx *mlx, t_sprite_f *sf)
 {
-	int i;
-	char **path;
+	int		i;
+	char	**path;
 
 	i = 0;
 	while (i < data->sprites->num_sprites)
@@ -44,10 +43,10 @@ int	cub_load_sprites(t_data *data, t_mlx *mlx, t_sprite_f *sf)
 		if (path[0])
 			sf[i].name = ft_strdup(path[0]);
 		if (path[2] != 0)
-			sf[i].x = ft_atoi(path[2]); // coordinate x
+			sf[i].x = ft_atoi(path[2]);
 		if (path[3] != 0)
-			sf[i].y = ft_atoi(path[3]); // coordinate y
-		free_double_str(path); //free path no need
+			sf[i].y = ft_atoi(path[3]);
+		free_double_str(path);
 		i++;
 	}
 	return (SUCCESS);

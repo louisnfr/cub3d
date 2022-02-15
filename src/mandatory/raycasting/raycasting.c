@@ -120,7 +120,7 @@ int	raycasting(t_player *player, t_data *data)
 
 	x = -1;
 	ray = data->ray;
-	floor_ceiling_bonus(data);
+	floor_ceiling_bonus(data); // bonus
 	while (++x < WIN_W)
 	{
 		create_ray(x, &ray, player);
@@ -128,9 +128,9 @@ int	raycasting(t_player *player, t_data *data)
 		perform_dda(&ray, &player->vector, data->map_info->map);
 		put_ray_to_image(&ray, &tex);
 		draw_texture(&ray, &tex, x, data);
-		draw_animated_sprites(data, x, &ray);
+		draw_animated_sprites(data, x, &ray); // bonus
 	}
-	sprite_casting(data, data->sprites, &player->vector, &ray, player);
+	sprite_casting(data, data->sprites, &player->vector, player); // bonus
 	// draw_sprites_bonus(data->sprites, data); A corriger pour une fonction draw a part
 	return (SUCCESS);
 }

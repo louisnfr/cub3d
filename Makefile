@@ -6,7 +6,7 @@
 #    By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 22:49:26 by lraffin           #+#    #+#              #
-#    Updated: 2022/02/14 17:10:34 by vbachele         ###   ########.fr        #
+#    Updated: 2022/02/15 15:35:37 by vbachele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,6 +78,8 @@ BONUS =					\
 		sprites.c \
 		get_sprite_struct.c \
 		load_xpm_bonus.c \
+		draw_sprites.c \
+		sprites_width_height.c \
 
 INC_DIR	= inc
 SRC_DIR	= src

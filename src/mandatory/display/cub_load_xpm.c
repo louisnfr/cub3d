@@ -1,5 +1,4 @@
 #include "cub3d.h"
-
 /* ici on stock dans notre int* la texture de chaque mur
 	- On malloc.
 	- On remplit de 0 nos int* de textures.

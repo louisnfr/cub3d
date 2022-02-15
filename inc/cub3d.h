@@ -99,11 +99,14 @@ int		floor_casting_bonus(t_data *data, t_player *player);
 /*** sprites ***/
 int		draw_animated_sprites(t_data *data, int x, t_ray *ray);
 int		sprite_casting(t_data *data, t_sprites *spr, t_vector *player,
-					t_ray *ray, t_player *play);
+					t_player *play);
+void	lowest_highest_height_pixel(t_sprites *spr);
+void	lowest_highest_width_pixel(t_sprites *spr);
+void	store_color_in_buffer(t_sprites *spr, t_data *data, int i);
 
-/*** display_bonus ***/
-int		draw_floor_ceiling_bonus(t_ray_b *ray_b, t_data *data);
-int		draw_sprites_bonus(t_sprites *spr, t_data *data);
+/*** draw_bonus ***/
+int			draw_floor_ceiling_bonus(t_ray_b *ray_b, t_data *data);
+int			draw_sprites_bonus(t_sprites *spr, t_data *data);
 
 /*** parsing bonus ***/
 

@@ -41,8 +41,8 @@ t_player	*init_player(t_data *data)
 	player = malloc(sizeof(t_player));
 	if (!player)
 		ft_exit_parsing(data,"Error\nProblem with your memory_allocation\n");
-	player->vector.x = data->map_info->x_init;
-	player->vector.y = data->map_info->y_init;
+	player->vector.x = data->map_info->x_init + 0.5;
+	player->vector.y = data->map_info->y_init + 0.5;
 	player->vector.z = 0;
 	set_player_dir(player, data);
 	return (player);

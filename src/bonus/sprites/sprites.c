@@ -32,7 +32,7 @@ static void	store_color_in_buffer(t_sprites *spr, t_data *data)
 				if((color & 0x00FFFFFF) != 0)
 				{
 					spr->buffer[y][stripe] = color;
-					put_pixel(stripe, y, color, data->mlx);
+					// put_pixel(stripe, y, color, data->mlx);
 				}
 				y++;
 			}
@@ -109,7 +109,7 @@ static void	sort_sprite_far_to_close(t_sprites *spr, t_data *data,
 	while (i < NUM_SPRITE)
 	{
 		spr->sprite_order[i] = i;
-    	spr->sprite_distance[i] = ((player->x - 10.5) * (player->x - 10.5) + (player->y - 3.5) * (player->y - 3.5));
+		spr->sprite_distance[i] = ((player->x - 10.5) * (player->x - 10.5) + (player->y - 3.5) * (player->y - 3.5));
 
 		i++;
 	}

@@ -113,16 +113,11 @@ static void	sort_sprite_far_to_close(t_sprites *spr,
 	while (i < data->sprites->num_sprites)
 	{
 		spr->sprite_order[i] = i;
-<<<<<<< HEAD
 		spr->sprite_distance[i]
 			= ((player->x - data->sprite_f[i].x)
 				* (player->x - data->sprite_f[i].x)
 				+ (player->y - data->sprite_f[i].y)
 				* (player->y - data->sprite_f[i].y));
-=======
-		spr->sprite_distance[i] = ((player->x - 10.5) * (player->x - 10.5) + (player->y - 3.5) * (player->y - 3.5));
-
->>>>>>> c5c194468f9601d6d211370887a318899f458e3e
 		i++;
 	}
 }

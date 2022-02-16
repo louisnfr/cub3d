@@ -15,8 +15,6 @@ typedef struct s_sprites
 	double		zbuffer[WIN_W];
 	int			sprite_order[NUM_SPRITE];
 	double		sprite_distance[NUM_SPRITE];
-	double		spritex;
-	double		spritey;
 	double		invdet;
 	double		transformx;
 	double		transformy;

@@ -103,6 +103,7 @@ int		sprite_casting(t_data *data, t_sprites *spr, t_vector *player,
 void	lowest_highest_height_pixel(t_sprites *spr);
 void	lowest_highest_width_pixel(t_sprites *spr);
 void	store_color_in_buffer(t_sprites *spr, t_data *data, int i);
+int		sprites_move(t_data *data, int a, t_vector *vect);
 
 /*** draw_bonus ***/
 int			draw_floor_ceiling_bonus(t_ray_b *ray_b, t_data *data);

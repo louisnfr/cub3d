@@ -94,9 +94,10 @@ We set the ray to be drawn on the map
 - start and end are the coordinate to draw the wall
 */
 
-static void	put_ray_to_image(t_ray *ray, t_tex *t)
+static void	put_ray_to_image(t_ray *ray, t_tex *t, int x, t_data *data)
 {
-
+	(void) data;
+	(void) x;
 	t->line_height = (int)(WIN_H / ray->pw);
 	t->start = -t->line_height * 0.5 + WIN_H * 0.5;
 	if (t->start < 0)
@@ -106,8 +107,8 @@ static void	put_ray_to_image(t_ray *ray, t_tex *t)
 		t->end = WIN_H - 1;
 	// t_point	ceiling = {0, t->start, 0};
 	// t_point	floor = {t->end, WIN_H - 1, 0};
-	//put_vline(x, ceiling, data->textures->ceiling_color.hex_color, data->mlx);
-	//put_vline(x, floor, data->textures->floor_color.hex_color, data->mlx);
+	// put_vline(x, ceiling, data->textures->ceiling_color.hex_color, data->mlx);
+	// put_vline(x, floor, data->textures->floor_color.hex_color, data->mlx);
 }
 
 // Actual raycasting on the Field of view of the player
@@ -126,7 +127,7 @@ int	raycasting(t_player *player, t_data *data)
 		create_ray(x, &ray, player);
 		set_dda(&ray, &player->vector);
 		perform_dda(&ray, &player->vector, data->map_info->map);
-		put_ray_to_image(&ray, &tex);
+		put_ray_to_image(&ray, &tex, x, data);
 		draw_texture(&ray, &tex, x, data);
 		draw_animated_sprites(data, x, &ray); // bonus
 	}

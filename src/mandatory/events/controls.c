@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:23:25 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/17 17:37:04 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/17 17:54:37 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static int	mouse_move(int x, int y, t_data *data)
 	double	plane;
 	double	speed;
 
-	speed = 0.02;
+	speed = 0.03;
 	data->mouse->old_x = data->mouse->x;
 	data->mouse->x = x;
 	if (data->mouse->old_x < data->mouse->x)
@@ -95,6 +95,7 @@ static int	mouse_move(int x, int y, t_data *data)
 		data->player->camera.px = data->player->camera.px * cos(-speed) - data->player->camera.py * sin(-speed);
 		data->player->camera.py = plane * sin(-speed) + data->player->camera.py * cos(-speed);
 	}
+	mlx_mouse_move(data->mlx->ptr, data->mlx->win, (int)(WIN_W / 2), y);
 	return (SUCCESS);
 }
 

@@ -108,6 +108,11 @@ int		sprites_move(t_data *data, int a, t_vector *vect);
 /*** draw_bonus ***/
 int			draw_floor_ceiling_bonus(t_ray_b *ray_b, t_data *data);
 int			draw_sprites_bonus(t_sprites *spr, t_data *data);
+void		ennemy_is_rolling_ball(t_sprites *spr, t_data *data, int i);
+void		define_texy(t_sprites *spr, int y);
+void		define_texx(t_sprites *spr, int stripe);
+void		store_buffer_and_print(t_data *data, int stripe,
+										u_int32_t color, int y);
 
 /*** parsing bonus ***/
 

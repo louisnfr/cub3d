@@ -124,10 +124,10 @@ int	raycasting(t_player *player, t_data *data)
 	t_ray	ray;
 	int		x;
 
-	x = -1;
+	x = 0;
 	ray = data->ray;
 	floor_ceiling_bonus(data); // bonus
-	while (++x < WIN_W)
+	while (x++ < WIN_W)
 	{
 		create_ray(x, &ray, player);
 		set_dda(&ray, &player->vector);
@@ -137,6 +137,6 @@ int	raycasting(t_player *player, t_data *data)
 		draw_animated_sprites(data, x, &ray); // bonus
 	}
 	sprite_casting(data, data->sprites, &player->vector, player); // bonus
-	// draw_sprites_bonus(data->sprites, data); A corriger pour une fonction draw a part
+	draw_sprites_bonus(data->sprites, data); //A corriger pour une fonction draw a part
 	return (SUCCESS);
 }

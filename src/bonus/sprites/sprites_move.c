@@ -8,7 +8,7 @@ static int sprites_move_backward(t_data *data, t_vector *vect, int i)
 	x = data->map_info->map[(int)data->sprite_f[i].y][(int)data->sprite_f[i].x];
 	y = data->map_info->map[(int)data->sprite_f[i].y][(int)data->sprite_f[i].x];
 	if (data->sprites->transformy > 0
-		&& x != '1' && y != '2')
+		&& x != '1' && y != '2' && y != '3')
 	{
 		data->sprite_f[i].x =
 		data->sprite_f[i].x - ((data->sprite_f[i].x - vect->x) * 0.02);
@@ -31,7 +31,7 @@ static int sprites_move_forward(t_data *data, t_vector *vect, int i)
 	x = data->map_info->map[(int)data->sprite_f[i].y][(int)data->sprite_f[i].x];
 	y = data->map_info->map[(int)data->sprite_f[i].y][(int)data->sprite_f[i].x];
 	if (data->sprites->transformy > 0
-		&& x != '1' && y != '2')
+		&& x != '1' && y != '2' && y != '3')
 	{
 		data->sprite_f[i].x =
 		data->sprite_f[i].x - ((data->sprite_f[i].x - vect->x) * 0.01);
@@ -53,9 +53,9 @@ int	sprites_move(t_data *data, int a, t_vector *vect)
 	i = 0;
 	while (i < data->sprites->num_sprites)
 	{
-		if (a == 1)
+		if (a == 1 && data->sprite_f[i].is_ennemy == TRUE)
 			sprites_move_forward(data, vect, i);
-		if (a == 2)
+		if (a == 2 && data->sprite_f[i].is_ennemy == TRUE)
 			sprites_move_backward(data, vect, i);
 		i++;
 	}

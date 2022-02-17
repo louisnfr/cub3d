@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:14:39 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/17 11:39:49 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/17 15:51:57 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # define SPRITE_H	256 // for the sprites please respect these pixels
 # define TEXTURES	4
 # define MAP_SIZE   0.15
-# define NUM_SPRITE	1 // DOIT ETRE EXACT AU NOMBRE
+# define NUM_SPRITE	50 // DOIT ETRE EXACT AU NOMBRE
 
 # define DR 0.0174533
 # define PI 3.14159265
@@ -37,7 +37,6 @@ typedef enum e_dir
 	EA,
 	WE,
 	DO,
-	DIE,
 }	t_dir;
 
 #endif

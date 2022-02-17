@@ -6,7 +6,7 @@
 #    By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 22:49:26 by lraffin           #+#    #+#              #
-#    Updated: 2022/02/17 12:31:39 by vbachele         ###   ########.fr        #
+#    Updated: 2022/02/17 16:55:47 by vbachele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,6 +81,7 @@ BONUS =					\
 		draw_sprites.c \
 		sprites_width_height.c \
 		sprites_move.c \
+		sprite_is_hit.c \
 		free_bonus.c \
 
 INC_DIR	= inc

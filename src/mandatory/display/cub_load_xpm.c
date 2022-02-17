@@ -1,23 +1,9 @@
 #include "cub3d.h"
-/* ici on stock dans notre int* la texture de chaque mur
-	- On malloc.
-	- On remplit de 0 nos int* de textures.
-*/
-static void	cub_init_textures(t_textures *wall, t_data *data)
-{
-	int		j;
 
-	wall->wall_no.tex = (int *)malloc(sizeof(int) * (TEX_W * TEX_H));
-	wall->wall_so.tex = (int *)malloc(sizeof(int) * (TEX_W * TEX_H));
-	wall->wall_ea.tex = (int *)malloc(sizeof(int) * (TEX_W * TEX_H));
-	wall->wall_we.tex = (int *)malloc(sizeof(int) * (TEX_W * TEX_H));
-	wall->doors.tex = (int *)malloc(sizeof(int) * (TEX_W * TEX_H));
-	wall->doors_open.tex = (int *)malloc(sizeof(int) * (TEX_W * TEX_H));
-	wall->ceiling.tex = (int *)malloc(sizeof(int) * (TEX_W * TEX_H));
-	wall->floor.tex = (int *)malloc(sizeof(int) * (TEX_W * TEX_H));
-	if (!wall->wall_no.tex || !wall->wall_so.tex || !wall->wall_ea.tex
-		|| !wall->wall_we.tex || !wall->doors.tex)
-		ft_exit_parsing(data, "Error\nMalloc failed\n");
+static void set_up_tex(t_textures *wall)
+{
+	int j;
+
 	j = 0;
 	while (j < TEX_W * TEX_H)
 	{
@@ -31,6 +17,26 @@ static void	cub_init_textures(t_textures *wall, t_data *data)
 		wall->doors_open.tex[j] = 0;
 		j++;
 	}
+}
+
+/* ici on stock dans notre int* la texture de chaque mur
+	- On malloc.
+	- On remplit de 0 nos int* de textures.
+*/
+static void	cub_init_textures(t_textures *wall, t_data *data)
+{
+	wall->wall_no.tex = (int *)malloc(sizeof(int) * (TEX_W * TEX_H));
+	wall->wall_so.tex = (int *)malloc(sizeof(int) * (TEX_W * TEX_H));
+	wall->wall_ea.tex = (int *)malloc(sizeof(int) * (TEX_W * TEX_H));
+	wall->wall_we.tex = (int *)malloc(sizeof(int) * (TEX_W * TEX_H));
+	wall->doors.tex = (int *)malloc(sizeof(int) * (TEX_W * TEX_H));
+	wall->doors_open.tex = (int *)malloc(sizeof(int) * (TEX_W * TEX_H));
+	wall->ceiling.tex = (int *)malloc(sizeof(int) * (TEX_W * TEX_H));
+	wall->floor.tex = (int *)malloc(sizeof(int) * (TEX_W * TEX_H));
+	if (!wall->wall_no.tex || !wall->wall_so.tex || !wall->wall_ea.tex
+		|| !wall->wall_we.tex || !wall->doors.tex)
+		ft_exit_parsing(data, "Error\nMalloc failed\n");
+	set_up_tex(wall);
 }
 
 /* On transforme le xpm en image et on leur attribut une adresse dans un int

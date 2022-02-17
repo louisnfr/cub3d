@@ -8,6 +8,7 @@ static void	sprite_projection(t_data *data, t_sprites *spr, t_vector *player,
 	i = 0;
 	while (i < data->sprites->num_sprites)
 	{
+		//printf("data->sprite_f[i].name %s\n", data->sprite_f[i].name);
 		data->sprite_f[i].spritex = data->sprite_f[i].x - player->x;
 		data->sprite_f[i].spritey = data->sprite_f[i].y - player->y;
 		spr->invdet
@@ -38,15 +39,15 @@ static void	sort_sprite_far_to_close(t_sprites *spr,
 	int	i;
 
 	i = 0;
-	while (i < data->sprites->num_sprites)
+	while (i++ < data->sprites->num_sprites)
 	{
+
 		spr->sprite_order[i] = i;
 		spr->sprite_distance[i]
 			= ((player->x - data->sprite_f[i].x)
 				* (player->x - data->sprite_f[i].x)
 				+ (player->y - data->sprite_f[i].y)
 				* (player->y - data->sprite_f[i].y));
-		i++;
 	}
 }
 

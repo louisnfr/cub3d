@@ -13,7 +13,7 @@ static u_int32_t	store_color(t_sprites *spr,
 /* define the texy
 */
 
-static void	define_texy(t_sprites *spr, int y)
+void	define_texy(t_sprites *spr, int y)
 {
 	int	d;
 
@@ -24,14 +24,14 @@ static void	define_texy(t_sprites *spr, int y)
 /* define the texx
 */
 
-static void	define_texx(t_sprites *spr, int stripe)
+void	define_texx(t_sprites *spr, int stripe)
 {
 	spr->texx = (int)
 		((256 * (stripe - (-spr->spritewidth * 0.5 + spr->spritescreenx))
 				* SPRITE_W / spr->spritewidth) / 256);
 }
 
-static void	store_buffer_and_print(t_data *data, int stripe,
+void	store_buffer_and_print(t_data *data, int stripe,
 										u_int32_t color, int y)
 {
 	if ((color & 0x00FFFFFF) != 0)
@@ -55,7 +55,10 @@ void	store_color_in_buffer(t_sprites *spr, t_data *data, int i)
 	{
 		define_texx(spr, stripe);
 		if (spr->transformy > 0 && stripe > 0 && stripe < WIN_W
-			&& spr->transformy < spr->zbuffer[stripe] && ((int)data->sprite_f[i].spritex != 0 || (int)data->sprite_f[1].spritey != 0))
+			&& spr->transformy < spr->zbuffer[stripe]
+			&& ((int)data->sprite_f[i].spritex != 0
+			|| (int)data->sprite_f[i].spritey != 0
+			&& data->sprite_f[i].is_ennemy == TRUE))
 		{
 			y = spr->drawstarty;
 			while (y < spr->drawendy)
@@ -66,29 +69,8 @@ void	store_color_in_buffer(t_sprites *spr, t_data *data, int i)
 				y++;
 			}
 		}
-		// printf("x %d\n", (int)data->sprite_f[1].spritex);
-		// printf("y %d\n", (int)data->sprite_f[1].spritey);
 		stripe++;
 	}
-	if ((int)data->sprite_f[i].spritex == 0 && (int)data->sprite_f[i].spritey == 0)
-	{
-		stripe = spr->drawstartx;
-		while (stripe < spr->drawendx)
-		{
-			define_texx(spr, stripe);
-			if (spr->transformy > 0 && stripe > 0 && stripe < WIN_W
-				&& spr->transformy < spr->zbuffer[stripe])
-			{
-				y = spr->drawstarty;
-				while (y < spr->drawendy)
-				{
-					define_texy(spr, y);
-					color = data->sprite_f[2].tex[SPRITE_W * spr->texy + spr->texx];
-					store_buffer_and_print(data, stripe, color, y);
-					y++;
-				}
-			}
-			stripe++;
-		}
-	}
+	ennemy_is_rolling_ball(spr, data, i);
+	//ennemy_is_darth_vador(spr, data, i);
 }

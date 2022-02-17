@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libs.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:13:19 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/13 17:16:00 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/17 19:47:53 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <sys/stat.h>
 # include <string.h>
 # include <math.h>
+# include <pthread.h>
 
 # include "../mlx/mlx.h"
 # include "libft/libft.h"

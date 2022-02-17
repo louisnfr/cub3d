@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+         #
+#    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 22:49:26 by lraffin           #+#    #+#              #
-#    Updated: 2022/02/17 14:12:07 by vbachele         ###   ########.fr        #
+#    Updated: 2022/02/17 17:03:46 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,7 +80,7 @@ OBJS	= $(SRCS:%.c=$(OBJ_DIR)/%.o)
 DEPS	= $(OBJS:%.o=%.d)
 
 CC		= clang
-CFLAGS	= -Wall -Wextra -MMD -MP -g3 $(DEBUG)
+CFLAGS	= -Wall -Wextra -MMD -MP -g3 #$(DEBUG)
 DEBUG	= -fsanitize=address
 LIBFT	= -L libft -lft
 UNAME	= $(shell uname)

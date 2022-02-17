@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:23:25 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/17 16:41:01 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/17 17:08:43 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,32 @@ static int	mouse_press(int key, int x, int y, t_data *data)
 
 static int	mouse_move(int x, int y, t_data *data)
 {
-	(void)data;
+	printf("x: %d\n", data->mouse->x);
+	printf("y: %d\n", data->mouse->y);
+
+	double	dir;
+	double	plane;
+	double	speed;
+
+	speed = 0.03;
+	if (data->mouse->old_x < data->mouse->x)
+	{
+		dir = data->player->vector.dx;
+		data->player->vector.dx = data->player->vector.dx * cos(speed) - data->player->vector.dy * sin(speed);
+		data->player->vector.dy = dir * sin(speed) + data->player->vector.dy * cos(speed);
+		plane = data->player->camera.px;
+		data->player->camera.px = data->player->camera.px * cos (speed) - data->player->camera.py * sin(speed);
+		data->player->camera.py = plane * sin(speed) + data->player->camera.py * cos(speed);
+	}
+	if (data->mouse->old_x > data->mouse->x)
+	{
+		dir = data->player->vector.dx;
+		data->player->vector.dx = data->player->vector.dx * cos(-speed) - data->player->vector.dy * sin(-speed);
+		data->player->vector.dy = dir * sin(-speed) + data->player->vector.dy * cos(-speed);
+		plane = data->player->camera.px;
+		data->player->camera.px = data->player->camera.px * cos(-speed) - data->player->camera.py * sin(-speed);
+		data->player->camera.py = plane * sin(-speed) + data->player->camera.py * cos(-speed);
+	}
 	data->mouse->old_x = data->mouse->x;
 	data->mouse->old_y = data->mouse->y;
 	data->mouse->x = x;

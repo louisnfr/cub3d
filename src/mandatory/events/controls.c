@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:23:25 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/14 17:02:21 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/17 16:41:01 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 static int	key_press(int key, t_data *data)
 {
-	// printf("pressed: %d\n", key);
+	// printf("x: %f\n", data->player->vector.x);
+	// printf("y: %f\n", data->player->vector.y);
 	if (key == W)
 		data->move->x = TRUE;
 	if (key == S)

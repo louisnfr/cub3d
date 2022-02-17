@@ -49,6 +49,9 @@ static void	loop_display_minimap(t_data *data, t_map *map
 				||map->map[data->minimap.y][data->minimap.x] == 'S'
 				||map->map[data->minimap.y][data->minimap.x] == 'W'
 				||map->map[data->minimap.y][data->minimap.x] == 'E')
+				cub_map_wall(size_w, data->minimap, mlx, BLACK);
+			if (data->minimap.x == (int)data->player->vector.x
+				&& data->minimap.y == (int)data->player->vector.y)
 				cub_map_wall(size_w, data->minimap, mlx, YELLOW);
 			data->minimap.x++;
 		}

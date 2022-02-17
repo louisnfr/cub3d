@@ -4,7 +4,6 @@ void	init_struct(t_data *data)
 {
 	data->mlx = NULL;
 	ft_memset(data->map_info, 0, sizeof(t_map));
-	ft_memset(data->sprites, 0, sizeof(t_sprites));
 	ft_memset(data->textures, 0, sizeof(t_textures));
 }
 
@@ -53,10 +52,9 @@ t_data	*init_data(void)
 	t_data	*data;
 
 	data = malloc(sizeof(t_data));
-	data->sprites = malloc(sizeof(t_sprites));
 	data->textures = malloc(sizeof(t_textures));
 	data->map_info = malloc(sizeof(t_map));
-	if (!data || !data->sprites || !data->map_info)
+	if (!data || !data->map_info)
 		ft_exit_parsing(data,"Error\nProblem with your memory_allocation\n");
 	data->move = init_move(data);
 	return (data);

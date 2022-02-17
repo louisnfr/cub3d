@@ -23,19 +23,5 @@ typedef	struct s_minimap
 	int	offset;
 }	t_minimap;
 
-typedef	struct s_sprite_f
-{
-	char	**arg_sprite;
-	double	x;
-	double	y;
-	int		*tex;
-	char	*path;
-	char	*name;
-	double	spritex;
-	double	spritey;
-	t_bool	sprites_die;
-	// void	*img;
-} t_sprite_f;
-
 
 #endif

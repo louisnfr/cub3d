@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 15:31:38 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/15 17:29:16 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/17 13:54:07 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,7 @@ static void	check_extension(char *s)
 
 void	check_input(int ac, char **av)
 {
-	if (ac != 3) // bonus
+	if (ac != 2) // bonus
 		arg_error();
 	check_extension(av[1]);
-	check_extension(av[2]); // bonus
 }

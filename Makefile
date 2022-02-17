@@ -6,7 +6,7 @@
 #    By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 22:49:26 by lraffin           #+#    #+#              #
-#    Updated: 2022/02/17 12:31:39 by vbachele         ###   ########.fr        #
+#    Updated: 2022/02/17 14:12:07 by vbachele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,18 +70,7 @@ BONUS =					\
 		mini_map.c 		\
 		open_doors.c	\
 		utils_bonus.c 	\
-		parsing_sprites.c \
 		close_doors.c	\
-		floor_ceiling.c \
-		floor_casting_bonus.c \
-		draw_bonus.c \
-		sprites.c \
-		get_sprite_struct.c \
-		load_xpm_bonus.c \
-		draw_sprites.c \
-		sprites_width_height.c \
-		sprites_move.c \
-		free_bonus.c \
 
 INC_DIR	= inc
 SRC_DIR	= src
@@ -91,7 +80,7 @@ OBJS	= $(SRCS:%.c=$(OBJ_DIR)/%.o)
 DEPS	= $(OBJS:%.o=%.d)
 
 CC		= clang
-CFLAGS	= -Wall -Wextra -MMD -MP -g3 #$(DEBUG)
+CFLAGS	= -Wall -Wextra -MMD -MP -g3 $(DEBUG)
 DEBUG	= -fsanitize=address
 LIBFT	= -L libft -lft
 UNAME	= $(shell uname)
@@ -108,7 +97,7 @@ vpath %.c $(addprefix $(SRC_DIR)/, . mandatory/raycasting mandatory/geometry \
 									mandatory/parsing/map mandatory/parsing/floor_ceiling	\
 									bonus/ceiling_floor bonus/doors         \
 									bonus/draw bonus/hud bonus/utils        \
-									bonus/sprites bonus/mini_map	                    \
+									bonus/mini_map	                    \
 									)
 
 all: libs

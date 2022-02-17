@@ -91,33 +91,5 @@ int		mini_map(t_data *data);
 int		doors(t_data *data);
 int		close_doors(t_map *map, t_vector *v, t_doors *doors);
 
-/*** floor_ceiling ***/
-
-int		floor_ceiling_bonus(t_data *data);
-int		floor_casting_bonus(t_data *data, t_player *player);
-
-/*** sprites ***/
-int		draw_animated_sprites(t_data *data, int x, t_ray *ray);
-int		sprite_casting(t_data *data, t_sprites *spr, t_vector *player,
-					t_player *play);
-void	lowest_highest_height_pixel(t_sprites *spr);
-void	lowest_highest_width_pixel(t_sprites *spr);
-void	store_color_in_buffer(t_sprites *spr, t_data *data, int i);
-int		sprites_move(t_data *data, int a, t_vector *vect);
-
-/*** draw_bonus ***/
-int			draw_floor_ceiling_bonus(t_ray_b *ray_b, t_data *data);
-int			draw_sprites_bonus(t_sprites *spr, t_data *data);
-
-/*** parsing bonus ***/
-
-int		parse_file_sprites(t_data *data, char *av);
-char	**put_sprite_in_struct(t_data *data, char *arg_sprite);
-int		cub_load_sprites(t_data *data, t_mlx *mlx, t_sprite_f *sf);
-
-/*** free bonus ***/
-
-void	free_bonus_textures(t_data *data, t_textures *textures);
-void	free_sprites(t_data *data);
 
 #endif

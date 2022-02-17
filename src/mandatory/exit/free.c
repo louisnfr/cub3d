@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 12:49:32 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/17 12:28:14 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/17 14:17:09 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,6 @@ static void	free_textures(t_data *data, t_textures *textures)
 
 static void	free_all_structs(t_data *data)
 {
-	if (data->sprites)
-		free(data->sprites);
 	if (data->map_info)
 		free(data->map_info);
 	if (data->move)
@@ -78,8 +76,6 @@ int	free_data(t_data *data)
 	free_double_str(data->map_info->file_cub);
 	free_str_textures(data->textures);
 	free_textures(data, data->textures);
-	free_bonus_textures(data, data->textures); // bonus
-	free_sprites(data); // bonus
 	free_color_file(data->textures->ceiling_color);
 	free_color_file(data->textures->floor_color);
 	free_all_structs(data);

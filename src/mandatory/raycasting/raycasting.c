@@ -106,16 +106,16 @@ static void	put_ray_to_image(t_ray *ray, t_tex *t, int x, t_data *data)
 	t->end = t->line_height * 0.5 + WIN_H * 0.5;
 	if (t->end >= WIN_H)
 		t->end = WIN_H - 1;
-
+	t_point	ceiling = {0, t->start, 0};
+	t_point	floor = {t->end, WIN_H - 1, 0};
+	put_vline(x, ceiling, data->textures->ceiling_color.hex_color, data->mlx);
+	put_vline(x, floor, data->textures->floor_color.hex_color, data->mlx);
 }
 
 
 /*** code to display color if asking ***/
 
-// t_point	ceiling = {0, t->start, 0};
-// t_point	floor = {t->end, WIN_H - 1, 0};
-// put_vline(x, ceiling, data->textures->ceiling_color.hex_color, data->mlx);
-// put_vline(x, floor, data->textures->floor_color.hex_color, data->mlx);
+
 // Actual raycasting on the Field of view of the player
 
 int	raycasting(t_player *player, t_data *data)
@@ -126,7 +126,6 @@ int	raycasting(t_player *player, t_data *data)
 
 	x = -1;
 	ray = data->ray;
-	floor_ceiling_bonus(data); // bonus
 	while (++x < WIN_W)
 	{
 		create_ray(x, &ray, player);
@@ -134,9 +133,6 @@ int	raycasting(t_player *player, t_data *data)
 		perform_dda(&ray, &player->vector, data->map_info->map);
 		put_ray_to_image(&ray, &tex, x, data);
 		draw_texture(&ray, &tex, x, data);
-		draw_animated_sprites(data, x, &ray); // bonus
 	}
-	sprite_casting(data, data->sprites, &player->vector, player); // bonus
-	// draw_sprites_bonus(data->sprites, data); A corriger pour une fonction draw a part
 	return (SUCCESS);
 }

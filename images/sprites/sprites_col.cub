@@ -1,2 +1,3 @@
-DV ./images/sprites/stormtrooper.xpm 12 3
-DV ./images/sprites/stormtrooper.xpm 9 3
+DV ./images/sprites/R2D2.xpm 10 3
+DV ./images/sprites/rolling_ball.xpm 14 3
+DV ./images/sprites/explosion.xpm 120 3

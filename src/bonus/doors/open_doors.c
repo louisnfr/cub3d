@@ -9,7 +9,7 @@ static void	open_north_doors(t_map *map, t_vector *v, t_doors *doors)
 		{
 			doors->y = (int)v->y + 1;
 			doors->x = (int)v->x;
-			map->map[(int)v->y + 1][(int)v->x] = '0';
+			map->map[(int)v->y + 1][(int)v->x] = '3';
 			doors->door_open = TRUE;
 		}
 	}
@@ -24,7 +24,7 @@ static void	open_south_doors(t_map *map, t_vector *v, t_doors *doors)
 		{
 			doors->y = (int)v->y - 1;
 			doors->x = (int)v->x;
-			map->map[(int)v->y - 1][(int)v->x] = '0';
+			map->map[(int)v->y - 1][(int)v->x] = '3';
 			doors->door_open = TRUE;
 		}
 	}
@@ -39,7 +39,7 @@ static void	open_east_doors(t_map *map, t_vector *v, t_doors *doors)
 		{
 			doors->y = (int)v->y;
 			doors->x = (int)v->x + 1;
-			map->map[(int)v->y][(int)v->x + 1] = '0';
+			map->map[(int)v->y][(int)v->x + 1] = '3';
 			doors->door_open = TRUE;
 		}
 	}
@@ -54,7 +54,7 @@ static void	open_west_doors(t_map *map, t_vector *v, t_doors *doors)
 		{
 			doors->y = (int)v->y;
 			doors->x = (int)v->x - 1;
-			map->map[(int)v->y][(int)v->x - 1] = '0';
+			map->map[(int)v->y][(int)v->x - 1] = '3';
 			doors->door_open = TRUE;
 		}
 	}

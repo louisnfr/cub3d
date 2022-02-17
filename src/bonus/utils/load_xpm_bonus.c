@@ -33,14 +33,15 @@ int	cub_load_sprites(t_data *data, t_mlx *mlx, t_sprite_f *sf)
 	while (i < data->sprites->num_sprites)
 	{
 		path = NULL;
+		ft_memset(data->sprite_f, 0, sizeof(t_sprite_f));
 		cub_init_sprites(data, &data->sprite_f[i]);
 		printf("i %d\n", i);
 		printf("str %s\n", data->sprites->arg_sprite[i]);
 		if (data->sprites->arg_sprite[i] != 0)
 			path = put_sprite_in_struct(data, data->sprites->arg_sprite[i]);
-		if (path[1])
+		if (path[1] != 0)
 			cub_load_xpm(mlx, sf[i].tex, path[1]);
-		if (path[0])
+		if (path[0] != 0)
 			sf[i].name = ft_strdup(path[0]);
 		if (path[2] != 0)
 			sf[i].x = ft_atoi(path[2]);

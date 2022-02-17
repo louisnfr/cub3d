@@ -33,6 +33,7 @@ typedef	struct s_sprite_f
 	char	*name;
 	double	spritex;
 	double	spritey;
+	t_bool	sprites_die;
 	// void	*img;
 } t_sprite_f;
 

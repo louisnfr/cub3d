@@ -6,43 +6,34 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 12:49:32 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/14 15:39:36 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/17 12:28:14 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	free_sprites(t_data *data)
+static void	free_str_textures(t_textures *textures)
 {
-	int i;
-
-	i = 0;
-	while (i < data->sprites->num_sprites)
-	{
-		if (data->sprite_f[i].tex)
-			free(data->sprite_f[i].tex);
-		i++;
-	}
+	clean_free(&textures->wall_no.path_face);
+	clean_free(&textures->wall_no.path_img);
+	clean_free(&textures->wall_so.path_face);
+	clean_free(&textures->wall_so.path_img);
+	clean_free(&textures->wall_we.path_face);
+	clean_free(&textures->wall_we.path_img);
+	clean_free(&textures->wall_ea.path_face);
+	clean_free(&textures->wall_ea.path_img);
 }
 
-void	free_color_file(t_color color)
+static void	free_color_file(t_color color)
 {
 	clean_free(&color.raw);
 }
 
-void	free_textures(t_data *data, t_textures *textures)
+static void	free_textures(t_data *data, t_textures *textures)
 {
-	clean_free(&textures->wall_no.path_face);
-	clean_free(&textures->wall_no.path_img);
 	free(textures->wall_no.tex);
-	clean_free(&textures->wall_so.path_face);
-	clean_free(&textures->wall_so.path_img);
 	free(textures->wall_so.tex);
-	clean_free(&textures->wall_we.path_face);
-	clean_free(&textures->wall_we.path_img);
 	free(textures->wall_we.tex);
-	clean_free(&textures->wall_ea.path_face);
-	clean_free(&textures->wall_ea.path_img);
 	free(textures->wall_ea.tex);
 	if (textures->wall_ea.img)
 		mlx_destroy_image(data->mlx->ptr, textures->wall_ea.img);
@@ -52,12 +43,6 @@ void	free_textures(t_data *data, t_textures *textures)
 		mlx_destroy_image(data->mlx->ptr, textures->wall_so.img);
 	if (textures->wall_we.img)
 		mlx_destroy_image(data->mlx->ptr, textures->wall_we.img);
-	if (textures->doors.img)
-		mlx_destroy_image(data->mlx->ptr, textures->doors.img);
-	if (textures->ceiling.img)
-		mlx_destroy_image(data->mlx->ptr, textures->ceiling.img);
-	if (textures->floor.img)
-		mlx_destroy_image(data->mlx->ptr, textures->floor.img);
 }
 
 static void	free_all_structs(t_data *data)
@@ -91,9 +76,10 @@ int	free_data(t_data *data)
 {
 	free_double_str(data->map_info->map);
 	free_double_str(data->map_info->file_cub);
-	free_double_str(data->sprites->arg_sprite);
+	free_str_textures(data->textures);
 	free_textures(data, data->textures);
-	free_sprites(data);
+	free_bonus_textures(data, data->textures); // bonus
+	free_sprites(data); // bonus
 	free_color_file(data->textures->ceiling_color);
 	free_color_file(data->textures->floor_color);
 	free_all_structs(data);

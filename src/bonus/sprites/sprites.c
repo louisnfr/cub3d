@@ -15,7 +15,8 @@ static void	sprite_projection(t_data *data, t_sprites *spr, t_vector *player,
 			/ (play->camera.px * player->dy - player->dx * play->camera.py);
 		spr->transformx
 			= spr->invdet
-			* (player->dy * data->sprite_f[i].spritex - player->dx * data->sprite_f[i].spritey);
+			* (player->dy * data->sprite_f[i].spritex
+			- player->dx * data->sprite_f[i].spritey);
 		spr->transformy
 			= spr->invdet
 			* (-play->camera.py * data->sprite_f[i].spritex

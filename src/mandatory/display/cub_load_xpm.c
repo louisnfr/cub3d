@@ -3,8 +3,7 @@
 	- On malloc.
 	- On remplit de 0 nos int* de textures.
 */
-static void	cub_init_textures(t_textures *wall, t_data *data,
-						t_sprites *sprites)
+static void	cub_init_textures(t_textures *wall, t_data *data)
 {
 	int		j;
 
@@ -13,6 +12,7 @@ static void	cub_init_textures(t_textures *wall, t_data *data,
 	wall->wall_ea.tex = (int *)malloc(sizeof(int) * (TEX_W * TEX_H));
 	wall->wall_we.tex = (int *)malloc(sizeof(int) * (TEX_W * TEX_H));
 	wall->doors.tex = (int *)malloc(sizeof(int) * (TEX_W * TEX_H));
+	wall->doors_open.tex = (int *)malloc(sizeof(int) * (TEX_W * TEX_H));
 	wall->ceiling.tex = (int *)malloc(sizeof(int) * (TEX_W * TEX_H));
 	wall->floor.tex = (int *)malloc(sizeof(int) * (TEX_W * TEX_H));
 	if (!wall->wall_no.tex || !wall->wall_so.tex || !wall->wall_ea.tex
@@ -28,6 +28,7 @@ static void	cub_init_textures(t_textures *wall, t_data *data,
 		wall->doors.tex[j] = 0;
 		wall->floor.tex[j] = 0;
 		wall->ceiling.tex[j] = 0;
+		wall->doors_open.tex[j] = 0;
 		j++;
 	}
 }
@@ -64,7 +65,7 @@ void	cub_load_xpm(t_mlx *mlx, int *tex, char *path)
 
 void	cub_load_textures(t_mlx *mlx, t_textures *wall, t_data *data)
 {
-	cub_init_textures(wall, data, data->sprites);
+	cub_init_textures(wall, data);
 	cub_load_xpm(mlx, wall->wall_no.tex, wall->wall_no.path_img);
 	cub_load_xpm(mlx, wall->wall_so.tex, wall->wall_so.path_img);
 	cub_load_xpm(mlx, wall->wall_ea.tex, wall->wall_ea.path_img);
@@ -72,7 +73,8 @@ void	cub_load_textures(t_mlx *mlx, t_textures *wall, t_data *data)
 	/***
 		BONUS
 	***/
-	cub_load_xpm(mlx, wall->doors.tex, "./images/doors.xpm");
+	cub_load_xpm(mlx, wall->doors.tex, "./images/doors_closed.xpm");
+	cub_load_xpm(mlx, wall->doors_open.tex, "./images/doors_open.xpm");
 	cub_load_xpm(mlx, wall->ceiling.tex, "./images/south_wall.xpm");
 	cub_load_xpm(mlx, wall->floor.tex, "./images/south_wall.xpm");
 }

@@ -115,4 +115,9 @@ int		parse_file_sprites(t_data *data, char *av);
 char	**put_sprite_in_struct(t_data *data, char *arg_sprite);
 int		cub_load_sprites(t_data *data, t_mlx *mlx, t_sprite_f *sf);
 
+/*** free bonus ***/
+
+void	free_bonus_textures(t_data *data, t_textures *textures);
+void	free_sprites(t_data *data);
+
 #endif

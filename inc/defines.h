@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:14:39 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/15 14:59:59 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/17 11:39:49 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 # define WIN_H 800
 # define MINIMAP_W 320
 # define MINIMAP_H 200
-# define TEX_W 		128
-# define TEX_H 		128
+# define TEX_W 		256
+# define TEX_H 		256
 # define SPRITE_W	256 // for the sprites please respect these pixels
-# define SPRITE_H	223 // for the sprites please respect these pixels
+# define SPRITE_H	256 // for the sprites please respect these pixels
 # define TEXTURES	4
 # define MAP_SIZE   0.15
 # define NUM_SPRITE	1 // DOIT ETRE EXACT AU NOMBRE
@@ -37,6 +37,7 @@ typedef enum e_dir
 	EA,
 	WE,
 	DO,
+	DIE,
 }	t_dir;
 
 #endif

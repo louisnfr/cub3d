@@ -79,7 +79,8 @@ static void	perform_dda(t_ray *ray, t_vector *player, char **map)
 			ray->side = 1;
 		}
 		if (map[ray->mapy][ray->mapx] == '1'
-			|| map[ray->mapy][ray->mapx] == '2') // BONUS
+			|| map[ray->mapy][ray->mapx] == '2' // BONUS
+			|| map[ray->mapy][ray->mapx] == '3') // BONUS
 			hit = 1;
 	}
 	if (ray->side == 0)
@@ -105,12 +106,16 @@ static void	put_ray_to_image(t_ray *ray, t_tex *t, int x, t_data *data)
 	t->end = t->line_height * 0.5 + WIN_H * 0.5;
 	if (t->end >= WIN_H)
 		t->end = WIN_H - 1;
-	// t_point	ceiling = {0, t->start, 0};
-	// t_point	floor = {t->end, WIN_H - 1, 0};
-	// put_vline(x, ceiling, data->textures->ceiling_color.hex_color, data->mlx);
-	// put_vline(x, floor, data->textures->floor_color.hex_color, data->mlx);
+
 }
 
+
+/*** code to display color if asking ***/
+
+// t_point	ceiling = {0, t->start, 0};
+// t_point	floor = {t->end, WIN_H - 1, 0};
+// put_vline(x, ceiling, data->textures->ceiling_color.hex_color, data->mlx);
+// put_vline(x, floor, data->textures->floor_color.hex_color, data->mlx);
 // Actual raycasting on the Field of view of the player
 
 int	raycasting(t_player *player, t_data *data)

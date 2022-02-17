@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:23:25 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/17 17:15:49 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/17 17:37:04 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,14 +70,13 @@ static int	mouse_press(int key, int x, int y, t_data *data)
 
 static int	mouse_move(int x, int y, t_data *data)
 {
-	printf("x: %d\n", data->mouse->x);
-	printf("y: %d\n", data->mouse->y);
-
 	double	dir;
 	double	plane;
 	double	speed;
 
 	speed = 0.02;
+	data->mouse->old_x = data->mouse->x;
+	data->mouse->x = x;
 	if (data->mouse->old_x < data->mouse->x)
 	{
 		dir = data->player->vector.dx;
@@ -96,10 +95,6 @@ static int	mouse_move(int x, int y, t_data *data)
 		data->player->camera.px = data->player->camera.px * cos(-speed) - data->player->camera.py * sin(-speed);
 		data->player->camera.py = plane * sin(-speed) + data->player->camera.py * cos(-speed);
 	}
-	data->mouse->old_x = data->mouse->x;
-	data->mouse->old_y = data->mouse->y;
-	data->mouse->x = x;
-	data->mouse->y = y;
 	return (SUCCESS);
 }
 

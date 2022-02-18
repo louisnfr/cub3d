@@ -20,26 +20,11 @@ static int	main_loop(t_data *data)
 	return (SUCCESS);
 }
 
-# define PLAYER "aplay"
-# define BACKGROUND " &"
-# define OPTIONS " > /dev/null 2>&1"
-
-int	play_sound(char *path)
-{
-	char	command[1000];
-
-	ft_bzero(command);
-	ft_strlcat(command, "(" PLAYER " ", 1000);
-	ft_strlcat(command, path, 1000);
-	ft_strlcat(command, BACKGROUND ") " OPTIONS, 1000);
-	return (system(command));
-}
-
 int	main(int ac, char **av)
 {
 	t_data	*data;
 
-	play_sound("r2d2.mp3");
+	// play_sound(R2D2);
 	check_input(ac, av);
 	data = init_data();
 	init_struct(data);

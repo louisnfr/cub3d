@@ -74,7 +74,7 @@ void	ft_error_message(char *str);
 int		exit_all(t_data *data);
 void	free_double_int(int *tab);
 
-/////////////////////////////     BONUS    ////////////////////////////////////
+/* BONUS */
 
 /*** utils ***/
 
@@ -91,5 +91,8 @@ int		mini_map(t_data *data);
 int		doors(t_data *data);
 int		close_doors(t_map *map, t_vector *v, t_doors *doors);
 
+/*** sounds ***/
+
+int	play_sound(char *path);
 
 #endif

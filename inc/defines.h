@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:14:39 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/17 14:13:53 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/18 15:02:56 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@
 
 # define DR 0.0174533
 # define PI 3.14159265
+
+# define PLAYER "paplay"
+# define BACKGROUND " &"
+# define OPTIONS " > /dev/null 2>&1"
 
 # define FOV 60
 

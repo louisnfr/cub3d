@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   player_bonus.h                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/18 15:17:45 by lraffin           #+#    #+#             */
+/*   Updated: 2022/02/18 15:17:49 by lraffin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PLAYER_BONUS_H
 # define PLAYER_BONUS_H
 
-// struct for the ray_bonus to put texture on floor and ceiling
+/* struct for the ray_bonus to put texture on floor and ceiling */
 
 typedef struct s_ray_b
 {

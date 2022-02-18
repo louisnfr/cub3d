@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/18 15:15:14 by lraffin           #+#    #+#             */
+/*   Updated: 2022/02/18 15:16:06 by lraffin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PARSING_H
 # define PARSING_H
 
-// struct for ceiling && floor
+/* struct for ceiling && floor */
 
 typedef struct s_color
 {
@@ -12,7 +24,7 @@ typedef struct s_color
 	int		hex_color;
 }	t_color;
 
-// struct to parse and store the file && map
+/* struct to parse and store the file && map */
 
 typedef struct s_map
 {
@@ -31,7 +43,7 @@ typedef struct s_map
 	int		ceiling_floor[2];
 }	t_map;
 
-// struct to store the xmp for the texture
+/* struct to store the xmp for the texture */
 
 typedef struct s_img
 {
@@ -43,9 +55,9 @@ typedef struct s_img
 	int		height;
 }	t_img;
 
-// struct for textures
+/* struct for textures */
 
-typedef	struct s_textures
+typedef struct s_textures
 {
 	int		check[4];
 	t_color	ceiling_color;
@@ -58,10 +70,9 @@ typedef	struct s_textures
 	t_img	doors_open;
 	t_img	floor;
 	t_img	ceiling;
-} t_textures;
+}	t_textures;
 
-
-// struct to draw the texture
+/* struct to draw the texture */
 
 typedef struct s_tex
 {

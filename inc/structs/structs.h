@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   structs.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/18 15:16:24 by lraffin           #+#    #+#             */
+/*   Updated: 2022/02/18 15:16:47 by lraffin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
@@ -6,7 +18,7 @@
 # include "bonus/player_bonus.h"
 # include "bonus/parsing_bonus.h"
 
-// struct for our mlx
+/* struct for our mlx */
 
 typedef struct s_mlx
 {
@@ -22,7 +34,7 @@ typedef struct s_mlx
 	int		*add;
 }	t_mlx;
 
-// initial structure
+/* initial structure */
 
 typedef struct s_data
 {
@@ -32,10 +44,10 @@ typedef struct s_data
 	struct s_mouse			*mouse;
 	struct s_map			*map_info;
 	struct s_textures		*textures;
-	struct s_minimap		minimap; //bonus
-	struct s_doors			doors; // bonus
+	struct s_minimap		minimap;
+	struct s_doors			doors;
 	struct s_ray			ray;
-	struct s_ray_b			ray_b; // bonus
+	struct s_ray_b			ray_b;
 }	t_data;
 
 #endif

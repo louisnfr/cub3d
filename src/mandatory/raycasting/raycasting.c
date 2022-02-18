@@ -136,7 +136,8 @@ int	raycasting(t_player *player, t_data *data)
 		draw_texture(&ray, &tex, x, data);
 		draw_animated_sprites(data, x, &ray); // bonus
 	}
+	draw_weapons(data);
 	sprite_casting(data, data->sprites, &player->vector, player); // bonus
-	draw_sprites_bonus(data->sprites, data); //A corriger pour une fonction draw a part
+	//draw_sprites_bonus(data->sprites, data); //A corriger pour une fonction draw a part
 	return (SUCCESS);
 }

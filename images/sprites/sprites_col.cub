@@ -1,4 +1,5 @@
 R2D2 ./images/sprites/R2D2.xpm 10 3
+LS ./images/sprites/light_saber.xpm 0 0
 RB ./images/sprites/rolling_ball.xpm 14 3
 BOMB ./images/sprites/explosion.xpm 0 0
 XW ./images/sprites/xwing.xpm 15 3

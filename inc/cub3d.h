@@ -113,6 +113,7 @@ void		define_texy(t_sprites *spr, int y);
 void		define_texx(t_sprites *spr, int stripe);
 void		store_buffer_and_print(t_data *data, int stripe,
 										u_int32_t color, int y);
+void		draw_weapons(t_data *data);
 
 /*** parsing bonus ***/
 

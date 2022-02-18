@@ -1,8 +1,10 @@
 #include "cub3d.h"
 
-/* In this loop we store in buf1 all the map to do the raycasting after.
+/*
+In this loop we store in buf1 all the map to do the raycasting after.
 Continusly we update the screen in the loop.
 */
+
 static int	main_loop(t_data *data)
 {
 	if (data->mlx->img)
@@ -13,10 +15,9 @@ static int	main_loop(t_data *data)
 	update_pos(data);
 	raycasting(data->player, data);
 	mini_map(data);
+	doors(data);
 	mlx_put_image_to_window(data->mlx->ptr, data->mlx->win,
 		data->mlx->img, 0, 0);
-	mini_map(data); // bonus mettre dans une meme fonction
-	doors(data); // bonus
 	return (SUCCESS);
 }
 

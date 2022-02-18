@@ -1,7 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   errors.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/18 15:26:02 by lraffin           #+#    #+#             */
+/*   Updated: 2022/02/18 15:27:17 by lraffin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ERROR_MSG
 # define ERROR_MSG
 
-// Msg errors walls
+/* memory errors */
+
+# define MALLOC "Error\nMalloc failed\n"
+
+/* wall errors */
 
 # define ERROR_WALLS_WRONG_3RD_LETTER "Error\n" \
 					"The 3rd letter for your walls is wrong\n"
@@ -11,7 +27,7 @@
 							"Too much or too few walls_path in your cub file\n"
 # define ERROR_WALLS_WRONG_IMG "Error\nThe path of the img is wrong\n"
 
-// Msg errors ceiling/floor
+/* ceiling floor errors */
 
 # define ERROR_CEILING_FLOOR_LEN_COLOR_TOO_LONG "Error\n" \
 								"The numbers for the color are wrong\n"
@@ -32,7 +48,7 @@
 # define ERROR_CEILING_FLOOR_WRONG_NUMBER_LINES "Error\n" \
 				"Too much or to few ceiling or floor lines in your file\n"
 
-// Msg errors map
+/* map errors */
 
 # define ERROR_MAP_NOT_AT_END "Error\n" \
 "Your first or your last line of your map has a problem or no map at all\n"

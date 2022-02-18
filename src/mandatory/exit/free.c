@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 12:49:32 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/17 14:17:09 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/18 15:29:54 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ static void	free_textures(t_data *data, t_textures *textures)
 	free(textures->wall_so.tex);
 	free(textures->wall_we.tex);
 	free(textures->wall_ea.tex);
+	free(textures->doors.tex);
+	free(textures->doors_open.tex);
 	if (textures->wall_ea.img)
 		mlx_destroy_image(data->mlx->ptr, textures->wall_ea.img);
 	if (textures->wall_no.img)

@@ -25,7 +25,7 @@ int	main(int ac, char **av)
 {
 	t_data	*data;
 
-	play_sound(WILHELM);
+	play_sound(R2D2);
 	check_input(ac, av);
 	data = init_data();
 	init_struct(data);

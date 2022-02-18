@@ -46,11 +46,11 @@ play a .wav sound
 
 int	play_sound(char *path)
 {
-	char	command[1000];
+	char	command[500];
 
 	ft_bzero(command);
-	ft_strlcat(command, "(" PLAYER " ", 1000);
-	ft_strlcat(command, path, 1000);
-	ft_strlcat(command, BACKGROUND ") " OPTIONS, 1000);
+	ft_strlcat(command, "(" PLAYER " ", 500);
+	ft_strlcat(command, path, 500);
+	ft_strlcat(command, BACKGROUND ") " OPTIONS, 500);
 	return (system(command));
 }

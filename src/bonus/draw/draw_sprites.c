@@ -67,10 +67,10 @@ void	store_color_in_buffer(t_sprites *spr, t_data *data, int i)
 				draw_stormtrooper(data, stripe, color, y, i);
 				draw_darth_vader(data, stripe, color, y, i);
 				draw_rolling_ball(data, stripe, color, y, i);
+				ennemy_is_hit(spr, data, i);
 				y++;
 			}
 		}
 		stripe++;
 	}
-	ennemy_is_hit(spr, data, i);
 }

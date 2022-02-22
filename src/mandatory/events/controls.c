@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:23:25 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/22 17:26:44 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/22 18:11:04 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,17 @@ static int	mouse_release(int key, int x, int y, t_data *data)
 	(void)data;
 	(void)x;
 	(void)y;
-	if (key == LEFT_MB)
+	if (key == LEFT_MB && data->sprites->ennemy.darth_vader == TRUE)
 	{
-		sleep(1);
+		usleep(800000);
 		data->move->attack = FALSE; // bonus
 	}
+	else if (key == LEFT_MB)
+	{
+		usleep(250000);
+		data->move->attack = FALSE; // bonus
+	}
+
 	return (SUCCESS);
 }
 

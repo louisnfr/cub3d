@@ -29,8 +29,11 @@ typedef	struct s_sprite_f
 	double	x;
 	double	y;
 	int		*tex;
+	double	texy;
+	double	texx;
 	char	*path;
 	char	*name;
+	int		frame;
 	double	spritex;
 	double	spritey;
 	t_bool	sprite_die;

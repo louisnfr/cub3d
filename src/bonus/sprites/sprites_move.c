@@ -14,7 +14,8 @@ static int sprites_move_backward(t_data *data, t_vector *vect, int i)
 		data->sprite_f[i].x - ((data->sprite_f[i].x - vect->x) * 0.02);
 		data->sprite_f[i].y =
 		data->sprite_f[i].y - ((data->sprite_f[i].y - vect->y) * 0.02);
-		if ((int)data->sprite_f[1].spritex == 0 && (int)data->sprite_f[1].spritey == 0)
+		if ((int)data->sprite_f[1].spritex == 0
+			&& (int)data->sprite_f[1].spritey == 0)
 		{
 			sleep(2);
 			ft_exit_parsing(data, "YOU LOOSE");
@@ -37,7 +38,8 @@ static int sprites_move_forward(t_data *data, t_vector *vect, int i)
 		data->sprite_f[i].x - ((data->sprite_f[i].x - vect->x) * 0.01);
 		data->sprite_f[i].y =
 		data->sprite_f[i].y - ((data->sprite_f[i].y - vect->y) * 0.01);
-		if ((int)data->sprite_f[1].spritex == 0 && (int)data->sprite_f[1].spritey == 0)
+		if ((int)data->sprite_f[1].spritex == 0
+			&& (int)data->sprite_f[1].spritey == 0)
 		{
 			sleep(2);
 			ft_exit_parsing(data, "YOU LOOSE");

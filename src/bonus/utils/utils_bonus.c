@@ -27,6 +27,7 @@ int	ft_strlen_double_str_find_element(char **double_str, char c)
 void	init_bonus_struct(t_data *data)
 {
 	ft_memset(&data->ray_b, 0, sizeof(t_ray_b));
+	ft_memset(data->sprite_f, 0, sizeof(t_sprite_f));
 }
 
 //init and store the data for the doors

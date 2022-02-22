@@ -6,7 +6,8 @@
 static u_int32_t	store_color(t_sprites *spr,
 							int i, t_data *data, u_int32_t color)
 {
-	color = data->sprite_f[i].tex[SPRITE_W * spr->texy + spr->texx];
+	if (i != 1)
+		color = data->sprite_f[i].tex[SPRITE_W * spr->texy + spr->texx];
 	return (color);
 }
 

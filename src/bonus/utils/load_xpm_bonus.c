@@ -37,7 +37,6 @@ Function to malloc the texture of the xpm in order to load it
 static void	cub_init_sprites(t_data *data, t_sprite_f *sp)
 {
 	int		j;
-
 	sp->tex = (int *)malloc(sizeof(int) * (SPRITE_W * SPRITE_H));
 	if (!sp->tex)
 		ft_exit_parsing(data, "Error\nMalloc failed\n");
@@ -50,8 +49,28 @@ static void	cub_init_sprites(t_data *data, t_sprite_f *sp)
 }
 
 /***
+ 	Function to init and malloc the weapon
+***/
+
+void	cub_init_weapon(t_data *data, t_sprite_f *sp)
+{
+	int j;
+
+	sp->tex = (int *)malloc(sizeof(int) * (WEAPON_W * WEAPON_H));
+	if (!sp->tex)
+		ft_exit_parsing(data, "Error\nMalloc failed\n");
+	j = 0;
+	while (j < WEAPON_W * WEAPON_H)
+	{
+		sp->tex[j] = 0;
+		j++;
+	}
+}
+
+/***
  	Function here to load and malloc all the
  	bonus sprite(ceiling, floor, sprites) in xpm
+	The number 1 in the sprite document is the light saber
 ***/
 
 int	cub_load_sprites(t_data *data, t_mlx *mlx, t_sprite_f *sf)
@@ -60,10 +79,12 @@ int	cub_load_sprites(t_data *data, t_mlx *mlx, t_sprite_f *sf)
 	char	**path;
 
 	i = 0;
-	ft_memset(data->sprite_f, 0, sizeof(t_sprite_f));
 	while (i < data->sprites->num_sprites)
 	{
-		cub_init_sprites(data, &data->sprite_f[i]);
+		if (i != 1)
+			cub_init_sprites(data, &data->sprite_f[i]);
+		else
+			cub_init_weapon(data, &data->sprite_f[i]);
 		if (data->sprites->arg_sprite[i] != 0)
 			path = put_sprite_in_struct(data, data->sprites->arg_sprite[i]);
 		if (path[0] != 0)

@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:14:39 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/17 17:39:38 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/22 10:32:23 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # define MINIMAP_H 200
 # define TEX_W 		256
 # define TEX_H 		256
-# define WEAPON_W	256
-# define WEAPON_H	256
+# define WEAPON_W	512
+# define WEAPON_H	170
 # define SPRITE_W	256 // for the sprites please respect these pixels
 # define SPRITE_H	256 // for the sprites please respect these pixels
 # define TEXTURES	4

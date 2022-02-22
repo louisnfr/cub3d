@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:07:00 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/18 17:07:17 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/21 13:38:51 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ static void	set_wall_dir(t_tex *tex, t_ray *ray, t_data *data)
 				&& data->map_info->map[ray->mapy][ray->mapx] != '2'
 				&& data->map_info->map[ray->mapy][ray->mapx] != '3')
 				tex->wall_dir = 3;
-			if (data->map_info->map[ray->mapy][ray->mapx] == '2' && data->map_info->map[ray->mapy][ray->mapx] != '3')
+			if (data->map_info->map[ray->mapy][ray->mapx] == '2'
+				&& data->map_info->map[ray->mapy][ray->mapx] != '3')
 				tex->wall_dir = 4;
 			if (data->map_info->map[ray->mapy][ray->mapx] == '3')
 				tex->wall_dir = 5;

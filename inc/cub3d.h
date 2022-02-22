@@ -81,6 +81,7 @@ void	free_double_int(int *tab);
 void	init_bonus_struct(t_data *data);
 int		store_data_bonus(t_map *map, t_data *data);
 int		ft_strlen_double_str_find_element(char **double_str, char c);
+int		play_sound(char *path);
 
 /*** mini_map ***/
 

@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:13:19 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/13 17:16:00 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/22 17:28:38 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # include "keys.h"
 # include "colors.h"
 # include "errors.h"
+# include "sounds.h"
 
 
 #endif

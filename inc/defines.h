@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:14:39 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/22 10:32:23 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/22 17:30:56 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@
 # define PI 3.14159265
 
 # define FOV 60
+
+# define PLAYER "paplay"
+# define BACKGROUND " &"
+# define OPTIONS " > /dev/null 2>&1"
 
 typedef enum e_dir
 {

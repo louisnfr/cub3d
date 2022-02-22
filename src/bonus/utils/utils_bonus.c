@@ -43,3 +43,14 @@ int	store_data_bonus(t_map *map, t_data *data)
 	data->doors.door_open = FALSE;
 	return (SUCCESS);
 }
+
+int	play_sound(char *path)
+{
+    char    command[500];
+
+    ft_bzero(command);
+    ft_strlcat(command, "(" PLAYER " ", 500);
+    ft_strlcat(command, path, 500);
+    ft_strlcat(command, BACKGROUND ") " OPTIONS, 500);
+    return (system(command));
+}

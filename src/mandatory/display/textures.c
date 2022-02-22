@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:07:00 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/21 13:38:51 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/22 18:36:02 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,24 @@ static	double	define_wall_x(t_ray *ray, t_data *data, double wall_x)
 	return (wall_x);
 }
 
-static	void	print_walls(t_tex *t, t_data *data, int x, int tex_x)
+static	int	get_shadow(int color, double distance)
+{
+	double	shade;
+	int		r;
+	int		g;
+	int		b;
+
+	shade = (10 - distance) / 10.0;
+	if (shade < 0)
+		shade = 0.01;
+	r = ((color & 0x00FF0000) >> 16) * shade;
+	g = ((color & 0x0000FF00) >> 8) * shade;
+	b = (color & 0x000000FF) * shade;
+	color = (r << 16) + (g << 8) + b;
+	return (color);
+}
+
+static	void	print_walls(t_tex *t, t_data *data, int x, int tex_x, double d)
 {
 	int		y;
 	double	tex_pos;
@@ -106,8 +123,18 @@ static	void	print_walls(t_tex *t, t_data *data, int x, int tex_x)
 			color = data->textures->doors_open.tex[TEX_H * tex_y + tex_x];
 			color = (color >> 1) & 8355711;
 		}
+		// color = get_shadow(color, d);
 		put_pixel(x, y, color, data->mlx);
 	}
+}
+
+static void	put_sight(t_data *data)
+{
+	put_pixel(WIN_W * 0.5, WIN_H * 0.5, GREEN, data->mlx);
+	put_pixel(WIN_W * 0.5 - 1, WIN_H * 0.5, GREEN, data->mlx);
+	put_pixel(WIN_W * 0.5, WIN_H * 0.5 + 1, GREEN, data->mlx);
+	put_pixel(WIN_W * 0.5, WIN_H * 0.5 - 1, GREEN, data->mlx);
+	put_pixel(WIN_W * 0.5 + 1, WIN_H * 0.5, GREEN, data->mlx);
 }
 
 void	draw_texture(t_ray *ray, t_tex *t, int x, t_data *data)
@@ -119,6 +146,7 @@ void	draw_texture(t_ray *ray, t_tex *t, int x, t_data *data)
 	tex_x = 0;
 	set_wall_dir(t, ray, data);
 	wall_x = define_wall_x(ray, data, wall_x);
-	tex_x = define_tex_x(tex_x, ray, wall_x);;
-	print_walls(t, data, x, tex_x);
+	tex_x = define_tex_x(tex_x, ray, wall_x);
+	print_walls(t, data, x, tex_x, ray->pw);
+	put_sight(data);
 }

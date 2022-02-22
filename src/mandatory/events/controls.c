@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   controls.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:23:25 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/22 18:11:04 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/22 18:39:19 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ static int	mouse_move(int x, int y, t_data *data)
 	speed = 0.03;
 	data->mouse->old_x = data->mouse->x;
 	data->mouse->x = x;
-	if (data->mouse->old_x < data->mouse->x)
+	if (data->mouse->old_x < data->mouse->x && -data->mouse->old_x + data->mouse->x > 10)
 	{
 		dir = data->player->vector.dx;
 		data->player->vector.dx = data->player->vector.dx
@@ -119,7 +119,7 @@ static int	mouse_move(int x, int y, t_data *data)
 		data->player->camera.py = plane * sin(speed)
 		+ data->player->camera.py * cos(speed);
 	}
-	if (data->mouse->old_x > data->mouse->x)
+	if (data->mouse->old_x > data->mouse->x && data->mouse->old_x - data->mouse->x > 10)
 	{
 		dir = data->player->vector.dx;
 		data->player->vector.dx = data->player->vector.dx

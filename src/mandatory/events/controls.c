@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:23:25 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/22 18:11:04 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/22 18:42:02 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,14 @@ static int	mouse_release(int key, int x, int y, t_data *data)
 		usleep(800000);
 		data->move->attack = FALSE; // bonus
 	}
-	else if (key == LEFT_MB)
+	else if (key == LEFT_MB && data->sprites->ennemy.stormtrooper == TRUE)
 	{
 		usleep(250000);
 		data->move->attack = FALSE; // bonus
+	}
+	else
+	{
+		data->move->attack = FALSE;
 	}
 
 	return (SUCCESS);

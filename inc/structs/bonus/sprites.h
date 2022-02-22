@@ -1,7 +1,14 @@
 #ifndef SPRITES_H
 # define SPRITES_H
 
-// struct to display the sprites
+// struct to display the ennemy
+
+typedef struct s_ennemy
+{
+	t_bool	rolling_b_dead;
+	t_bool	darth_vader;
+	t_bool	stormtrooper;
+}	t_ennemy;
 
 typedef struct s_sprites
 {
@@ -29,6 +36,7 @@ typedef struct s_sprites
 	int			texy;
 	int			num_sprites;
 	u_int32_t 	buffer[WIN_H][WIN_W];
+	t_ennemy	ennemy;
 }	t_sprites;
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   controls.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:23:25 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/14 17:02:21 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/22 14:08:57 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	key_press(int key, t_data *data)
 	if (key == SHIFT)
 		data->move->shift = TRUE;
 	if (key == M)
-		data->move->minimap = TRUE;
+		data->move->minimap = TRUE; // bonus
 	return (SUCCESS);
 }
 
@@ -54,18 +54,37 @@ static int	key_release(int key, t_data *data)
 	if (key == SHIFT)
 		data->move->shift = FALSE;
 	if (key == M)
-		data->move->minimap = FALSE;
+		data->move->minimap = FALSE; // bonus
 	return (SUCCESS);
 }
+
+/*** For the bonus
+***/
 
 static int	mouse_press(int key, int x, int y, t_data *data)
 {
 	(void)data;
 	(void)x;
 	(void)y;
+	if (key == LEFT_MB)
+		data->move->attack = TRUE;
 	printf("clicked: %d\n", key);
 	return (SUCCESS);
 }
+
+/*** For the bonus
+***/
+
+static int	mouse_release(int key, int x, int y, t_data *data)
+{
+	(void)data;
+	(void)x;
+	(void)y;
+	if (key == LEFT_MB)
+		data->move->attack = FALSE; // bonus
+	return (SUCCESS);
+}
+
 
 static int	mouse_move(int x, int y, t_data *data)
 {
@@ -85,7 +104,8 @@ void	init_controls(t_data *data)
 	init_mouse(data->mouse);
 	mlx_hook(data->mlx->win, 2, 1L << 0, key_press, data);
 	mlx_hook(data->mlx->win, 3, 1L << 1, key_release, data);
-	mlx_hook(data->mlx->win, 4, 1L << 2, mouse_press, data);
+	mlx_hook(data->mlx->win, 4, 1L << 2, mouse_press, data); // bonus
+	mlx_hook(data->mlx->win, 5, 1L << 3, mouse_release, data);
 	mlx_hook(data->mlx->win, 6, 1L << 6, mouse_move, data);
 	mlx_hook(data->mlx->win, 33, 1L << 2, exit_all, data);
 }

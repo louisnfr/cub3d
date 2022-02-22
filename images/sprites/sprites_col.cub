@@ -6,3 +6,4 @@ XW ./images/sprites/xwing.xpm 15 3
 DVF ./images/sprites/darth_vader_force.xpm 15 25
 DVO ./images/sprites/darth_vader_opening.xpm 15 15
 DVM ./images/sprites/darth_vader_moving.xpm 13 20
+ST ./images/sprites/stormtrooper.xpm 12 3

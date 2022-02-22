@@ -69,6 +69,7 @@ typedef struct s_move
 	t_bool	dirz;
 	t_bool	shift;
 	t_bool	minimap;
+	t_bool	attack;
 }	t_move;
 
 #endif

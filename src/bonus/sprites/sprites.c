@@ -64,7 +64,7 @@ Set the buffer after raycasting the wall, it contains the distance to the wall
 for every vertical stripe.
 */
 
-int	draw_animated_sprites(t_data *data, int x, t_ray *ray)
+int	zbuffer_sprites(t_data *data, int x, t_ray *ray)
 {
 	t_sprites	*spr;
 

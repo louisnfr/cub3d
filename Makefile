@@ -6,7 +6,7 @@
 #    By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 22:49:26 by lraffin           #+#    #+#              #
-#    Updated: 2022/02/17 17:49:26 by vbachele         ###   ########.fr        #
+#    Updated: 2022/02/22 12:30:04 by vbachele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,8 +81,9 @@ BONUS =					\
 		draw_sprites.c \
 		sprites_width_height.c \
 		sprites_move.c \
-		sprite_is_hit.c \
+		ennemy_hit.c \
 		draw_weapons.c \
+		draw_to_screen_sprites.c \
 		free_bonus.c \
 
 INC_DIR	= inc
@@ -110,7 +111,7 @@ vpath %.c $(addprefix $(SRC_DIR)/, . mandatory/raycasting mandatory/geometry \
 									mandatory/parsing/map mandatory/parsing/floor_ceiling	\
 									bonus/ceiling_floor bonus/doors         \
 									bonus/draw bonus/hud bonus/utils        \
-									bonus/sprites bonus/mini_map	                    \
+									bonus/sprites bonus/mini_map                  \
 									)
 
 all: libs

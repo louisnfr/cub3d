@@ -97,7 +97,7 @@ int		floor_ceiling_bonus(t_data *data);
 int		floor_casting_bonus(t_data *data, t_player *player);
 
 /*** sprites ***/
-int		draw_animated_sprites(t_data *data, int x, t_ray *ray);
+int		zbuffer_sprites(t_data *data, int x, t_ray *ray);
 int		sprite_casting(t_data *data, t_sprites *spr, t_vector *player,
 					t_player *play);
 void	lowest_highest_height_pixel(t_sprites *spr);
@@ -109,11 +109,25 @@ int		sprites_move(t_data *data, int a, t_vector *vect);
 int			draw_floor_ceiling_bonus(t_ray_b *ray_b, t_data *data);
 int			draw_sprites_bonus(t_sprites *spr, t_data *data);
 void		ennemy_is_rolling_ball(t_sprites *spr, t_data *data, int i);
+void		ennemy_is_stormtrooper(t_sprites *spr, t_data *data, int i);
+void		ennemy_is_darth_vador(t_sprites *spr, t_data *data, int i);
 void		define_texy(t_sprites *spr, int y);
 void		define_texx(t_sprites *spr, int stripe);
 void		store_buffer_and_print(t_data *data, int stripe,
 										u_int32_t color, int y);
 void		draw_weapons(t_data *data);
+void		ennemy_is_hit(t_sprites *spr, t_data *data, int i);
+
+/*** draw sprites ***/
+void		draw_r2d2_xwing(t_data *data, int stripe, int color, int y, int i);
+void		draw_rolling_ball(t_data *data, int stripe,
+			int color, int y, int i);
+void		draw_darth_vader(t_data *data, int stripe,
+			int color, int y, int i);
+void		draw_stormtrooper(t_data *data, int stripe,
+			int color, int y, int i);
+int			draw_sprites_bonus(t_sprites *spr, t_data *data);
+void		draw_attack_lightsaber(t_data *data);
 
 /*** parsing bonus ***/
 

@@ -134,10 +134,12 @@ int	raycasting(t_player *player, t_data *data)
 		perform_dda(&ray, &player->vector, data->map_info->map);
 		put_ray_to_image(&ray, &tex, x, data);
 		draw_texture(&ray, &tex, x, data);
-		draw_animated_sprites(data, x, &ray); // bonus
+		zbuffer_sprites(data, x, &ray); // bonus
 	}
 	sprite_casting(data, data->sprites, &player->vector, player); // bonus
-	draw_weapons(data);
-	//draw_sprites_bonus(data->sprites, data); //A corriger pour une fonction draw a part
+	if (data->move->attack == FALSE)
+		draw_weapons(data); // bonus
+	else if(data->move->attack == TRUE)
+		draw_attack_lightsaber(data);
 	return (SUCCESS);
 }

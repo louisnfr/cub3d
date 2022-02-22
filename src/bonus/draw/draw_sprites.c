@@ -37,12 +37,12 @@ void	store_buffer_and_print(t_data *data, int stripe,
 {
 	if ((color & 0x00FFFFFF) != 0)
 	{
-		// spr->buffer[y][stripe] = color;
 		put_pixel(stripe, y, color, data->mlx);
 	}
 }
 
-/* store the color of the sprite in the buffer
+/* define the x && y coordinate to draw the sprite + define which sprite to
+	draw
 */
 
 void	store_color_in_buffer(t_sprites *spr, t_data *data, int i)
@@ -56,22 +56,21 @@ void	store_color_in_buffer(t_sprites *spr, t_data *data, int i)
 	{
 		define_texx(spr, stripe);
 		if (spr->transformy > 0 && stripe > 0 && stripe < WIN_W
-			&& spr->transformy < spr->zbuffer[stripe]
-			&& ((int)data->sprite_f[i].spritex != 0
-			|| (int)data->sprite_f[i].spritey != 0
-			&& data->sprite_f[i].is_ennemy == TRUE))
+			&& spr->transformy < spr->zbuffer[stripe])
 		{
 			y = spr->drawstarty;
 			while (y < spr->drawendy)
 			{
 				define_texy(spr, y);
 				color = store_color(spr, i, data, color);
-				store_buffer_and_print(data, stripe, color, y);
+				draw_r2d2_xwing(data, stripe, color, y, i);
+				draw_stormtrooper(data, stripe, color, y, i);
+				draw_darth_vader(data, stripe, color, y, i);
+				draw_rolling_ball(data, stripe, color, y, i);
 				y++;
 			}
 		}
 		stripe++;
 	}
-	ennemy_is_rolling_ball(spr, data, i);
-	//ennemy_is_darth_vador(spr, data, i);
+	ennemy_is_hit(spr, data, i);
 }

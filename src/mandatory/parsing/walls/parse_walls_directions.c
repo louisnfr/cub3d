@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_walls_directions.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:56:40 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/06 18:09:11 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/23 18:30:47 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 static int	check_if_too_much_walls_lines(int *check, t_data *data)
 {
 	if (check[0] != 1 || check[1] != 1 || check[2] != 1 || check[3] != 1)
-		ft_exit_parsing(data, ERROR_WALLS_NUMBERS);
+		ft_exit_parsing(data, WALLS_NUMBERS);
 	return (FAILURE);
 }
 
@@ -31,7 +31,7 @@ static int	check_if_direction_if_good(t_data *data, int i, char *face_wall)
 		return (SUCCESS);
 	if (data->map_info->file_cub[i][2] != ' '
 		&& data->map_info->file_cub[i][2] != '\t')
-		ft_exit_parsing(data, ERROR_WALLS_WRONG_3RD_LETTER);
+		ft_exit_parsing(data, WALLS_WRONG_3RD_LETTER);
 	check_and_add_path_walls(data, i, face_wall);
 	return (FAILURE);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_img_wall.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:56:22 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/06 18:06:32 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/23 18:30:34 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int	add_face_wall_we_to_mlx(t_data *data, char *path_img)
 			path_img, &data->textures->wall_we.width,
 			&data->textures->wall_we.height);
 	if (!data->textures->wall_we.img)
-		ft_exit_parsing(data, ERROR_WALLS_WRONG_IMG);
+		ft_exit_parsing(data, WALLS_WRONG_IMG);
 	return (FAILURE);
 }
 
@@ -28,7 +28,7 @@ static int	add_face_wall_ea_to_mlx(t_data *data, char *path_img)
 			path_img, &data->textures->wall_ea.width,
 			&data->textures->wall_ea.height);
 	if (!data->textures->wall_ea.img)
-		ft_exit_parsing(data, ERROR_WALLS_WRONG_IMG);
+		ft_exit_parsing(data, WALLS_WRONG_IMG);
 	return (FAILURE);
 }
 
@@ -38,7 +38,7 @@ static	int	add_face_wall_so_to_mlx(t_data *data, char *path_img)
 			path_img, &data->textures->wall_so.width,
 			&data->textures->wall_so.height);
 	if (!data->textures->wall_so.img)
-		ft_exit_parsing(data, ERROR_WALLS_WRONG_IMG);
+		ft_exit_parsing(data, WALLS_WRONG_IMG);
 	return (FAILURE);
 }
 
@@ -48,7 +48,7 @@ static	int	add_face_wall_no_to_mlx(t_data *data, char *path_img)
 		= mlx_xpm_file_to_image(data->mlx->ptr, path_img,
 			&data->textures->wall_no.width, &data->textures->wall_no.height);
 	if (!data->textures->wall_no.img)
-		ft_exit_parsing(data, ERROR_WALLS_WRONG_IMG);
+		ft_exit_parsing(data, WALLS_WRONG_IMG);
 	return (FAILURE);
 }
 

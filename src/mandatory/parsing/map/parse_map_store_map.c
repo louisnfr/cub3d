@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map_store_map.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:56:34 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/07 20:46:32 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/23 18:30:27 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static int	fill_map(t_map *map_info, t_data *data)
 	j = 0;
 	map = allocate_map(map_info);
 	if (!map)
-		ft_exit_parsing(data, ERROR_MAP_MALLOC_PROBLEM);
+		ft_exit_parsing(data, MAP_MALLOC_PROBLEM);
 	while (start_tab <= end_tab)
 	{
 		i = 0;
@@ -95,7 +95,7 @@ static	int	check_and_store_last_line(t_map *map_info, t_data *data)
 			break ;
 		}
 		else
-			ft_exit_parsing(data, ERROR_MAP_NOT_AT_END);
+			ft_exit_parsing(data, MAP_NOT_AT_END);
 	}
 	return (FAILURE);
 }
@@ -104,7 +104,7 @@ int	store_data_map(t_map *map_info, t_data *data)
 {
 	check_and_store_last_line(map_info, data);
 	if ((map_info->last_line + 1) - map_info->first_line < 3)
-		ft_exit_parsing(data, ERROR_MAP_TOO_FEW_LINES);
+		ft_exit_parsing(data, MAP_TOO_FEW_LINES);
 	fill_map(map_info, data);
 	return (FAILURE);
 }

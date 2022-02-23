@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map_check_first_last_letters.c               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:56:24 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/04 12:09:21 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/23 18:29:56 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static	int	check_error_last_letter(char **map, t_data *data)
 		while (map[i][len] == ' ' || map[i][len] == '\t')
 			len--;
 		if (map[i][len] != '1')
-			ft_exit_parsing(data, ERROR_MAP_LAST_LETTER);
+			ft_exit_parsing(data, MAP_LAST_LETTER);
 		i++;
 	}
 	return (FAILURE);
@@ -42,7 +42,7 @@ static	int	check_error_first_letter(char **map, t_data *data)
 		while (map[i][j] == ' ' || map[i][j] == '\t')
 			j++;
 		if (map[i][j] != '1')
-			ft_exit_parsing(data, ERROR_MAP_FIRST_LETTER);
+			ft_exit_parsing(data, MAP_FIRST_LETTER);
 		i++;
 	}
 	return (FAILURE);

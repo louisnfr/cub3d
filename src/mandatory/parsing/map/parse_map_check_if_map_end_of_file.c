@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map_check_if_map_end_of_file.c               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:56:26 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/04 12:09:36 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/23 18:30:06 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int	map_if_in_good_place(t_map *map_info, t_data *data)
 			return (FAILURE);
 		}
 		else
-			ft_exit_parsing(data, ERROR_MAP_NOT_AT_END);
+			ft_exit_parsing(data, MAP_NOT_AT_END);
 	}
 	return (FAILURE);
 }

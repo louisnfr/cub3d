@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:55:18 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/15 14:59:32 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/23 18:30:15 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,8 +103,8 @@ static	int	check_all_the_letters(char **map)
 int	check_if_letters_are_good(t_data *data)
 {
 	if (check_all_the_letters(data->map_info->map))
-		ft_exit_parsing(data, ERROR_MAP_UNAUTHORIZED_LETTER);
+		ft_exit_parsing(data, MAP_UNAUTHORIZED_LETTER);
 	if (letters_are_more_than_once(data->map_info->map, data->map_info))
-		ft_exit_parsing(data, ERROR_MAP_TOO_MUCH_PLAYER);
+		ft_exit_parsing(data, MAP_TOO_MUCH_PLAYER);
 	return (FAILURE);
 }

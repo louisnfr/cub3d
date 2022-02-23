@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_floor_ceiling_split_color.c                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:56:16 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/06 18:09:58 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/23 18:29:31 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static	void	add_color_to_struct(char *tmp_split, int i,
 {
 	int	rgb;
 
-	rgb = atoi(tmp_split);
+	rgb = ft_atoi(tmp_split);
 	if (i == 1 && color == 1)
 		data->textures->ceiling_color.r = rgb;
 	else if (i == 1 && color == 2)
@@ -36,12 +36,12 @@ static	int	check_rgb_errors(char *tmp_split, t_data *data, char **free, char **f
 {
 	int	color;
 
-	color = atoi(tmp_split);
+	color = ft_atoi(tmp_split);
 	if (color > 255 || color < 0)
 	{
 		free_double_str(free);
 		free_double_str(free_2);
-		ft_exit_parsing(data, ERROR_CEILING_FLOOR_LEN_COLOR_TOO_LONG);
+		ft_exit_parsing(data, CEILING_FLOOR_LEN_COLOR_TOO_LONG);
 	}
 	return (FAILURE);
 }
@@ -54,7 +54,7 @@ static	int	check_rgb_errors(char *tmp_split, t_data *data, char **free, char **f
 // 	if (len > 4)
 // 	{
 // 		free_double_str(tmp_split);
-// 		ft_exit_parsing(data, ERROR_CEILING_FLOOR_LEN_COLOR_TOO_LONG);
+// 		ft_exit_parsing(data, CEILING_FLOOR_LEN_COLOR_TOO_LONG);
 // 	}
 // 	return (FAILURE);
 // }

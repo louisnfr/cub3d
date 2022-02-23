@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_walls_add_path_to_struct.c                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:56:38 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/06 18:09:11 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/23 18:30:38 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	check_and_add_path_walls(t_data *data, int i, char *face_wall)
 	if (!img[1] || img[2])
 	{
 		free_double_str(img);
-		ft_exit_parsing(data, ERROR_WALLS_WRONG_ARGUMENTS);
+		ft_exit_parsing(data, WALLS_WRONG_ARGUMENTS);
 	}
 	check_struct_walls(data, face_wall, img[1]);
 	free_double_str(img);

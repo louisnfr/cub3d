@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 22:49:26 by lraffin           #+#    #+#              #
-#    Updated: 2022/02/18 15:39:52 by lraffin          ###   ########.fr        #
+#    Updated: 2022/02/23 17:59:57 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,8 @@ EVENTS =				\
 		orient_player.c	\
 		update_pos.c	\
 
-DISPLAY =	cub_load_xpm.c \
+DISPLAY =	cub_load_xpm.c	\
+			utils.c			\
 			textures.c		\
 
 PARSING =				\

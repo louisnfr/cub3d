@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map_is_valid.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:55:29 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/04 12:09:36 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/23 18:30:20 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static	int	check_zero_and_player_good_place(char letter,
 			|| check_coordinate(map[y][x + 1])
 			|| check_coordinate(map[y][x - 1]))
 		{
-			ft_exit_parsing(data, ERROR_MAP_PROBLEM_INSIDE_WALLS);
+			ft_exit_parsing(data, MAP_PROBLEM_INSIDE_WALLS);
 		}
 	}
 	return (FAILURE);

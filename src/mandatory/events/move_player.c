@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 17:00:53 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/17 14:10:56 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/24 16:30:29 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ static void	move_backward(t_vector *vect, char **map)
 	speed = 0.1;
 	x = vect->x - vect->dx * speed * 3;
 	y = vect->y - vect->dy * speed * 3;
-
 	if (map[(int)vect->y][(int)x] != '1')
 		vect->x -= vect->dx * speed;
 	if (map[(int)y][(int)vect->x] != '1')

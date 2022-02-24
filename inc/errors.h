@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 15:26:02 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/23 18:28:36 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/24 16:05:34 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@
 
 /* map errors */
 
-# define MAP_NOT_AT_END "Error\nYour first or your last line of your map has a problem or no map at all\n"
-# define MAP_TOO_FEW_LINES "Error\nYour map has too few lines\n"
-# define MAP_MALLOC_PROBLEM "Error\nProblem during the malloc of your map\n"
-# define MAP_FIRST_LETTER "Error\nThe first number of one of your line is not a '1'\n"
-# define MAP_LAST_LETTER "Error\nThe last number of one of your line is not a '1'\n"
+# define MAP_NOT_AT_END "Error\nMap reading error\n"
+# define MAP_TOO_FEW_LINES "Error\nMap has too few lines\n"
+# define MAP_MALLOC_PROBLEM "Error\nMap malloc failed\n"
+# define MAP_FIRST_LETTER "Error\nFirst char of line is not a '1'\n"
+# define MAP_LAST_LETTER "Error\nLast char of line is not a '1'\n"
 # define MAP_UNAUTHORIZED_LETTER "Error\nUnauthorized letter in your map'\n"
-# define MAP_TOO_MUCH_PLAYER "Error\nYou put your player more than once\n"
-# define MAP_PROBLEM_INSIDE_WALLS "Error\nProblem inside your walls, check the '0', or player's letter\n"
+# define MAP_TOO_MUCH_PLAYER "Error\nPlayer present more than once\n"
+# define MAP_PROBLEM_INSIDE_WALLS "Error\nWrong core of map\n"
 
 #endif

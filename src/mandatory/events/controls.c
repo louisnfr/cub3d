@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:23:25 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/18 15:54:58 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/24 16:30:58 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 static int	key_press(int key, t_data *data)
 {
-	// printf("x: %f\n", data->player->vector.x);
-	// printf("y: %f\n", data->player->vector.y);
 	if (key == W)
 		data->move->x = TRUE;
 	if (key == S)
@@ -37,7 +35,6 @@ static int	key_press(int key, t_data *data)
 
 static int	key_release(int key, t_data *data)
 {
-	// printf("released: %d\n", key);
 	if (key == ESC)
 		exit_all(data);
 	if (key == W)
@@ -64,7 +61,6 @@ static int	mouse_press(int key, int x, int y, t_data *data)
 	(void)data;
 	(void)x;
 	(void)y;
-	printf("clicked: %d\n", key);
 	return (SUCCESS);
 }
 
@@ -98,7 +94,6 @@ static int	mouse_move(int x, int y, t_data *data)
 	mlx_mouse_move(data->mlx->ptr, data->mlx->win, (int)(WIN_W / 2), y);
 	return (SUCCESS);
 }
-
 
 void	init_controls(t_data *data)
 {

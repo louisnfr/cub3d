@@ -1,6 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mini_map.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/24 16:33:36 by lraffin           #+#    #+#             */
+/*   Updated: 2022/02/24 16:33:46 by lraffin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
-/* Function to put every pixel in the minimap
+/*
+Function to put every pixel in the minimap
 */
 
 static void	cub_map_wall(float size_w, t_minimap pos, t_mlx *mlx, int color)
@@ -25,11 +38,12 @@ static void	cub_map_wall(float size_w, t_minimap pos, t_mlx *mlx, int color)
 	}
 }
 
-/* Loop to display the minimap
+/*
+Loop to display the minimap
 */
 
-static void	loop_display_minimap(t_data *data, t_map *map
-								, t_mlx *mlx, float size_w)
+static void	loop_display_minimap(t_data *data, t_map *map,
+			t_mlx *mlx, float size_w)
 {
 	while (data->minimap.y < data->minimap.length_y)
 	{
@@ -66,9 +80,10 @@ static void	init_minimap_struct(t_data *data, t_map *map)
 	data->minimap.length_y = ft_strlen_double_str(map->map);
 }
 
-/* Define the size of the minimap
-	- offset = the length of a square in the map
-	- size_w = new size for the square of the mini map
+/*
+Define the size of the minimap
+- offset = the length of a square in the map
+- size_w = new size for the square of the mini map
 */
 
 static void	display_map(t_data *data, t_map *map, t_mlx *mlx)
@@ -82,14 +97,13 @@ static void	display_map(t_data *data, t_map *map, t_mlx *mlx)
 	loop_display_minimap(data, map, mlx, size_w);
 }
 
-// Function to display the mini-map when pressing M button
+/*
+Function to display the mini-map when pressing M button
+*/
 
 int	mini_map(t_data *data)
 {
 	if (data->move->minimap)
-	{
 		display_map(data, data->map_info, data->mlx);
-		// move_player_minimap(data);
-	}
 	return (0);
 }

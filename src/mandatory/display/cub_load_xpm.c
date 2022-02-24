@@ -1,8 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cub_load_xpm.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/24 15:46:51 by lraffin           #+#    #+#             */
+/*   Updated: 2022/02/24 15:50:45 by lraffin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
-/* ici on stock dans notre int* la texture de chaque mur
-	- On malloc.
-	- On remplit de 0 nos int* de textures.
+
+/*
+ici on stock dans notre int* la texture de chaque mur
+On malloc
+On remplit de 0 nos int* de textures
 */
+
 static void	cub_init_textures(t_textures *wall, t_data *data)
 {
 	int		j;
@@ -29,18 +44,20 @@ static void	cub_init_textures(t_textures *wall, t_data *data)
 	}
 }
 
-/* On transforme le xpm en image et on leur attribut une adresse dans un int
-	- On stock tout dans notre texture qu'on a malloc juste avant
+/*
+On transforme le xpm en image et on leur attribut une adresse dans un int
+On stock tout dans notre texture qu'on a malloc juste avant
 */
 
 void	cub_load_xpm(t_mlx *mlx, int *tex, char *path)
 {
 	int	x;
 	int	y;
+
 	mlx->img = mlx_xpm_file_to_image(mlx->ptr, path, &mlx->x, &mlx->y);
 	if (mlx->img)
 		mlx->add = (int *)mlx_get_data_addr(mlx->img,
-							&mlx->bpp, &mlx->length, &mlx->endian);
+				&mlx->bpp, &mlx->length, &mlx->endian);
 	y = 0;
 	while (y < mlx->y)
 	{
@@ -48,7 +65,6 @@ void	cub_load_xpm(t_mlx *mlx, int *tex, char *path)
 		while (x < mlx->x)
 		{
 			tex[mlx->x * y + x] = mlx->add[mlx->x * y + x];
-
 			x++;
 		}
 		y++;
@@ -57,7 +73,9 @@ void	cub_load_xpm(t_mlx *mlx, int *tex, char *path)
 	// mlx_destroy_image(mlx->ptr, mlx->img);
 }
 
-// On init notre texture et on lui stock une valeur
+/*
+On init notre texture et on lui stock une valeur
+*/
 
 void	cub_load_textures(t_mlx *mlx, t_textures *wall, t_data *data)
 {

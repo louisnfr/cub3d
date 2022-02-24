@@ -1,6 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_bonus.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/24 16:34:07 by lraffin           #+#    #+#             */
+/*   Updated: 2022/02/24 16:34:17 by lraffin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
-// check the number of times we see the element c
+/*
+check the number of times we see the element c
+*/
 
 int	ft_strlen_double_str_find_element(char **double_str, char c)
 {

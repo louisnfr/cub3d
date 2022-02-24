@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:56:16 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/23 18:29:31 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/24 16:06:32 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ static	void	add_color_to_struct(char *tmp_split, int i,
 		data->textures->floor_color.b = rgb;
 }
 
-static	int	check_rgb_errors(char *tmp_split, t_data *data, char **free, char **free_2)
+static	int	check_rgb_errors(char *tmp_split, t_data *data,
+			char **free, char **free_2)
 {
 	int	color;
 
@@ -46,19 +47,6 @@ static	int	check_rgb_errors(char *tmp_split, t_data *data, char **free, char **f
 	return (FAILURE);
 }
 
-// static	int	check_len_superior_to_four(char **tmp_split, t_data *data)
-// {
-// 	int	len;
-
-// 	len = ft_strlen_double_str(tmp_split);
-// 	if (len > 4)
-// 	{
-// 		free_double_str(tmp_split);
-// 		ft_exit_parsing(data, CEILING_FLOOR_LEN_COLOR_TOO_LONG);
-// 	}
-// 	return (FAILURE);
-// }
-
 static int	check_rgb(t_color color, t_data *data, int c, char **free)
 {
 	char	**tmp_split;
@@ -66,7 +54,6 @@ static int	check_rgb(t_color color, t_data *data, int c, char **free)
 
 	i = 1;
 	tmp_split = ft_split_charset(color.raw, " \t,");
-	// check_len_superior_to_four(tmp_split, data);
 	while (tmp_split[i])
 	{
 		check_rgb_errors(tmp_split[i], data, tmp_split, free);

@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:56:11 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/23 18:29:08 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/24 16:01:41 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ static int	check_if_ceiling_floor_have_comma(char *ceiling_floor_data,
 	len = ft_strlen(ceiling_floor_data);
 	if (!ft_isdigit(ceiling_floor_data[0]) && i == 1)
 	{
-			free_double_str(free);
-			ft_exit_parsing(data, CEILING_FLOOR_FIRST_LETTER_WRONG);
+		free_double_str(free);
+		ft_exit_parsing(data, CEILING_FLOOR_FIRST_LETTER_WRONG);
 	}
 	if (len == 1)
 	{
@@ -41,15 +41,16 @@ static int	check_commas_and_digit(char **ceiling_floor_data, int i,
 
 	j = 0;
 	check_if_ceiling_floor_have_comma(ceiling_floor_data[i],
-					i, data, ceiling_floor_data);
+		i, data, ceiling_floor_data);
 	while (ceiling_floor_data[i][j])
 	{
 		if (!ft_isdigit_comma(ceiling_floor_data[i][j], commas))
-			{
-				free_double_str(ceiling_floor_data);
-				ft_exit_parsing(data, CEILING_FLOOR_OTHER_THAN_NUMBER);
-			}
-		if (ceiling_floor_data[i][j] == ',' && ceiling_floor_data[i][j + 1] == ',')
+		{
+			free_double_str(ceiling_floor_data);
+			ft_exit_parsing(data, CEILING_FLOOR_OTHER_THAN_NUMBER);
+		}
+		if (ceiling_floor_data[i][j] == ','
+			&& ceiling_floor_data[i][j + 1] == ',')
 		{
 			free_double_str(ceiling_floor_data);
 			ft_exit_parsing(data, CEILING_FLOOR_TOO_MANY_COMMA);
@@ -76,10 +77,10 @@ static int	check_strings(char **ceiling_floor_data,
 	len = ft_strlen(ceiling_floor_data[number_of_strings - 1]);
 	if (commas != 2
 		|| ceiling_floor_data[number_of_strings - 1][len - 1] == ',')
-		{
-			free_double_str(ceiling_floor_data);
-			ft_exit_parsing(data, CEILING_FLOOR_ARGUMENTS_PROBLEMS);
-		}
+	{
+		free_double_str(ceiling_floor_data);
+		ft_exit_parsing(data, CEILING_FLOOR_ARGUMENTS_PROBLEMS);
+	}
 	return (FAILURE);
 }
 

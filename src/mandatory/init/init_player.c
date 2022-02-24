@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:37:03 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/06 17:39:00 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/24 16:17:03 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,8 @@ static	void	set_player_plan(t_player *player, double px, double py)
 	player->camera.py = py;
 }
 
-static	void	set_player_direction(t_player *player, double dx, double dy,
-									double dz)
+static	void	set_player_direction(t_player *player, double dx, double dy)
 {
-	player->vector.dz = dz;
 	player->vector.dx = dx;
 	player->vector.dy = dy;
 }
@@ -50,22 +48,22 @@ void	set_player_dir(t_player *player, t_data *data)
 {
 	if (data->map_info->init_position == 'N')
 	{
-		set_player_direction(player, 0, -1 , 0);
+		set_player_direction(player, 0, -1);
 		set_player_plan(player, 0.66, 0);
 	}
 	if (data->map_info->init_position == 'S')
 	{
-		set_player_direction(player, 0, 1, 0);
+		set_player_direction(player, 0, 1);
 		set_player_plan(player, -0.66, 0);
 	}
 	if (data->map_info->init_position == 'E')
 	{
-		set_player_direction(player, 1, 0, 0);
+		set_player_direction(player, 1, 0);
 		set_player_plan(player, 0, 0.66);
 	}
 	if (data->map_info->init_position == 'W')
 	{
-		set_player_direction(player, -1, 0, 0);
+		set_player_direction(player, -1, 0);
 		set_player_plan(player, 0, 0.66);
 	}
 }

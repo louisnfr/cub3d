@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 15:16:19 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/18 15:16:19 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/24 16:15:24 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@ typedef struct s_vector
 {
 	double	x;
 	double	y;
-	double	z;
 	double	dx;
 	double	dy;
-	double	dz;
 }	t_vector;
 
 typedef struct s_camera
@@ -33,7 +31,6 @@ typedef struct s_point
 {
 	double	x;
 	double	y;
-	double	z;
 }	t_point;
 
 typedef struct s_player

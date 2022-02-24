@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 17:38:01 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/23 17:38:01 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/24 17:21:33 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	main(int ac, char **av)
 {
 	t_data	*data;
 
-	play_sound(R2D2);
 	check_input(ac, av);
 	data = init_data();
 	init_struct(data);

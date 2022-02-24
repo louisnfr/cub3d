@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 16:06:53 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/24 16:16:10 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/24 16:54:04 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ static void	put_ray_to_image(t_ray *ray, t_tex *t, int x, t_data *data)
 	if (t->end >= WIN_H)
 		t->end = WIN_H - 1;
 	ceiling.x = 0;
-	ceiling.x = t->start;
+	ceiling.y = t->start;
 	floor.x = t->end;
 	floor.y = WIN_H - 1;
 	put_vline(x, ceiling, data->textures->ceiling_color.hex_color, data->mlx);

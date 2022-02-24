@@ -1,9 +1,9 @@
 SO	./images/south_wall.xpm
 EA	./images/south_wall.xpm
 
-F	135, 126, 126
+F	255, 255, 255
 
-C	121, 220, 220
+C	120, 0, 0
 
 WE	./images/south_wall.xpm
 NO ./images/south_wall.xpm

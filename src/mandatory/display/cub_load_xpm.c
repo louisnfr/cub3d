@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 15:46:51 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/24 15:50:45 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/24 17:23:43 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,11 +80,17 @@ On init notre texture et on lui stock une valeur
 void	cub_load_textures(t_mlx *mlx, t_textures *wall, t_data *data)
 {
 	cub_init_textures(wall, data);
+	mlx_destroy_image(mlx->ptr, mlx->img);
 	cub_load_xpm(mlx, wall->wall_no.tex, wall->wall_no.path_img);
+	mlx_destroy_image(mlx->ptr, mlx->img);
 	cub_load_xpm(mlx, wall->wall_so.tex, wall->wall_so.path_img);
+	mlx_destroy_image(mlx->ptr, mlx->img);
 	cub_load_xpm(mlx, wall->wall_ea.tex, wall->wall_ea.path_img);
+	mlx_destroy_image(mlx->ptr, mlx->img);
 	cub_load_xpm(mlx, wall->wall_we.tex, wall->wall_we.path_img);
 	/* BONUS */
+	mlx_destroy_image(mlx->ptr, mlx->img);
 	cub_load_xpm(mlx, wall->doors.tex, "./images/doors_closed.xpm");
+	mlx_destroy_image(mlx->ptr, mlx->img);
 	cub_load_xpm(mlx, wall->doors_open.tex, "./images/doors_open.xpm");
 }

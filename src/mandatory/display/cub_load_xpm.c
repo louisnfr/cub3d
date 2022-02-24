@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 15:46:51 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/24 17:23:43 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/24 17:28:12 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,6 @@ void	cub_load_xpm(t_mlx *mlx, int *tex, char *path)
 		}
 		y++;
 	}
-	// TROUVER MOYEN DE FREE
-	// mlx_destroy_image(mlx->ptr, mlx->img);
 }
 
 /*

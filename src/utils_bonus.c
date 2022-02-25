@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 16:34:07 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/24 17:07:17 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/25 17:46:48 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ init and store the data for the doors
 
 int	store_data_bonus(t_map *map, t_data *data)
 {
-	(void) map;
+	(void)map;
 	ft_memset(&data->doors, 0, sizeof(t_doors));
 	data->doors.door_open = FALSE;
 	return (SUCCESS);

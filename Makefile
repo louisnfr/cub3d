@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 22:49:26 by lraffin           #+#    #+#              #
-#    Updated: 2022/02/25 16:38:08 by lraffin          ###   ########.fr        #
+#    Updated: 2022/02/25 17:48:15 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,9 +35,10 @@ EVENTS =				\
 		orient_player.c	\
 		update_pos.c	\
 
-DISPLAY =	cub_load_xpm.c	\
-			utils.c			\
-			textures.c		\
+DISPLAY =				\
+		cub_load_xpm.c	\
+		utils.c			\
+		textures.c		\
 
 PARSING =				\
 		get_file.c		\
@@ -61,11 +62,11 @@ PARSING =				\
 EXIT =				\
 		errors.c 	\
 		free.c		\
-		exit.c \
+		exit.c		\
 
 INIT =					\
-		init_player.c \
-		init_struct.c \
+		init_player.c	\
+		init_struct.c	\
 
 BONUS =					\
 		mini_map.c 		\
@@ -87,14 +88,14 @@ DEBUG	= -fsanitize=address
 LIBFT	= -L libft -lft
 MLX		= -Lmlx -lmlx -lXext -lX11 -lm
 
-vpath %.c $(addprefix $(SRC_DIR)/, . mandatory/raycasting mandatory/geometry	\
-									mandatory/display mandatory/parsing mandatory/bonus	\
-									mandatory/exit mandatory/events mandatory/init	\
-									mandatory/parsing/walls	\
-									mandatory/parsing/map mandatory/parsing/floor_ceiling	\
-									bonus/ceiling_floor bonus/doors	\
-									bonus/draw bonus/hud bonus/utils	\
-									bonus/mini_map	\
+vpath %.c $(addprefix $(SRC_DIR)/, . raycasting geometry	\
+									display parsing bonus	\
+									exit events init	\
+									parsing/walls	\
+									parsing/map parsing/floor_ceiling	\
+									ceiling_floor doors	\
+									draw hud utils	\
+									mini_map	\
 									)
 
 all: libs

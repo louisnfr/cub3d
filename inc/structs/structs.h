@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 15:16:24 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/18 15:16:47 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/25 17:49:33 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include "parsing.h"
 # include "player.h"
-# include "bonus/player_bonus.h"
-# include "bonus/parsing_bonus.h"
 
 /* struct for our mlx */
 

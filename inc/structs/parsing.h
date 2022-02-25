@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 15:15:14 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/18 15:16:06 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/25 17:49:09 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,48 @@ typedef struct s_tex
 	int		start;
 	int		end;
 }	t_tex;
+
+/* struct to open && close the doors */
+
+typedef struct s_doors
+{
+	int		x;
+	int		y;
+	int		j;
+	t_bool	door_open;
+}	t_doors;
+
+/* struct for the mini_map */
+
+typedef struct s_minimap
+{
+	int	x;
+	int	y;
+	int	length_x;
+	int	length_y;
+	int	offset;
+}	t_minimap;
+
+/* struct for the ray_bonus to put texture on floor and ceiling */
+
+typedef struct s_ray_b
+{
+	double		dirx0;
+	double		dirx1;
+	double		diry0;
+	double		diry1;
+	int			p;
+	double		posz;
+	double		rowdistance;
+	double		floorstepx;
+	double		floorstepy;
+	double		floorx;
+	double		floory;
+	int			cellx;
+	int			celly;
+	int			tx;
+	int			ty;
+	u_int32_t	buffer[WIN_H][WIN_W];
+}	t_ray_b;
 
 #endif

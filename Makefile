@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 22:49:26 by lraffin           #+#    #+#              #
-#    Updated: 2022/02/25 17:48:15 by lraffin          ###   ########.fr        #
+#    Updated: 2022/02/25 18:18:48 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,20 +14,24 @@ NAME =	cub3D
 
 SRCS =					\
 		main.c			\
-		$(GEOMETRY)		\
-		$(RAYCASTING)	\
 		$(DISPLAY)		\
-		$(PARSING)		\
+		$(DOORS)		\
 		$(EVENTS)		\
-		$(EXIT)			\
+		$(GEOMETRY)		\
 		$(INIT)			\
-		$(BONUS)		\
+		$(MINIMAP)		\
+		$(OTHERS)		\
+		$(PARSING)		\
+		$(RAYCASTING)	\
 
-RAYCASTING =			\
-		raycasting.c	\
+DISPLAY =				\
+		cub_load_xpm.c	\
+		display_utils.c	\
+		textures.c		\
 
-GEOMETRY =				\
-		draw.c
+DOORS =					\
+		close_doors.c	\
+		open_doors.c	\
 
 EVENTS =				\
 		controls.c		\
@@ -35,10 +39,21 @@ EVENTS =				\
 		orient_player.c	\
 		update_pos.c	\
 
-DISPLAY =				\
-		cub_load_xpm.c	\
-		utils.c			\
-		textures.c		\
+GEOMETRY =				\
+		draw.c			\
+
+INIT =					\
+		init_player.c	\
+		init_struct.c	\
+
+MINIMAP =				\
+		minimap.c 		\
+
+OTHERS =			\
+		errors.c 	\
+		exit.c		\
+		free.c		\
+		utils.c		\
 
 PARSING =				\
 		get_file.c		\
@@ -59,21 +74,8 @@ PARSING =				\
 		parse_map_check_letters.c \
 		parse_map_is_valid.c \
 
-EXIT =				\
-		errors.c 	\
-		free.c		\
-		exit.c		\
-
-INIT =					\
-		init_player.c	\
-		init_struct.c	\
-
-BONUS =					\
-		mini_map.c 		\
-		map_utils.c		\
-		open_doors.c	\
-		utils_bonus.c 	\
-		close_doors.c	\
+RAYCASTING =			\
+		raycasting.c	\
 
 INC_DIR	= inc
 SRC_DIR	= src
@@ -88,14 +90,10 @@ DEBUG	= -fsanitize=address
 LIBFT	= -L libft -lft
 MLX		= -Lmlx -lmlx -lXext -lX11 -lm
 
-vpath %.c $(addprefix $(SRC_DIR)/, . raycasting geometry	\
-									display parsing bonus	\
-									exit events init	\
-									parsing/walls	\
-									parsing/map parsing/floor_ceiling	\
-									ceiling_floor doors	\
-									draw hud utils	\
-									mini_map	\
+vpath %.c $(addprefix $(SRC_DIR)/, . display doors events geometry init \
+									minimap others parsing \
+									parsing/floor_ceiling parsing/map \
+									parsing/walls raycasting \
 									)
 
 all: libs

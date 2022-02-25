@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 15:13:44 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/25 16:34:31 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/25 18:14:36 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ t_player	*init_player(t_data *data);
 void		init_struct(t_data *data);
 void		init_mouse(t_mouse *mouse);
 void		set_player_dir(t_player *player, t_data *data);
+void		init_bonus_struct(t_data *data);
 
 /*** parsing_general ***/
 
@@ -99,7 +100,7 @@ void		if_checks_one(t_tex *tex, t_ray *ray, t_data *data);
 void		if_checks_two(t_tex *tex, t_ray *ray, t_data *data);
 int			get_color(t_tex *t, t_data *data, int tex_x, int tex_y);
 
-/*** mini_map ***/
+/*** minimap ***/
 
 int			mini_map(t_data *data);
 int			check_minimap(t_data *data, t_map *map);

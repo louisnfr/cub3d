@@ -6,13 +6,15 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:56:40 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/25 15:11:36 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/25 18:37:17 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-// check if each walls have only one face
+/*
+check if each walls have only one face
+*/
 
 static int	check_if_too_much_walls_lines(int *check, t_data *data)
 {
@@ -21,9 +23,11 @@ static int	check_if_too_much_walls_lines(int *check, t_data *data)
 	return (FAILURE);
 }
 
-// check here if the 1st arg is a /n
-// if the 3rd letter is a valid one
-// check if the path exist and is the walls exist.
+/*
+check here if the 1st arg is a /n
+if the 3rd letter is a valid one
+check if the path exist and is the walls exist.
+*/
 
 static int	check_if_direction_if_good(t_data *data, int i, char *face_wall)
 {
@@ -43,8 +47,6 @@ static int	loop_check_face_walls(t_data *data)
 	i = -1;
 	while (++i < data->map_info->cubfile_number_lines)
 	{
-		// if (data->map_info->file_cub[0][0] == 0)
-			// 	continue ;
 		if (!check_if_direction_if_good(data, i, "NO"))
 			data->textures->check[0]++;
 		else if (!check_if_direction_if_good(data, i, "SO"))

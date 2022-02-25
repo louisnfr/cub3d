@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 15:46:51 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/24 17:28:12 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/25 18:36:36 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,6 @@ void	cub_load_textures(t_mlx *mlx, t_textures *wall, t_data *data)
 	cub_load_xpm(mlx, wall->wall_ea.tex, wall->wall_ea.path_img);
 	mlx_destroy_image(mlx->ptr, mlx->img);
 	cub_load_xpm(mlx, wall->wall_we.tex, wall->wall_we.path_img);
-	/* BONUS */
 	mlx_destroy_image(mlx->ptr, mlx->img);
 	cub_load_xpm(mlx, wall->doors.tex, "./images/doors_closed.xpm");
 	mlx_destroy_image(mlx->ptr, mlx->img);

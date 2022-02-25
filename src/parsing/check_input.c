@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 15:31:38 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/17 13:54:07 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/25 18:36:47 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static void	check_extension(char *s)
 
 void	check_input(int ac, char **av)
 {
-	if (ac != 2) // bonus
+	if (ac != 2)
 		arg_error();
 	check_extension(av[1]);
 }

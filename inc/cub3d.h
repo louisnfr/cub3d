@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 15:13:44 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/18 15:14:00 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/25 14:54:35 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,9 @@ void		free_double_int(int *tab);
 void		init_bonus_struct(t_data *data);
 int			store_data_bonus(t_map *map, t_data *data);
 int			ft_strlen_double_str_find_element(char **double_str, char c);
+void		if_checks_one(t_tex *tex, t_ray *ray, t_data *data);
+void		if_checks_two(t_tex *tex, t_ray *ray, t_data *data);
+int			get_color(t_tex *t, t_data *data, int tex_x, int tex_y);
 
 /*** mini_map ***/
 
@@ -102,9 +105,5 @@ int			mini_map(t_data *data);
 
 int			doors(t_data *data);
 int			close_doors(t_map *map, t_vector *v, t_doors *doors);
-
-/*** sounds ***/
-
-int			play_sound(char *path);
 
 #endif

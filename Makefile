@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 22:49:26 by lraffin           #+#    #+#              #
-#    Updated: 2022/02/23 17:59:57 by lraffin          ###   ########.fr        #
+#    Updated: 2022/02/25 14:46:22 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,24 +81,19 @@ OBJS	= $(SRCS:%.c=$(OBJ_DIR)/%.o)
 DEPS	= $(OBJS:%.o=%.d)
 
 CC		= clang
-CFLAGS	= -Wall -Wextra -MMD -MP -g3 #$(DEBUG)
+CFLAGS	= -Wall -Wextra -Werror -MMD -MP -g3 #$(DEBUG)
 DEBUG	= -fsanitize=address
 LIBFT	= -L libft -lft
-UNAME	= $(shell uname)
-ifeq ($(UNAME), Linux)
 MLX		= -Lmlx -lmlx -lXext -lX11 -lm
-else ifeq ($(UNAME), Darwin)
-MLX		= -Lmlx_mac -lmlx -framework OpenGL -framework AppKit -lm
-endif
 
-vpath %.c $(addprefix $(SRC_DIR)/, . mandatory/raycasting mandatory/geometry \
+vpath %.c $(addprefix $(SRC_DIR)/, . mandatory/raycasting mandatory/geometry	\
 									mandatory/display mandatory/parsing mandatory/bonus	\
-									mandatory/exit mandatory/events mandatory/init \
+									mandatory/exit mandatory/events mandatory/init	\
 									mandatory/parsing/walls	\
 									mandatory/parsing/map mandatory/parsing/floor_ceiling	\
-									bonus/ceiling_floor bonus/doors         \
-									bonus/draw bonus/hud bonus/utils        \
-									bonus/mini_map	                    \
+									bonus/ceiling_floor bonus/doors	\
+									bonus/draw bonus/hud bonus/utils	\
+									bonus/mini_map	\
 									)
 
 all: libs

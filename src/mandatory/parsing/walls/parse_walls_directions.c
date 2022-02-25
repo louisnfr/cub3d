@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:56:40 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/23 18:30:47 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/25 15:11:36 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,7 @@ static int	loop_check_face_walls(t_data *data)
 	while (++i < data->map_info->cubfile_number_lines)
 	{
 		// if (data->map_info->file_cub[0][0] == 0)
-		// {
-		// 	printf("PROUT_debug\n");
-		// 	continue ;
-		// }
+			// 	continue ;
 		if (!check_if_direction_if_good(data, i, "NO"))
 			data->textures->check[0]++;
 		else if (!check_if_direction_if_good(data, i, "SO"))

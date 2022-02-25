@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:23:25 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/24 17:00:20 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/25 15:38:18 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,6 @@ static int	key_release(int key, t_data *data)
 	return (SUCCESS);
 }
 
-static int	mouse_press(int key, int x, int y, t_data *data)
-{
-	(void)data;
-	(void)x;
-	(void)y;
-	return (SUCCESS);
-}
-
 static int	mouse_move(int x, int y, t_data *data)
 {
 	double	dir;
@@ -98,12 +90,9 @@ static int	mouse_move(int x, int y, t_data *data)
 void	init_controls(t_data *data)
 {
 	data->move->minimap = FALSE;
-	data->mouse = malloc(sizeof(t_mouse));
-	init_mouse(data->mouse);
 	// mlx_mouse_hide(data->mlx->ptr, data->mlx->win);
 	mlx_hook(data->mlx->win, 2, 1L << 0, key_press, data);
 	mlx_hook(data->mlx->win, 3, 1L << 1, key_release, data);
-	mlx_hook(data->mlx->win, 4, 1L << 2, mouse_press, data);
 	mlx_hook(data->mlx->win, 6, 1L << 6, mouse_move, data);
 	mlx_hook(data->mlx->win, 33, 1L << 2, exit_all, data);
 }

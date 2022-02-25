@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 16:33:36 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/24 16:33:46 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/25 16:33:47 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,7 @@ static void	loop_display_minimap(t_data *data, t_map *map,
 				cub_map_wall(size_w, data->minimap, mlx, WHITE);
 			if (map->map[data->minimap.y][data->minimap.x] == '2')
 				cub_map_wall(size_w, data->minimap, mlx, GREEN);
-			if (map->map[data->minimap.y][data->minimap.x] == 'N'
-				||map->map[data->minimap.y][data->minimap.x] == 'S'
-				||map->map[data->minimap.y][data->minimap.x] == 'W'
-				||map->map[data->minimap.y][data->minimap.x] == 'E')
+			if (check_minimap(data, map))
 				cub_map_wall(size_w, data->minimap, mlx, BLACK);
 			if (data->minimap.x == (int)data->player->vector.x
 				&& data->minimap.y == (int)data->player->vector.y)

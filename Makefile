@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 22:49:26 by lraffin           #+#    #+#              #
-#    Updated: 2022/02/25 14:46:22 by lraffin          ###   ########.fr        #
+#    Updated: 2022/02/25 16:38:08 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,6 +69,7 @@ INIT =					\
 
 BONUS =					\
 		mini_map.c 		\
+		map_utils.c		\
 		open_doors.c	\
 		utils_bonus.c 	\
 		close_doors.c	\

@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 15:13:44 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/25 16:07:28 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/25 16:34:31 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ int			get_color(t_tex *t, t_data *data, int tex_x, int tex_y);
 /*** mini_map ***/
 
 int			mini_map(t_data *data);
+int			check_minimap(t_data *data, t_map *map);
 
 /*** doors ***/
 

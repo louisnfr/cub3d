@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:23:25 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/25 15:47:09 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/25 16:07:37 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,31 +58,15 @@ static int	key_release(int key, t_data *data)
 
 static int	mouse_move(int x, int y, t_data *data)
 {
-	double	dir;
-	double	plane;
 	double	speed;
 
 	speed = 0.03;
 	data->mouse->old_x = data->mouse->x;
 	data->mouse->x = x;
 	if (data->mouse->old_x < data->mouse->x)
-	{
-		dir = data->player->vector.dx;
-		data->player->vector.dx = data->player->vector.dx * cos(speed) - data->player->vector.dy * sin(speed);
-		data->player->vector.dy = dir * sin(speed) + data->player->vector.dy * cos(speed);
-		plane = data->player->camera.px;
-		data->player->camera.px = data->player->camera.px * cos (speed) - data->player->camera.py * sin(speed);
-		data->player->camera.py = plane * sin(speed) + data->player->camera.py * cos(speed);
-	}
+		mouse_orient_right(speed, data);
 	if (data->mouse->old_x > data->mouse->x)
-	{
-		dir = data->player->vector.dx;
-		data->player->vector.dx = data->player->vector.dx * cos(-speed) - data->player->vector.dy * sin(-speed);
-		data->player->vector.dy = dir * sin(-speed) + data->player->vector.dy * cos(-speed);
-		plane = data->player->camera.px;
-		data->player->camera.px = data->player->camera.px * cos(-speed) - data->player->camera.py * sin(-speed);
-		data->player->camera.py = plane * sin(-speed) + data->player->camera.py * cos(-speed);
-	}
+		mouse_orient_left(speed, data);
 	mlx_mouse_move(data->mlx->ptr, data->mlx->win, (int)(WIN_W / 2), y);
 	return (SUCCESS);
 }
@@ -92,7 +76,6 @@ void	init_controls(t_data *data)
 	data->move->minimap = FALSE;
 	data->mouse = malloc(sizeof(t_mouse));
 	init_mouse(data->mouse);
-	// mlx_mouse_hide(data->mlx->ptr, data->mlx->win);
 	mlx_hook(data->mlx->win, 2, 1L << 0, key_press, data);
 	mlx_hook(data->mlx->win, 3, 1L << 1, key_release, data);
 	mlx_hook(data->mlx->win, 6, 1L << 6, mouse_move, data);

@@ -6,11 +6,45 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 16:15:07 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/01 17:20:56 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/25 16:07:03 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	mouse_orient_right(double speed, t_data *data)
+{
+	double	dir;
+	double	plane;
+
+	dir = data->player->vector.dx;
+	data->player->vector.dx = data->player->vector.dx * cos(speed)
+		- data->player->vector.dy * sin(speed);
+	data->player->vector.dy = dir * sin(speed)
+		+ data->player->vector.dy * cos(speed);
+	plane = data->player->camera.px;
+	data->player->camera.px = data->player->camera.px * cos (speed)
+		- data->player->camera.py * sin(speed);
+	data->player->camera.py = plane * sin(speed)
+		+ data->player->camera.py * cos(speed);
+}
+
+void	mouse_orient_left(double speed, t_data *data)
+{
+	double	dir;
+	double	plane;
+
+	dir = data->player->vector.dx;
+	data->player->vector.dx = data->player->vector.dx * cos(-speed)
+		- data->player->vector.dy * sin(-speed);
+	data->player->vector.dy = dir * sin(-speed)
+		+ data->player->vector.dy * cos(-speed);
+	plane = data->player->camera.px;
+	data->player->camera.px = data->player->camera.px * cos(-speed)
+		- data->player->camera.py * sin(-speed);
+	data->player->camera.py = plane * sin(-speed)
+		+ data->player->camera.py * cos(-speed);
+}
 
 void	update_pos(t_data *data)
 {

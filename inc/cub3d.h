@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 15:13:44 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/25 14:54:35 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/25 16:07:28 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ void		init_controls(t_data *data);
 void		move_player(t_data *data);
 void		update_pos(t_data *data);
 void		orient_player(t_camera *cam, t_vector *vect, t_data *data);
+void		mouse_orient_right(double speed, t_data *data);
+void		mouse_orient_left(double speed, t_data *data);
 
 /*** display ***/
 

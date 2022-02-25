@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 15:26:02 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/24 16:05:34 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/25 18:39:30 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@
 # define MAP_MALLOC_PROBLEM "Error\nMap malloc failed\n"
 # define MAP_FIRST_LETTER "Error\nFirst char of line is not a '1'\n"
 # define MAP_LAST_LETTER "Error\nLast char of line is not a '1'\n"
-# define MAP_UNAUTHORIZED_LETTER "Error\nUnauthorized letter in your map'\n"
+# define MAP_UNAUTHORIZED_LETTER "Error\nUnauthorized letter in your map\n"
 # define MAP_TOO_MUCH_PLAYER "Error\nPlayer present more than once\n"
 # define MAP_PROBLEM_INSIDE_WALLS "Error\nWrong core of map\n"
 

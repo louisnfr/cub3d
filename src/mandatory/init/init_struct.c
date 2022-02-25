@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 16:31:08 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/25 15:35:20 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/25 15:47:24 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,11 @@ t_data	*init_data(void)
 	t_data	*data;
 
 	data = malloc(sizeof(t_data));
+	data->player = NULL;
+	data->mouse = NULL;
 	data->textures = malloc(sizeof(t_textures));
-	data->mouse = malloc(sizeof(t_mouse));
 	data->map_info = malloc(sizeof(t_map));
-	if (!data || !data->textures || !data->map_info || !data->mouse)
+	if (!data || !data->textures || !data->map_info)
 		ft_exit_parsing(data, MALLOC);
 	data->move = init_move(data);
 	return (data);

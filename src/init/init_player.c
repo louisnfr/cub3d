@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:37:03 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/24 16:17:03 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/28 16:38:16 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,6 @@ void	set_player_dir(t_player *player, t_data *data)
 	if (data->map_info->init_position == 'W')
 	{
 		set_player_direction(player, -1, 0);
-		set_player_plan(player, 0, 0.66);
+		set_player_plan(player, 0, -0.66);
 	}
 }

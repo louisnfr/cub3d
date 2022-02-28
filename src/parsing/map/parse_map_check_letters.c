@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:55:18 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/23 18:30:15 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/28 16:32:57 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,10 @@ static	int	check_all_the_letters(char **map)
 	return (FAILURE);
 }
 
-// Check if other letters than authorized
-// Check if Starting position player is > 0
+/*
+Check if other letters than authorized
+ Check if Starting position player is > 0
+*/
 
 int	check_if_letters_are_good(t_data *data)
 {

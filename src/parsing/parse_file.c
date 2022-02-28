@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   parse_file.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 17:46:00 by vbachele          #+#    #+#             */
-/*   Updated: 2022/02/03 18:26:06 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/02/28 16:33:16 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-// check if the parsing went well
+/*
+check if the parsing went well
+*/
 
 int	parse_file(t_data *data)
 {

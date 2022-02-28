@@ -13,13 +13,16 @@
 static void	name_sprite(t_sprite_f *sf, int i, char **path, t_data *data)
 {
 	if (!ft_strcmp(path[0], "XW") || !ft_strcmp(path[0], "R2D2")
-		|| !ft_strcmp(path[0], "BOMB") || !ft_strcmp(path[0], "LS"))
+		|| !ft_strcmp(path[0], "BOMB") || !ft_strcmp(path[0], "LS")
+		|| !ft_strcmp(path[0], "LSG"))
 	{
 		data->sprite_f[i].name = ft_strdup(path[0]);
 		data->sprite_f[i].is_ennemy = FALSE;
 	}
 	else if (!ft_strcmp(path[0], "DVO") || !ft_strcmp(path[0], "DVF")
-		|| !ft_strcmp(path[0], "DVM") || !ft_strcmp(path[0], "RB")
+		|| !ft_strcmp(path[0], "DVM") || !ft_strcmp(path[0], "RB1")
+		|| !ft_strcmp(path[0], "RB2") || !ft_strcmp(path[0], "RB3")
+		|| !ft_strcmp(path[0], "RB4")
 		|| !ft_strcmp(path[0], "ST"))
 	{
 		data->sprite_f[i].name = ft_strdup(path[0]);
@@ -28,7 +31,6 @@ static void	name_sprite(t_sprite_f *sf, int i, char **path, t_data *data)
 	else
 		ft_exit_parsing(data, "Not the good name for the sprite "
 						"in the .sprites_col cub\n");
-	//printf("[%d] in function = sf[0].name %s\n", i, sf[i].name);
 }
 
 /***

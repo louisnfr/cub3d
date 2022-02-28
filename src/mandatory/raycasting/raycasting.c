@@ -137,9 +137,5 @@ int	raycasting(t_player *player, t_data *data)
 		zbuffer_sprites(data, x, &ray); // bonus
 	}
 	sprite_casting(data, data->sprites, &player->vector, player); // bonus
-	if (data->move->attack == FALSE)
-		draw_weapons(data); // bonus
-	else if(data->move->attack == TRUE)
-		draw_attack_lightsaber(data);
 	return (SUCCESS);
 }

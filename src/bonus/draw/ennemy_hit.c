@@ -88,9 +88,9 @@ void	ennemy_is_rolling_ball(t_sprites *spr, t_data *data, int i)
 
 	if ((int)data->sprite_f[i].spritex == 0
 		&& (int)data->sprite_f[i].spritey == 0
-		&& !ft_strcmp(data->sprite_f[i].name, "RB")
 		&& data->move->attack == TRUE
-		&& data->sprites->ennemy.rolling_b_dead == FALSE)
+		&& ((i == 2 && data->sprite_f[i].sprite_die == FALSE)
+		|| (i == 10 && data->sprite_f[i].sprite_die == FALSE)))
 	{
 		stripe = spr->drawstartx;
 		while (stripe < spr->drawendx)
@@ -111,16 +111,19 @@ void	ennemy_is_rolling_ball(t_sprites *spr, t_data *data, int i)
 			}
 			stripe++;
 		}
-		data->sprites->ennemy.rolling_b_dead = TRUE;
+		data->sprite_f[i].sprite_die = TRUE;
 	}
 }
 
 void	ennemy_is_hit(t_sprites *spr, t_data *data, int i)
 {
-	if (data->sprites->ennemy.rolling_b_dead == FALSE)
+	if (data->sprite_f[i].sprite_die == FALSE
+		&& data->sprites->weapon.weapon_on == TRUE)
 		ennemy_is_rolling_ball(spr, data, i);
-	if (data->sprites->ennemy.darth_vader == FALSE)
+	if (data->sprites->ennemy.darth_vader == FALSE
+		&& data->sprites->weapon.weapon_on == TRUE)
 		ennemy_is_darth_vador(spr, data, i);
-	if (data->sprites->ennemy.stormtrooper == FALSE)
+	if (data->sprites->ennemy.stormtrooper == FALSE
+		&& data->sprites->weapon.weapon_on == TRUE)
 		ennemy_is_stormtrooper(spr, data, i);
 }

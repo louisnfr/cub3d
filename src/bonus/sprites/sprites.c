@@ -8,7 +8,6 @@ static void	sprite_projection(t_data *data, t_sprites *spr, t_vector *player,
 	i = 0;
 	while (i < data->sprites->num_sprites)
 	{
-		//printf("data->sprite_f[i].name %s\n", data->sprite_f[i].name);
 		data->sprite_f[i].spritex = data->sprite_f[i].x - player->x;
 		data->sprite_f[i].spritey = data->sprite_f[i].y - player->y;
 		spr->invdet
@@ -56,6 +55,8 @@ int	sprite_casting(t_data *data, t_sprites *spr, t_vector *player,
 {
 	sort_sprite_far_to_close(spr, player, data);
 	sprite_projection(data, spr, player, play);
+	if (data->sprites->weapon.weapon_on == TRUE)
+		draw_weapons(data);
 	return (SUCCESS);
 }
 

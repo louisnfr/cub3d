@@ -120,7 +120,8 @@ void		draw_weapons(t_data *data);
 void		ennemy_is_hit(t_sprites *spr, t_data *data, int i);
 
 /*** draw sprites ***/
-void		draw_r2d2_xwing(t_data *data, int stripe, int color, int y, int i);
+void		draw_r2d2_xwing_lightsaber(t_data *data, int stripe,
+			int color, int y, int i);
 void		draw_rolling_ball(t_data *data, int stripe,
 			int color, int y, int i);
 void		draw_darth_vader(t_data *data, int stripe,
@@ -129,6 +130,7 @@ void		draw_stormtrooper(t_data *data, int stripe,
 			int color, int y, int i);
 int			draw_sprites_bonus(t_sprites *spr, t_data *data);
 void		draw_attack_lightsaber(t_data *data);
+void 		light_saber_is_taken(t_data *data, int stripe, int y, int i);
 
 /*** parsing bonus ***/
 

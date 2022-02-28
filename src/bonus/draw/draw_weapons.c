@@ -33,7 +33,7 @@ void	draw_attack_lightsaber(t_data *data)
 	}
 }
 
-void	draw_weapons(t_data *data)
+static void	draw_lightsaber(t_data *data)
 {
 	int	k;
 	int	i;
@@ -58,4 +58,25 @@ void	draw_weapons(t_data *data)
 		h++;
 		k++;
 	}
+}
+
+void light_saber_is_taken(t_data *data, int stripe, int y, int i)
+{
+	if (data->sprites->weapon.weapon_on == FALSE)
+	{
+		if ((int)data->sprite_f[i].spritex == 0
+			&& (int)data->sprite_f[i].spritey == 0
+			&& !ft_strcmp(data->sprite_f[i].name, "LSG"))
+		{
+			data->sprites->weapon.weapon_on = TRUE;
+		}
+	}
+}
+
+void draw_weapons(t_data *data)
+{
+	if (data->move->attack == FALSE)
+		draw_lightsaber(data);
+	else if(data->move->attack == TRUE)
+		draw_attack_lightsaber(data);
 }

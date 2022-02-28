@@ -5,10 +5,18 @@
 
 typedef struct s_ennemy
 {
-	t_bool	rolling_b_dead;
+	t_bool	rolling_b_dead_1;
+	t_bool	rolling_b_dead_2;
+	t_bool	rolling_b_dead_3;
+	t_bool	rolling_b_dead_4;
 	t_bool	darth_vader;
 	t_bool	stormtrooper;
 }	t_ennemy;
+
+typedef struct weapon
+{
+	t_bool	weapon_on;
+}	t_weapon;
 
 typedef struct s_sprites
 {
@@ -35,8 +43,10 @@ typedef struct s_sprites
 	int			texx;
 	int			texy;
 	int			num_sprites;
+	int			stripe;
 	u_int32_t 	buffer[WIN_H][WIN_W];
 	t_ennemy	ennemy;
+	t_weapon	weapon;
 }	t_sprites;
 
 #endif

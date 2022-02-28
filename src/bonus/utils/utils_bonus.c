@@ -29,9 +29,14 @@ void	init_bonus_struct(t_data *data)
 	ft_memset(&data->ray_b, 0, sizeof(t_ray_b));
 	ft_memset(data->sprite_f, 0, sizeof(t_sprite_f));
 	ft_memset(&data->sprites->ennemy, 0, sizeof(t_ennemy));
-	data->sprites->ennemy.rolling_b_dead = FALSE;
+	ft_memset(&data->sprites->weapon, 0, sizeof(t_weapon));
+	data->sprites->ennemy.rolling_b_dead_1 = FALSE;
+	data->sprites->ennemy.rolling_b_dead_2 = FALSE;
+	data->sprites->ennemy.rolling_b_dead_3 = FALSE;
+	data->sprites->ennemy.rolling_b_dead_4 = FALSE;
 	data->sprites->ennemy.darth_vader = FALSE;
 	data->sprites->ennemy.stormtrooper = FALSE;
+	data->sprites->weapon.weapon_on = FALSE;
 }
 
 //init and store the data for the doors

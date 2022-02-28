@@ -47,30 +47,32 @@ void	store_buffer_and_print(t_data *data, int stripe,
 
 void	store_color_in_buffer(t_sprites *spr, t_data *data, int i)
 {
-	int			stripe;
 	u_int32_t	color;
 	int			y;
 
-	stripe = spr->drawstartx;
-	while (stripe < spr->drawendx)
+	y = 0;
+	data->sprites->stripe = spr->drawstartx;
+	light_saber_is_taken(data, data->sprites->stripe, y, i);
+	while (data->sprites->stripe < spr->drawendx)
 	{
-		define_texx(spr, stripe);
-		if (spr->transformy > 0 && stripe > 0 && stripe < WIN_W
-			&& spr->transformy < spr->zbuffer[stripe])
+		define_texx(spr, data->sprites->stripe);
+		if (spr->transformy > 0 && data->sprites->stripe > 0
+			&& data->sprites->stripe < WIN_W
+			&& spr->transformy < spr->zbuffer[data->sprites->stripe])
 		{
 			y = spr->drawstarty;
 			while (y < spr->drawendy)
 			{
 				define_texy(spr, y);
 				color = store_color(spr, i, data, color);
-				draw_r2d2_xwing(data, stripe, color, y, i);
-				draw_stormtrooper(data, stripe, color, y, i);
-				draw_darth_vader(data, stripe, color, y, i);
-				draw_rolling_ball(data, stripe, color, y, i);
+				draw_r2d2_xwing_lightsaber(data, data->sprites->stripe, color, y, i);
+				draw_stormtrooper(data, data->sprites->stripe, color, y, i);
+				draw_darth_vader(data, data->sprites->stripe, color, y, i);
+				draw_rolling_ball(data, data->sprites->stripe, color, y, i);
 				ennemy_is_hit(spr, data, i);
 				y++;
 			}
 		}
-		stripe++;
+		data->sprites->stripe++;
 	}
 }

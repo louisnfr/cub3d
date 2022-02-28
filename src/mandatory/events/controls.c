@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   controls.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:23:25 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/22 18:43:31 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/02/28 17:37:58 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,12 +84,12 @@ static int	mouse_release(int key, int x, int y, t_data *data)
 	(void)y;
 	if (key == LEFT_MB && data->sprites->ennemy.darth_vader == TRUE)
 	{
-		usleep(800000);
+		//usleep(800000);
 		data->move->attack = FALSE; // bonus
 	}
 	else if (key == LEFT_MB && data->sprites->ennemy.stormtrooper == TRUE)
 	{
-		usleep(250000);
+		//usleep(250000);
 		data->move->attack = FALSE; // bonus
 	}
 	else
@@ -151,6 +151,6 @@ void	init_controls(t_data *data)
 	mlx_hook(data->mlx->win, 3, 1L << 1, key_release, data);
 	mlx_hook(data->mlx->win, 4, 1L << 2, mouse_press, data); // bonus
 	mlx_hook(data->mlx->win, 5, 1L << 3, mouse_release, data);
-	mlx_hook(data->mlx->win, 6, 1L << 6, mouse_move, data);
+	//mlx_hook(data->mlx->win, 6, 1L << 6, mouse_move, data);
 	mlx_hook(data->mlx->win, 33, 1L << 2, exit_all, data);
 }

@@ -5,9 +5,11 @@
 	4 is for the XWING
 ***/
 
-void	draw_r2d2_xwing(t_data *data, int stripe, int color, int y, int i)
+void	draw_r2d2_xwing_lightsaber(t_data *data, int stripe, int color, int y, int i)
 {
 	if (i == 0 || i == 4)
+		store_buffer_and_print(data, stripe, color, y);
+	if (i == 9 && data->sprites->weapon.weapon_on == FALSE)
 		store_buffer_and_print(data, stripe, color, y);
 }
 
@@ -16,7 +18,9 @@ void	draw_r2d2_xwing(t_data *data, int stripe, int color, int y, int i)
 ***/
 void	draw_rolling_ball(t_data *data, int stripe, int color, int y, int i)
 {
-	if (i == 2 && data->sprites->ennemy.rolling_b_dead == FALSE)
+	if (i == 2 && data->sprite_f[i].sprite_die == FALSE)
+		store_buffer_and_print(data, stripe, color, y);
+	if (i == 10 && data->sprite_f[i].sprite_die == FALSE)
 		store_buffer_and_print(data, stripe, color, y);
 }
 

@@ -1,11 +1,11 @@
-SO ./images/doors_closed.xpm
-EA		  		./images/doors_open.xpm
+SO ./images/stars.xpm
+EA		  		./images/wood.xpm
 F 	200, 			100		, 			2
 
 C 	 255, 255	,									255
 
-WE					./images/south_wall.xpm
-NO 											./images/doors_open.xpm
+WE					./images/bricks.xpm
+NO 											./images/metal.xpm
 
 
 111111111111111111111111

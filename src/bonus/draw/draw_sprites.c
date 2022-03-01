@@ -56,6 +56,7 @@ static void	draw_sprite(t_data *data, int stripe, int color, int y,
 	if ((int)data->sprite_f[0].spritex == 0
 		&& (int)data->sprite_f[0].spritey == 0)
 		play_sound(R2D2);
+	xwing_end(spr, data, i);
 }
 
 void	store_color_in_buffer(t_sprites *spr, t_data *data, int i)

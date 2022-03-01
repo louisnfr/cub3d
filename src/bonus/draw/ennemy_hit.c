@@ -115,6 +115,19 @@ void	ennemy_is_rolling_ball(t_sprites *spr, t_data *data, int i)
 	}
 }
 
+void	xwing_end(t_sprites *spr, t_data *data, int i)
+{
+	if (data->sprite_f[7].sprite_die == TRUE
+		&& data->sprites->weapon.weapon_on == TRUE)
+	{
+		if ((int)data->sprite_f[4].spritex == 0
+			&& (int)data->sprite_f[4].spritey == 0)
+		{
+			ft_exit_parsing(data, "You WON");
+		}
+	}
+}
+
 void	ennemy_is_hit(t_sprites *spr, t_data *data, int i)
 {
 	if (data->sprite_f[i].sprite_die == FALSE

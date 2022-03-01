@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:23:25 by lraffin           #+#    #+#             */
-/*   Updated: 2022/03/01 21:30:12 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/03/01 21:31:18 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,7 @@ static int	key_release(int key, t_data *data)
 		data->move->minimap = FALSE; // bonus
 	if (key == F && data->sprite_f[7].sprite_die == FALSE)
 	{
-<<<<<<< HEAD
 		play_sound(saber_2);
-=======
-		//usleep(1000000);
-		//data->sprite_f[7].number_attack++;
->>>>>>> 10e339739bc35caed79fe73b2054021e0c03dbaa
 		data->move->attack = FALSE; // bonus
 	}
 	else if (key == F && data->sprites->ennemy.stormtrooper == TRUE)

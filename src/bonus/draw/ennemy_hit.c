@@ -123,6 +123,9 @@ void	xwing_end(t_sprites *spr, t_data *data, int i)
 		if ((int)data->sprite_f[4].spritex == 0
 			&& (int)data->sprite_f[4].spritey == 0)
 		{
+			play_sound(xwing);
+			sleep(3);
+			system("killall paplay");
 			ft_exit_parsing(data, "You WON");
 		}
 	}

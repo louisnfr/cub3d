@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   controls.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:23:25 by lraffin           #+#    #+#             */
-/*   Updated: 2022/03/01 18:42:42 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/03/01 21:26:50 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,16 @@ static int	key_press(int key, t_data *data)
 		&& data->sprite_f[7].is_seen == TRUE)
 	{
 		//usleep(1000000);
+		play_sound(saber_1);
 		data->sprite_f[7].number_attack++;
 		//printf("PROUT_debug %d\n", data->sprite_f[7].number_attack);
 		data->move->attack = TRUE; // bonus
 	}
 	else if (key == F)
+	{
+		play_sound(saber_1);
 		data->move->attack = TRUE;
+	}
 	return (SUCCESS);
 }
 
@@ -67,18 +71,20 @@ static int	key_release(int key, t_data *data)
 		data->move->minimap = FALSE; // bonus
 	if (key == F && data->sprite_f[7].sprite_die == FALSE)
 	{
-		//usleep(1000000);
-		//data->sprite_f[7].number_attack++;
-		printf("PROUT_debug %d\n", data->sprite_f[7].number_attack);
+		play_sound(saber_2);
 		data->move->attack = FALSE; // bonus
 	}
 	else if (key == F && data->sprites->ennemy.stormtrooper == TRUE)
 	{
+		play_sound(saber_2);
 		usleep(1000000);
 		data->move->attack = FALSE; // bonus
 	}
 	else
+	{
+		// play_sound(saber_2);
 		data->move->attack = FALSE;
+	}
 	return (SUCCESS);
 }
 

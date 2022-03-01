@@ -53,6 +53,9 @@ static void	draw_sprite(t_data *data, int stripe, int color, int y,
 	draw_darth_vader(data, stripe, color, y, i);
 	draw_rolling_ball(data, stripe, color, y, i);
 	ennemy_is_hit(spr, data, i);
+	if ((int)data->sprite_f[0].spritex == 0
+		&& (int)data->sprite_f[0].spritey == 0)
+		play_sound(R2D2);
 }
 
 void	store_color_in_buffer(t_sprites *spr, t_data *data, int i)

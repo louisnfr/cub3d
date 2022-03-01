@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 15:07:58 by lraffin           #+#    #+#             */
-/*   Updated: 2022/03/01 20:41:59 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/03/01 21:01:58 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,7 @@
 # define saber_2 "sounds/saber_2.wav"
 # define suspense_1 "sounds/suspense_1.wav"
 # define suspense_2 "sounds/suspense_2.wav"
+# define xwing "sounds/xwing.wav"
+# define explosion "sounds/explosion.wav"
 
 #endif

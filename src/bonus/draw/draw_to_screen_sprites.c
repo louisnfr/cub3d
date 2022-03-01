@@ -7,7 +7,11 @@
 
 void	draw_r2d2_xwing_lightsaber(t_data *data, int stripe, int color, int y, int i)
 {
-	if (i == 0 || i == 4)
+	if (i == 0)
+	{
+		store_buffer_and_print(data, stripe, color, y);
+	}
+	if (i == 4)
 		store_buffer_and_print(data, stripe, color, y);
 	if (i == 9 && data->sprites->weapon.weapon_on == FALSE)
 		store_buffer_and_print(data, stripe, color, y);

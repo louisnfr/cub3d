@@ -10,3 +10,4 @@ ST ./images/sprites/stormtrooper.xpm 11 21
 LSG ./images/sprites/light_saber_ground.xpm 4 34
 RB2 ./images/sprites/rolling_ball.xpm 6 29
 STK ./images/sprites/killed_st.xpm 0 0
+ST2 ./images/sprites/stormtrooper.xpm 9 21

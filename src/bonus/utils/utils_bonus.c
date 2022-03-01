@@ -34,6 +34,8 @@ void	init_bonus_struct(t_data *data)
 	data->sprites->ennemy.rolling_b_dead_2 = FALSE;
 	data->sprites->ennemy.rolling_b_dead_3 = FALSE;
 	data->sprites->ennemy.rolling_b_dead_4 = FALSE;
+	data->sprite_f[12].sprite_die = FALSE;
+	data->sprite_f[8].sprite_die = FALSE;
 	data->sprites->ennemy.darth_vader = FALSE;
 	data->sprites->ennemy.stormtrooper = FALSE;
 	data->sprites->weapon.weapon_on = FALSE;

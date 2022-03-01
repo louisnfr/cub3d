@@ -32,7 +32,7 @@ void	draw_rolling_ball(t_data *data, int stripe, int color, int y, int i)
 
 void	draw_darth_vader(t_data *data, int stripe, int color, int y, int i)
 {
-	if (i == 7 && data->sprites->ennemy.darth_vader == FALSE)
+	if (i == 7 && data->sprite_f[i].sprite_die == FALSE)
 	{
 		data->sprite_f[i].is_seen = TRUE;
 		store_buffer_and_print(data, stripe, color, y);
@@ -41,7 +41,12 @@ void	draw_darth_vader(t_data *data, int stripe, int color, int y, int i)
 
 void	draw_stormtrooper(t_data *data, int stripe, int color, int y, int i)
 {
-	if (i == 8 && data->sprites->ennemy.stormtrooper == FALSE)
+	if (i == 8 && data->sprite_f[i].sprite_die == FALSE)
+	{
+		data->sprite_f[i].is_seen = TRUE;
+		store_buffer_and_print(data, stripe, color, y);
+	}
+	if (i == 12 && data->sprite_f[i].sprite_die == FALSE)
 	{
 		data->sprite_f[i].is_seen = TRUE;
 		store_buffer_and_print(data, stripe, color, y);

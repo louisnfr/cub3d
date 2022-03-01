@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:23:25 by lraffin           #+#    #+#             */
-/*   Updated: 2022/03/01 16:24:00 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/03/01 18:42:42 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,16 @@ static int	key_press(int key, t_data *data)
 		data->move->shift = TRUE;
 	if (key == M)
 		data->move->minimap = TRUE; // bonus
-	if (key == F)
+	if (key == F && data->sprite_f[7].sprite_die == FALSE
+		&& data->sprite_f[7].is_seen == TRUE)
+	{
+		//usleep(1000000);
+		data->sprite_f[7].number_attack++;
+		//printf("PROUT_debug %d\n", data->sprite_f[7].number_attack);
+		data->move->attack = TRUE; // bonus
+	}
+	else if (key == F)
 		data->move->attack = TRUE;
-	printf("clicked: %d\n", key);
 	return (SUCCESS);
 }
 
@@ -58,9 +65,11 @@ static int	key_release(int key, t_data *data)
 		data->move->shift = FALSE;
 	if (key == M)
 		data->move->minimap = FALSE; // bonus
-	if (key == F && data->sprites->ennemy.darth_vader == TRUE)
+	if (key == F && data->sprite_f[7].sprite_die == FALSE)
 	{
-		//usleep(800000);
+		//usleep(1000000);
+		//data->sprite_f[7].number_attack++;
+		printf("PROUT_debug %d\n", data->sprite_f[7].number_attack);
 		data->move->attack = FALSE; // bonus
 	}
 	else if (key == F && data->sprites->ennemy.stormtrooper == TRUE)
@@ -76,66 +85,6 @@ static int	key_release(int key, t_data *data)
 /*** For the bonus
 ***/
 
-static int	mouse_press(int key, int x, int y, t_data *data)
-{
-	(void)data;
-	(void)x;
-	(void)y;
-	return (SUCCESS);
-}
-
-/*** For the bonus
-***/
-
-static int	mouse_release(int key, int x, int y, t_data *data)
-{
-	(void)data;
-	(void)x;
-	(void)y;
-	return (SUCCESS);
-}
-
-
-static int	mouse_move(int x, int y, t_data *data)
-{
-	double	dir;
-	double	plane;
-	double	speed;
-
-	speed = 0.03;
-	data->mouse->old_x = data->mouse->x;
-	data->mouse->x = x;
-	if (data->mouse->old_x < data->mouse->x && -data->mouse->old_x + data->mouse->x > 10)
-	{
-		dir = data->player->vector.dx;
-		data->player->vector.dx = data->player->vector.dx
-		* cos(speed) - data->player->vector.dy * sin(speed);
-		data->player->vector.dy = dir * sin(speed)
-		+ data->player->vector.dy * cos(speed);
-		plane = data->player->camera.px;
-		data->player->camera.px = data->player->camera.px
-		* cos (speed) - data->player->camera.py * sin(speed);
-		data->player->camera.py = plane * sin(speed)
-		+ data->player->camera.py * cos(speed);
-	}
-	if (data->mouse->old_x > data->mouse->x && data->mouse->old_x - data->mouse->x > 10)
-	{
-		dir = data->player->vector.dx;
-		data->player->vector.dx = data->player->vector.dx
-		* cos(-speed) - data->player->vector.dy * sin(-speed);
-		data->player->vector.dy = dir * sin(-speed)
-		+ data->player->vector.dy * cos(-speed);
-		plane = data->player->camera.px;
-		data->player->camera.px = data->player->camera.px
-		* cos(-speed) - data->player->camera.py * sin(-speed);
-		data->player->camera.py = plane * sin(-speed)
-		+ data->player->camera.py * cos(-speed);
-	}
-	mlx_mouse_move(data->mlx->ptr, data->mlx->win, (int)(WIN_W / 2), y);
-	return (SUCCESS);
-}
-
-
 void	init_controls(t_data *data)
 {
 	data->move->minimap = FALSE;
@@ -144,8 +93,5 @@ void	init_controls(t_data *data)
 	mlx_mouse_hide(data->mlx->ptr, data->mlx->win);
 	mlx_hook(data->mlx->win, 2, 1L << 0, key_press, data);
 	mlx_hook(data->mlx->win, 3, 1L << 1, key_release, data);
-	mlx_hook(data->mlx->win, 4, 1L << 2, mouse_press, data); // bonus
-	mlx_hook(data->mlx->win, 5, 1L << 3, mouse_release, data);
-	//mlx_hook(data->mlx->win, 6, 1L << 6, mouse_move, data);
 	mlx_hook(data->mlx->win, 33, 1L << 2, exit_all, data);
 }

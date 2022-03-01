@@ -53,6 +53,7 @@ static void	draw_sprite(t_data *data, int stripe, int color, int y,
 	draw_darth_vader(data, stripe, color, y, i);
 	draw_rolling_ball(data, stripe, color, y, i);
 	ennemy_is_hit(spr, data, i);
+	xwing_end(spr, data, i);
 }
 
 void	store_color_in_buffer(t_sprites *spr, t_data *data, int i)

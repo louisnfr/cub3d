@@ -131,6 +131,7 @@ void		draw_stormtrooper(t_data *data, int stripe,
 int			draw_sprites_bonus(t_sprites *spr, t_data *data);
 void		draw_attack_lightsaber(t_data *data);
 void 		light_saber_is_taken(t_data *data, int stripe, int y, int i);
+void		xwing_end(t_sprites *spr, t_data *data, int i);
 
 /*** parsing bonus ***/
 

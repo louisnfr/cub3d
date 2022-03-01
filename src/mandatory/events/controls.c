@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:23:25 by lraffin           #+#    #+#             */
-/*   Updated: 2022/03/01 18:42:42 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/03/01 21:29:12 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ static int	key_release(int key, t_data *data)
 	{
 		//usleep(1000000);
 		//data->sprite_f[7].number_attack++;
-		printf("PROUT_debug %d\n", data->sprite_f[7].number_attack);
 		data->move->attack = FALSE; // bonus
 	}
 	else if (key == F && data->sprites->ennemy.stormtrooper == TRUE)

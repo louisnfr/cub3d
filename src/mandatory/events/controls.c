@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:23:25 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/28 17:37:58 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/03/01 16:24:00 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ static int	key_press(int key, t_data *data)
 		data->move->shift = TRUE;
 	if (key == M)
 		data->move->minimap = TRUE; // bonus
+	if (key == F)
+		data->move->attack = TRUE;
+	printf("clicked: %d\n", key);
 	return (SUCCESS);
 }
 
@@ -55,6 +58,18 @@ static int	key_release(int key, t_data *data)
 		data->move->shift = FALSE;
 	if (key == M)
 		data->move->minimap = FALSE; // bonus
+	if (key == F && data->sprites->ennemy.darth_vader == TRUE)
+	{
+		//usleep(800000);
+		data->move->attack = FALSE; // bonus
+	}
+	else if (key == F && data->sprites->ennemy.stormtrooper == TRUE)
+	{
+		usleep(1000000);
+		data->move->attack = FALSE; // bonus
+	}
+	else
+		data->move->attack = FALSE;
 	return (SUCCESS);
 }
 
@@ -66,11 +81,6 @@ static int	mouse_press(int key, int x, int y, t_data *data)
 	(void)data;
 	(void)x;
 	(void)y;
-	if (key == LEFT_MB)
-	{
-		data->move->attack = TRUE;
-	}
-	printf("clicked: %d\n", key);
 	return (SUCCESS);
 }
 
@@ -82,21 +92,6 @@ static int	mouse_release(int key, int x, int y, t_data *data)
 	(void)data;
 	(void)x;
 	(void)y;
-	if (key == LEFT_MB && data->sprites->ennemy.darth_vader == TRUE)
-	{
-		//usleep(800000);
-		data->move->attack = FALSE; // bonus
-	}
-	else if (key == LEFT_MB && data->sprites->ennemy.stormtrooper == TRUE)
-	{
-		//usleep(250000);
-		data->move->attack = FALSE; // bonus
-	}
-	else
-	{
-		data->move->attack = FALSE;
-	}
-
 	return (SUCCESS);
 }
 

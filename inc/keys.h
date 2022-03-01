@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 12:15:48 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/08 15:54:07 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/03/01 16:20:10 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 #  define D 100
 #  define Q 113
 #  define M 109
+#  define F 102
 #  define E 101
 #  define UP 65362
 #  define LEFT 65361

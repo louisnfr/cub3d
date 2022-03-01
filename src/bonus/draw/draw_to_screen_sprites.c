@@ -19,19 +19,31 @@ void	draw_r2d2_xwing_lightsaber(t_data *data, int stripe, int color, int y, int 
 void	draw_rolling_ball(t_data *data, int stripe, int color, int y, int i)
 {
 	if (i == 2 && data->sprite_f[i].sprite_die == FALSE)
+	{
+		data->sprite_f[i].is_seen = TRUE;
 		store_buffer_and_print(data, stripe, color, y);
+	}
 	if (i == 10 && data->sprite_f[i].sprite_die == FALSE)
+	{
+		data->sprite_f[i].is_seen = TRUE;
 		store_buffer_and_print(data, stripe, color, y);
+	}
 }
 
 void	draw_darth_vader(t_data *data, int stripe, int color, int y, int i)
 {
 	if (i == 7 && data->sprites->ennemy.darth_vader == FALSE)
+	{
+		data->sprite_f[i].is_seen = TRUE;
 		store_buffer_and_print(data, stripe, color, y);
+	}
 }
 
 void	draw_stormtrooper(t_data *data, int stripe, int color, int y, int i)
 {
 	if (i == 8 && data->sprites->ennemy.stormtrooper == FALSE)
+	{
+		data->sprite_f[i].is_seen = TRUE;
 		store_buffer_and_print(data, stripe, color, y);
+	}
 }

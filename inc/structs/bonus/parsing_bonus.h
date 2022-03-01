@@ -38,6 +38,7 @@ typedef	struct s_sprite_f
 	double	spritey;
 	t_bool	sprite_die;
 	t_bool	is_ennemy;
+	t_bool	is_seen;
 	// void	*img;
 } t_sprite_f;
 

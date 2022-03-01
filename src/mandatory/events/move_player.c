@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 17:00:53 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/16 14:17:16 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/03/01 14:20:07 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ static void	move_backward(t_vector *vect, char **map, t_data *data)
 	if (map[(int)y][(int)vect->x] != '1')
 		vect->y -= vect->dy * speed;
 	sprites_move(data, 2, vect); // bonus
-	//sprites_move(data, 2, vect);
 }
 
 static void	move_left(t_vector *vect, char **map, t_data *data)

@@ -25,7 +25,7 @@ void	ennemy_is_stormtrooper(t_sprites *spr, t_data *data, int i)
 				{
 					define_texy(spr, y);
 					color =
-						data->sprite_f[3].tex[SPRITE_W * spr->texy + spr->texx];
+						data->sprite_f[11].tex[SPRITE_W * spr->texy + spr->texx];
 					store_buffer_and_print(data, stripe, color, y);
 					y++;
 				}

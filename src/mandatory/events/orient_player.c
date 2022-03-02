@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   orient_player.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 17:09:29 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/11 19:36:01 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/03/02 15:42:13 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	orient_player(t_camera *cam, t_vector *vect, t_data *data)
 	double	plane;
 	double	speed;
 
-	speed = 0.08;
+	speed = 0.09;
 	if (data->move->dirx)
 	{
 		dir = vect->dx;

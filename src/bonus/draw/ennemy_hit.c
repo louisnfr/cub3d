@@ -87,7 +87,6 @@ void	ennemy_is_darth_vador_first_attack(t_sprites *spr, t_data *data, int i)
 		&& i == 7
 		&& data->move->attack == TRUE && data->sprite_f[7].number_attack == 0)
 	{
-		printf("PROUT_debug\n");
 		stripe = spr->drawstartx;
 		while (stripe < spr->drawendx)
 		{

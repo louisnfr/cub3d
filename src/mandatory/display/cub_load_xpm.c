@@ -81,6 +81,6 @@ void	cub_load_textures(t_mlx *mlx, t_textures *wall, t_data *data)
 	***/
 	cub_load_xpm(mlx, wall->doors.tex, "./images/doors_closed.xpm");
 	cub_load_xpm(mlx, wall->doors_open.tex, "./images/doors_open.xpm");
-	cub_load_xpm(mlx, wall->ceiling.tex, "./images/south_wall.xpm");
-	cub_load_xpm(mlx, wall->floor.tex, "./images/south_wall.xpm");
+	cub_load_xpm(mlx, wall->ceiling.tex, "./images/wall_starwars_1.xpm");
+	cub_load_xpm(mlx, wall->floor.tex, "./images/floor.xpm");
 }

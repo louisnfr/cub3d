@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:07:00 by lraffin           #+#    #+#             */
-/*   Updated: 2022/02/22 18:36:02 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/03/02 14:04:37 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,13 +128,21 @@ static	void	print_walls(t_tex *t, t_data *data, int x, int tex_x, double d)
 	}
 }
 
-static void	put_sight(t_data *data)
+static void	crosshair(t_data *data)
 {
-	put_pixel(WIN_W * 0.5, WIN_H * 0.5, GREEN, data->mlx);
-	put_pixel(WIN_W * 0.5 - 1, WIN_H * 0.5, GREEN, data->mlx);
-	put_pixel(WIN_W * 0.5, WIN_H * 0.5 + 1, GREEN, data->mlx);
-	put_pixel(WIN_W * 0.5, WIN_H * 0.5 - 1, GREEN, data->mlx);
-	put_pixel(WIN_W * 0.5 + 1, WIN_H * 0.5, GREEN, data->mlx);
+	put_pixel(WIN_W * 0.5, WIN_H * 0.5, LIGHT_BLUE, data->mlx);
+	put_pixel(WIN_W * 0.5 - 1, WIN_H * 0.5, LIGHT_BLUE, data->mlx);
+	put_pixel(WIN_W * 0.5 - 2, WIN_H * 0.5, LIGHT_BLUE, data->mlx);
+	put_pixel(WIN_W * 0.5 - 3, WIN_H * 0.5, LIGHT_BLUE, data->mlx);
+	put_pixel(WIN_W * 0.5, WIN_H * 0.5 + 1, LIGHT_BLUE, data->mlx);
+	put_pixel(WIN_W * 0.5, WIN_H * 0.5 + 2, LIGHT_BLUE, data->mlx);
+	put_pixel(WIN_W * 0.5, WIN_H * 0.5 + 3, LIGHT_BLUE, data->mlx);
+	put_pixel(WIN_W * 0.5, WIN_H * 0.5 - 1, LIGHT_BLUE, data->mlx);
+	put_pixel(WIN_W * 0.5, WIN_H * 0.5 - 2, LIGHT_BLUE, data->mlx);
+	put_pixel(WIN_W * 0.5, WIN_H * 0.5 - 3, LIGHT_BLUE, data->mlx);
+	put_pixel(WIN_W * 0.5 + 1, WIN_H * 0.5, LIGHT_BLUE, data->mlx);
+	put_pixel(WIN_W * 0.5 + 2, WIN_H * 0.5, LIGHT_BLUE, data->mlx);
+	put_pixel(WIN_W * 0.5 + 3, WIN_H * 0.5, LIGHT_BLUE, data->mlx);
 }
 
 void	draw_texture(t_ray *ray, t_tex *t, int x, t_data *data)
@@ -148,5 +156,5 @@ void	draw_texture(t_ray *ray, t_tex *t, int x, t_data *data)
 	wall_x = define_wall_x(ray, data, wall_x);
 	tex_x = define_tex_x(tex_x, ray, wall_x);
 	print_walls(t, data, x, tex_x, ray->pw);
-	put_sight(data);
+	crosshair(data);
 }

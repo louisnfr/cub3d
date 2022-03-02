@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 15:07:58 by lraffin           #+#    #+#             */
-/*   Updated: 2022/03/01 21:01:58 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/03/02 14:25:08 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,9 @@
 # define suspense_2 "sounds/suspense_2.wav"
 # define xwing "sounds/xwing.wav"
 # define explosion "sounds/explosion.wav"
+# define open_door_fx "sounds/door_open.wav"
+# define close_door_fx "sounds/door_close.wav"
+# define droid_death "sounds/droid_death.wav"
+# define blast_them "sounds/blast_them.wav"
 
 #endif

@@ -1,5 +1,7 @@
 #include "cub3d.h"
 
+static int	r2d2 = 1;
+
 /*** Store the color in the buffer
 ***/
 
@@ -58,9 +60,14 @@ static void	draw_sprite(t_data *data, int stripe, int color, int y,
 
 static void play_sound_R2D2(t_data *data)
 {
+
 	if ((int)data->sprite_f[0].spritex == 0
-	&& (int)data->sprite_f[0].spritey == 0)
-		return;//play_sound(R2D2); // cut the global sound
+		&& (int)data->sprite_f[0].spritey == 0
+		&& r2d2 == 1)
+	{
+		r2d2 = 0;
+		play_sound(R2D2, 60); // cut the global sound
+	}
 }
 
 void	store_color_in_buffer(t_sprites *spr, t_data *data, int i)

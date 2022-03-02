@@ -7,6 +7,7 @@ static void	open_north_doors(t_map *map, t_vector *v, t_doors *doors)
 		if (map->map[(int)v->y + 1][(int)v->x] == '2'
 			&& doors->door_open == FALSE)
 		{
+			play_sound(open_door_fx, 80);
 			doors->y = (int)v->y + 1;
 			doors->x = (int)v->x;
 			map->map[(int)v->y + 1][(int)v->x] = '3';
@@ -22,6 +23,7 @@ static void	open_south_doors(t_map *map, t_vector *v, t_doors *doors)
 		if (map->map[(int)v->y - 1][(int)v->x] == '2'
 			&& doors->door_open == FALSE)
 		{
+			play_sound(open_door_fx, 80);
 			doors->y = (int)v->y - 1;
 			doors->x = (int)v->x;
 			map->map[(int)v->y - 1][(int)v->x] = '3';
@@ -37,6 +39,7 @@ static void	open_east_doors(t_map *map, t_vector *v, t_doors *doors)
 		if (map->map[(int)v->y][(int)v->x + 1] == '2'
 			&& doors->door_open == FALSE)
 		{
+			play_sound(open_door_fx, 80);
 			doors->y = (int)v->y;
 			doors->x = (int)v->x + 1;
 			map->map[(int)v->y][(int)v->x + 1] = '3';
@@ -52,6 +55,7 @@ static void	open_west_doors(t_map *map, t_vector *v, t_doors *doors)
 		if (map->map[(int)v->y][(int)v->x - 1] == '2'
 			&& doors->door_open == FALSE)
 		{
+			play_sound(open_door_fx, 80);
 			doors->y = (int)v->y;
 			doors->x = (int)v->x - 1;
 			map->map[(int)v->y][(int)v->x - 1] = '3';

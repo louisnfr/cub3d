@@ -1,5 +1,8 @@
 #include "cub3d.h"
 
+static int dark_vador = 1;
+static int stormtrooper = 1;
+
 /*** go the document images/sprites/sprites_col.cub
  *	0 is for R2D2
 	4 is for the XWING
@@ -36,6 +39,12 @@ void	draw_darth_vader(t_data *data, int stripe, int color, int y, int i)
 {
 	if (i == 7 && data->sprite_f[i].sprite_die == FALSE)
 	{
+		if (dark_vador == 1)
+		{
+			dark_vador = 0;
+			system("killall paplay");
+			play_sound(DV_theme, 100);
+		}
 		data->sprite_f[i].is_seen = TRUE;
 		if (data->sprite_f[i].is_seen == TRUE
 			&& i == 7
@@ -51,6 +60,11 @@ void	draw_stormtrooper(t_data *data, int stripe, int color, int y, int i)
 	if (i == 8 && data->sprite_f[i].sprite_die == FALSE)
 	{
 		data->sprite_f[i].is_seen = TRUE;
+		if (stormtrooper == 1)
+		{
+			play_sound(blast_them, 100);
+			stormtrooper = 0;
+		}
 		store_buffer_and_print(data, stripe, color, y);
 	}
 	if (i == 12 && data->sprite_f[i].sprite_die == FALSE)

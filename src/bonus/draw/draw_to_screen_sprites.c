@@ -2,6 +2,8 @@
 
 static int dark_vador = 1;
 static int stormtrooper = 1;
+static int yoda_fx = 1;
+
 
 /*** go the document images/sprites/sprites_col.cub
  *	0 is for R2D2
@@ -17,7 +19,14 @@ void	draw_r2d2_xwing_lightsaber_yoda(t_data *data, int stripe, int color, int y,
 	if (i == 9 && data->sprites->weapon.weapon_on == FALSE)
 		store_buffer_and_print(data, stripe, color, y);
 	if (i == 14)
+	{
+		if (yoda_fx == 1)
+		{
+			play_sound(yoda, 100);
+			yoda_fx = 0;
+		}
 		store_buffer_and_print(data, stripe, color, y);
+	}
 }
 
 /***go the document images/sprites/sprites_col.cub

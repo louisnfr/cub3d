@@ -110,7 +110,7 @@ void	ennemy_is_darth_vador_first_attack(t_sprites *spr, t_data *data, int i)
 			}
 			stripe++;
 		}
-		play_sound(combat, 80);
+		play_sound(combat, 60);
 		data->sprite_f[7].number_attack++;
 	}
 }
@@ -166,8 +166,10 @@ void	xwing_end(t_sprites *spr, t_data *data, int i)
 		if ((int)data->sprite_f[4].spritex == 0
 			&& (int)data->sprite_f[4].spritey == 0)
 		{
-			play_sound(xwing, 80);
-			sleep(3);
+
+			system("killall paplay");
+			play_sound(xwing, 100);
+			sleep(10);
 			system("killall paplay");
 			ft_exit_parsing(data, "You WON\n");
 		}

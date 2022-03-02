@@ -6,7 +6,7 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 15:07:58 by lraffin           #+#    #+#             */
-/*   Updated: 2022/03/02 14:25:08 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/03/02 16:20:21 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # define DM_theme "sounds/DM_theme.wav"
 # define DV_theme "sounds/DV_theme.wav"
 # define combat "sounds/combat.wav"
+# define dv_death "sounds/dv_death.wav"
 # define ignition "sounds/ignition.wav"
 # define saber_1 "sounds/saber_1.wav"
 # define saber_2 "sounds/saber_2.wav"
@@ -29,5 +30,6 @@
 # define close_door_fx "sounds/door_close.wav"
 # define droid_death "sounds/droid_death.wav"
 # define blast_them "sounds/blast_them.wav"
+# define yoda "sounds/yoda.wav"
 
 #endif

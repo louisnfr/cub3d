@@ -49,7 +49,7 @@ void	ennemy_is_darth_vador_second_attack(t_sprites *spr, t_data *data, int i)
 	if (spr->transformy > 0 && (int)data->sprite_f[i].spritex == 0
 		&& (int)data->sprite_f[i].spritey == 0
 		&& i == 7
-		&& data->move->attack == TRUE && data->sprite_f[7].number_attack == 3)
+		&& data->move->attack == TRUE && data->sprite_f[7].number_attack >= 6)
 	{
 		stripe = spr->drawstartx;
 		while (stripe < spr->drawendx)
@@ -71,7 +71,11 @@ void	ennemy_is_darth_vador_second_attack(t_sprites *spr, t_data *data, int i)
 			stripe++;
 		}
 		data->sprite_f[7].number_attack++;
-		data->sprite_f[i].sprite_die = TRUE;
+		if (data->sprite_f[7].number_attack == 8)
+		{
+			//play_sound(WILHELM, 75);
+			data->sprite_f[i].sprite_die = TRUE;
+		}
 		//printf("PROUT_debug %d\n", data->sprite_f[7].number_attack);
 	}
 }
@@ -85,7 +89,7 @@ void	ennemy_is_darth_vador_first_attack(t_sprites *spr, t_data *data, int i)
 	if (spr->transformy > 0 && (int)data->sprite_f[i].spritex == 0
 		&& (int)data->sprite_f[i].spritey == 0
 		&& i == 7
-		&& data->move->attack == TRUE && data->sprite_f[7].number_attack < 3)
+		&& data->move->attack == TRUE && data->sprite_f[7].number_attack < 6)
 	{
 		stripe = spr->drawstartx;
 		while (stripe < spr->drawendx)
@@ -177,12 +181,12 @@ void	ennemy_is_hit(t_sprites *spr, t_data *data, int i)
 	if (data->sprite_f[7].sprite_die == FALSE
 		&& data->sprites->weapon.weapon_on == TRUE
 		&& data->sprite_f[7].is_seen == TRUE
-		&& data->sprite_f[7].number_attack < 3)
+		&& data->sprite_f[7].number_attack < 6)
 		ennemy_is_darth_vador_first_attack(spr, data, i);
 	else if (data->sprite_f[7].sprite_die == FALSE
 		&& data->sprites->weapon.weapon_on == TRUE
 		&& data->sprite_f[7].is_seen == TRUE
-		&& data->sprite_f[7].number_attack == 3)
+		&& data->sprite_f[7].number_attack >= 6)
 
 	{
 		ennemy_is_darth_vador_second_attack(spr, data, i);

@@ -40,8 +40,7 @@ void	ennemy_is_stormtrooper(t_sprites *spr, t_data *data, int i)
 /***
      Function to say if you hit darth_vader we draw kill him
 ***/
-
-void	ennemy_is_darth_vador(t_sprites *spr, t_data *data, int i)
+void	ennemy_is_darth_vador_second_attack(t_sprites *spr, t_data *data, int i)
 {
 	int			stripe;
 	u_int32_t	color;
@@ -50,8 +49,45 @@ void	ennemy_is_darth_vador(t_sprites *spr, t_data *data, int i)
 	if (spr->transformy > 0 && (int)data->sprite_f[i].spritex == 0
 		&& (int)data->sprite_f[i].spritey == 0
 		&& i == 7
-		&& data->move->attack == TRUE)
+		&& data->move->attack == TRUE && data->sprite_f[7].number_attack < 5)
 	{
+		stripe = spr->drawstartx;
+		while (stripe < spr->drawendx)
+		{
+			define_texx(spr, stripe);
+			if (spr->transformy > 0 && stripe > 0 && stripe < WIN_W
+				&& spr->transformy < spr->zbuffer[stripe])
+			{
+				y = spr->drawstarty;
+				while (y < spr->drawendy)
+				{
+					define_texy(spr, y);
+					color =
+						data->sprite_f[5].tex[SPRITE_W * spr->texy + spr->texx];
+					store_buffer_and_print(data, stripe, color, y);
+					y++;
+				}
+			}
+			stripe++;
+		}
+		data->sprite_f[7].number_attack++;
+		//data->sprite_f[i].sprite_die = TRUE;
+		//printf("PROUT_debug %d\n", data->sprite_f[7].number_attack);
+	}
+}
+
+void	ennemy_is_darth_vador_first_attack(t_sprites *spr, t_data *data, int i)
+{
+	int			stripe;
+	u_int32_t	color;
+	int			y;
+
+	if (spr->transformy > 0 && (int)data->sprite_f[i].spritex == 0
+		&& (int)data->sprite_f[i].spritey == 0
+		&& i == 7
+		&& data->move->attack == TRUE && data->sprite_f[7].number_attack == 0)
+	{
+		printf("PROUT_debug\n");
 		stripe = spr->drawstartx;
 		while (stripe < spr->drawendx)
 		{
@@ -71,7 +107,7 @@ void	ennemy_is_darth_vador(t_sprites *spr, t_data *data, int i)
 			}
 			stripe++;
 		}
-			data->sprite_f[i].sprite_die = TRUE;
+		data->sprite_f[7].number_attack++;
 	}
 }
 
@@ -137,10 +173,16 @@ void	ennemy_is_hit(t_sprites *spr, t_data *data, int i)
 		&& data->sprites->weapon.weapon_on == TRUE
 		&& data->sprite_f[i].is_seen == TRUE)
 		ennemy_is_rolling_ball(spr, data, i);
-	if (data->sprite_f[i].sprite_die == FALSE
+	if (data->sprite_f[7].sprite_die == FALSE
 		&& data->sprites->weapon.weapon_on == TRUE
-		&& data->sprite_f[i].is_seen == TRUE)
-		ennemy_is_darth_vador(spr, data, i);
+		&& data->sprite_f[7].is_seen == TRUE
+		&& data->sprite_f[7].number_attack == 0)
+		ennemy_is_darth_vador_first_attack(spr, data, i);
+	// else if (data->sprite_f[7].sprite_die == FALSE
+	// 	&& data->sprites->weapon.weapon_on == TRUE
+	// 	&& data->sprite_f[7].is_seen == TRUE
+	// 	&& data->sprite_f[7].number_attack == 1)
+	// 	ennemy_is_darth_vador_second_attack(spr, data, i);
 	if (data->sprite_f[i].sprite_die == FALSE
 		&& data->sprites->weapon.weapon_on == TRUE
 		&& data->sprite_f[i].is_seen == TRUE)

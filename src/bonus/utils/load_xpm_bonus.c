@@ -10,7 +10,7 @@
 	BOMB = Explosion when dead
 ***/
 
-static void	name_sprite(t_sprite_f *sf, int i, char **path, t_data *data)
+static void	name_sprite(int i, char **path, t_data *data)
 {
 	if (!ft_strcmp(path[0], "XW") || !ft_strcmp(path[0], "R2D2")
 		|| !ft_strcmp(path[0], "BOMB") || !ft_strcmp(path[0], "LS")
@@ -91,7 +91,7 @@ int	cub_load_sprites(t_data *data, t_mlx *mlx, t_sprite_f *sf)
 		if (data->sprites->arg_sprite[i] != 0)
 			path = put_sprite_in_struct(data, data->sprites->arg_sprite[i]);
 		if (path[0] != 0)
-			name_sprite(sf, i, path, data);
+			name_sprite(i, path, data);
 		if (path[1] != 0)
 			cub_load_xpm(mlx, sf[i].tex, path[1]);
 		if (path[2] != 0)

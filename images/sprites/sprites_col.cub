@@ -4,7 +4,7 @@ RB1 ./images/sprites/rolling_ball.xpm 3 29
 BOMB ./images/sprites/explosion.xpm 0 0
 XW ./images/sprites/xwing.xpm 4 4
 DVF ./images/sprites/darth_vader_kneel.xpm 0 0
-DVO ./images/sprites/darth_vader_fighting.xpm 0 0
+DVO ./images/sprites/darth_vader_force.xpm 0 0
 DVM ./images/sprites/darth_vader_moving.xpm 13 9
 ST ./images/sprites/stormtrooper.xpm 11 21
 LSG ./images/sprites/light_saber_ground.xpm 4 34

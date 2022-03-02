@@ -43,6 +43,14 @@ void	draw_darth_vader(t_data *data, int stripe, int color, int y, int i)
 		{
 			store_buffer_and_print(data, stripe, color, y);
 		}
+		else if (data->sprite_f[i].is_seen == TRUE
+			&& i == 7
+			&& data->move->attack == TRUE
+			&& (int)data->sprite_f[i].spritex != 0
+			&& (int)data->sprite_f[i].spritey != 0)
+		{
+			store_buffer_and_print(data, stripe, color, y);
+		}
 	}
 }
 

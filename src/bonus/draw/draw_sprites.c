@@ -54,8 +54,8 @@ static void	draw_sprite(t_data *data, int stripe, int color, int y,
 	draw_stormtrooper(data, stripe, color, y, i);
 	draw_darth_vader(data, stripe, color, y, i);
 	draw_rolling_ball(data, stripe, color, y, i);
-	ennemy_is_hit(spr, data, i);
-	xwing_end(spr, data, i);
+	//ennemy_is_hit(spr, data, i);
+	//xwing_end(spr, data, i);
 }
 
 static void play_sound_R2D2(t_data *data)
@@ -79,6 +79,8 @@ void	store_color_in_buffer(t_sprites *spr, t_data *data, int i)
 	data->sprites->stripe = data->sprites->drawstartx;
 	light_saber_is_taken(data, data->sprites->stripe, y, i);
 	play_sound_R2D2(data);
+	ennemy_is_hit(spr, data, i);
+	xwing_end(spr, data, i);
 	while (data->sprites->stripe < spr->drawendx)
 	{
 		define_texx(spr, data->sprites->stripe);

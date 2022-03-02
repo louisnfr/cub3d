@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   controls.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:23:25 by lraffin           #+#    #+#             */
-/*   Updated: 2022/03/02 13:56:41 by lraffin          ###   ########.fr       */
+/*   Updated: 2022/03/02 15:18:10 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,13 @@ static int	key_press(int key, t_data *data)
 	if (key == SHIFT)
 		data->move->shift = TRUE;
 	if (key == M)
-		data->move->minimap = TRUE; // bonus
+		data->move->minimap = TRUE;
 	if (key == F && data->sprite_f[7].sprite_die == FALSE
 		&& data->sprite_f[7].is_seen == TRUE
 		&& data->sprites->weapon.weapon_on == TRUE)
 	{
-		//data->sprite_f[7].number_attack++;
 		play_sound(saber_1, 80);
-		data->move->attack = TRUE; // bonus
+		data->move->attack = TRUE;
 	}
 	else if (key == F && data->sprite_f[8].sprite_die == FALSE
 		&& data->sprite_f[8].is_seen == TRUE
@@ -87,8 +86,6 @@ static int	key_release(int key, t_data *data)
 	{
 		sleep(1);
 		play_sound(saber_2, 80);
-		//data->sprite_f[7].number_attack++;
-		//printf("PROUT_debug %d\n", data->sprite_f[7].number_attack);
 		data->move->attack = FALSE; // bonus
 	}
 	else if (key == F && data->sprite_f[8].sprite_die == TRUE
@@ -110,7 +107,6 @@ static int	key_release(int key, t_data *data)
 	else if (key == F && data->sprites->weapon.weapon_on == TRUE)
 	{
 		play_sound(saber_2, 80);
-		//printf("PROUT_debug_3\n");
 		data->move->attack = FALSE;
 	}
 	return (SUCCESS);

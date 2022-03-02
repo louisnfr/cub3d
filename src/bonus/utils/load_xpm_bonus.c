@@ -14,7 +14,8 @@ static void	name_sprite(int i, char **path, t_data *data)
 {
 	if (!ft_strcmp(path[0], "XW") || !ft_strcmp(path[0], "R2D2")
 		|| !ft_strcmp(path[0], "BOMB") || !ft_strcmp(path[0], "LS")
-		|| !ft_strcmp(path[0], "LSG") || !ft_strcmp(path[0], "STK"))
+		|| !ft_strcmp(path[0], "LSG") || !ft_strcmp(path[0], "STK")
+		||  !ft_strcmp(path[0], "2R2D2")
 	{
 		data->sprite_f[i].name = ft_strdup(path[0]);
 		data->sprite_f[i].is_ennemy = FALSE;

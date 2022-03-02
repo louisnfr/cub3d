@@ -129,7 +129,9 @@ void	ennemy_is_rolling_ball(t_sprites *spr, t_data *data, int i)
 		&& (int)data->sprite_f[i].spritey == 0
 		&& data->move->attack == TRUE
 		&& ((i == 2 && data->sprite_f[i].sprite_die == FALSE)
-		|| (i == 10 && data->sprite_f[i].sprite_die == FALSE)))
+		|| (i == 10 && data->sprite_f[i].sprite_die == FALSE)
+		|| (i == 15 && data->sprite_f[i].sprite_die == FALSE)
+		|| (i == 16 && data->sprite_f[i].sprite_die == FALSE)))
 	{
 		stripe = spr->drawstartx;
 		while (stripe < spr->drawendx)

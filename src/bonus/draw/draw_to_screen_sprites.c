@@ -35,6 +35,16 @@ void	draw_rolling_ball(t_data *data, int stripe, int color, int y, int i)
 		data->sprite_f[i].is_seen = TRUE;
 		store_buffer_and_print(data, stripe, color, y);
 	}
+	if (i == 15 && data->sprite_f[i].sprite_die == FALSE)
+	{
+		data->sprite_f[i].is_seen = TRUE;
+		store_buffer_and_print(data, stripe, color, y);
+	}
+	if (i == 16 && data->sprite_f[i].sprite_die == FALSE)
+	{
+		data->sprite_f[i].is_seen = TRUE;
+		store_buffer_and_print(data, stripe, color, y);
+	}
 }
 
 void	draw_darth_vader(t_data *data, int stripe, int color, int y, int i)

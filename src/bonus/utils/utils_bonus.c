@@ -26,9 +26,6 @@ int	ft_strlen_double_str_find_element(char **double_str, char c)
 
 void	init_bonus_struct(t_data *data)
 {
-	int	img_width;
-	int img_height;
-
 	ft_memset(&data->ray_b, 0, sizeof(t_ray_b));
 	ft_memset(data->sprite_f, 0, sizeof(t_sprite_f));
 	ft_memset(&data->sprites->ennemy, 0, sizeof(t_ennemy));
@@ -42,9 +39,6 @@ void	init_bonus_struct(t_data *data)
 	data->sprites->ennemy.darth_vader = FALSE;
 	data->sprites->ennemy.stormtrooper = FALSE;
 	data->sprites->weapon.weapon_on = FALSE;
-	//data->sprites->final = mlx_xpm_file_to_image(data->mlx->ptr,
-			//"./images/sprites/final.xpm", &img_width, &img_height);
-
 }
 
 //init and store the data for the doors

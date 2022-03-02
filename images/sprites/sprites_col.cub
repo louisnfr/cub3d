@@ -1,4 +1,4 @@
-R2D2 ./images/sprites/R2D2.xpm 14 27
+R2D2 ./images/sprites/R2D2.xpm 32 32
 LS ./images/sprites/light_saber.xpm 0 0
 RB1 ./images/sprites/rolling_ball.xpm 3 29
 BOMB ./images/sprites/explosion.xpm 0 0
@@ -12,4 +12,6 @@ RB2 ./images/sprites/rolling_ball.xpm 6 29
 STK ./images/sprites/killed_st.xpm 0 0
 ST2 ./images/sprites/stormtrooper.xpm 9 21
 2R2D2 ./images/sprites/R2D2.xpm 0 0
-YODA ./images/sprites/yoda.xpm 14 27
+YODA ./images/sprites/yoda.xpm 35 25
+RB3 ./images/sprites/rolling_ball.xpm 0 0
+RB4 ./images/sprites/rolling_ball.xpm 0 0

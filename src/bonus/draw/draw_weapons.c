@@ -17,7 +17,7 @@ void	draw_attack_lightsaber(t_data *data)
 	k = WIN_H * 0.05;
 	while (k < WIN_H * 0.70)
 	{
-		i = (WIN_W * 0.55);
+		i = (WIN_W * 0.65);
 		l = 0;
 		while (i < WIN_W * 0.8)
 		{
@@ -45,7 +45,7 @@ static void	draw_lightsaber(t_data *data)
 	k = WIN_H * 0.05;
 	while (k < WIN_H * 0.70)
 	{
-		i = (WIN_W * 0.55);
+		i = (WIN_W * 0.65);
 		l = 0;
 		while (i < WIN_W * 0.8)
 		{

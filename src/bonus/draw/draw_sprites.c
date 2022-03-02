@@ -50,7 +50,7 @@ void	store_buffer_and_print(t_data *data, int stripe,
 static void	draw_sprite(t_data *data, int stripe, int color, int y,
 						int i, t_sprites *spr)
 {
-	draw_r2d2_xwing_lightsaber(data, stripe, color, y, i);
+	draw_r2d2_xwing_lightsaber_yoda(data, stripe, color, y, i);
 	draw_stormtrooper(data, stripe, color, y, i);
 	draw_darth_vader(data, stripe, color, y, i);
 	draw_rolling_ball(data, stripe, color, y, i);

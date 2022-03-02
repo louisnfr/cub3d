@@ -41,6 +41,7 @@ typedef struct s_sprites
 	int			drawendy;
 	int			drawendx;
 	int			texx;
+	void		*final;
 	int			texy;
 	int			num_sprites;
 	int			stripe;

@@ -8,13 +8,15 @@ static int stormtrooper = 1;
 	4 is for the XWING
 ***/
 
-void	draw_r2d2_xwing_lightsaber(t_data *data, int stripe, int color, int y, int i)
+void	draw_r2d2_xwing_lightsaber_yoda(t_data *data, int stripe, int color, int y, int i)
 {
-	if (i == 0)
+	if (i == 0 || i == 13)
 		store_buffer_and_print(data, stripe, color, y);
 	if (i == 4)
 		store_buffer_and_print(data, stripe, color, y);
 	if (i == 9 && data->sprites->weapon.weapon_on == FALSE)
+		store_buffer_and_print(data, stripe, color, y);
+	if (i == 14)
 		store_buffer_and_print(data, stripe, color, y);
 }
 

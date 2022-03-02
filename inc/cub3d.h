@@ -120,7 +120,7 @@ void		draw_weapons(t_data *data);
 void		ennemy_is_hit(t_sprites *spr, t_data *data, int i);
 
 /*** draw sprites ***/
-void		draw_r2d2_xwing_lightsaber(t_data *data, int stripe,
+void		draw_r2d2_xwing_lightsaber_yoda(t_data *data, int stripe,
 			int color, int y, int i);
 void		draw_rolling_ball(t_data *data, int stripe,
 			int color, int y, int i);

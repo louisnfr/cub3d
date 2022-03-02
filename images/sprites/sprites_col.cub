@@ -12,4 +12,4 @@ RB2 ./images/sprites/rolling_ball.xpm 6 29
 STK ./images/sprites/killed_st.xpm 0 0
 ST2 ./images/sprites/stormtrooper.xpm 9 21
 2R2D2 ./images/sprites/R2D2.xpm 0 0
-YODA ./images/sprites/YODA.xpm 0 0
+YODA ./images/sprites/yoda.xpm 14 27

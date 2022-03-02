@@ -73,7 +73,7 @@ void	ennemy_is_darth_vador_second_attack(t_sprites *spr, t_data *data, int i)
 		data->sprite_f[7].number_attack++;
 		if (data->sprite_f[7].number_attack == 8)
 		{
-			//play_sound(WILHELM, 75);
+			play_sound(dv_death, 75);
 			data->sprite_f[i].sprite_die = TRUE;
 		}
 		//printf("PROUT_debug %d\n", data->sprite_f[7].number_attack);

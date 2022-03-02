@@ -51,12 +51,16 @@ int	store_data_bonus(t_map *map, t_data *data)
 	return (SUCCESS);
 }
 
-int	play_sound(char *path)
+int	play_sound(char *path, int volume)
 {
 	char	command[500];
+	double	calcul;
 
+	calcul = (double)volume / 100 * 65536;
 	ft_bzero(command);
-	ft_strlcat(command, "(" PLAYER " ", 500);
+	ft_strlcat(command, "(" PLAYER " --volume ", 500);
+	ft_strlcat(command, ft_itoa((int)calcul), 500);
+	ft_strlcat(command, " ", 500);
 	ft_strlcat(command, path, 500);
 	ft_strlcat(command, BACKGROUND ") " OPTIONS, 500);
 	return (system(command));

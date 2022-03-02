@@ -12,7 +12,7 @@ void	ennemy_is_stormtrooper(t_sprites *spr, t_data *data, int i)
 		&& ((i == 8 && data->sprite_f[i].sprite_die == FALSE)
 		|| (i == 12 && data->sprite_f[i].sprite_die == FALSE)))
 	{
-		play_sound(WILHELM);
+		play_sound(WILHELM, 75);
 		stripe = spr->drawstartx;
 		while (stripe < spr->drawendx)
 		{
@@ -106,7 +106,7 @@ void	ennemy_is_darth_vador_first_attack(t_sprites *spr, t_data *data, int i)
 			}
 			stripe++;
 		}
-		printf("PROUT_debug %d\n", data->sprite_f[7].number_attack);
+		play_sound(combat, 80);
 		data->sprite_f[7].number_attack++;
 	}
 }
@@ -147,7 +147,8 @@ void	ennemy_is_rolling_ball(t_sprites *spr, t_data *data, int i)
 			stripe++;
 		}
 		data->sprite_f[i].sprite_die = TRUE;
-		play_sound(explosion);
+		play_sound(droid_death, 70);
+		play_sound(explosion, 50);
 	}
 }
 
@@ -159,7 +160,7 @@ void	xwing_end(t_sprites *spr, t_data *data, int i)
 		if ((int)data->sprite_f[4].spritex == 0
 			&& (int)data->sprite_f[4].spritey == 0)
 		{
-			play_sound(xwing);
+			play_sound(xwing, 80);
 			sleep(3);
 			system("killall paplay");
 			ft_exit_parsing(data, "You WON\n");

@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:23:25 by lraffin           #+#    #+#             */
-/*   Updated: 2022/03/02 14:51:14 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/03/02 15:18:10 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,31 +30,31 @@ static int	key_press(int key, t_data *data)
 	if (key == SHIFT)
 		data->move->shift = TRUE;
 	if (key == M)
-		data->move->minimap = TRUE; // bonus
+		data->move->minimap = TRUE;
 	if (key == F && data->sprite_f[7].sprite_die == FALSE
 		&& data->sprite_f[7].is_seen == TRUE
 		&& data->sprites->weapon.weapon_on == TRUE)
 	{
-		play_sound(saber_1);
-		data->move->attack = TRUE; // bonus
+		play_sound(saber_1, 80);
+		data->move->attack = TRUE;
 	}
 	else if (key == F && data->sprite_f[8].sprite_die == FALSE
 		&& data->sprite_f[8].is_seen == TRUE
 		&& data->sprites->weapon.weapon_on == TRUE)
 	{
-		play_sound(saber_1);
+		play_sound(saber_1, 80);
 		data->move->attack = TRUE;
 	}
 	else if (key == F && data->sprite_f[12].sprite_die == FALSE
 			&& data->sprite_f[12].is_seen == TRUE
 			&& data->sprites->weapon.weapon_on == TRUE)
 	{
-		play_sound(saber_1);
+		play_sound(saber_1, 80);
 		data->move->attack = TRUE;
 	}
 	else if (key == F && data->sprites->weapon.weapon_on == TRUE)
 	{
-		play_sound(saber_1);
+		play_sound(saber_1, 80);
 		data->move->attack = TRUE;
 	}
 	return (SUCCESS);
@@ -84,15 +84,15 @@ static int	key_release(int key, t_data *data)
 		&& data->sprites->weapon.weapon_on == TRUE
 		&& data->sprite_f[7].is_seen == TRUE)
 	{
-		usleep(500000);
-		play_sound(saber_2);
+		sleep(1);
+		play_sound(saber_2, 80);
 		data->move->attack = FALSE; // bonus
 	}
 	else if (key == F && data->sprite_f[8].sprite_die == TRUE
 		&& data->sprite_f[8].is_seen == TRUE
 		&& data->sprites->weapon.weapon_on == TRUE)
 	{
-		play_sound(saber_2);
+		play_sound(saber_2, 80);
 		sleep(1);
 		data->move->attack = FALSE;
 	}
@@ -100,14 +100,13 @@ static int	key_release(int key, t_data *data)
 			&& data->sprite_f[12].is_seen == TRUE
 			&& data->sprites->weapon.weapon_on == TRUE)
 	{
-		play_sound(saber_2);
+		play_sound(saber_2, 80);
 		sleep(1);
 		data->move->attack = FALSE;
 	}
 	else if (key == F && data->sprites->weapon.weapon_on == TRUE)
 	{
-		play_sound(saber_2);
-		//printf("PROUT_debug_3\n");
+		play_sound(saber_2, 80);
 		data->move->attack = FALSE;
 	}
 	return (SUCCESS);

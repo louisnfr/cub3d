@@ -68,7 +68,7 @@ void light_saber_is_taken(t_data *data, int stripe, int y, int i)
 			&& (int)data->sprite_f[i].spritey == 0
 			&& !ft_strcmp(data->sprite_f[i].name, "LSG"))
 		{
-			play_sound(ignition);
+			play_sound(ignition, 50);
 			data->sprites->weapon.weapon_on = TRUE;
 		}
 	}

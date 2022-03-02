@@ -23,7 +23,7 @@ int	main(int ac, char **av)
 {
 	t_data	*data;
 
-	play_sound(DM_theme);
+	play_sound(DM_theme, 100);
 	check_input(ac, av);
 	data = init_data();
 	init_struct(data);

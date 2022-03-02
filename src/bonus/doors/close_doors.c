@@ -10,6 +10,7 @@ int	close_doors(t_map *map, t_vector *v, t_doors *doors)
 	if (doors->door_open == TRUE
 		&& (len_x > 1 || len_x < -1 || len_y > 1 || len_y < -1))
 	{
+		play_sound(close_door_fx, 100);
 		map->map[doors->y][doors->x] = '2';
 		doors->door_open = FALSE;
 	}

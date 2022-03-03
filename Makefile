@@ -97,12 +97,7 @@ CC		= clang
 CFLAGS	= -Wall -Wextra -MMD -MP -g3 #$(DEBUG)
 DEBUG	= -fsanitize=address
 LIBFT	= -L libft -lft
-UNAME	= $(shell uname)
-ifeq ($(UNAME), Linux)
 MLX		= -Lmlx -lmlx -lXext -lX11 -lm
-else ifeq ($(UNAME), Darwin)
-MLX		= -Lmlx_mac -lmlx -framework OpenGL -framework AppKit -lm
-endif
 
 vpath %.c $(addprefix $(SRC_DIR)/, . mandatory/raycasting mandatory/geometry \
 									mandatory/display mandatory/parsing mandatory/bonus	\

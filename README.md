@@ -7,3 +7,5 @@
 ### Usage
 
 `./cub3D maps/final_map/FINAL.cub images/sprites/sprites_col.cub`
+
+Play with sounds !

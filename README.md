@@ -6,6 +6,9 @@
 
 ### Usage
 
-`./cub3D maps/final_map/FINAL.cub images/sprites/sprites_col.cub`
+Linux only
+
+1. `git clone --recurse-submodules git@github.com:louisnfr/cub3d.git`
+2. `./cub3D maps/final_map/FINAL.cub images/sprites/sprites_col.cub`
 
 Play with sounds !

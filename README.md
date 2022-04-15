@@ -1,6 +1,6 @@
 # cub3d
 
-[![jaeskim's 42Project Score](https://badge42.herokuapp.com/api/project/lraffin/cub3d)](https://github.com/JaeSeoKim/badge42)
+[![lraffin's 42 cub3d Score](https://badge42.vercel.app/api/v2/cl1i27ilm001109l1ep0jx30g/project/2458391)](https://github.com/JaeSeoKim/badge42)
 
 42Paris, January 2022.
 
